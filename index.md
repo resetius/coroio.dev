@@ -1,6 +1,7 @@
-# COROIO
-
-<img src="/bench/logo.png?raw=true" width="400"/>
+---
+layout: default
+title: "COROIO"
+---
 
 ### Guide to Using the Library
 
@@ -154,19 +155,19 @@ Performance comparison using different event notification mechansims in Libevent
 * clang 16
 * libevent master 4c993a0e7bcd47b8a56514fb2958203f39f1d906 (Tue Apr 11 04:44:37 2023 +0000)
 
-<img src="/bench/bench_12800H.png?raw=true" width="400"/><img src="/bench/bench_12800H_100.png?raw=true" width="400"/>
+<img src="https://github.com/resetius/coroio/blob/master/bench/bench_12800H.png?raw=true" width="400"/><img src="https://github.com/resetius/coroio/blob/master/bench/bench_12800H_100.png?raw=true" width="400"/>
 
 
 * CPU i5-11400F
 * Ubuntu 23.04, WSL2, kernel 6.1.21.1-microsoft-standard-WSL2+
 
-<img src="/bench/bench_11400F.png?raw=true" width="400"/><img src="/bench/bench_11400F_100.png?raw=true" width="400"/>
+<img src="https://github.com/resetius/coroio/blob/master/bench/bench_11400F.png?raw=true" width="400"/><img src="https://github.com/resetius/coroio/blob/master/bench/bench_11400F_100.png?raw=true" width="400"/>
 
 * CPU Apple M1
 * MacBook Air M1 16G
 * MacOS 12.6.3
 
-<img src="/bench/bench_M1.png?raw=true" width="400"/><img src="/bench/bench_M1_100.png?raw=true" width="400"/>
+<img src="https://github.com/resetius/coroio/blob/master/bench/bench_M1.png?raw=true" width="400"/><img src="https://github.com/resetius/coroio/blob/master/bench/bench_M1_100.png?raw=true" width="400"/>
 
 ### Projects Using coroio
 
