@@ -1,0 +1,11 @@
+title: "Coroio Project"
+description: "coroio"
+
+markdown: GFM
+
+theme: minima
+
+exclude:
+  - "README.md"
+  - "LICENSE"
+  - docs
