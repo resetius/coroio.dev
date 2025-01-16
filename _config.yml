@@ -16,6 +16,7 @@ exclude:
   - docs
 
 header_pages:
+  - _pages/benchmarks.md
   - _pages/source.md
 
 include:
