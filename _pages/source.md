@@ -1,6 +1,5 @@
 ---
 layout: none
 title: "Source"
-permalink: "https://github.com/resetius/coroio"
-url: "https://github.com/resetius/coroio"
+absolute_url: "https://github.com/resetius/coroio"
 ---
