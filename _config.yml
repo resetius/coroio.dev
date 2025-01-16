@@ -12,3 +12,7 @@ exclude:
   - "README.md"
   - "LICENSE"
   - docs
+
+github_username: resetius
+linkedin_username: alexey-ozeritskiy
+twitter_username: resetius
