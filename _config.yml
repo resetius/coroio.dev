@@ -9,8 +9,10 @@ minima:
   skin: classic
 
 exclude:
-  - "README.md"
-  - "LICENSE"
+  - README.md
+  - LICENSE
+  - Gemfile
+  - .gitignore
   - docs
 
 github_username: resetius
