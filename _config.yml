@@ -15,6 +15,12 @@ exclude:
   - .gitignore
   - docs
 
+header_pages:
+  - _pages/source.md
+
+include:
+  - _pages
+
 github_username: resetius
 linkedin_username: alexey-ozeritskiy
 twitter_username: resetius
