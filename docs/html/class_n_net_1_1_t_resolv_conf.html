@@ -125,22 +125,100 @@ $(function(){initNavTree('class_n_net_1_1_t_resolv_conf.html',''); initResizable
   <div class="headertitle"><div class="title">NNet::TResolvConf Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Reads and stores DNS configuration from a file or an input stream.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="resolver_8hpp_source.html">resolver.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad5227778517c3517d6a041e576f64316" id="r_ad5227778517c3517d6a041e576f64316"><td class="memItemLeft" align="right" valign="top"><a id="ad5227778517c3517d6a041e576f64316" name="ad5227778517c3517d6a041e576f64316"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TResolvConf</b> (const std::string &amp;fn=&quot;/etc/resolv.conf&quot;)</td></tr>
+<tr class="memitem:ad5227778517c3517d6a041e576f64316" id="r_ad5227778517c3517d6a041e576f64316"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad5227778517c3517d6a041e576f64316">TResolvConf</a> (const std::string &amp;fn=&quot;/etc/resolv.conf&quot;)</td></tr>
+<tr class="memdesc:ad5227778517c3517d6a041e576f64316"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="class_n_net_1_1_t_resolv_conf.html" title="Reads and stores DNS configuration from a file or an input stream.">TResolvConf</a> and loads DNS configuration from a file.  <br /></td></tr>
 <tr class="separator:ad5227778517c3517d6a041e576f64316"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a780072d84dd9401d940496cf9bef83a6" id="r_a780072d84dd9401d940496cf9bef83a6"><td class="memItemLeft" align="right" valign="top"><a id="a780072d84dd9401d940496cf9bef83a6" name="a780072d84dd9401d940496cf9bef83a6"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TResolvConf</b> (std::istream &amp;input)</td></tr>
+<tr class="memitem:a780072d84dd9401d940496cf9bef83a6" id="r_a780072d84dd9401d940496cf9bef83a6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a780072d84dd9401d940496cf9bef83a6">TResolvConf</a> (std::istream &amp;input)</td></tr>
+<tr class="memdesc:a780072d84dd9401d940496cf9bef83a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="class_n_net_1_1_t_resolv_conf.html" title="Reads and stores DNS configuration from a file or an input stream.">TResolvConf</a> from an input stream.  <br /></td></tr>
 <tr class="separator:a780072d84dd9401d940496cf9bef83a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a2d4f6d8c2b74f4e31c350e4400f7da44" id="r_a2d4f6d8c2b74f4e31c350e4400f7da44"><td class="memItemLeft" align="right" valign="top"><a id="a2d4f6d8c2b74f4e31c350e4400f7da44" name="a2d4f6d8c2b74f4e31c350e4400f7da44"></a>
-std::vector&lt; <a class="el" href="class_n_net_1_1_t_address.html">TAddress</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Nameservers</b></td></tr>
+<tr class="memitem:a2d4f6d8c2b74f4e31c350e4400f7da44" id="r_a2d4f6d8c2b74f4e31c350e4400f7da44"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_n_net_1_1_t_address.html">TAddress</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d4f6d8c2b74f4e31c350e4400f7da44">Nameservers</a></td></tr>
+<tr class="memdesc:a2d4f6d8c2b74f4e31c350e4400f7da44"><td class="mdescLeft">&#160;</td><td class="mdescRight">A vector of nameserver addresses.  <br /></td></tr>
 <tr class="separator:a2d4f6d8c2b74f4e31c350e4400f7da44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Reads and stores DNS configuration from a file or an input stream. </p>
+<p>This class loads a list of nameservers from a DNS configuration file (by default, <code>/etc/resolv.conf</code>) or from any other input stream. The nameservers are stored as a vector of <code><a class="el" href="class_n_net_1_1_t_address.html" title="A class representing an IPv4 or IPv6 address (with port).">TAddress</a></code> objects. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ad5227778517c3517d6a041e576f64316" name="ad5227778517c3517d6a041e576f64316"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5227778517c3517d6a041e576f64316">&#9670;&#160;</a></span>TResolvConf() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">NNet::TResolvConf::TResolvConf </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>fn</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;/etc/resolv.conf&quot;</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructs a <a class="el" href="class_n_net_1_1_t_resolv_conf.html" title="Reads and stores DNS configuration from a file or an input stream.">TResolvConf</a> and loads DNS configuration from a file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fn</td><td>Path to the DNS configuration file. Default is "/etc/resolv.conf". </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a780072d84dd9401d940496cf9bef83a6" name="a780072d84dd9401d940496cf9bef83a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a780072d84dd9401d940496cf9bef83a6">&#9670;&#160;</a></span>TResolvConf() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">NNet::TResolvConf::TResolvConf </td>
+          <td>(</td>
+          <td class="paramtype">std::istream &amp;</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructs a <a class="el" href="class_n_net_1_1_t_resolv_conf.html" title="Reads and stores DNS configuration from a file or an input stream.">TResolvConf</a> from an input stream. </p>
+<p>This constructor allows loading the DNS configuration from any standard input stream.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Reference to an input stream containing DNS configuration data. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a2d4f6d8c2b74f4e31c350e4400f7da44" name="a2d4f6d8c2b74f4e31c350e4400f7da44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d4f6d8c2b74f4e31c350e4400f7da44">&#9670;&#160;</a></span>Nameservers</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_n_net_1_1_t_address.html">TAddress</a>&gt; NNet::TResolvConf::Nameservers</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A vector of nameserver addresses. </p>
+<p>These addresses are extracted from the configuration source. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>coroio/<a class="el" href="resolver_8hpp_source.html">resolver.hpp</a></li>
 </ul>

@@ -145,13 +145,13 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Splits incoming data into lines using a circular buffer of fixed capacity. </p>
 <p>This class maintains a ring buffer of maximum length (<code class="param">maxLen</code>), allowing you to push new data in and then pop complete lines without additional copying. When a line wraps around the circular boundary, it is represented in two segments. A corresponding <code><a class="el" href="struct_n_net_1_1_t_line.html">TLine</a></code> object holds these segments as string views (<code>Part1</code> and <code>Part2</code>).</p>
-<h3><a class="anchor" id="autotoc_md5"></a>
+<h3><a class="anchor" id="autotoc_md6"></a>
 Important Notes</h3>
 <ul>
 <li>The maximum capacity of the buffer is given by <code class="param">maxLen</code>. Pushing more data than the available space may cause old data to be overwritten or an implementation-defined behavior.</li>
 <li>The returned <code><a class="el" href="struct_n_net_1_1_t_line.html">TLine</a></code> references the internal buffer via string views. Any subsequent push operations (or further pops) may invalidate these views.</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md6"></a>
+<h3><a class="anchor" id="autotoc_md7"></a>
 Example Usage</h3>
 <div class="fragment"><div class="line"><span class="comment">// Suppose TLine is defined as:</span></div>
 <div class="line"><span class="comment">// struct TLine {</span></div>

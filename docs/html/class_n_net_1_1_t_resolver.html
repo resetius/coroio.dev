@@ -124,22 +124,198 @@ $(function(){initNavTree('class_n_net_1_1_t_resolver.html',''); initResizable(tr
   <div class="headertitle"><div class="title">NNet::TResolver&lt; TPoller &gt; Class Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Resolves hostnames into IP addresses using a custom poller.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="resolver_8hpp_source.html">resolver.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a901c9a034e2f8d13ca7056dc893981ca" id="r_a901c9a034e2f8d13ca7056dc893981ca"><td class="memItemLeft" align="right" valign="top"><a id="a901c9a034e2f8d13ca7056dc893981ca" name="a901c9a034e2f8d13ca7056dc893981ca"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TResolver</b> (TPoller &amp;poller, EDNSType defaultType=EDNSType::A)</td></tr>
+<tr class="memitem:a901c9a034e2f8d13ca7056dc893981ca" id="r_a901c9a034e2f8d13ca7056dc893981ca"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a901c9a034e2f8d13ca7056dc893981ca">TResolver</a> (TPoller &amp;poller, EDNSType defaultType=EDNSType::A)</td></tr>
+<tr class="memdesc:a901c9a034e2f8d13ca7056dc893981ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="class_n_net_1_1_t_resolver.html" title="Resolves hostnames into IP addresses using a custom poller.">TResolver</a> using the default resolv configuration.  <br /></td></tr>
 <tr class="separator:a901c9a034e2f8d13ca7056dc893981ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa21ad81f47fd798841e56fa1c4e7f0e3" id="r_aa21ad81f47fd798841e56fa1c4e7f0e3"><td class="memItemLeft" align="right" valign="top"><a id="aa21ad81f47fd798841e56fa1c4e7f0e3" name="aa21ad81f47fd798841e56fa1c4e7f0e3"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TResolver</b> (const <a class="el" href="class_n_net_1_1_t_resolv_conf.html">TResolvConf</a> &amp;conf, TPoller &amp;poller, EDNSType defaultType=EDNSType::A)</td></tr>
+<tr class="memitem:aa21ad81f47fd798841e56fa1c4e7f0e3" id="r_aa21ad81f47fd798841e56fa1c4e7f0e3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa21ad81f47fd798841e56fa1c4e7f0e3">TResolver</a> (const <a class="el" href="class_n_net_1_1_t_resolv_conf.html">TResolvConf</a> &amp;conf, TPoller &amp;poller, EDNSType defaultType=EDNSType::A)</td></tr>
+<tr class="memdesc:aa21ad81f47fd798841e56fa1c4e7f0e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="class_n_net_1_1_t_resolver.html" title="Resolves hostnames into IP addresses using a custom poller.">TResolver</a> with a specified DNS configuration.  <br /></td></tr>
 <tr class="separator:aa21ad81f47fd798841e56fa1c4e7f0e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5366c2f6beab03f1233bb515eaaa18fa" id="r_a5366c2f6beab03f1233bb515eaaa18fa"><td class="memItemLeft" align="right" valign="top"><a id="a5366c2f6beab03f1233bb515eaaa18fa" name="a5366c2f6beab03f1233bb515eaaa18fa"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TResolver</b> (<a class="el" href="class_n_net_1_1_t_address.html">TAddress</a> dnsAddr, TPoller &amp;poller, EDNSType defaultType=EDNSType::A)</td></tr>
+<tr class="memitem:a5366c2f6beab03f1233bb515eaaa18fa" id="r_a5366c2f6beab03f1233bb515eaaa18fa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5366c2f6beab03f1233bb515eaaa18fa">TResolver</a> (<a class="el" href="class_n_net_1_1_t_address.html">TAddress</a> dnsAddr, TPoller &amp;poller, EDNSType defaultType=EDNSType::A)</td></tr>
+<tr class="memdesc:a5366c2f6beab03f1233bb515eaaa18fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="class_n_net_1_1_t_resolver.html" title="Resolves hostnames into IP addresses using a custom poller.">TResolver</a> using a specific DNS address.  <br /></td></tr>
 <tr class="separator:a5366c2f6beab03f1233bb515eaaa18fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03b305046ba4cd002ccf6f308cd8039f" id="r_a03b305046ba4cd002ccf6f308cd8039f"><td class="memItemLeft" align="right" valign="top"><a id="a03b305046ba4cd002ccf6f308cd8039f" name="a03b305046ba4cd002ccf6f308cd8039f"></a>
-<a class="el" href="struct_n_net_1_1_t_future.html">TFuture</a>&lt; std::vector&lt; <a class="el" href="class_n_net_1_1_t_address.html">TAddress</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Resolve</b> (const std::string &amp;hostname, EDNSType type=EDNSType::DEFAULT)</td></tr>
+<tr class="memitem:a03b305046ba4cd002ccf6f308cd8039f" id="r_a03b305046ba4cd002ccf6f308cd8039f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_n_net_1_1_t_future.html">TFuture</a>&lt; std::vector&lt; <a class="el" href="class_n_net_1_1_t_address.html">TAddress</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a03b305046ba4cd002ccf6f308cd8039f">Resolve</a> (const std::string &amp;hostname, EDNSType type=EDNSType::DEFAULT)</td></tr>
+<tr class="memdesc:a03b305046ba4cd002ccf6f308cd8039f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resolves a hostname to a list of addresses.  <br /></td></tr>
 <tr class="separator:a03b305046ba4cd002ccf6f308cd8039f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename TPoller&gt;<br />
+class NNet::TResolver&lt; TPoller &gt;</div><p>Resolves hostnames into IP addresses using a custom poller. </p>
+<p>The <a class="el" href="class_n_net_1_1_t_resolver.html" title="Resolves hostnames into IP addresses using a custom poller.">TResolver</a> class provides DNS resolution functionality by sending DNS queries to a nameserver. It supports different DNS record types as specified by EDNSType. Internally, it uses a polling mechanism (provided by the template parameter) for asynchronous operations.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">TPoller</td><td>The type of the poller used to manage asynchronous operations.</td></tr>
+  </table>
+  </dd>
+</dl>
+<h3><a class="anchor" id="autotoc_md2"></a>
+Example Usage</h3>
+<div class="fragment"><div class="line"><span class="comment">// Assume TSelect is a poller type with methods Poll() and WakeupReadyHandles()</span></div>
+<div class="line">TSelect poller;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Create a resolver using the default nameserver specified in /etc/resolv.conf</span></div>
+<div class="line"><a class="code hl_function" href="#a901c9a034e2f8d13ca7056dc893981ca">TResolver&lt;TSelect&gt;</a> resolver(poller);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Asynchronously resolve a hostname (IPv4 resolution by default)</span></div>
+<div class="line"><a class="code hl_struct" href="struct_n_net_1_1_t_future.html">TFuture&lt;std::vector&lt;TAddress&gt;</a>&gt; futureAddresses = resolver.Resolve(<span class="stringliteral">&quot;example.com&quot;</span>);</div>
+<div class="line"><span class="comment">// Later (in an asynchronous context) use:</span></div>
+<div class="line"><span class="comment">// auto addresses = co_await futureAddresses;</span></div>
+<div class="ttc" id="aclass_n_net_1_1_t_resolver_html_a901c9a034e2f8d13ca7056dc893981ca"><div class="ttname"><a href="#a901c9a034e2f8d13ca7056dc893981ca">NNet::TResolver::TResolver</a></div><div class="ttdeci">TResolver(TPoller &amp;poller, EDNSType defaultType=EDNSType::A)</div><div class="ttdoc">Constructs a TResolver using the default resolv configuration.</div></div>
+<div class="ttc" id="astruct_n_net_1_1_t_future_html"><div class="ttname"><a href="struct_n_net_1_1_t_future.html">NNet::TFuture</a></div><div class="ttdef"><b>Definition</b> corochain.hpp:90</div></div>
+</div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a901c9a034e2f8d13ca7056dc893981ca" name="a901c9a034e2f8d13ca7056dc893981ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a901c9a034e2f8d13ca7056dc893981ca">&#9670;&#160;</a></span>TResolver() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TPoller&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_n_net_1_1_t_resolver.html">NNet::TResolver</a>&lt; TPoller &gt;::TResolver </td>
+          <td>(</td>
+          <td class="paramtype">TPoller &amp;</td>          <td class="paramname"><span class="paramname"><em>poller</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">EDNSType</td>          <td class="paramname"><span class="paramname"><em>defaultType</em></span><span class="paramdefsep"> = </span><span class="paramdefval">EDNSType::A</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructs a <a class="el" href="class_n_net_1_1_t_resolver.html" title="Resolves hostnames into IP addresses using a custom poller.">TResolver</a> using the default resolv configuration. </p>
+<p>The resolver uses DNS nameservers from the default configuration file or as determined by the system.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">poller</td><td>Reference to a poller used for asynchronous operations. </td></tr>
+    <tr><td class="paramname">defaultType</td><td>The default DNS record type to use if none is specified in a request. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa21ad81f47fd798841e56fa1c4e7f0e3" name="aa21ad81f47fd798841e56fa1c4e7f0e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa21ad81f47fd798841e56fa1c4e7f0e3">&#9670;&#160;</a></span>TResolver() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TPoller&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_n_net_1_1_t_resolver.html">NNet::TResolver</a>&lt; TPoller &gt;::TResolver </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_n_net_1_1_t_resolv_conf.html">TResolvConf</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>conf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TPoller &amp;</td>          <td class="paramname"><span class="paramname"><em>poller</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">EDNSType</td>          <td class="paramname"><span class="paramname"><em>defaultType</em></span><span class="paramdefsep"> = </span><span class="paramdefval">EDNSType::A</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructs a <a class="el" href="class_n_net_1_1_t_resolver.html" title="Resolves hostnames into IP addresses using a custom poller.">TResolver</a> with a specified DNS configuration. </p>
+<p>This constructor initializes the resolver with nameservers from a given <a class="el" href="class_n_net_1_1_t_resolv_conf.html" title="Reads and stores DNS configuration from a file or an input stream.">TResolvConf</a> object.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">conf</td><td>A <a class="el" href="class_n_net_1_1_t_resolv_conf.html" title="Reads and stores DNS configuration from a file or an input stream.">TResolvConf</a> object containing DNS configuration. </td></tr>
+    <tr><td class="paramname">poller</td><td>Reference to a poller for asynchronous operations. </td></tr>
+    <tr><td class="paramname">defaultType</td><td>The default DNS record type to use for resolution. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5366c2f6beab03f1233bb515eaaa18fa" name="a5366c2f6beab03f1233bb515eaaa18fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5366c2f6beab03f1233bb515eaaa18fa">&#9670;&#160;</a></span>TResolver() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TPoller&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_n_net_1_1_t_resolver.html">NNet::TResolver</a>&lt; TPoller &gt;::TResolver </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_n_net_1_1_t_address.html">TAddress</a></td>          <td class="paramname"><span class="paramname"><em>dnsAddr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TPoller &amp;</td>          <td class="paramname"><span class="paramname"><em>poller</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">EDNSType</td>          <td class="paramname"><span class="paramname"><em>defaultType</em></span><span class="paramdefsep"> = </span><span class="paramdefval">EDNSType::A</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructs a <a class="el" href="class_n_net_1_1_t_resolver.html" title="Resolves hostnames into IP addresses using a custom poller.">TResolver</a> using a specific DNS address. </p>
+<p>This variant allows specifying a single DNS nameserver for resolution.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dnsAddr</td><td>The address of the DNS server. </td></tr>
+    <tr><td class="paramname">poller</td><td>Reference to a poller used for asynchronous operations. </td></tr>
+    <tr><td class="paramname">defaultType</td><td>The default DNS record type for resolution. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a03b305046ba4cd002ccf6f308cd8039f" name="a03b305046ba4cd002ccf6f308cd8039f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03b305046ba4cd002ccf6f308cd8039f">&#9670;&#160;</a></span>Resolve()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TPoller&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_n_net_1_1_t_future.html">TFuture</a>&lt; std::vector&lt; <a class="el" href="class_n_net_1_1_t_address.html">TAddress</a> &gt; &gt; <a class="el" href="class_n_net_1_1_t_resolver.html">NNet::TResolver</a>&lt; TPoller &gt;::Resolve </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>hostname</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">EDNSType</td>          <td class="paramname"><span class="paramname"><em>type</em></span><span class="paramdefsep"> = </span><span class="paramdefval">EDNSType::DEFAULT</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Resolves a hostname to a list of addresses. </p>
+<p>Sends a DNS query for the specified hostname. If the request type is set to EDNSType::DEFAULT, the default DNS record type (specified in the constructor) is used.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hostname</td><td>The name to be resolved. </td></tr>
+    <tr><td class="paramname">type</td><td>The DNS record type to query. If EDNSType::DEFAULT is specified, the default type provided to the constructor is used.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="struct_n_net_1_1_t_future.html">TFuture</a> containing a vector of <a class="el" href="class_n_net_1_1_t_address.html" title="A class representing an IPv4 or IPv6 address (with port).">TAddress</a> objects with the resolved addresses. </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>coroio/<a class="el" href="resolver_8hpp_source.html">resolver.hpp</a></li>
 </ul>

@@ -1,21 +1,80 @@
 \doxysection{NNet\+::TResolv\+Conf Class Reference}
 \hypertarget{class_n_net_1_1_t_resolv_conf}{}\label{class_n_net_1_1_t_resolv_conf}\index{NNet::TResolvConf@{NNet::TResolvConf}}
+
+
+Reads and stores DNS configuration from a file or an input stream.  
+
+
+
+
+{\ttfamily \#include $<$resolver.\+hpp$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_n_net_1_1_t_resolv_conf_ad5227778517c3517d6a041e576f64316}\label{class_n_net_1_1_t_resolv_conf_ad5227778517c3517d6a041e576f64316} 
-{\bfseries TResolv\+Conf} (const std\+::string \&fn="{}/etc/resolv.\+conf"{})
-\item 
-\Hypertarget{class_n_net_1_1_t_resolv_conf_a780072d84dd9401d940496cf9bef83a6}\label{class_n_net_1_1_t_resolv_conf_a780072d84dd9401d940496cf9bef83a6} 
-{\bfseries TResolv\+Conf} (std\+::istream \&input)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_n_net_1_1_t_resolv_conf_ad5227778517c3517d6a041e576f64316}{TResolv\+Conf}} (const std\+::string \&fn="{}/etc/resolv.\+conf"{})
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_n_net_1_1_t_resolv_conf}{TResolv\+Conf} and loads DNS configuration from a file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_n_net_1_1_t_resolv_conf_a780072d84dd9401d940496cf9bef83a6}{TResolv\+Conf}} (std\+::istream \&input)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_n_net_1_1_t_resolv_conf}{TResolv\+Conf} from an input stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_n_net_1_1_t_resolv_conf_a2d4f6d8c2b74f4e31c350e4400f7da44}\label{class_n_net_1_1_t_resolv_conf_a2d4f6d8c2b74f4e31c350e4400f7da44} 
-std\+::vector$<$ \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}} $>$ {\bfseries Nameservers}
-\end{DoxyCompactItemize}
+std\+::vector$<$ \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}} $>$ \mbox{\hyperlink{class_n_net_1_1_t_resolv_conf_a2d4f6d8c2b74f4e31c350e4400f7da44}{Nameservers}}
+\begin{DoxyCompactList}\small\item\em A vector of nameserver addresses. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Reads and stores DNS configuration from a file or an input stream. 
+
+This class loads a list of nameservers from a DNS configuration file (by default, {\ttfamily /etc/resolv.conf}) or from any other input stream. The nameservers are stored as a vector of {\ttfamily \doxylink{class_n_net_1_1_t_address}{TAddress}} objects. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_n_net_1_1_t_resolv_conf_ad5227778517c3517d6a041e576f64316}\index{NNet::TResolvConf@{NNet::TResolvConf}!TResolvConf@{TResolvConf}}
+\index{TResolvConf@{TResolvConf}!NNet::TResolvConf@{NNet::TResolvConf}}
+\doxysubsubsection{\texorpdfstring{TResolvConf()}{TResolvConf()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_n_net_1_1_t_resolv_conf_ad5227778517c3517d6a041e576f64316} 
+NNet\+::\+TResolv\+Conf\+::\+TResolv\+Conf (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{fn}{ = {\ttfamily "{}/etc/resolv.conf"{}}}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_n_net_1_1_t_resolv_conf}{TResolv\+Conf} and loads DNS configuration from a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fn} & Path to the DNS configuration file. Default is "{}/etc/resolv.\+conf"{}. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_n_net_1_1_t_resolv_conf_a780072d84dd9401d940496cf9bef83a6}\index{NNet::TResolvConf@{NNet::TResolvConf}!TResolvConf@{TResolvConf}}
+\index{TResolvConf@{TResolvConf}!NNet::TResolvConf@{NNet::TResolvConf}}
+\doxysubsubsection{\texorpdfstring{TResolvConf()}{TResolvConf()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_n_net_1_1_t_resolv_conf_a780072d84dd9401d940496cf9bef83a6} 
+NNet\+::\+TResolv\+Conf\+::\+TResolv\+Conf (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{input}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_n_net_1_1_t_resolv_conf}{TResolv\+Conf} from an input stream. 
+
+This constructor allows loading the DNS configuration from any standard input stream.
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Reference to an input stream containing DNS configuration data. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_n_net_1_1_t_resolv_conf_a2d4f6d8c2b74f4e31c350e4400f7da44}\index{NNet::TResolvConf@{NNet::TResolvConf}!Nameservers@{Nameservers}}
+\index{Nameservers@{Nameservers}!NNet::TResolvConf@{NNet::TResolvConf}}
+\doxysubsubsection{\texorpdfstring{Nameservers}{Nameservers}}
+{\footnotesize\ttfamily \label{class_n_net_1_1_t_resolv_conf_a2d4f6d8c2b74f4e31c350e4400f7da44} 
+std\+::vector$<$\mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}}$>$ NNet\+::\+TResolv\+Conf\+::\+Nameservers}
+
+
+
+A vector of nameserver addresses. 
+
+These addresses are extracted from the configuration source. 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

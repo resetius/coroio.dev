@@ -6,6 +6,8 @@ var searchData=
   ['tlinereader_3',['TLineReader',['../struct_n_net_1_1_t_line_reader.html#a42714161f82dbc80770f6a1a0be610ea',1,'NNet::TLineReader']]],
   ['tlinesplitter_4',['TLineSplitter',['../struct_n_net_1_1_t_line_splitter.html#ae268d7739985d5dec43907da825579c1',1,'NNet::TLineSplitter']]],
   ['tostring_5',['ToString',['../class_n_net_1_1_t_address.html#ab09fa22477089035585b4b9877a50702',1,'NNet::TAddress']]],
-  ['tstructreader_6',['TStructReader',['../struct_n_net_1_1_t_struct_reader.html#a01aed1fb8dc52c06e5177b13b02c0f3a',1,'NNet::TStructReader']]],
-  ['tzerocopylinesplitter_7',['TZeroCopyLineSplitter',['../struct_n_net_1_1_t_zero_copy_line_splitter.html#af64b01796eb016cca29c41a39cb85de3',1,'NNet::TZeroCopyLineSplitter']]]
+  ['tresolvconf_6',['TResolvConf',['../class_n_net_1_1_t_resolv_conf.html#ad5227778517c3517d6a041e576f64316',1,'NNet::TResolvConf::TResolvConf(const std::string &amp;fn=&quot;/etc/resolv.conf&quot;)'],['../class_n_net_1_1_t_resolv_conf.html#a780072d84dd9401d940496cf9bef83a6',1,'NNet::TResolvConf::TResolvConf(std::istream &amp;input)']]],
+  ['tresolver_7',['TResolver',['../class_n_net_1_1_t_resolver.html#a901c9a034e2f8d13ca7056dc893981ca',1,'NNet::TResolver::TResolver(TPoller &amp;poller, EDNSType defaultType=EDNSType::A)'],['../class_n_net_1_1_t_resolver.html#aa21ad81f47fd798841e56fa1c4e7f0e3',1,'NNet::TResolver::TResolver(const TResolvConf &amp;conf, TPoller &amp;poller, EDNSType defaultType=EDNSType::A)'],['../class_n_net_1_1_t_resolver.html#a5366c2f6beab03f1233bb515eaaa18fa',1,'NNet::TResolver::TResolver(TAddress dnsAddr, TPoller &amp;poller, EDNSType defaultType=EDNSType::A)']]],
+  ['tstructreader_8',['TStructReader',['../struct_n_net_1_1_t_struct_reader.html#a01aed1fb8dc52c06e5177b13b02c0f3a',1,'NNet::TStructReader']]],
+  ['tzerocopylinesplitter_9',['TZeroCopyLineSplitter',['../struct_n_net_1_1_t_zero_copy_line_splitter.html#af64b01796eb016cca29c41a39cb85de3',1,'NNet::TZeroCopyLineSplitter']]]
 ];

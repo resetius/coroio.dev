@@ -13,105 +13,104 @@
 \DoxyCodeLine{00009\ }
 \DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }NNet\ \{}
 \DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }TResolvConf\ \{}
-\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00014\ \ \ \ \ TResolvConf(\textcolor{keyword}{const}\ std::string\&\ fn\ =\ \textcolor{stringliteral}{"{}/etc/resolv.conf"{}});}
-\DoxyCodeLine{00015\ \ \ \ \ TResolvConf(std::istream\&\ input);}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \ \ \ \ std::vector<TAddress>\ Nameservers;}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ Load(std::istream\&\ input);}
-\DoxyCodeLine{00021\ \};}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \textcolor{keyword}{enum\ class}\ EDNSType\ \{}
-\DoxyCodeLine{00024\ \ \ \ \ DEFAULT\ =\ 0,}
-\DoxyCodeLine{00025\ \ \ \ \ A\ =\ 1,}
-\DoxyCodeLine{00026\ \ \ \ \ AAAA\ =\ 28,}
-\DoxyCodeLine{00027\ \};}
-\DoxyCodeLine{00028\ }
-\DoxyCodeLine{00029\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TPoller>}
-\DoxyCodeLine{00030\ \textcolor{keyword}{class\ }TResolver\ \{}
-\DoxyCodeLine{00031\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00032\ \ \ \ \ TResolver(TPoller\&\ poller,\ EDNSType\ defaultType\ =\ EDNSType::A);}
-\DoxyCodeLine{00033\ \ \ \ \ TResolver(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_n_net_1_1_t_resolv_conf}{TResolvConf}}\&\ conf,\ TPoller\&\ poller,\ EDNSType\ defaultType\ =\ EDNSType::A);}
-\DoxyCodeLine{00034\ \ \ \ \ TResolver(\mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}}\ dnsAddr,\ TPoller\&\ poller,\ EDNSType\ defaultType\ =\ EDNSType::A);}
-\DoxyCodeLine{00035\ \ \ \ \ \string~TResolver();}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<std::vector<TAddress>}}>\ Resolve(\textcolor{keyword}{const}\ std::string\&\ hostname,\ EDNSType\ type\ =\ EDNSType::DEFAULT);}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<void>}}\ SenderTask();}
-\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<void>}}\ ReceiverTask();}
-\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<void>}}\ TimeoutsTask();}
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_n_net_1_1_t_resolv_conf_ad5227778517c3517d6a041e576f64316}{TResolvConf}}\ \{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_n_net_1_1_t_resolv_conf_ad5227778517c3517d6a041e576f64316}{TResolvConf}}(\textcolor{keyword}{const}\ std::string\&\ fn\ =\ \textcolor{stringliteral}{"{}/etc/resolv.conf"{}});}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{class_n_net_1_1_t_resolv_conf_a780072d84dd9401d940496cf9bef83a6}{TResolvConf}}(std::istream\&\ input);}
+\DoxyCodeLine{00042\ \ \ \ \ std::vector<TAddress>\ \mbox{\hyperlink{class_n_net_1_1_t_resolv_conf_a2d4f6d8c2b74f4e31c350e4400f7da44}{Nameservers}};}
 \DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ ResumeSender();}
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<void>}}\ Sender;}
-\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<void>}}\ Receiver;}
-\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<void>}}\ Timeouts;}
-\DoxyCodeLine{00049\ \ \ \ \ std::coroutine\_handle<>\ SenderSuspended;}
-\DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}}\ DnsAddr;}
-\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}}\ Socket;}
-\DoxyCodeLine{00053\ \ \ \ \ TPoller\&\ Poller;}
-\DoxyCodeLine{00054\ \ \ \ \ EDNSType\ DefaultType;}
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{struct\ }TResolveRequest\ \{}
-\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ std::string\ Name;}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ EDNSType\ Type;}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ TResolveRequest\&\ other)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Name\ ==\ other.Name\ \&\&\ Type\ ==\ other.Type;}
-\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00063\ }
-\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ hash()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ result\ =\ 0;}
-\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ result\ \string^=\ std::hash<std::string>()(Name)\ +\ 0x9e3779b9\ +\ (result\ <<\ 6)\ +\ (result\ >>\ 2);}
-\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ result\ \string^=\ std::hash<EDNSType>()(Type)\ +\ 0x9e3779b9\ +\ (result\ <<\ 6)\ +\ (result\ >>\ 2);}
-\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
-\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00070\ \ \ \ \ \};}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{struct\ }TResolveRequestHash}
-\DoxyCodeLine{00073\ \ \ \ \ \{}
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ std::size\_t\ operator()(\textcolor{keyword}{const}\ TResolveRequest\&\ c)\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00075\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ c.hash();}
-\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00078\ \ \ \ \ \};}
-\DoxyCodeLine{00079\ }
-\DoxyCodeLine{00080\ \ \ \ \ std::queue<TResolveRequest>\ AddResolveQueue;}
-\DoxyCodeLine{00081\ \ \ \ \ std::queue<std::pair<TTime,\ TResolveRequest>>\ TimeoutsQueue;}
-\DoxyCodeLine{00082\ }
-\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{struct\ }TResolveResult\ \{}
-\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ std::vector<TAddress>\ Addresses\ =\ \{\};}
-\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ std::exception\_ptr\ Exception\ =\ \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ Retries\ =\ 0;}
-\DoxyCodeLine{00087\ \ \ \ \ \};}
-\DoxyCodeLine{00088\ }
-\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{void}\ ResumeWaiters(TResolveResult\&\&\ result,\ \textcolor{keyword}{const}\ TResolveRequest\&\ req);}
-\DoxyCodeLine{00090\ }
-\DoxyCodeLine{00091\ \ \ \ \ std::unordered\_map<TResolveRequest,\ TResolveResult,\ TResolveRequestHash>\ Results;}
-\DoxyCodeLine{00092\ \ \ \ \ std::unordered\_map<TResolveRequest,\ std::vector<std::coroutine\_handle<>>,\ TResolveRequestHash>\ WaitingAddrs;}
-\DoxyCodeLine{00093\ \ \ \ \ std::unordered\_map<uint64\_t,\ TResolveRequest>\ Inflight;}
-\DoxyCodeLine{00094\ }
-\DoxyCodeLine{00095\ \ \ \ \ uint16\_t\ Xid\ =\ 1;}
-\DoxyCodeLine{00096\ \};}
-\DoxyCodeLine{00097\ }
-\DoxyCodeLine{00098\ \textcolor{keyword}{class\ }THostPort\ \{}
-\DoxyCodeLine{00099\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00100\ \ \ \ \ THostPort(\textcolor{keyword}{const}\ std::string\&\ hostPort);}
-\DoxyCodeLine{00101\ \ \ \ \ THostPort(\textcolor{keyword}{const}\ std::string\&\ host,\ \textcolor{keywordtype}{int}\ port);}
-\DoxyCodeLine{00102\ }
-\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00104\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<TAddress>}}\ Resolve(\mbox{\hyperlink{class_n_net_1_1_t_resolver}{TResolver<T>}}\&\ resolver);}
-\DoxyCodeLine{00105\ }
-\DoxyCodeLine{00106\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00107\ \ \ \ \ std::string\ Host;}
-\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{int}\ Port;}
-\DoxyCodeLine{00109\ \};}
-\DoxyCodeLine{00110\ }
-\DoxyCodeLine{00111\ \}\ \textcolor{comment}{//\ namespace\ NNet}}
+\DoxyCodeLine{00044\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ Load(std::istream\&\ input);}
+\DoxyCodeLine{00046\ \};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{enum\ class}\ EDNSType\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ DEFAULT\ =\ 0,\ }
+\DoxyCodeLine{00054\ \ \ \ \ A\ =\ 1,\ }
+\DoxyCodeLine{00055\ \ \ \ \ AAAA\ =\ 28,\ }
+\DoxyCodeLine{00056\ \};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00083\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TPoller>}
+\DoxyCodeLine{00084\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_n_net_1_1_t_resolver_a901c9a034e2f8d13ca7056dc893981ca}{TResolver}}\ \{}
+\DoxyCodeLine{00085\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00095\ \ \ \ \ \mbox{\hyperlink{class_n_net_1_1_t_resolver_a901c9a034e2f8d13ca7056dc893981ca}{TResolver}}(TPoller\&\ poller,\ EDNSType\ defaultType\ =\ EDNSType::A);}
+\DoxyCodeLine{00106\ \ \ \ \ \mbox{\hyperlink{class_n_net_1_1_t_resolver_aa21ad81f47fd798841e56fa1c4e7f0e3}{TResolver}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_n_net_1_1_t_resolv_conf}{TResolvConf}}\&\ conf,\ TPoller\&\ poller,\ EDNSType\ defaultType\ =\ EDNSType::A);}
+\DoxyCodeLine{00116\ \ \ \ \ \mbox{\hyperlink{class_n_net_1_1_t_resolver_a5366c2f6beab03f1233bb515eaaa18fa}{TResolver}}(\mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}}\ dnsAddr,\ TPoller\&\ poller,\ EDNSType\ defaultType\ =\ EDNSType::A);}
+\DoxyCodeLine{00117\ \ \ \ \ \mbox{\hyperlink{class_n_net_1_1_t_resolver_a901c9a034e2f8d13ca7056dc893981ca}{\string~TResolver}}();}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00132\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<std::vector<TAddress>}}>\ \mbox{\hyperlink{class_n_net_1_1_t_resolver_a03b305046ba4cd002ccf6f308cd8039f}{Resolve}}(\textcolor{keyword}{const}\ std::string\&\ hostname,\ EDNSType\ type\ =\ EDNSType::DEFAULT);}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00135\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<void>}}\ SenderTask();}
+\DoxyCodeLine{00136\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<void>}}\ ReceiverTask();}
+\DoxyCodeLine{00137\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<void>}}\ TimeoutsTask();}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{void}\ ResumeSender();}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<void>}}\ Sender;}
+\DoxyCodeLine{00142\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<void>}}\ Receiver;}
+\DoxyCodeLine{00143\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<void>}}\ Timeouts;}
+\DoxyCodeLine{00144\ \ \ \ \ std::coroutine\_handle<>\ SenderSuspended;}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}}\ DnsAddr;}
+\DoxyCodeLine{00147\ \ \ \ \ \mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}}\ Socket;}
+\DoxyCodeLine{00148\ \ \ \ \ TPoller\&\ Poller;}
+\DoxyCodeLine{00149\ \ \ \ \ EDNSType\ DefaultType;}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keyword}{struct\ }TResolveRequest\ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ std::string\ Name;}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ EDNSType\ Type;}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ TResolveRequest\&\ other)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Name\ ==\ other.Name\ \&\&\ Type\ ==\ other.Type;}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ hash()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ result\ =\ 0;}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ result\ \string^=\ std::hash<std::string>()(Name)\ +\ 0x9e3779b9\ +\ (result\ <<\ 6)\ +\ (result\ >>\ 2);}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ result\ \string^=\ std::hash<EDNSType>()(Type)\ +\ 0x9e3779b9\ +\ (result\ <<\ 6)\ +\ (result\ >>\ 2);}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00165\ \ \ \ \ \};}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keyword}{struct\ }TResolveRequestHash}
+\DoxyCodeLine{00168\ \ \ \ \ \{}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ std::size\_t\ operator()(\textcolor{keyword}{const}\ TResolveRequest\&\ c)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00170\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ c.hash();}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00173\ \ \ \ \ \};}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ std::queue<TResolveRequest>\ AddResolveQueue;}
+\DoxyCodeLine{00176\ \ \ \ \ std::queue<std::pair<TTime,\ TResolveRequest>>\ TimeoutsQueue;}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keyword}{struct\ }TResolveResult\ \{}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ std::vector<TAddress>\ Addresses\ =\ \{\};}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ std::exception\_ptr\ Exception\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ Retries\ =\ 0;}
+\DoxyCodeLine{00182\ \ \ \ \ \};}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordtype}{void}\ ResumeWaiters(TResolveResult\&\&\ result,\ \textcolor{keyword}{const}\ TResolveRequest\&\ req);}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \ \ \ \ std::unordered\_map<TResolveRequest,\ TResolveResult,\ TResolveRequestHash>\ Results;}
+\DoxyCodeLine{00187\ \ \ \ \ std::unordered\_map<TResolveRequest,\ std::vector<std::coroutine\_handle<>>,\ TResolveRequestHash>\ WaitingAddrs;}
+\DoxyCodeLine{00188\ \ \ \ \ std::unordered\_map<uint64\_t,\ TResolveRequest>\ Inflight;}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \ \ \ \ uint16\_t\ Xid\ =\ 1;}
+\DoxyCodeLine{00191\ \};}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \textcolor{keyword}{class\ }THostPort\ \{}
+\DoxyCodeLine{00194\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00195\ \ \ \ \ THostPort(\textcolor{keyword}{const}\ std::string\&\ hostPort);}
+\DoxyCodeLine{00196\ \ \ \ \ THostPort(\textcolor{keyword}{const}\ std::string\&\ host,\ \textcolor{keywordtype}{int}\ port);}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00199\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<TAddress>}}\ Resolve(\mbox{\hyperlink{class_n_net_1_1_t_resolver}{TResolver<T>}}\&\ resolver);}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00202\ \ \ \ \ std::string\ Host;}
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keywordtype}{int}\ Port;}
+\DoxyCodeLine{00204\ \};}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \}\ \textcolor{comment}{//\ namespace\ NNet}}
 
 \end{DoxyCode}

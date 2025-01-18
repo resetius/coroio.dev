@@ -1,20 +1,147 @@
 \doxysection{NNet\+::TResolver\texorpdfstring{$<$}{<} TPoller \texorpdfstring{$>$}{>} Class Template Reference}
 \hypertarget{class_n_net_1_1_t_resolver}{}\label{class_n_net_1_1_t_resolver}\index{NNet::TResolver$<$ TPoller $>$@{NNet::TResolver$<$ TPoller $>$}}
+
+
+Resolves hostnames into IP addresses using a custom poller.  
+
+
+
+
+{\ttfamily \#include $<$resolver.\+hpp$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_n_net_1_1_t_resolver_a901c9a034e2f8d13ca7056dc893981ca}\label{class_n_net_1_1_t_resolver_a901c9a034e2f8d13ca7056dc893981ca} 
-{\bfseries TResolver} (TPoller \&poller, EDNSType default\+Type=EDNSType\+::A)
-\item 
-\Hypertarget{class_n_net_1_1_t_resolver_aa21ad81f47fd798841e56fa1c4e7f0e3}\label{class_n_net_1_1_t_resolver_aa21ad81f47fd798841e56fa1c4e7f0e3} 
-{\bfseries TResolver} (const \mbox{\hyperlink{class_n_net_1_1_t_resolv_conf}{TResolv\+Conf}} \&conf, TPoller \&poller, EDNSType default\+Type=EDNSType\+::A)
-\item 
-\Hypertarget{class_n_net_1_1_t_resolver_a5366c2f6beab03f1233bb515eaaa18fa}\label{class_n_net_1_1_t_resolver_a5366c2f6beab03f1233bb515eaaa18fa} 
-{\bfseries TResolver} (\mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}} dns\+Addr, TPoller \&poller, EDNSType default\+Type=EDNSType\+::A)
-\item 
-\Hypertarget{class_n_net_1_1_t_resolver_a03b305046ba4cd002ccf6f308cd8039f}\label{class_n_net_1_1_t_resolver_a03b305046ba4cd002ccf6f308cd8039f} 
-\mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture}}$<$ std\+::vector$<$ \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}} $>$ $>$ {\bfseries Resolve} (const std\+::string \&hostname, EDNSType type=EDNSType\+::\+DEFAULT)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_n_net_1_1_t_resolver_a901c9a034e2f8d13ca7056dc893981ca}{TResolver}} (TPoller \&poller, EDNSType default\+Type=EDNSType\+::A)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_n_net_1_1_t_resolver}{TResolver} using the default resolv configuration. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_n_net_1_1_t_resolver_aa21ad81f47fd798841e56fa1c4e7f0e3}{TResolver}} (const \mbox{\hyperlink{class_n_net_1_1_t_resolv_conf}{TResolv\+Conf}} \&conf, TPoller \&poller, EDNSType default\+Type=EDNSType\+::A)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_n_net_1_1_t_resolver}{TResolver} with a specified DNS configuration. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_n_net_1_1_t_resolver_a5366c2f6beab03f1233bb515eaaa18fa}{TResolver}} (\mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}} dns\+Addr, TPoller \&poller, EDNSType default\+Type=EDNSType\+::A)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_n_net_1_1_t_resolver}{TResolver} using a specific DNS address. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture}}$<$ std\+::vector$<$ \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}} $>$ $>$ \mbox{\hyperlink{class_n_net_1_1_t_resolver_a03b305046ba4cd002ccf6f308cd8039f}{Resolve}} (const std\+::string \&hostname, EDNSType type=EDNSType\+::\+DEFAULT)
+\begin{DoxyCompactList}\small\item\em Resolves a hostname to a list of addresses. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename TPoller$>$\newline
+class NNet\+::\+TResolver$<$ TPoller $>$}
+Resolves hostnames into IP addresses using a custom poller. 
+
+The \doxylink{class_n_net_1_1_t_resolver}{TResolver} class provides DNS resolution functionality by sending DNS queries to a nameserver. It supports different DNS record types as specified by EDNSType. Internally, it uses a polling mechanism (provided by the template parameter) for asynchronous operations.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TPoller} & The type of the poller used to manage asynchronous operations.\\
+\hline
+\end{DoxyTemplParams}
+\hypertarget{class_n_net_1_1_t_resolver_autotoc_md2}{}\doxysubsubsubsection{\texorpdfstring{Example Usage}{Example Usage}}\label{class_n_net_1_1_t_resolver_autotoc_md2}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Assume\ TSelect\ is\ a\ poller\ type\ with\ methods\ Poll()\ and\ WakeupReadyHandles()}}
+\DoxyCodeLine{TSelect\ poller;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Create\ a\ resolver\ using\ the\ default\ nameserver\ specified\ in\ /etc/resolv.conf}}
+\DoxyCodeLine{\mbox{\hyperlink{class_n_net_1_1_t_resolver_a901c9a034e2f8d13ca7056dc893981ca}{TResolver<TSelect>}}\ resolver(poller);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Asynchronously\ resolve\ a\ hostname\ (IPv4\ resolution\ by\ default)}}
+\DoxyCodeLine{TFuture<std::vector<TAddress>>\ futureAddresses\ =\ resolver.Resolve(\textcolor{stringliteral}{"{}example.com"{}});}
+\DoxyCodeLine{\textcolor{comment}{//\ Later\ (in\ an\ asynchronous\ context)\ use:}}
+\DoxyCodeLine{\textcolor{comment}{//\ auto\ addresses\ =\ co\_await\ futureAddresses;}}
+
+\end{DoxyCode}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_n_net_1_1_t_resolver_a901c9a034e2f8d13ca7056dc893981ca}\index{NNet::TResolver$<$ TPoller $>$@{NNet::TResolver$<$ TPoller $>$}!TResolver@{TResolver}}
+\index{TResolver@{TResolver}!NNet::TResolver$<$ TPoller $>$@{NNet::TResolver$<$ TPoller $>$}}
+\doxysubsubsection{\texorpdfstring{TResolver()}{TResolver()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_n_net_1_1_t_resolver_a901c9a034e2f8d13ca7056dc893981ca} 
+template$<$typename TPoller$>$ \\
+\mbox{\hyperlink{class_n_net_1_1_t_resolver}{NNet\+::\+TResolver}}$<$ TPoller $>$\+::\+TResolver (\begin{DoxyParamCaption}\item[{TPoller \&}]{poller}{, }\item[{EDNSType}]{default\+Type}{ = {\ttfamily EDNSType\+:\+:A}}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_n_net_1_1_t_resolver}{TResolver} using the default resolv configuration. 
+
+The resolver uses DNS nameservers from the default configuration file or as determined by the system.
+
+
+\begin{DoxyParams}{Parameters}
+{\em poller} & Reference to a poller used for asynchronous operations. \\
+\hline
+{\em default\+Type} & The default DNS record type to use if none is specified in a request. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_n_net_1_1_t_resolver_aa21ad81f47fd798841e56fa1c4e7f0e3}\index{NNet::TResolver$<$ TPoller $>$@{NNet::TResolver$<$ TPoller $>$}!TResolver@{TResolver}}
+\index{TResolver@{TResolver}!NNet::TResolver$<$ TPoller $>$@{NNet::TResolver$<$ TPoller $>$}}
+\doxysubsubsection{\texorpdfstring{TResolver()}{TResolver()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_n_net_1_1_t_resolver_aa21ad81f47fd798841e56fa1c4e7f0e3} 
+template$<$typename TPoller$>$ \\
+\mbox{\hyperlink{class_n_net_1_1_t_resolver}{NNet\+::\+TResolver}}$<$ TPoller $>$\+::\+TResolver (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_n_net_1_1_t_resolv_conf}{TResolv\+Conf}} \&}]{conf}{, }\item[{TPoller \&}]{poller}{, }\item[{EDNSType}]{default\+Type}{ = {\ttfamily EDNSType\+:\+:A}}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_n_net_1_1_t_resolver}{TResolver} with a specified DNS configuration. 
+
+This constructor initializes the resolver with nameservers from a given \doxylink{class_n_net_1_1_t_resolv_conf}{TResolv\+Conf} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em conf} & A \doxylink{class_n_net_1_1_t_resolv_conf}{TResolv\+Conf} object containing DNS configuration. \\
+\hline
+{\em poller} & Reference to a poller for asynchronous operations. \\
+\hline
+{\em default\+Type} & The default DNS record type to use for resolution. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_n_net_1_1_t_resolver_a5366c2f6beab03f1233bb515eaaa18fa}\index{NNet::TResolver$<$ TPoller $>$@{NNet::TResolver$<$ TPoller $>$}!TResolver@{TResolver}}
+\index{TResolver@{TResolver}!NNet::TResolver$<$ TPoller $>$@{NNet::TResolver$<$ TPoller $>$}}
+\doxysubsubsection{\texorpdfstring{TResolver()}{TResolver()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_n_net_1_1_t_resolver_a5366c2f6beab03f1233bb515eaaa18fa} 
+template$<$typename TPoller$>$ \\
+\mbox{\hyperlink{class_n_net_1_1_t_resolver}{NNet\+::\+TResolver}}$<$ TPoller $>$\+::\+TResolver (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}}}]{dns\+Addr}{, }\item[{TPoller \&}]{poller}{, }\item[{EDNSType}]{default\+Type}{ = {\ttfamily EDNSType\+:\+:A}}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_n_net_1_1_t_resolver}{TResolver} using a specific DNS address. 
+
+This variant allows specifying a single DNS nameserver for resolution.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dns\+Addr} & The address of the DNS server. \\
+\hline
+{\em poller} & Reference to a poller used for asynchronous operations. \\
+\hline
+{\em default\+Type} & The default DNS record type for resolution. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_n_net_1_1_t_resolver_a03b305046ba4cd002ccf6f308cd8039f}\index{NNet::TResolver$<$ TPoller $>$@{NNet::TResolver$<$ TPoller $>$}!Resolve@{Resolve}}
+\index{Resolve@{Resolve}!NNet::TResolver$<$ TPoller $>$@{NNet::TResolver$<$ TPoller $>$}}
+\doxysubsubsection{\texorpdfstring{Resolve()}{Resolve()}}
+{\footnotesize\ttfamily \label{class_n_net_1_1_t_resolver_a03b305046ba4cd002ccf6f308cd8039f} 
+template$<$typename TPoller$>$ \\
+\mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture}}$<$ std\+::vector$<$ \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}} $>$ $>$ \mbox{\hyperlink{class_n_net_1_1_t_resolver}{NNet\+::\+TResolver}}$<$ TPoller $>$\+::\+Resolve (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{hostname}{, }\item[{EDNSType}]{type}{ = {\ttfamily EDNSType\+:\+:DEFAULT}}\end{DoxyParamCaption})}
+
+
+
+Resolves a hostname to a list of addresses. 
+
+Sends a DNS query for the specified hostname. If the request type is set to EDNSType\+::\+DEFAULT, the default DNS record type (specified in the constructor) is used.
+
+
+\begin{DoxyParams}{Parameters}
+{\em hostname} & The name to be resolved. \\
+\hline
+{\em type} & The DNS record type to query. If EDNSType\+::\+DEFAULT is specified, the default type provided to the constructor is used.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \doxylink{struct_n_net_1_1_t_future}{TFuture} containing a vector of \doxylink{class_n_net_1_1_t_address}{TAddress} objects with the resolved addresses. 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
