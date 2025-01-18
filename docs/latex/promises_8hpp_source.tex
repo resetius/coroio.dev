@@ -1,0 +1,61 @@
+\doxysection{promises.\+hpp}
+\hypertarget{promises_8hpp_source}{}\label{promises_8hpp_source}\index{coroio/promises.hpp@{coroio/promises.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <coroutine>}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keyword}{namespace\ }NNet\ \{}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_n_net_1_1_t_void_promise}{TVoidPromise}};}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_n_net_1_1_t_void_task}{TVoidTask}}\ :\ std::coroutine\_handle<TVoidPromise>}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{using\ }promise\_type\ =\ \mbox{\hyperlink{struct_n_net_1_1_t_void_promise}{TVoidPromise}};}
+\DoxyCodeLine{00011\ \};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_n_net_1_1_t_void_promise}{TVoidPromise}}}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_void_task}{TVoidTask}}\ get\_return\_object()\ \{\ \textcolor{keywordflow}{return}\ \{\ TVoidTask::from\_promise(*\textcolor{keyword}{this})\ \};\ \}}
+\DoxyCodeLine{00016\ \ \ \ \ std::suspend\_never\ initial\_suspend()\ \{\ \textcolor{keywordflow}{return}\ \{\};\ \}}
+\DoxyCodeLine{00017\ \ \ \ \ std::suspend\_never\ final\_suspend()\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ \{\};\ \}}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ return\_void()\ \{\}}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ unhandled\_exception()\ \{\}}
+\DoxyCodeLine{00020\ \};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_n_net_1_1_t_void_suspended_promise}{TVoidSuspendedPromise}};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_n_net_1_1_t_void_suspended_task}{TVoidSuspendedTask}}\ :\ std::coroutine\_handle<TVoidSuspendedPromise>}
+\DoxyCodeLine{00025\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{using\ }promise\_type\ =\ \mbox{\hyperlink{struct_n_net_1_1_t_void_suspended_promise}{TVoidSuspendedPromise}};}
+\DoxyCodeLine{00027\ \};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_n_net_1_1_t_void_suspended_promise}{TVoidSuspendedPromise}}}
+\DoxyCodeLine{00030\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_void_suspended_task}{TVoidSuspendedTask}}\ get\_return\_object()\ \{\ \textcolor{keywordflow}{return}\ \{\ TVoidSuspendedTask::from\_promise(*\textcolor{keyword}{this})\ \};\ \}}
+\DoxyCodeLine{00032\ \ \ \ \ std::suspend\_never\ initial\_suspend()\ \{\ \textcolor{keywordflow}{return}\ \{\};\ \}}
+\DoxyCodeLine{00033\ \ \ \ \ std::suspend\_always\ final\_suspend()\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ \{\};\ \}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ return\_void()\ \{\}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ unhandled\_exception()\ \{\}}
+\DoxyCodeLine{00036\ \};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{class_self}{Self}}\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{bool}\ await\_ready()\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00064\ \ \ \ \ \}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{bool}\ await\_suspend(std::coroutine\_handle<>\ h)\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ H\ =\ h;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00069\ \ \ \ \ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{auto}\ await\_resume()\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ H;}
+\DoxyCodeLine{00073\ \ \ \ \ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ std::coroutine\_handle<>\ H;}
+\DoxyCodeLine{00076\ \};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \}\ \textcolor{comment}{//\ namespace\ NNet}}
+
+\end{DoxyCode}

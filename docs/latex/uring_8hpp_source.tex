@@ -1,0 +1,80 @@
+\doxysection{uring.\+hpp}
+\hypertarget{uring_8hpp_source}{}\label{uring_8hpp_source}\index{coroio/uring.hpp@{coroio/uring.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}base.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}socket.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}poller.hpp"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <liburing.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <assert.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <sys/eventfd.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <sys/epoll.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <sys/utsname.h>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <system\_error>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <tuple>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <coroutine>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{namespace\ }NNet\ \{}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }TUring:\ \textcolor{keyword}{public}\ TPollerBase\ \{}
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{using\ }TSocket\ =\ \mbox{\hyperlink{class_n_net_1_1_t_poller_driven_socket}{NNet::TPollerDrivenSocket<TUring>}};}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{using\ }TFileHandle\ =\ \mbox{\hyperlink{class_n_net_1_1_t_poller_driven_file_handle}{NNet::TPollerDrivenFileHandle<TUring>}};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ TUring(\textcolor{keywordtype}{int}\ queueSize\ =\ 256);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \string~TUring();}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ Read(\textcolor{keywordtype}{int}\ fd,\ \textcolor{keywordtype}{void}*\ buf,\ \textcolor{keywordtype}{int}\ size,\ std::coroutine\_handle<>\ handle);}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ Write(\textcolor{keywordtype}{int}\ fd,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ buf,\ \textcolor{keywordtype}{int}\ size,\ std::coroutine\_handle<>\ handle);}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ Recv(\textcolor{keywordtype}{int}\ fd,\ \textcolor{keywordtype}{void}*\ buf,\ \textcolor{keywordtype}{int}\ size,\ std::coroutine\_handle<>\ handle);}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ Send(\textcolor{keywordtype}{int}\ fd,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ buf,\ \textcolor{keywordtype}{int}\ size,\ std::coroutine\_handle<>\ handle);}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ Accept(\textcolor{keywordtype}{int}\ fd,\ \textcolor{keyword}{struct}\ sockaddr*\ addr,\ socklen\_t*\ len,\ std::coroutine\_handle<>\ handle);}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ Connect(\textcolor{keywordtype}{int}\ fd,\ \textcolor{keyword}{const}\ sockaddr*\ addr,\ socklen\_t\ len,\ std::coroutine\_handle<>\ handle);}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ Cancel(\textcolor{keywordtype}{int}\ fd);}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ Cancel(std::coroutine\_handle<>\ h);}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ Register(\textcolor{keywordtype}{int}\ fd);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{int}\ Wait(timespec\ ts\ =\ \{10,0\});}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ Poll()\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ Wait(GetTimeout());}
+\DoxyCodeLine{00045\ \ \ \ \ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{int}\ Result();}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ Submit();}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{comment}{//\ for\ tests}}
+\DoxyCodeLine{00052\ \ \ \ \ std::tuple<int,\ int,\ int>\ Kernel()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ KernelStr()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00056\ \ \ \ \ io\_uring\_sqe*\ GetSqe()\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ io\_uring\_sqe*\ r\ =\ io\_uring\_get\_sqe(\&Ring\_);}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!r)\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ Submit();}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ r\ =\ io\_uring\_get\_sqe(\&Ring\_);}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ r;}
+\DoxyCodeLine{00063\ \ \ \ \ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{int}\ RingFd\_;}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{int}\ EpollFd\_;}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{struct\ }io\_uring\ Ring\_;}
+\DoxyCodeLine{00068\ \ \ \ \ std::queue<int>\ Results\_;}
+\DoxyCodeLine{00069\ \ \ \ \ std::vector<char>\ Buffer\_;}
+\DoxyCodeLine{00070\ \ \ \ \ std::tuple<int,\ int,\ int>\ Kernel\_;}
+\DoxyCodeLine{00071\ \ \ \ \ std::string\ KernelStr\_;}
+\DoxyCodeLine{00072\ \};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \}\ \textcolor{comment}{//\ namespace\ NNet}}
+
+\end{DoxyCode}

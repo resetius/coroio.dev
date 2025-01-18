@@ -1,0 +1,133 @@
+\doxysection{NNet\+::TPoller\+Driven\+Socket\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_n_net_1_1_t_poller_driven_socket}{}\label{class_n_net_1_1_t_poller_driven_socket}\index{NNet::TPollerDrivenSocket$<$ T $>$@{NNet::TPollerDrivenSocket$<$ T $>$}}
+Inheritance diagram for NNet\+::TPoller\+Driven\+Socket\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_n_net_1_1_t_poller_driven_socket}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_driven_socket_ab46a9612aa4965cc252554b94ae748fb}\label{class_n_net_1_1_t_poller_driven_socket_ab46a9612aa4965cc252554b94ae748fb} 
+using {\bfseries TPoller} = T
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_n_net_1_1_t_socket}{NNet\+::\+TSocket}}}
+\begin{DoxyCompactItemize}
+\item 
+using {\bfseries TPoller} = \mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_driven_socket_a867c20cc4855e8859273ac72425a7b75}\label{class_n_net_1_1_t_poller_driven_socket_a867c20cc4855e8859273ac72425a7b75} 
+{\bfseries TPoller\+Driven\+Socket} (T \&poller, int domain, int type=SOCK\+\_\+\+STREAM)
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_driven_socket_ae0bbb76e44a0492abc3206e0048646e7}\label{class_n_net_1_1_t_poller_driven_socket_ae0bbb76e44a0492abc3206e0048646e7} 
+{\bfseries TPoller\+Driven\+Socket} (const \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}} \&addr, int fd, T \&poller)
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_driven_socket_a9d315ea3c94cb9cc04e7fce8edfb3859}\label{class_n_net_1_1_t_poller_driven_socket_a9d315ea3c94cb9cc04e7fce8edfb3859} 
+{\bfseries TPoller\+Driven\+Socket} (int fd, T \&poller)
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_driven_socket_a7b224fc2c2f5f410170c31c551e4c02b}\label{class_n_net_1_1_t_poller_driven_socket_a7b224fc2c2f5f410170c31c551e4c02b} 
+auto {\bfseries Accept} ()
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_driven_socket_a967470636b23c33a9bceaf1d23b9292f}\label{class_n_net_1_1_t_poller_driven_socket_a967470636b23c33a9bceaf1d23b9292f} 
+auto {\bfseries Connect} (const \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}} \&addr, TTime deadline=TTime\+::max())
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_driven_socket_a5011ea1ad7eb7f6b75d883be21f25567}\label{class_n_net_1_1_t_poller_driven_socket_a5011ea1ad7eb7f6b75d883be21f25567} 
+auto {\bfseries Read\+Some} (void \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_driven_socket_a50602aad84196ad6ecd7c2a3b6eef7a4}\label{class_n_net_1_1_t_poller_driven_socket_a50602aad84196ad6ecd7c2a3b6eef7a4} 
+auto {\bfseries Write\+Some} (const void \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_driven_socket_adb9693ceff9e95687ada5989b5415b60}\label{class_n_net_1_1_t_poller_driven_socket_adb9693ceff9e95687ada5989b5415b60} 
+auto {\bfseries Write\+Some\+Yield} (const void \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_driven_socket_a4d280fd66adab8936e7b917d88bedf37}\label{class_n_net_1_1_t_poller_driven_socket_a4d280fd66adab8936e7b917d88bedf37} 
+auto {\bfseries Read\+Some\+Yield} (void \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_n_net_1_1_t_socket}{NNet\+::\+TSocket}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries TSocket} (\mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \&poller, int domain, int type=SOCK\+\_\+\+STREAM)
+\item 
+{\bfseries TSocket} (const \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}} \&addr, int fd, \mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \&poller)
+\item 
+{\bfseries TSocket} (\mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}} \&\&other)
+\item 
+\mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}} \& {\bfseries operator=} (\mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}} \&\&other)
+\item 
+auto {\bfseries Connect} (const \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}} \&addr, TTime deadline=TTime\+::max())
+\item 
+auto {\bfseries Accept} ()
+\item 
+void {\bfseries Bind} (const \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}} \&addr)
+\item 
+void {\bfseries Listen} (int backlog=128)
+\item 
+const std\+::optional$<$ \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}} $>$ \& {\bfseries Remote\+Addr} () const
+\item 
+const std\+::optional$<$ \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}} $>$ \& {\bfseries Local\+Addr} () const
+\item 
+int {\bfseries Fd} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_n_net_1_1_t_socket_base}{NNet\+::\+TSocket\+Base$<$ TSock\+Ops $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries TSocket\+Base} (\mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \&poller, int domain, int type)
+\item 
+{\bfseries TSocket\+Base} (int fd, \mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \&poller)
+\item 
+{\bfseries TSocket\+Base} (const \mbox{\hyperlink{class_n_net_1_1_t_socket_base}{TSocket\+Base}} \&other)=delete
+\item 
+\mbox{\hyperlink{class_n_net_1_1_t_socket_base}{TSocket\+Base}} \& {\bfseries operator=} (\mbox{\hyperlink{class_n_net_1_1_t_socket_base}{TSocket\+Base}} \&other) const =delete
+\item 
+auto {\bfseries Read\+Some} (void \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
+\item 
+auto {\bfseries Read\+Some\+Yield} (void \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
+\item 
+auto {\bfseries Write\+Some} (const void \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
+\item 
+auto {\bfseries Write\+Some\+Yield} (const void \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
+\item 
+auto {\bfseries Monitor} ()
+\item 
+void {\bfseries Close} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_n_net_1_1_t_socket_ops}{NNet\+::\+TSocket\+Ops}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries TSocket\+Ops} (\mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \&poller, int domain, int type)
+\item 
+{\bfseries TSocket\+Ops} (int fd, \mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \&poller)
+\item 
+\mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \texorpdfstring{$\ast$}{*} {\bfseries Poller} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_n_net_1_1_t_socket_ops}{NNet\+::\+TSocket\+Ops}}}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries Create} (int domain, int type)
+\item 
+int {\bfseries Setup} (int s)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_n_net_1_1_t_socket}{NNet\+::\+TSocket}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::optional$<$ \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}} $>$ {\bfseries Local\+Addr\+\_\+}
+\item 
+std\+::optional$<$ \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}} $>$ {\bfseries Remote\+Addr\+\_\+}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_n_net_1_1_t_socket_ops}{NNet\+::\+TSocket\+Ops}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \texorpdfstring{$\ast$}{*} {\bfseries Poller\+\_\+} = nullptr
+\item 
+int {\bfseries Fd\+\_\+} = -\/1
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+coroio/socket.\+hpp\end{DoxyCompactItemize}

@@ -1,0 +1,35 @@
+\doxysection{kqueue.\+hpp}
+\hypertarget{kqueue_8hpp_source}{}\label{kqueue_8hpp_source}\index{coroio/kqueue.hpp@{coroio/kqueue.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <sys/types.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <sys/event.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <sys/time.h>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}poller.hpp"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}socket.hpp"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }NNet\ \{}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }TKqueue:\ \textcolor{keyword}{public}\ TPollerBase\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{using\ }TSocket\ =\ \mbox{\hyperlink{class_n_net_1_1_t_socket}{NNet::TSocket}};}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{using\ }TFileHandle\ =\ \mbox{\hyperlink{class_n_net_1_1_t_file_handle}{NNet::TFileHandle}};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ TKqueue();}
+\DoxyCodeLine{00018\ \ \ \ \ \string~TKqueue();}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ Poll();}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{int}\ Fd\_;}
+\DoxyCodeLine{00024\ \ \ \ \ std::vector<THandlePair>\ InEvents\_;\ \textcolor{comment}{//\ all\ events\ in\ kqueue}}
+\DoxyCodeLine{00025\ \ \ \ \ std::vector<struct\ kevent>\ ChangeList\_;}
+\DoxyCodeLine{00026\ \ \ \ \ std::vector<struct\ kevent>\ OutEvents\_;}
+\DoxyCodeLine{00027\ \};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \}\ \textcolor{comment}{//\ namespace\ NNet}}
+
+\end{DoxyCode}

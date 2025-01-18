@@ -1,0 +1,152 @@
+\doxysection{NNet\+::TByte\+Reader\texorpdfstring{$<$}{<} TSocket \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{struct_n_net_1_1_t_byte_reader}{}\label{struct_n_net_1_1_t_byte_reader}\index{NNet::TByteReader$<$ TSocket $>$@{NNet::TByteReader$<$ TSocket $>$}}
+
+
+A utility for reading data from a socket-\/like object, either a fixed number of bytes or until a specified delimiter.  
+
+
+
+
+{\ttfamily \#include $<$sockutils.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_n_net_1_1_t_byte_reader_a88f26215dec26ee31a0fd327b503ff19}{TByte\+Reader}} (\mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}} \&socket)
+\begin{DoxyCompactList}\small\item\em Constructs a reader for the given socket. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TFuture}}$<$ void $>$ \mbox{\hyperlink{struct_n_net_1_1_t_byte_reader_a06eec1258239223532bf1ef4d8e24eab}{Read}} (void \texorpdfstring{$\ast$}{*}data, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Reads exactly {\ttfamily size} bytes and stores them into {\ttfamily data}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TFuture}}$<$ std\+::string $>$ \mbox{\hyperlink{struct_n_net_1_1_t_byte_reader_a0fba0689cf0fc26d154189697742d286}{Read\+Until}} (const std\+::string \&delimiter)
+\begin{DoxyCompactList}\small\item\em Reads data until the given {\ttfamily delimiter} is encountered. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename \mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}}$>$\newline
+class NNet\+::\+TByte\+Reader$<$ TSocket $>$}
+A utility for reading data from a socket-\/like object, either a fixed number of bytes or until a specified delimiter. 
+
+This class manages an internal buffer so that any data read beyond what is immediately requested can be stored and used in subsequent reads.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em \doxylink{class_n_net_1_1_t_socket}{TSocket}} & The socket type used for reading bytes. It must provide a method {\ttfamily TFuture$<$ssize\+\_\+t$>$ Read\+Some(void\texorpdfstring{$\ast$}{*} buffer, size\+\_\+t size)} which returns\+:
+\begin{DoxyItemize}
+\item 0 on connection closure,
+\item a positive number for the count of bytes successfully read,
+\item a negative number to indicate a recoverable read error (in which case a retry may be attempted).
+\end{DoxyItemize}\\
+\hline
+\end{DoxyTemplParams}
+\hypertarget{struct_n_net_1_1_t_byte_reader_autotoc_md2}{}\doxysubsubsubsection{\texorpdfstring{Example Usage}{Example Usage}}\label{struct_n_net_1_1_t_byte_reader_autotoc_md2}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{TFuture<void>\ ExampleFunction(TSocket\&\ socket)\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_byte_reader_a88f26215dec26ee31a0fd327b503ff19}{TByteReader<TSocket>}}\ reader(socket);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Read\ a\ fixed\ number\ of\ bytes}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{char}\ data[128];}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{co\_await}\ reader.Read(data,\ \textcolor{keyword}{sizeof}(data));}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ 'data'\ now\ contains\ 128\ bytes\ read\ from\ the\ socket\ (or\ an\ exception\ is\ thrown\ on\ closure).}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Read\ until\ a\ specific\ delimiter,\ e.g.\ "{}\(\backslash\)r\(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ std::string\ line\ =\ \textcolor{keyword}{co\_await}\ reader.ReadUntil(\textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n"{}});}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ 'line'\ includes\ the\ "{}\(\backslash\)r\(\backslash\)n"{}\ delimiter\ at\ the\ end.}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{co\_return};}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{struct_n_net_1_1_t_byte_reader_a88f26215dec26ee31a0fd327b503ff19}\index{NNet::TByteReader$<$ TSocket $>$@{NNet::TByteReader$<$ TSocket $>$}!TByteReader@{TByteReader}}
+\index{TByteReader@{TByteReader}!NNet::TByteReader$<$ TSocket $>$@{NNet::TByteReader$<$ TSocket $>$}}
+\doxysubsubsection{\texorpdfstring{TByteReader()}{TByteReader()}}
+{\footnotesize\ttfamily \label{struct_n_net_1_1_t_byte_reader_a88f26215dec26ee31a0fd327b503ff19} 
+template$<$typename \mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}}$>$ \\
+\mbox{\hyperlink{struct_n_net_1_1_t_byte_reader}{NNet\+::\+TByte\+Reader}}$<$ \mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}} $>$\+::\+TByte\+Reader (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}} \&}]{socket}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a reader for the given socket. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em socket} & Reference to a socket-\/like object used for reading. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{struct_n_net_1_1_t_byte_reader_a06eec1258239223532bf1ef4d8e24eab}\index{NNet::TByteReader$<$ TSocket $>$@{NNet::TByteReader$<$ TSocket $>$}!Read@{Read}}
+\index{Read@{Read}!NNet::TByteReader$<$ TSocket $>$@{NNet::TByteReader$<$ TSocket $>$}}
+\doxysubsubsection{\texorpdfstring{Read()}{Read()}}
+{\footnotesize\ttfamily \label{struct_n_net_1_1_t_byte_reader_a06eec1258239223532bf1ef4d8e24eab} 
+template$<$typename \mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}}$>$ \\
+\mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TFuture}}$<$ void $>$ \mbox{\hyperlink{struct_n_net_1_1_t_byte_reader}{NNet\+::\+TByte\+Reader}}$<$ \mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}} $>$\+::\+Read (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{size\+\_\+t}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Reads exactly {\ttfamily size} bytes and stores them into {\ttfamily data}. 
+
+
+\begin{DoxyItemize}
+\item First uses any leftover bytes in the internal buffer.
+\item If more bytes are needed, repeatedly calls the socket\textquotesingle{}s Read\+Some() until the requested amount is fulfilled.
+\item Throws a std\+::runtime\+\_\+error if the socket is closed (Read\+Some returns 0) before all requested bytes are read.
+\item If Read\+Some returns a negative value, the read is retried.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer to the buffer where bytes will be stored. \\
+\hline
+{\em size} & The exact number of bytes to read.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A TFuture$<$void$>$ that completes when all bytes are read.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the connection is closed before {\ttfamily size} bytes are fully read. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{struct_n_net_1_1_t_byte_reader_a0fba0689cf0fc26d154189697742d286}\index{NNet::TByteReader$<$ TSocket $>$@{NNet::TByteReader$<$ TSocket $>$}!ReadUntil@{ReadUntil}}
+\index{ReadUntil@{ReadUntil}!NNet::TByteReader$<$ TSocket $>$@{NNet::TByteReader$<$ TSocket $>$}}
+\doxysubsubsection{\texorpdfstring{ReadUntil()}{ReadUntil()}}
+{\footnotesize\ttfamily \label{struct_n_net_1_1_t_byte_reader_a0fba0689cf0fc26d154189697742d286} 
+template$<$typename \mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}}$>$ \\
+\mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TFuture}}$<$ std\+::string $>$ \mbox{\hyperlink{struct_n_net_1_1_t_byte_reader}{NNet\+::\+TByte\+Reader}}$<$ \mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}} $>$\+::\+Read\+Until (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{delimiter}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Reads data until the given {\ttfamily delimiter} is encountered. 
+
+
+\begin{DoxyItemize}
+\item Searches the internal buffer for the delimiter.
+\item If found, returns all data up to and including the delimiter.
+\item If not found, appends the buffered data to the result and tries reading more data from the socket, repeating until the delimiter appears.
+\item Throws a std\+::runtime\+\_\+error if the socket is closed (Read\+Some returns 0) before the delimiter is found.
+\item If Read\+Some returns a negative value, the read is retried.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em delimiter} & The string to look for in the incoming data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A TFuture$<$std\+::string$>$ that completes once the delimiter is found, returning everything up to and including that delimiter.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the connection is closed before the delimiter is found. \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+coroio/sockutils.\+hpp\end{DoxyCompactItemize}

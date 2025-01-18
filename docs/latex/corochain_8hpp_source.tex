@@ -1,0 +1,225 @@
+\doxysection{corochain.\+hpp}
+\hypertarget{corochain_8hpp_source}{}\label{corochain_8hpp_source}\index{coroio/corochain.hpp@{coroio/corochain.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <coroutine>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <variant>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}promises.hpp"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}poller.hpp"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }NNet\ \{}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_n_net_1_1_t_final_awaiter}{TFinalAwaiter}};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValueTask}};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00019\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_n_net_1_1_t_value_promise_base}{TValuePromiseBase}}\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ std::suspend\_never\ initial\_suspend()\ \{\ \textcolor{keywordflow}{return}\ \{\};\ \}}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_final_awaiter}{TFinalAwaiter<T>}}\ final\_suspend()\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00022\ \ \ \ \ std::coroutine\_handle<>\ Caller\ =\ std::noop\_coroutine();}
+\DoxyCodeLine{00023\ \};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00026\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_n_net_1_1_t_value_promise}{TValuePromise}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{struct_n_net_1_1_t_value_promise_base}{TValuePromiseBase}}<T>\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValueTask<T>}}\ get\_return\_object();}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ return\_value(\textcolor{keyword}{const}\ T\&\ t)\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ ErrorOr\ =\ t;}
+\DoxyCodeLine{00031\ \ \ \ \ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ return\_value(T\&\&\ t)\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ ErrorOr\ =\ std::move(t);}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ unhandled\_exception()\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ ErrorOr\ =\ std::current\_exception();}
+\DoxyCodeLine{00039\ \ \ \ \ \}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ std::optional<std::variant<T,\ std::exception\_ptr>>\ ErrorOr;}
+\DoxyCodeLine{00042\ \};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00045\ \textcolor{keyword}{struct\ }TValueTaskBase\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ TValueTaskBase()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00047\ \ \ \ \ TValueTaskBase(\mbox{\hyperlink{struct_n_net_1_1_t_value_promise}{TValuePromise<T>}}\&\ promise)}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ :\ Coro(Coro.from\_promise(promise))}
+\DoxyCodeLine{00049\ \ \ \ \ \{\ \}}
+\DoxyCodeLine{00050\ \ \ \ \ TValueTaskBase(TValueTaskBase\&\&\ other)}
+\DoxyCodeLine{00051\ \ \ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ *\textcolor{keyword}{this}\ =\ std::move(other);}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \ \ \ \ TValueTaskBase(\textcolor{keyword}{const}\ TValueTaskBase\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00055\ \ \ \ \ TValueTaskBase\&\ operator=(\textcolor{keyword}{const}\ TValueTaskBase\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00056\ \ \ \ \ TValueTaskBase\&\ operator=(TValueTaskBase\&\&\ other)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ !=\ \&other)\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(Coro,\ other.Coro);}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \string~TValueTaskBase()\ \{\ \textcolor{keywordflow}{if}\ (Coro)\ \{\ Coro.destroy();\ \}\ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{bool}\ await\_ready()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Coro.promise().ErrorOr\ !=\ std::nullopt;}
+\DoxyCodeLine{00067\ \ \ \ \ \}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{bool}\ done()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Coro.done();}
+\DoxyCodeLine{00071\ \ \ \ \ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ std::coroutine\_handle<>\ raw()\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Coro;}
+\DoxyCodeLine{00075\ \ \ \ \ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ await\_suspend(std::coroutine\_handle<>\ caller)\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ Coro.promise().Caller\ =\ caller;}
+\DoxyCodeLine{00079\ \ \ \ \ \}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{using\ }promise\_type\ =\ \mbox{\hyperlink{struct_n_net_1_1_t_value_promise}{TValuePromise<T>}};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00084\ \ \ \ \ std::coroutine\_handle<TValuePromise<T>>\ Coro\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00085\ \};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{keyword}{template}<>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValueTask}}<void>;}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00090\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValueTask}}\ :\ \textcolor{keyword}{public}\ TValueTaskBase<T>\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ T\ await\_resume()\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\&\ errorOr\ =\ *this-\/>Coro.promise().ErrorOr;}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{auto}*\ res\ =\ std::get\_if<T>(\&errorOr))\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::move(*res);}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ std::rethrow\_exception(std::get<std::exception\_ptr>(errorOr));}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Func>}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{auto}\ Apply(Func\ func)\ -\/>\ \mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValueTask<decltype(func(std::declval<T>}}()))>\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ prev\ =\ std::move(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ ret\ =\ \textcolor{keyword}{co\_await}\ prev;}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_return}\ func(ret);}
+\DoxyCodeLine{00105\ \ \ \ \ \}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValueTask<void>}}\ Ignore();}
+\DoxyCodeLine{00108\ \};}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \textcolor{keyword}{template}<>}
+\DoxyCodeLine{00111\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_n_net_1_1_t_value_promise}{TValuePromise}}<void>:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{struct_n_net_1_1_t_value_promise_base}{TValuePromiseBase}}<void>\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValueTask<void>}}\ get\_return\_object();}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{void}\ return\_void()\ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ ErrorOr\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00116\ \ \ \ \ \}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{void}\ unhandled\_exception()\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ ErrorOr\ =\ std::current\_exception();}
+\DoxyCodeLine{00120\ \ \ \ \ \}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ std::optional<std::exception\_ptr>\ ErrorOr;}
+\DoxyCodeLine{00123\ \};}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \textcolor{keyword}{template}<>}
+\DoxyCodeLine{00126\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValueTask}}<void>\ :\ \textcolor{keyword}{public}\ TValueTaskBase<void>\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{void}\ await\_resume()\ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\&\ errorOr\ =\ *this-\/>Coro.promise().ErrorOr;}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (errorOr)\ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ std::rethrow\_exception(errorOr);}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00132\ \ \ \ \ \}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Func>}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keyword}{auto}\ Accept(Func\ func)\ -\/>\ \mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValueTask<void>}}\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ prev\ =\ std::move(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_await}\ prev;}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_return}\ func();}
+\DoxyCodeLine{00139\ \ \ \ \ \}}
+\DoxyCodeLine{00140\ \};}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00143\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValueTask<void>}}\ TValueTask<T>::Ignore()\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keyword}{auto}\ prev\ =\ std::move(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keyword}{co\_await}\ prev;}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keyword}{co\_return};}
+\DoxyCodeLine{00147\ \}}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00150\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_n_net_1_1_t_final_awaiter}{TFinalAwaiter}}\ \{}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordtype}{bool}\ await\_ready()\ \textcolor{keyword}{noexcept}\ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \}}
+\DoxyCodeLine{00152\ \ \ \ \ std::coroutine\_handle<>\ await\_suspend(std::coroutine\_handle<\mbox{\hyperlink{struct_n_net_1_1_t_value_promise}{TValuePromise<T>}}>\ h)\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ h.promise().Caller;}
+\DoxyCodeLine{00154\ \ \ \ \ \}}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordtype}{void}\ await\_resume()\ \textcolor{keyword}{noexcept}\ \{\ \}}
+\DoxyCodeLine{00156\ \};}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValueTask<void>}}\ TValuePromise<void>::get\_return\_object()\ \{\ \textcolor{keywordflow}{return}\ \{\ \mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValueTask<void>}}\{*\textcolor{keyword}{this}\}\ \};\ \}}
+\DoxyCodeLine{00159\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00160\ \mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValueTask<T>}}\ TValuePromise<T>::get\_return\_object()\ \{\ \textcolor{keywordflow}{return}\ \{\ \mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValueTask<T>}}\{*\textcolor{keyword}{this}\}\ \};\ \}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00164\ \mbox{\hyperlink{struct_n_net_1_1_t_final_awaiter}{TFinalAwaiter<T>}}\ TValuePromiseBase<T>::final\_suspend()\ noexcept\ \{\ \textcolor{keywordflow}{return}\ \{\};\ \}}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00167\ \textcolor{keyword}{using\ }TFuture\ =\ \mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValueTask<T>}};}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00170\ TFuture<std::vector<T>>\ All(std::vector<TFuture<T>>\&\&\ futures)\ \{}
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keyword}{auto}\ waiting\ =\ std::move(futures);}
+\DoxyCodeLine{00172\ \ \ \ \ std::vector<T>\ ret;\ ret.reserve(waiting.size());}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ f\ :\ waiting)\ \{}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ ret.emplace\_back(std::move(\textcolor{keyword}{co\_await}\ f));}
+\DoxyCodeLine{00175\ \ \ \ \ \}}
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keyword}{co\_return}\ ret;}
+\DoxyCodeLine{00177\ \}}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \textcolor{keyword}{inline}\ TFuture<void>\ All(std::vector<TFuture<void>>\&\&\ futures)\ \{}
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keyword}{auto}\ waiting\ =\ std::move(futures);}
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ f\ :\ waiting)\ \{}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_await}\ f;}
+\DoxyCodeLine{00183\ \ \ \ \ \}}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keyword}{co\_return};}
+\DoxyCodeLine{00185\ \}}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00188\ TFuture<T>\ Any(std::vector<TFuture<T>>\&\&\ futures)\ \{}
+\DoxyCodeLine{00189\ \ \ \ \ std::vector<TFuture<T>>\ all\ =\ std::move(futures);}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ std::find\_if(all.begin(),\ all.end(),\ [](\textcolor{keyword}{auto}\&\ f)\ \{\ return\ f.done();\ \});}
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ all.end())\ \{}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_return}\ it-\/>await\_resume();}
+\DoxyCodeLine{00194\ \ \ \ \ \}}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keyword}{auto}\ self\ =\ \textcolor{keyword}{co\_await}\ Self();}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ f\ :\ all)\ \{}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ f.await\_suspend(self);}
+\DoxyCodeLine{00199\ \ \ \ \ \}}
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keyword}{co\_await}\ std::suspend\_always();}
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keyword}{co\_return}\ std::find\_if(all.begin(),\ all.end(),\ [](\textcolor{keyword}{auto}\&\ f)\ \{\ return\ f.done();\ \})-\/>await\_resume();}
+\DoxyCodeLine{00202\ \}}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \textcolor{keyword}{inline}\ TFuture<void>\ Any(std::vector<TFuture<void>>\&\&\ futures)\ \{}
+\DoxyCodeLine{00205\ \ \ \ \ std::vector<TFuture<void>>\ all\ =\ std::move(futures);}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keywordflow}{if}\ (std::find\_if(all.begin(),\ all.end(),\ [](\textcolor{keyword}{auto}\&\ f)\ \{\ return\ f.done();\ \})\ !=\ all.end())\ \{}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_return};}
+\DoxyCodeLine{00209\ \ \ \ \ \}}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keyword}{auto}\ self\ =\ \textcolor{keyword}{co\_await}\ Self();}
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ f\ :\ all)\ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ f.await\_suspend(self);}
+\DoxyCodeLine{00214\ \ \ \ \ \}}
+\DoxyCodeLine{00215\ \ \ \ \ \textcolor{keyword}{co\_await}\ std::suspend\_always();}
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keyword}{co\_return};}
+\DoxyCodeLine{00217\ \}}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \}\ \textcolor{comment}{//\ namespace\ NNet}}
+
+\end{DoxyCode}

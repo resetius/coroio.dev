@@ -1,0 +1,52 @@
+\doxysection{NNet\+::TSsl\+Socket\texorpdfstring{$<$}{<} THandle \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_n_net_1_1_t_ssl_socket}{}\label{class_n_net_1_1_t_ssl_socket}\index{NNet::TSslSocket$<$ THandle $>$@{NNet::TSslSocket$<$ THandle $>$}}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_n_net_1_1_t_ssl_socket_a9cd9a1ab83fc16eef8eb56cbe5d64a9b}\label{class_n_net_1_1_t_ssl_socket_a9cd9a1ab83fc16eef8eb56cbe5d64a9b} 
+using {\bfseries TPoller} = typename THandle\+::\+TPoller
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_n_net_1_1_t_ssl_socket_aa6285cdf4966d7344c06e576b72eeedf}\label{class_n_net_1_1_t_ssl_socket_aa6285cdf4966d7344c06e576b72eeedf} 
+{\bfseries TSsl\+Socket} (THandle \&\&socket, \mbox{\hyperlink{struct_n_net_1_1_t_ssl_context}{TSsl\+Context}} \&ctx)
+\item 
+\Hypertarget{class_n_net_1_1_t_ssl_socket_af14e8ba25cfc8760b432dfb25ca91121}\label{class_n_net_1_1_t_ssl_socket_af14e8ba25cfc8760b432dfb25ca91121} 
+{\bfseries TSsl\+Socket} (\mbox{\hyperlink{class_n_net_1_1_t_ssl_socket}{TSsl\+Socket}} \&\&other)
+\item 
+\Hypertarget{class_n_net_1_1_t_ssl_socket_a2fbe5b80e6aaf2f4f9eccd5f299f8bc8}\label{class_n_net_1_1_t_ssl_socket_a2fbe5b80e6aaf2f4f9eccd5f299f8bc8} 
+\mbox{\hyperlink{class_n_net_1_1_t_ssl_socket}{TSsl\+Socket}} \& {\bfseries operator=} (\mbox{\hyperlink{class_n_net_1_1_t_ssl_socket}{TSsl\+Socket}} \&\&other)
+\item 
+\Hypertarget{class_n_net_1_1_t_ssl_socket_a5748bf22523aaa5bd83a27f91c684ec9}\label{class_n_net_1_1_t_ssl_socket_a5748bf22523aaa5bd83a27f91c684ec9} 
+{\bfseries TSsl\+Socket} (const \mbox{\hyperlink{class_n_net_1_1_t_ssl_socket}{TSsl\+Socket}} \&)=delete
+\item 
+\Hypertarget{class_n_net_1_1_t_ssl_socket_af87d86a89038f1d1d09819f8baa571ed}\label{class_n_net_1_1_t_ssl_socket_af87d86a89038f1d1d09819f8baa571ed} 
+\mbox{\hyperlink{class_n_net_1_1_t_ssl_socket}{TSsl\+Socket}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_n_net_1_1_t_ssl_socket}{TSsl\+Socket}} \&)=delete
+\item 
+\Hypertarget{class_n_net_1_1_t_ssl_socket_a418380e386bfd9f0636489f3c851f039}\label{class_n_net_1_1_t_ssl_socket_a418380e386bfd9f0636489f3c851f039} 
+void {\bfseries Ssl\+Set\+Tls\+Ext\+Host\+Name} (const std\+::string \&host)
+\item 
+\Hypertarget{class_n_net_1_1_t_ssl_socket_a2dd40b1b5bea7fce173e2dddebe61c19}\label{class_n_net_1_1_t_ssl_socket_a2dd40b1b5bea7fce173e2dddebe61c19} 
+\mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValue\+Task}}$<$ \mbox{\hyperlink{class_n_net_1_1_t_ssl_socket}{TSsl\+Socket}}$<$ THandle $>$ $>$ {\bfseries Accept} ()
+\item 
+\Hypertarget{class_n_net_1_1_t_ssl_socket_aa55de94f18326c4b6823ac0f9255f5ed}\label{class_n_net_1_1_t_ssl_socket_aa55de94f18326c4b6823ac0f9255f5ed} 
+\mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValue\+Task}}$<$ void $>$ {\bfseries Accept\+Handshake} ()
+\item 
+\Hypertarget{class_n_net_1_1_t_ssl_socket_aa660720125a2984fbb3b3ef892bccf55}\label{class_n_net_1_1_t_ssl_socket_aa660720125a2984fbb3b3ef892bccf55} 
+\mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValue\+Task}}$<$ void $>$ {\bfseries Connect} (const \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}} \&address, TTime deadline=TTime\+::max())
+\item 
+\Hypertarget{class_n_net_1_1_t_ssl_socket_a6852ccae0499d92423f9ba7ca5de2ed2}\label{class_n_net_1_1_t_ssl_socket_a6852ccae0499d92423f9ba7ca5de2ed2} 
+\mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValue\+Task}}$<$ ssize\+\_\+t $>$ {\bfseries Read\+Some} (void \texorpdfstring{$\ast$}{*}data, size\+\_\+t size)
+\item 
+\Hypertarget{class_n_net_1_1_t_ssl_socket_ab942aec31496c90ae7e16ab07da06548}\label{class_n_net_1_1_t_ssl_socket_ab942aec31496c90ae7e16ab07da06548} 
+\mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValue\+Task}}$<$ ssize\+\_\+t $>$ {\bfseries Write\+Some} (const void \texorpdfstring{$\ast$}{*}data, size\+\_\+t size)
+\item 
+\Hypertarget{class_n_net_1_1_t_ssl_socket_a8b5dfcf789f93bcc62bcedb3e899af15}\label{class_n_net_1_1_t_ssl_socket_a8b5dfcf789f93bcc62bcedb3e899af15} 
+auto {\bfseries Poller} ()
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+coroio/ssl.\+hpp\end{DoxyCompactItemize}

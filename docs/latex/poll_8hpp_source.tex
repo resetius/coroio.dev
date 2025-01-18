@@ -1,0 +1,44 @@
+\doxysection{poll.\+hpp}
+\hypertarget{poll_8hpp_source}{}\label{poll_8hpp_source}\index{coroio/poll.hpp@{coroio/poll.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <winsock2.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <poll.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <assert.h>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}base.hpp"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}poller.hpp"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}socket.hpp"{}}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }NNet\ \{}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_n_net_1_1_t_poll}{TPoll}}:\ \textcolor{keyword}{public}\ TPollerBase\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{using\ }TSocket\ =\ \mbox{\hyperlink{class_n_net_1_1_t_socket}{NNet::TSocket}};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{using\ }TFileHandle\ =\ \mbox{\hyperlink{class_n_net_1_1_t_file_handle}{NNet::TFileHandle}};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_n_net_1_1_t_poll}{TPoll}}();}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ Poll();}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00031\ \ \ \ \ std::vector<std::tuple<THandlePair,int>>\ InEvents\_;\ \textcolor{comment}{//\ event\ +\ index\ in\ Fds}}
+\DoxyCodeLine{00032\ \ \ \ \ std::vector<pollfd>\ Fds\_;}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{00034\ \ \ \ \ TSocket\ DummySocket\_;\ \textcolor{comment}{//\ for\ timeouts}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00036\ \};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \}\ \textcolor{comment}{//\ namespace\ NNet}}
+
+\end{DoxyCode}

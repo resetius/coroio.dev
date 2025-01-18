@@ -1,0 +1,204 @@
+\doxysection{poller.\+hpp}
+\hypertarget{poller_8hpp_source}{}\label{poller_8hpp_source}\index{coroio/poller.hpp@{coroio/poller.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <assert.h>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}base.hpp"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifdef\ Yield}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#undef\ Yield}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{namespace\ }NNet\ \{}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }TPollerBase\ \{}
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ TPollerBase()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00021\ \ \ \ \ TPollerBase(\textcolor{keyword}{const}\ TPollerBase\&\ )\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00022\ \ \ \ \ TPollerBase\&\ operator=(\textcolor{keyword}{const}\ TPollerBase\&\ )\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ AddTimer(TTime\ deadline,\ THandle\ h)\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ Timers\_.emplace(\mbox{\hyperlink{struct_n_net_1_1_t_timer}{TTimer}}\{deadline,\ TimerId\_,\ h\});}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TimerId\_++;}
+\DoxyCodeLine{00027\ \ \ \ \ \}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{bool}\ RemoveTimer(\textcolor{keywordtype}{unsigned}\ timerId,\ TTime\ deadline)\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ fired\ =\ timerId\ ==\ LastFiredTimer\_;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!fired)\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ Timers\_.emplace(\mbox{\hyperlink{struct_n_net_1_1_t_timer}{TTimer}}\{deadline,\ timerId,\ \{\}\});\ \textcolor{comment}{//\ insert\ empty\ timer\ before\ existing}}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ fired;}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ AddRead(\textcolor{keywordtype}{int}\ fd,\ THandle\ h)\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ MaxFd\_\ =\ std::max(MaxFd\_,\ fd);}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ Changes\_.emplace\_back(\mbox{\hyperlink{struct_n_net_1_1_t_event}{TEvent}}\{fd,\ TEvent::READ,\ h\});}
+\DoxyCodeLine{00040\ \ \ \ \ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ AddWrite(\textcolor{keywordtype}{int}\ fd,\ THandle\ h)\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ MaxFd\_\ =\ std::max(MaxFd\_,\ fd);}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ Changes\_.emplace\_back(\mbox{\hyperlink{struct_n_net_1_1_t_event}{TEvent}}\{fd,\ TEvent::WRITE,\ h\});}
+\DoxyCodeLine{00045\ \ \ \ \ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ AddRemoteHup(\textcolor{keywordtype}{int}\ fd,\ THandle\ h)\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ MaxFd\_\ =\ std::max(MaxFd\_,\ fd);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ Changes\_.emplace\_back(\mbox{\hyperlink{struct_n_net_1_1_t_event}{TEvent}}\{fd,\ TEvent::RHUP,\ h\});}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ RemoveEvent(\textcolor{keywordtype}{int}\ fd)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ resume\ waiting\ coroutines\ here}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ MaxFd\_\ =\ std::max(MaxFd\_,\ fd);}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ Changes\_.emplace\_back(\mbox{\hyperlink{struct_n_net_1_1_t_event}{TEvent}}\{fd,\ TEvent::READ|TEvent::WRITE|TEvent::RHUP,\ \{\}\});}
+\DoxyCodeLine{00056\ \ \ \ \ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ RemoveEvent(THandle\ \textcolor{comment}{/*h*/})\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ Add\ new\ vector\ for\ this\ type\ of\ removing}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Will\ be\ called\ in\ destuctor\ of\ unfinished\ futures}}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{auto}\ Sleep(TTime\ until)\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }TAwaitableSleep\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ TAwaitableSleep(TPollerBase*\ poller,\ TTime\ n)}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ poller(poller)}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ,\ n(n)}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \string~TAwaitableSleep()\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (poller)\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ poller-\/>RemoveTimer(timerId,\ n);}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ TAwaitableSleep(TAwaitableSleep\&\&\ other)}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ poller(other.poller)}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ,\ n(other.n)}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ other.poller\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ TAwaitableSleep(\textcolor{keyword}{const}\ TAwaitableSleep\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ TAwaitableSleep\&\ operator=(\textcolor{keyword}{const}\ TAwaitableSleep\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ await\_ready()\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ await\_suspend(std::coroutine\_handle<>\ h)\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ timerId\ =\ poller-\/>AddTimer(n,\ h);}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ await\_resume()\ \{\ poller\ =\ \textcolor{keyword}{nullptr};\ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ TPollerBase*\ poller;}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ TTime\ n;}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ timerId\ =\ 0;}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TAwaitableSleep\{\textcolor{keyword}{this},until\};}
+\DoxyCodeLine{00101\ \ \ \ \ \}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ Rep,\ \textcolor{keyword}{typename}\ Period>}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keyword}{auto}\ Sleep(std::chrono::duration<Rep,Period>\ duration)\ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Sleep(TClock::now()\ +\ duration);}
+\DoxyCodeLine{00106\ \ \ \ \ \}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keyword}{auto}\ Yield()\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Sleep(TTime\{\});}
+\DoxyCodeLine{00110\ \ \ \ \ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_n_net_1_1_t_poller_base_a402d1b611ee88296e5853f22cb559c0e}{Wakeup}}(\mbox{\hyperlink{struct_n_net_1_1_t_event}{TEvent}}\&\&\ change)\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ index\ =\ Changes\_.size();}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ change.Handle.resume();}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (change.Fd\ >=\ 0)\ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ matched\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (;\ index\ <\ Changes\_.size()\ \&\&\ !matched;\ index++)\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ matched\ =\ Changes\_[index].Match(change);}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!matched)\ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ change.Handle\ =\ \{\};}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Changes\_.emplace\_back(std::move(change));}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00143\ \ \ \ \ \}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordtype}{void}\ WakeupReadyHandles()\ \{}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\&\ ev\ :\ ReadyEvents\_)\ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_n_net_1_1_t_poller_base_a402d1b611ee88296e5853f22cb559c0e}{Wakeup}}(std::move(ev));}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00149\ \ \ \ \ \}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordtype}{void}\ SetMaxDuration(std::chrono::milliseconds\ maxDuration)\ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ MaxDuration\_\ =\ maxDuration;}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ MaxDurationTs\_\ =\ GetMaxDuration(MaxDuration\_);}
+\DoxyCodeLine{00154\ \ \ \ \ \}}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keyword}{auto}\ TimersSize()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Timers\_.size();}
+\DoxyCodeLine{00158\ \ \ \ \ \}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00161\ \ \ \ \ timespec\ GetTimeout()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Timers\_.empty()}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ ?\ MaxDurationTs\_}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ :\ Timers\_.top().Deadline\ ==\ TTime\{\}}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ?\ timespec\ \{0,\ 0\}}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ GetTimespec(TClock::now(),\ Timers\_.top().Deadline,\ MaxDuration\_);}
+\DoxyCodeLine{00167\ \ \ \ \ \}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ timespec\ GetMaxDuration(std::chrono::milliseconds\ duration)\ \{}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ p1\ =\ std::chrono::duration\_cast<std::chrono::seconds>(duration);}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ p2\ =\ std::chrono::duration\_cast<std::chrono::nanoseconds>(duration\ -\/\ p1);}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ timespec\ ts;}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ ts.tv\_sec\ =\ p1.count();}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ ts.tv\_nsec\ =\ p2.count();}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ts;}
+\DoxyCodeLine{00176\ \ \ \ \ \}}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keywordtype}{void}\ Reset()\ \{}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ ReadyEvents\_.clear();}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ Changes\_.clear();}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ MaxFd\_\ =\ 0;}
+\DoxyCodeLine{00182\ \ \ \ \ \}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordtype}{void}\ ProcessTimers()\ \{}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ now\ =\ TClock::now();}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ first\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ prevId\ =\ 0;}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!Timers\_.empty()\&\&Timers\_.top().Deadline\ <=\ now)\ \{}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ TTimer\ timer\ =\ Timers\_.top();\ Timers\_.pop();}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((first\ ||\ prevId\ !=\ timer.Id)\ \&\&\ timer.Handle)\ \{\ \textcolor{comment}{//\ skip\ removed\ timers}}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LastFiredTimer\_\ =\ timer.Id;}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ timer.Handle.resume();}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ first\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ prevId\ =\ timer.Id;}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ LastTimersProcessTime\_\ =\ now;}
+\DoxyCodeLine{00202\ \ \ \ \ \}}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keywordtype}{int}\ MaxFd\_\ =\ -\/1;}
+\DoxyCodeLine{00205\ \ \ \ \ std::vector<TEvent>\ Changes\_;}
+\DoxyCodeLine{00206\ \ \ \ \ std::vector<TEvent>\ ReadyEvents\_;}
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ TimerId\_\ =\ 0;}
+\DoxyCodeLine{00208\ \ \ \ \ std::priority\_queue<TTimer>\ Timers\_;}
+\DoxyCodeLine{00209\ \ \ \ \ TTime\ LastTimersProcessTime\_;}
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ LastFiredTimer\_\ =\ (unsigned)(-\/1);}
+\DoxyCodeLine{00211\ \ \ \ \ std::chrono::milliseconds\ MaxDuration\_\ =\ std::chrono::milliseconds(100);}
+\DoxyCodeLine{00212\ \ \ \ \ timespec\ MaxDurationTs\_\ =\ GetMaxDuration(MaxDuration\_);}
+\DoxyCodeLine{00213\ \};}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \}\ \textcolor{comment}{//\ namespace\ NNet}}
+
+\end{DoxyCode}

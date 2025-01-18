@@ -1,0 +1,67 @@
+\doxysection{NNet\+::TLoop\texorpdfstring{$<$}{<} TPoller \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_n_net_1_1_t_loop}{}\label{class_n_net_1_1_t_loop}\index{NNet::TLoop$<$ TPoller $>$@{NNet::TLoop$<$ TPoller $>$}}
+
+
+A generic event loop wrapper that uses TSelect as its poller.  
+
+
+
+
+{\ttfamily \#include $<$loop.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_n_net_1_1_t_loop_af3ab33e9a2fc311254a15935861990dc}\label{class_n_net_1_1_t_loop_af3ab33e9a2fc311254a15935861990dc} 
+void {\bfseries Loop} ()
+\begin{DoxyCompactList}\small\item\em Runs the main loop until \doxylink{class_n_net_1_1_t_loop_a3b3f1469844eaa90ad8d0326d361793b}{Stop()} is called. \end{DoxyCompactList}\item 
+\Hypertarget{class_n_net_1_1_t_loop_a3b3f1469844eaa90ad8d0326d361793b}\label{class_n_net_1_1_t_loop_a3b3f1469844eaa90ad8d0326d361793b} 
+void {\bfseries Stop} ()
+\begin{DoxyCompactList}\small\item\em Stops the loop. \end{DoxyCompactList}\item 
+\Hypertarget{class_n_net_1_1_t_loop_ad528377d1b81c264334d7271953b6e2b}\label{class_n_net_1_1_t_loop_ad528377d1b81c264334d7271953b6e2b} 
+void {\bfseries Step} ()
+\begin{DoxyCompactList}\small\item\em Performs a single iteration of polling and waking up ready handles. \end{DoxyCompactList}\item 
+\Hypertarget{class_n_net_1_1_t_loop_a70077ce7da8cc7d14c5b44a8e50a9a0c}\label{class_n_net_1_1_t_loop_a70077ce7da8cc7d14c5b44a8e50a9a0c} 
+TPoller \& {\bfseries Poller} ()
+\begin{DoxyCompactList}\small\item\em Provides access to the underlying poller instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename TPoller$>$\newline
+class NNet\+::\+TLoop$<$ TPoller $>$}
+A generic event loop wrapper that uses TSelect as its poller. 
+
+The event loop continuously calls \doxylink{class_n_net_1_1_t_loop_ad528377d1b81c264334d7271953b6e2b}{Step()} until explicitly stopped via \doxylink{class_n_net_1_1_t_loop_a3b3f1469844eaa90ad8d0326d361793b}{Stop()}.\hypertarget{class_n_net_1_1_t_loop_autotoc_md0}{}\doxysubsubsubsection{\texorpdfstring{Example Usage}{Example Usage}}\label{class_n_net_1_1_t_loop_autotoc_md0}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ main()\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Instantiate\ the\ event\ loop\ with\ TSelect}}
+\DoxyCodeLine{\ \ \ \ TLoop<TSelect>\ loop;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Run\ a\ single\ iteration\ of\ polling\ and\ wakeup}}
+\DoxyCodeLine{\ \ \ \ loop.Step();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Stop\ the\ loop}}
+\DoxyCodeLine{\ \ \ \ loop.Stop();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Alternatively,\ to\ run\ continuously:}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ loop.Loop();\ //\ Will\ keep\ calling\ Step()\ until\ Stop()\ is\ called}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TPoller} & A type that provides polling and wakeup mechanisms (TSelect here). \\
+\hline
+\end{DoxyTemplParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+coroio/loop.\+hpp\end{DoxyCompactItemize}

@@ -1,0 +1,127 @@
+\doxysection{NNet\+::TLine\+Splitter Class Reference}
+\hypertarget{struct_n_net_1_1_t_line_splitter}{}\label{struct_n_net_1_1_t_line_splitter}\index{NNet::TLineSplitter@{NNet::TLineSplitter}}
+
+
+Splits incoming data into lines using a circular buffer of fixed capacity.  
+
+
+
+
+{\ttfamily \#include $<$sockutils.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_n_net_1_1_t_line_splitter_ae268d7739985d5dec43907da825579c1}{TLine\+Splitter}} (int max\+Len)
+\begin{DoxyCompactList}\small\item\em Constructs a line splitter with a fixed ring buffer capacity. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_n_net_1_1_t_line}{TLine}} \mbox{\hyperlink{struct_n_net_1_1_t_line_splitter_af1ce0b2638579861c43b8bde322aa468}{Pop}} ()
+\begin{DoxyCompactList}\small\item\em Retrieves and removes the next complete line from the buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{struct_n_net_1_1_t_line_splitter_a3147a073f1421daec77a92512cbb0132}{Push}} (const char \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Appends new data to the circular buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Splits incoming data into lines using a circular buffer of fixed capacity. 
+
+This class maintains a ring buffer of maximum length ({\ttfamily max\+Len}), allowing you to push new data in and then pop complete lines without additional copying. When a line wraps around the circular boundary, it is represented in two segments. A corresponding {\ttfamily \doxylink{struct_n_net_1_1_t_line}{TLine}} object holds these segments as string views ({\ttfamily Part1} and {\ttfamily Part2}).\hypertarget{struct_n_net_1_1_t_line_splitter_autotoc_md5}{}\doxysubsubsubsection{\texorpdfstring{Important Notes}{Important Notes}}\label{struct_n_net_1_1_t_line_splitter_autotoc_md5}
+
+\begin{DoxyItemize}
+\item The maximum capacity of the buffer is given by {\ttfamily max\+Len}. Pushing more data than the available space may cause old data to be overwritten or an implementation-\/defined behavior.
+\item The returned {\ttfamily \doxylink{struct_n_net_1_1_t_line}{TLine}} references the internal buffer via string views. Any subsequent push operations (or further pops) may invalidate these views.
+\end{DoxyItemize}\hypertarget{struct_n_net_1_1_t_line_splitter_autotoc_md6}{}\doxysubsubsubsection{\texorpdfstring{Example Usage}{Example Usage}}\label{struct_n_net_1_1_t_line_splitter_autotoc_md6}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Suppose\ TLine\ is\ defined\ as:}}
+\DoxyCodeLine{\textcolor{comment}{//\ struct\ TLine\ \{}}
+\DoxyCodeLine{\textcolor{comment}{//\ \ \ \ \ std::string\_view\ Part1;}}
+\DoxyCodeLine{\textcolor{comment}{//\ \ \ \ \ std::string\_view\ Part2;\ //\ empty\ if\ the\ line\ doesn't\ wrap\ around}}
+\DoxyCodeLine{\textcolor{comment}{//\ \};}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ main()\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_line_splitter_ae268d7739985d5dec43907da825579c1}{TLineSplitter}}\ splitter(1024);\ \textcolor{comment}{//\ up\ to\ 1024\ bytes\ of\ data\ stored}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Push\ some\ data\ containing\ two\ lines}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ data\ =\ \textcolor{stringliteral}{"{}Hello\(\backslash\)nWorld\(\backslash\)n"{}};}
+\DoxyCodeLine{\ \ \ \ splitter.Push(data,\ std::strlen(data));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Pop\ the\ first\ line\ -\/>\ "{}Hello"{}}}
+\DoxyCodeLine{\ \ \ \ TLine\ line1\ =\ splitter.Pop();}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ line1.Part1:\ "{}Hello"{}}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ line1.Part2:\ "{}"{}\ (empty,\ not\ wrapped)}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Pop\ the\ second\ line\ -\/>\ "{}World"{}}}
+\DoxyCodeLine{\ \ \ \ TLine\ line2\ =\ splitter.Pop();}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ line2.Part1:\ "{}World"{}}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ line2.Part2:\ "{}"{}\ (empty,\ not\ wrapped)}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{struct_n_net_1_1_t_line_splitter_ae268d7739985d5dec43907da825579c1}\index{NNet::TLineSplitter@{NNet::TLineSplitter}!TLineSplitter@{TLineSplitter}}
+\index{TLineSplitter@{TLineSplitter}!NNet::TLineSplitter@{NNet::TLineSplitter}}
+\doxysubsubsection{\texorpdfstring{TLineSplitter()}{TLineSplitter()}}
+{\footnotesize\ttfamily \label{struct_n_net_1_1_t_line_splitter_ae268d7739985d5dec43907da825579c1} 
+NNet\+::\+TLine\+Splitter\+::\+TLine\+Splitter (\begin{DoxyParamCaption}\item[{int}]{max\+Len}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a line splitter with a fixed ring buffer capacity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em max\+Len} & The maximum number of bytes the circular buffer can hold. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{struct_n_net_1_1_t_line_splitter_af1ce0b2638579861c43b8bde322aa468}\index{NNet::TLineSplitter@{NNet::TLineSplitter}!Pop@{Pop}}
+\index{Pop@{Pop}!NNet::TLineSplitter@{NNet::TLineSplitter}}
+\doxysubsubsection{\texorpdfstring{Pop()}{Pop()}}
+{\footnotesize\ttfamily \label{struct_n_net_1_1_t_line_splitter_af1ce0b2638579861c43b8bde322aa468} 
+\mbox{\hyperlink{struct_n_net_1_1_t_line}{TLine}} NNet\+::\+TLine\+Splitter\+::\+Pop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves and removes the next complete line from the buffer. 
+
+A line is typically delimited by a newline character (implementation-\/specific). If the line crosses the circular boundary, {\ttfamily \doxylink{struct_n_net_1_1_t_line}{TLine}} will contain two parts\+:
+\begin{DoxyItemize}
+\item {\ttfamily Part1} referencing the tail end of the buffer,
+\item {\ttfamily Part2} referencing the beginning portion.
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Returns}
+A {\ttfamily \doxylink{struct_n_net_1_1_t_line}{TLine}} object with string views that reference the extracted line. If there is no complete line available, behavior may be undefined or implementation-\/dependent (e.\+g., returns an empty line or throws).
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+The returned {\ttfamily \doxylink{struct_n_net_1_1_t_line}{TLine}\textquotesingle{}s} string views are valid only until the next call to \doxylink{struct_n_net_1_1_t_line_splitter_a3147a073f1421daec77a92512cbb0132}{Push()} or further modifications to the buffer. 
+\end{DoxyWarning}
+\Hypertarget{struct_n_net_1_1_t_line_splitter_a3147a073f1421daec77a92512cbb0132}\index{NNet::TLineSplitter@{NNet::TLineSplitter}!Push@{Push}}
+\index{Push@{Push}!NNet::TLineSplitter@{NNet::TLineSplitter}}
+\doxysubsubsection{\texorpdfstring{Push()}{Push()}}
+{\footnotesize\ttfamily \label{struct_n_net_1_1_t_line_splitter_a3147a073f1421daec77a92512cbb0132} 
+void NNet\+::\+TLine\+Splitter\+::\+Push (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{buf}{, }\item[{size\+\_\+t}]{size}{}\end{DoxyParamCaption})}
+
+
+
+Appends new data to the circular buffer. 
+
+The data is copied into the ring buffer without extra allocations. If the buffer does not have enough free space, the runtime\+\_\+exception is thrown.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & Pointer to the raw bytes to insert. \\
+\hline
+{\em size} & Number of bytes to insert from {\ttfamily buf}. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+coroio/sockutils.\+hpp\end{DoxyCompactItemize}

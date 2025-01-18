@@ -1,0 +1,546 @@
+\doxysection{socket.\+hpp}
+\hypertarget{socket_8hpp_source}{}\label{socket_8hpp_source}\index{coroio/socket.hpp@{coroio/socket.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <winsock2.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <ws2tcpip.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <io.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <arpa/inet.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <sys/stat.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <sys/socket.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <sys/types.h>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <netinet/in.h>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <fcntl.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <variant>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}poller.hpp"{}}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}address.hpp"{}}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{namespace\ }NNet\ \{}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }TSocketOps\ \{}
+\DoxyCodeLine{00026\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \ \ TSocketOps(\mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPollerBase}}\&\ poller,\ \textcolor{keywordtype}{int}\ domain,\ \textcolor{keywordtype}{int}\ type);}
+\DoxyCodeLine{00028\ \ \ \ \ TSocketOps(\textcolor{keywordtype}{int}\ fd,\ \mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPollerBase}}\&\ poller);}
+\DoxyCodeLine{00029\ \ \ \ \ TSocketOps()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPollerBase}}*\ Poller()\ \{\ \textcolor{keywordflow}{return}\ Poller\_;\ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ Create(\textcolor{keywordtype}{int}\ domain,\ \textcolor{keywordtype}{int}\ type);}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{int}\ Setup(\textcolor{keywordtype}{int}\ s);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPollerBase}}*\ Poller\_\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{int}\ Fd\_\ =\ -\/1;}
+\DoxyCodeLine{00039\ \};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TSockOps>}
+\DoxyCodeLine{00042\ \textcolor{keyword}{class\ }TSocketBase:\ \textcolor{keyword}{public}\ TSocketOps\ \{}
+\DoxyCodeLine{00043\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00044\ \ \ \ \ TSocketBase(\mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPollerBase}}\&\ poller,\ \textcolor{keywordtype}{int}\ domain,\ \textcolor{keywordtype}{int}\ type):\ TSocketOps(poller,\ domain,\ type)}
+\DoxyCodeLine{00045\ \ \ \ \ \{\ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ TSocketBase(\textcolor{keywordtype}{int}\ fd,\ \mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPollerBase}}\&\ poller):\ TSocketOps(fd,\ poller)}
+\DoxyCodeLine{00048\ \ \ \ \ \{\ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ TSocketBase()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00051\ \ \ \ \ TSocketBase(\textcolor{keyword}{const}\ TSocketBase\&\ other)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00052\ \ \ \ \ TSocketBase\&\ operator=(TSocketBase\&\ other)\ \textcolor{keyword}{const}\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \string~TSocketBase()\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ Close();}
+\DoxyCodeLine{00056\ \ \ \ \ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{auto}\ ReadSome(\textcolor{keywordtype}{void}*\ buf,\ \textcolor{keywordtype}{size\_t}\ size)\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }TAwaitableRead:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{struct_n_net_1_1_t_socket_base_1_1_t_awaitable}{TAwaitable}}<TAwaitableRead>\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ run()\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>ret\ =\ TSockOps::read(this-\/>fd,\ this-\/>b,\ this-\/>s);}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ await\_suspend(std::coroutine\_handle<>\ h)\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>poller-\/>AddRead(this-\/>fd,\ h);}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TAwaitableRead\{Poller\_,Fd\_,buf,size\};}
+\DoxyCodeLine{00069\ \ \ \ \ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{comment}{//\ force\ read\ on\ next\ loop\ iteration}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{auto}\ ReadSomeYield(\textcolor{keywordtype}{void}*\ buf,\ \textcolor{keywordtype}{size\_t}\ size)\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }TAwaitableRead:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{struct_n_net_1_1_t_socket_base_1_1_t_awaitable}{TAwaitable}}<TAwaitableRead>\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ await\_ready()\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (this-\/>ready\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ run()\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>ret\ =\ TSockOps::read(this-\/>fd,\ this-\/>b,\ this-\/>s);}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ await\_suspend(std::coroutine\_handle<>\ h)\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>poller-\/>AddRead(this-\/>fd,\ h);}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TAwaitableRead\{Poller\_,Fd\_,buf,size\};}
+\DoxyCodeLine{00087\ \ \ \ \ \}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{auto}\ WriteSome(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ buf,\ \textcolor{keywordtype}{size\_t}\ size)\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }TAwaitableWrite:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{struct_n_net_1_1_t_socket_base_1_1_t_awaitable}{TAwaitable}}<TAwaitableWrite>\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ run()\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>ret\ =\ TSockOps::write(this-\/>fd,\ this-\/>b,\ this-\/>s);}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ await\_suspend(std::coroutine\_handle<>\ h)\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>poller-\/>AddWrite(this-\/>fd,\ h);}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TAwaitableWrite\{Poller\_,Fd\_,\textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{void}*\textcolor{keyword}{>}(buf),size\};}
+\DoxyCodeLine{00100\ \ \ \ \ \}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keyword}{auto}\ WriteSomeYield(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ buf,\ \textcolor{keywordtype}{size\_t}\ size)\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }TAwaitableWrite:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{struct_n_net_1_1_t_socket_base_1_1_t_awaitable}{TAwaitable}}<TAwaitableWrite>\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ await\_ready()\ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (this-\/>ready\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ run()\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>ret\ =\ TSockOps::write(this-\/>fd,\ this-\/>b,\ this-\/>s);}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ await\_suspend(std::coroutine\_handle<>\ h)\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>poller-\/>AddWrite(this-\/>fd,\ h);}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TAwaitableWrite\{Poller\_,Fd\_,\textcolor{keyword}{const\_cast<}\textcolor{keywordtype}{void}*\textcolor{keyword}{>}(buf),size\};}
+\DoxyCodeLine{00117\ \ \ \ \ \}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{auto}\ Monitor()\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }TAwaitableClose:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{struct_n_net_1_1_t_socket_base_1_1_t_awaitable}{TAwaitable}}<TAwaitableClose>\ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ run()\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>ret\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ await\_suspend(std::coroutine\_handle<>\ h)\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>poller-\/>AddRemoteHup(this-\/>fd,\ h);}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TAwaitableClose\{Poller\_,Fd\_\};}
+\DoxyCodeLine{00130\ \ \ \ \ \}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{void}\ Close()}
+\DoxyCodeLine{00133\ \ \ \ \ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Fd\_\ >=\ 0)\ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ TSockOps::close(Fd\_);}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ Poller\_-\/>RemoveEvent(Fd\_);}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ Fd\_\ =\ -\/1;}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00139\ \ \ \ \ \}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_n_net_1_1_t_socket_base_1_1_t_awaitable}{TAwaitable}}\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ await\_ready()\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ SafeRun();}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (ready\ =\ (ret\ >=\ 0));}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ await\_resume()\ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!ready)\ \{}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SafeRun();}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SafeRun()\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ ((T*)\textcolor{keyword}{this})-\/>run();}
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ret\ <\ 0\ \&\&\ WSAGetLastError()\ !=\ WSAEWOULDBLOCK\ )\ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::system\_error(WSAGetLastError(),\ std::generic\_category());}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00162\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ret\ <\ 0\ \&\&\ !(errno==EINTR||errno==EAGAIN||errno==EINPROGRESS))\ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::system\_error(errno,\ std::generic\_category());}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00166\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPollerBase}}*\ poller\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ fd\ =\ -\/1;}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ b\ =\ \textcolor{keyword}{nullptr};\ \textcolor{keywordtype}{size\_t}\ s\ =\ 0;}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ ret\ =\ -\/1;}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ ready\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00174\ \ \ \ \ \};}
+\DoxyCodeLine{00175\ \};}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_n_net_1_1_t_file_ops}{TFileOps}}\ \{}
+\DoxyCodeLine{00178\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ read(\textcolor{keywordtype}{int}\ fd,\ \textcolor{keywordtype}{void}*\ buf,\ \textcolor{keywordtype}{size\_t}\ count)\ \{}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ return\ ::read(fd,\ buf,\ count);}
+\DoxyCodeLine{00181\ \ \ \ \ \}}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ write(\textcolor{keywordtype}{int}\ fd,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ buf,\ \textcolor{keywordtype}{size\_t}\ count)\ \{}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ return\ ::write(fd,\ buf,\ count);}
+\DoxyCodeLine{00185\ \ \ \ \ \}}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ close(\textcolor{keywordtype}{int}\ fd)\ \{}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ return\ ::close(fd);}
+\DoxyCodeLine{00189\ \ \ \ \ \}}
+\DoxyCodeLine{00190\ \};}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \textcolor{keyword}{class\ }TFileHandle:\ \textcolor{keyword}{public}\ TSocketBase<TFileOps>\ \{}
+\DoxyCodeLine{00193\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00194\ \ \ \ \ TFileHandle(\textcolor{keywordtype}{int}\ fd,\ \mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPollerBase}}\&\ poller)}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ :\ TSocketBase(fd,\ poller)}
+\DoxyCodeLine{00196\ \ \ \ \ \{\ \}}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \ \ \ \ TFileHandle(TFileHandle\&\&\ other);}
+\DoxyCodeLine{00199\ \ \ \ \ TFileHandle\&\ operator=(TFileHandle\&\&\ other);}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \ \ TFileHandle()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00202\ \};}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_n_net_1_1_t_sock_ops}{TSockOps}}\ \{}
+\DoxyCodeLine{00205\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ read(\textcolor{keywordtype}{int}\ fd,\ \textcolor{keywordtype}{void}*\ buf,\ \textcolor{keywordtype}{size\_t}\ count)\ \{}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ return\ ::recv(fd,\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(buf),\ count,\ 0);}
+\DoxyCodeLine{00208\ \ \ \ \ \}}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ write(\textcolor{keywordtype}{int}\ fd,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ buf,\ \textcolor{keywordtype}{size\_t}\ count)\ \{}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ return\ ::send(fd,\ \textcolor{keyword}{static\_cast<}\textcolor{keyword}{const\ }\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(buf),\ count,\ 0);}
+\DoxyCodeLine{00212\ \ \ \ \ \}}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ close(\textcolor{keywordtype}{int}\ fd)\ \{}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fd\ >=\ 0)\ \{}
+\DoxyCodeLine{00216\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ ::closesocket(fd);}
+\DoxyCodeLine{00218\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ ::close(fd);}
+\DoxyCodeLine{00220\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00222\ \ \ \ \ \}}
+\DoxyCodeLine{00223\ \};}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \textcolor{keyword}{class\ }TSocket:\ \textcolor{keyword}{public}\ TSocketBase<TSockOps>\ \{}
+\DoxyCodeLine{00226\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keyword}{using\ }TPoller\ =\ \mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPollerBase}};}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \ \ \ \ TSocket()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \ \ \ \ TSocket(\mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPollerBase}}\&\ poller,\ \textcolor{keywordtype}{int}\ domain,\ \textcolor{keywordtype}{int}\ type\ =\ SOCK\_STREAM);}
+\DoxyCodeLine{00232\ \ \ \ \ TSocket(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}}\&\ addr,\ \textcolor{keywordtype}{int}\ fd,\ \mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPollerBase}}\&\ poller);}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \ \ \ \ TSocket(TSocket\&\&\ other);}
+\DoxyCodeLine{00235\ \ \ \ \ TSocket\&\ operator=(TSocket\&\&\ other);}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keyword}{auto}\ Connect(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}}\&\ addr,\ TTime\ deadline\ =\ TTime::max())\ \{}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (RemoteAddr\_.has\_value())\ \{}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Already\ connected"{}});}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ RemoteAddr\_\ =\ addr;}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_n_net_1_1_t_socket_base_1_1_t_awaitable}{TAwaitable}}\ \{}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ await\_ready()\ \{}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ ret\ =\ connect(fd,\ addr.first,\ addr.second);}
+\DoxyCodeLine{00245\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ret\ <\ 0\ \&\&\ WSAGetLastError()\ !=\ WSAEWOULDBLOCK)\ \{}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::system\_error(WSAGetLastError(),\ std::generic\_category(),\ \textcolor{stringliteral}{"{}connect"{}});}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00249\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ret\ <\ 0\ \&\&\ !(errno\ ==\ EINTR||errno==EAGAIN||errno==EINPROGRESS))\ \{}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::system\_error(errno,\ std::generic\_category(),\ \textcolor{stringliteral}{"{}connect"{}});}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00253\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ret\ >=\ 0;}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ await\_suspend(std::coroutine\_handle<>\ h)\ \{}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ poller-\/>AddWrite(fd,\ h);}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (deadline\ !=\ TTime::max())\ \{}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ timerId\ =\ poller-\/>AddTimer(deadline,\ h);}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ await\_resume()\ \{}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (deadline\ !=\ TTime::max()\ \&\&\ poller-\/>RemoveTimer(timerId,\ deadline))\ \{}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::system\_error(std::make\_error\_code(std::errc::timed\_out));}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPollerBase}}*\ poller;}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ fd;}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ std::pair<const\ sockaddr*,\ int>\ addr;}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ TTime\ deadline;}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ timerId\ =\ 0;}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_n_net_1_1_t_socket_base_1_1_t_awaitable}{TAwaitable}}\{Poller\_,\ Fd\_,\ RemoteAddr\_-\/>RawAddr(),\ deadline\};}
+\DoxyCodeLine{00277\ \ \ \ \ \}}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00279\ \ \ \ \ \textcolor{keyword}{auto}\ Accept()\ \{}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_n_net_1_1_t_socket_base_1_1_t_awaitable}{TAwaitable}}\ \{}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ await\_ready()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \}}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ await\_suspend(std::coroutine\_handle<>\ h)\ \{}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ poller-\/>AddRead(fd,\ h);}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ TSocket\ await\_resume()\ \{}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ clientaddr[\textcolor{keyword}{sizeof}(sockaddr\_in6)];}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ socklen\_t\ len\ =\ \textcolor{keyword}{sizeof}(sockaddr\_in6);}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ clientfd\ =\ accept(fd,\ \textcolor{keyword}{reinterpret\_cast<}sockaddr*\textcolor{keyword}{>}(\&clientaddr[0]),\ \&len);}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (clientfd\ <\ 0)\ \{}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::system\_error(errno,\ std::generic\_category(),\ \textcolor{stringliteral}{"{}accept"{}});}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TSocket\{\mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}}\{\textcolor{keyword}{reinterpret\_cast<}sockaddr*\textcolor{keyword}{>}(\&clientaddr[0]),\ len\},\ clientfd,\ *poller\};}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPollerBase}}*\ poller;}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ fd;}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_n_net_1_1_t_socket_base_1_1_t_awaitable}{TAwaitable}}\{Poller\_,\ Fd\_\};}
+\DoxyCodeLine{00302\ \ \ \ \ \}}
+\DoxyCodeLine{00303\ }
+\DoxyCodeLine{00304\ \ \ \ \ \textcolor{keywordtype}{void}\ Bind(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}}\&\ addr);}
+\DoxyCodeLine{00305\ \ \ \ \ \textcolor{keywordtype}{void}\ Listen(\textcolor{keywordtype}{int}\ backlog\ =\ 128);}
+\DoxyCodeLine{00306\ \ \ \ \ \textcolor{keyword}{const}\ std::optional<TAddress>\&\ RemoteAddr()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00307\ \ \ \ \ \textcolor{keyword}{const}\ std::optional<TAddress>\&\ LocalAddr()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00308\ \ \ \ \ \textcolor{keywordtype}{int}\ Fd()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00310\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00311\ \ \ \ \ std::optional<TAddress>\ LocalAddr\_;}
+\DoxyCodeLine{00312\ \ \ \ \ std::optional<TAddress>\ RemoteAddr\_;}
+\DoxyCodeLine{00313\ \};}
+\DoxyCodeLine{00314\ }
+\DoxyCodeLine{00315\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00316\ \textcolor{keyword}{class\ }TPollerDrivenSocket:\ \textcolor{keyword}{public}\ TSocket}
+\DoxyCodeLine{00317\ \{}
+\DoxyCodeLine{00318\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00319\ \ \ \ \ \textcolor{keyword}{using\ }TPoller\ =\ T;}
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00321\ \ \ \ \ TPollerDrivenSocket(T\&\ poller,\ \textcolor{keywordtype}{int}\ domain,\ \textcolor{keywordtype}{int}\ type\ =\ SOCK\_STREAM)}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ :\ TSocket(poller,\ domain,\ type)}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ ,\ Poller\_(\&poller)}
+\DoxyCodeLine{00324\ \ \ \ \ \{}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ Poller\_-\/>Register(Fd\_);}
+\DoxyCodeLine{00326\ \ \ \ \ \}}
+\DoxyCodeLine{00327\ }
+\DoxyCodeLine{00328\ \ \ \ \ TPollerDrivenSocket(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}}\&\ addr,\ \textcolor{keywordtype}{int}\ fd,\ T\&\ poller)}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ :\ TSocket(addr,\ fd,\ poller)}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ ,\ Poller\_(\&poller)}
+\DoxyCodeLine{00331\ \ \ \ \ \{}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ Poller\_-\/>Register(Fd\_);}
+\DoxyCodeLine{00333\ \ \ \ \ \}}
+\DoxyCodeLine{00334\ }
+\DoxyCodeLine{00335\ \ \ \ \ TPollerDrivenSocket(\textcolor{keywordtype}{int}\ fd,\ T\&\ poller)}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ :\ TSocket(\{\},\ fd,\ poller)}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ ,\ Poller\_(\&poller)}
+\DoxyCodeLine{00338\ \ \ \ \ \{}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ Poller\_-\/>Register(Fd\_);}
+\DoxyCodeLine{00340\ \ \ \ \ \}}
+\DoxyCodeLine{00341\ }
+\DoxyCodeLine{00342\ \ \ \ \ TPollerDrivenSocket()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00343\ }
+\DoxyCodeLine{00344\ \ \ \ \ \textcolor{keyword}{auto}\ Accept()\ \{}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_n_net_1_1_t_socket_base_1_1_t_awaitable}{TAwaitable}}\ \{}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ await\_ready()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \}}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ await\_suspend(std::coroutine\_handle<>\ h)\ \{}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ poller-\/>Accept(fd,\ \textcolor{keyword}{reinterpret\_cast<}sockaddr*\textcolor{keyword}{>}(\&addr[0]),\ \&len,\ h);}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00350\ }
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \ \ \ \ TPollerDrivenSocket<T>\ await\_resume()\ \{}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ clientfd\ =\ poller-\/>Result();}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (clientfd\ <\ 0)\ \{}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::system\_error(-\/clientfd,\ std::generic\_category(),\ \textcolor{stringliteral}{"{}accept"{}});}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00356\ }
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TPollerDrivenSocket<T>\{\mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}}\{\textcolor{keyword}{reinterpret\_cast<}sockaddr*\textcolor{keyword}{>}(\&addr[0]),\ len\},\ clientfd,\ *poller\};}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \ \ \ \ T*\ poller;}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ fd;}
+\DoxyCodeLine{00362\ }
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ addr[2*(\textcolor{keyword}{sizeof}(sockaddr\_in6)+16)]\ =\ \{0\};\ \textcolor{comment}{//\ use\ additional\ memory\ for\ windows}}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \ \ \ \ socklen\_t\ len\ =\ \textcolor{keyword}{sizeof}(addr);}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00366\ }
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_n_net_1_1_t_socket_base_1_1_t_awaitable}{TAwaitable}}\{Poller\_,\ Fd\_\};}
+\DoxyCodeLine{00368\ \ \ \ \ \}}
+\DoxyCodeLine{00369\ }
+\DoxyCodeLine{00370\ \ \ \ \ \textcolor{keyword}{auto}\ Connect(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}}\&\ addr,\ TTime\ deadline\ =\ TTime::max())\ \{}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (RemoteAddr\_.has\_value())\ \{}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Already\ connected"{}});}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ RemoteAddr\_\ =\ addr;}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_n_net_1_1_t_socket_base_1_1_t_awaitable}{TAwaitable}}\ \{}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ await\_ready()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \}}
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ await\_suspend(std::coroutine\_handle<>\ h)\ \{}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ poller-\/>Connect(fd,\ addr.first,\ addr.second,\ h);}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (deadline\ !=\ TTime::max())\ \{}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ timerId\ =\ poller-\/>AddTimer(deadline,\ h);}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00384\ }
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ await\_resume()\ \{}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (deadline\ !=\ TTime::max()\ \&\&\ poller-\/>RemoveTimer(timerId,\ deadline))\ \{}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ poller-\/>Cancel(fd);}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::system\_error(std::make\_error\_code(std::errc::timed\_out));}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ ret\ =\ poller-\/>Result();}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ret\ <\ 0)\ \{}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::system\_error(-\/ret,\ std::generic\_category(),\ \textcolor{stringliteral}{"{}connect"{}});}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00395\ }
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \ \ \ \ T*\ poller;}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ fd;}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \ \ \ \ std::pair<const\ sockaddr*,\ int>\ addr;}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ \ \ \ \ TTime\ deadline;}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ timerId\ =\ 0;}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_n_net_1_1_t_socket_base_1_1_t_awaitable}{TAwaitable}}\{Poller\_,\ Fd\_,\ RemoteAddr()-\/>RawAddr(),\ deadline\};}
+\DoxyCodeLine{00403\ \ \ \ \ \}}
+\DoxyCodeLine{00404\ }
+\DoxyCodeLine{00405\ \ \ \ \ \textcolor{keyword}{auto}\ ReadSome(\textcolor{keywordtype}{void}*\ buf,\ \textcolor{keywordtype}{size\_t}\ size)\ \{}
+\DoxyCodeLine{00406\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_n_net_1_1_t_socket_base_1_1_t_awaitable}{TAwaitable}}\ \{}
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ await\_ready()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \}}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ await\_suspend(std::coroutine\_handle<>\ h)\ \{}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ poller-\/>Recv(fd,\ buf,\ size,\ h);}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00411\ }
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ \ \ \ \ ssize\_t\ await\_resume()\ \{}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ ret\ =\ poller-\/>Result();}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ret\ <\ 0)\ \{}
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::system\_error(-\/ret,\ std::generic\_category());}
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00419\ }
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ \ \ \ \ T*\ poller;}
+\DoxyCodeLine{00421\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ fd;}
+\DoxyCodeLine{00422\ }
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ buf;}
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ size;}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00426\ }
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_n_net_1_1_t_socket_base_1_1_t_awaitable}{TAwaitable}}\{Poller\_,\ Fd\_,\ buf,\ size\};}
+\DoxyCodeLine{00428\ \ \ \ \ \}}
+\DoxyCodeLine{00429\ }
+\DoxyCodeLine{00430\ \ \ \ \ \textcolor{keyword}{auto}\ WriteSome(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ buf,\ \textcolor{keywordtype}{size\_t}\ size)\ \{}
+\DoxyCodeLine{00431\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_n_net_1_1_t_socket_base_1_1_t_awaitable}{TAwaitable}}\ \{}
+\DoxyCodeLine{00432\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ await\_ready()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \}}
+\DoxyCodeLine{00433\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ await\_suspend(std::coroutine\_handle<>\ h)\ \{}
+\DoxyCodeLine{00434\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ poller-\/>Send(fd,\ buf,\ size,\ h);}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00436\ }
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ \ \ \ \ ssize\_t\ await\_resume()\ \{}
+\DoxyCodeLine{00438\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ ret\ =\ poller-\/>Result();}
+\DoxyCodeLine{00439\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ret\ <\ 0)\ \{}
+\DoxyCodeLine{00440\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::system\_error(-\/ret,\ std::generic\_category());}
+\DoxyCodeLine{00441\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00442\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00444\ }
+\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ \ \ \ \ T*\ poller;}
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ fd;}
+\DoxyCodeLine{00447\ }
+\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ buf;}
+\DoxyCodeLine{00449\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ size;}
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00451\ }
+\DoxyCodeLine{00452\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_n_net_1_1_t_socket_base_1_1_t_awaitable}{TAwaitable}}\{Poller\_,\ Fd\_,\ buf,\ size\};}
+\DoxyCodeLine{00453\ \ \ \ \ \}}
+\DoxyCodeLine{00454\ }
+\DoxyCodeLine{00455\ \ \ \ \ \textcolor{keyword}{auto}\ WriteSomeYield(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ buf,\ \textcolor{keywordtype}{size\_t}\ size)\ \{}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ WriteSome(buf,\ size);}
+\DoxyCodeLine{00457\ \ \ \ \ \}}
+\DoxyCodeLine{00458\ }
+\DoxyCodeLine{00459\ \ \ \ \ \textcolor{keyword}{auto}\ ReadSomeYield(\textcolor{keywordtype}{void}*\ buf,\ \textcolor{keywordtype}{size\_t}\ size)\ \{}
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ReadSome(buf,\ size);}
+\DoxyCodeLine{00461\ \ \ \ \ \}}
+\DoxyCodeLine{00462\ }
+\DoxyCodeLine{00463\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00464\ \ \ \ \ T*\ Poller\_;}
+\DoxyCodeLine{00465\ \};}
+\DoxyCodeLine{00466\ }
+\DoxyCodeLine{00467\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00468\ \textcolor{keyword}{class\ }TPollerDrivenFileHandle:\ \textcolor{keyword}{public}\ TFileHandle}
+\DoxyCodeLine{00469\ \{}
+\DoxyCodeLine{00470\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00471\ \ \ \ \ \textcolor{keyword}{using\ }TPoller\ =\ T;}
+\DoxyCodeLine{00472\ }
+\DoxyCodeLine{00473\ \ \ \ \ TPollerDrivenFileHandle(\textcolor{keywordtype}{int}\ fd,\ T\&\ poller)}
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \ \ :\ TFileHandle(fd,\ poller)}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ ,\ Poller\_(\&poller)}
+\DoxyCodeLine{00476\ \ \ \ \ \{\ \}}
+\DoxyCodeLine{00477\ }
+\DoxyCodeLine{00478\ \ \ \ \ \textcolor{keyword}{auto}\ ReadSome(\textcolor{keywordtype}{void}*\ buf,\ \textcolor{keywordtype}{size\_t}\ size)\ \{}
+\DoxyCodeLine{00479\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }TAwaitable\ \{}
+\DoxyCodeLine{00480\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ await\_ready()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \}}
+\DoxyCodeLine{00481\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ await\_suspend(std::coroutine\_handle<>\ h)\ \{}
+\DoxyCodeLine{00482\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ poller-\/>Read(fd,\ buf,\ size,\ h);}
+\DoxyCodeLine{00483\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00484\ }
+\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ \ \ \ \ ssize\_t\ await\_resume()\ \{}
+\DoxyCodeLine{00486\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ ret\ =\ poller-\/>Result();}
+\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ret\ <\ 0)\ \{}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::system\_error(-\/ret,\ std::generic\_category());}
+\DoxyCodeLine{00489\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00490\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{00491\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00492\ }
+\DoxyCodeLine{00493\ \ \ \ \ \ \ \ \ \ \ \ \ T*\ poller;}
+\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ fd;}
+\DoxyCodeLine{00495\ }
+\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ buf;}
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ size;}
+\DoxyCodeLine{00498\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00499\ }
+\DoxyCodeLine{00500\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TAwaitable\{Poller\_,\ Fd\_,\ buf,\ size\};}
+\DoxyCodeLine{00501\ \ \ \ \ \}}
+\DoxyCodeLine{00502\ }
+\DoxyCodeLine{00503\ \ \ \ \ \textcolor{keyword}{auto}\ WriteSome(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ buf,\ \textcolor{keywordtype}{size\_t}\ size)\ \{}
+\DoxyCodeLine{00504\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }TAwaitable\ \{}
+\DoxyCodeLine{00505\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ await\_ready()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \}}
+\DoxyCodeLine{00506\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ await\_suspend(std::coroutine\_handle<>\ h)\ \{}
+\DoxyCodeLine{00507\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ poller-\/>Write(fd,\ buf,\ size,\ h);}
+\DoxyCodeLine{00508\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00509\ }
+\DoxyCodeLine{00510\ \ \ \ \ \ \ \ \ \ \ \ \ ssize\_t\ await\_resume()\ \{}
+\DoxyCodeLine{00511\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ ret\ =\ poller-\/>Result();}
+\DoxyCodeLine{00512\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ret\ <\ 0)\ \{}
+\DoxyCodeLine{00513\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::system\_error(-\/ret,\ std::generic\_category());}
+\DoxyCodeLine{00514\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00515\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{00516\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00517\ }
+\DoxyCodeLine{00518\ \ \ \ \ \ \ \ \ \ \ \ \ T*\ poller;}
+\DoxyCodeLine{00519\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ fd;}
+\DoxyCodeLine{00520\ }
+\DoxyCodeLine{00521\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ buf;}
+\DoxyCodeLine{00522\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ size;}
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00524\ }
+\DoxyCodeLine{00525\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TAwaitable\{Poller\_,\ Fd\_,\ buf,\ size\};}
+\DoxyCodeLine{00526\ \ \ \ \ \}}
+\DoxyCodeLine{00527\ }
+\DoxyCodeLine{00528\ \ \ \ \ \textcolor{keyword}{auto}\ WriteSomeYield(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ buf,\ \textcolor{keywordtype}{size\_t}\ size)\ \{}
+\DoxyCodeLine{00529\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ WriteSome(buf,\ size);}
+\DoxyCodeLine{00530\ \ \ \ \ \}}
+\DoxyCodeLine{00531\ }
+\DoxyCodeLine{00532\ \ \ \ \ \textcolor{keyword}{auto}\ ReadSomeYield(\textcolor{keywordtype}{void}*\ buf,\ \textcolor{keywordtype}{size\_t}\ size)\ \{}
+\DoxyCodeLine{00533\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ReadSome(buf,\ size);}
+\DoxyCodeLine{00534\ \ \ \ \ \}}
+\DoxyCodeLine{00535\ }
+\DoxyCodeLine{00536\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00537\ \ \ \ \ T*\ Poller\_;}
+\DoxyCodeLine{00538\ \};}
+\DoxyCodeLine{00539\ }
+\DoxyCodeLine{00540\ \}\ \textcolor{comment}{//\ namespace\ NNet}}
+
+\end{DoxyCode}

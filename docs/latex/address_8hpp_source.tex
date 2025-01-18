@@ -1,0 +1,46 @@
+\doxysection{address.\+hpp}
+\hypertarget{address_8hpp_source}{}\label{address_8hpp_source}\index{coroio/address.hpp@{coroio/address.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <winsock2.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <ws2tcpip.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <io.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <arpa/inet.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <sys/stat.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <sys/socket.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <sys/types.h>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <netinet/in.h>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <fcntl.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <variant>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{namespace\ }NNet\ \{}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_n_net_1_1_t_address_a8e6dec505c6c070dbb6b17af99324571}{TAddress}}\ \{}
+\DoxyCodeLine{00031\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{class_n_net_1_1_t_address_a8e6dec505c6c070dbb6b17af99324571}{TAddress}}(\textcolor{keyword}{const}\ std::string\&\ addr,\ \textcolor{keywordtype}{int}\ port);}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{class_n_net_1_1_t_address_a0dc940ecb0a11756ec1d92eca658774e}{TAddress}}(sockaddr\_in\ addr);}
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{class_n_net_1_1_t_address_adf1438f4914d2fa7e800fdf06f578925}{TAddress}}(sockaddr\_in6\ addr);}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{class_n_net_1_1_t_address_aa916bdd49176596c50edda1a60a9cc56}{TAddress}}(sockaddr*\ addr,\ socklen\_t\ len);}
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{class_n_net_1_1_t_address_a31c934529b2e67e102e479fa2fdd6912}{TAddress}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{const}\ std::variant<sockaddr\_in,\ sockaddr\_in6>\&\ \mbox{\hyperlink{class_n_net_1_1_t_address_a570e6467fd514471994692466f3e4a1b}{Addr}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00094\ \ \ \ \ std::pair<const\ sockaddr*,\ int>\ \mbox{\hyperlink{class_n_net_1_1_t_address_a0875a9f8b94bab7f67f05d4f01991c68}{RawAddr}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_n_net_1_1_t_address_aee6344fad787d9511129dee6c9230b94}{operator\ ==\ }}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_n_net_1_1_t_address_a8e6dec505c6c070dbb6b17af99324571}{TAddress}}\&\ other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_n_net_1_1_t_address_a23d57a7dc6ae5d181fcfd67a58ee6a5d}{Domain}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00122\ \ \ \ \ \mbox{\hyperlink{class_n_net_1_1_t_address_a8e6dec505c6c070dbb6b17af99324571}{TAddress}}\ \mbox{\hyperlink{class_n_net_1_1_t_address_ac86c33475caacabe898a2a5f15027a77}{WithPort}}(\textcolor{keywordtype}{int}\ port)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00132\ \ \ \ \ std::string\ \mbox{\hyperlink{class_n_net_1_1_t_address_ab09fa22477089035585b4b9877a50702}{ToString}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00135\ \ \ \ \ std::variant<sockaddr\_in,\ sockaddr\_in6>\ Addr\_\ =\ \{\};}
+\DoxyCodeLine{00136\ \};}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \}\ \textcolor{comment}{//\ namespace\ NNet}}
+
+\end{DoxyCode}

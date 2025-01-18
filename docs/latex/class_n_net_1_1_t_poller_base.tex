@@ -1,0 +1,118 @@
+\doxysection{NNet\+::TPoller\+Base Class Reference}
+\hypertarget{class_n_net_1_1_t_poller_base}{}\label{class_n_net_1_1_t_poller_base}\index{NNet::TPollerBase@{NNet::TPollerBase}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_base_a236d38889ae16fecc1774a5db08f231d}\label{class_n_net_1_1_t_poller_base_a236d38889ae16fecc1774a5db08f231d} 
+{\bfseries TPoller\+Base} (const \mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \&)=delete
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_base_ab382c207c85dce19bf43e172da5a3174}\label{class_n_net_1_1_t_poller_base_ab382c207c85dce19bf43e172da5a3174} 
+\mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \&)=delete
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_base_a66e728fd17de36c493a0e915115d417e}\label{class_n_net_1_1_t_poller_base_a66e728fd17de36c493a0e915115d417e} 
+unsigned {\bfseries Add\+Timer} (TTime deadline, THandle h)
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_base_a9bbf27b42f97eded40eb715f56340025}\label{class_n_net_1_1_t_poller_base_a9bbf27b42f97eded40eb715f56340025} 
+bool {\bfseries Remove\+Timer} (unsigned timer\+Id, TTime deadline)
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_base_ab6a316e28273f1867347ccf08933f506}\label{class_n_net_1_1_t_poller_base_ab6a316e28273f1867347ccf08933f506} 
+void {\bfseries Add\+Read} (int fd, THandle h)
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_base_a89b328d4fd41f981d576dd48463ab5b2}\label{class_n_net_1_1_t_poller_base_a89b328d4fd41f981d576dd48463ab5b2} 
+void {\bfseries Add\+Write} (int fd, THandle h)
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_base_a0572e77df07a824c0c4948fc548a7d4e}\label{class_n_net_1_1_t_poller_base_a0572e77df07a824c0c4948fc548a7d4e} 
+void {\bfseries Add\+Remote\+Hup} (int fd, THandle h)
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_base_aa07a131f7224e0c939e2df9b83982146}\label{class_n_net_1_1_t_poller_base_aa07a131f7224e0c939e2df9b83982146} 
+void {\bfseries Remove\+Event} (int fd)
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_base_ab78789b92e7aa174e72c3d569deec1e7}\label{class_n_net_1_1_t_poller_base_ab78789b92e7aa174e72c3d569deec1e7} 
+void {\bfseries Remove\+Event} (THandle)
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_base_a9550c4ddfa4a29b3723ee00098617dc5}\label{class_n_net_1_1_t_poller_base_a9550c4ddfa4a29b3723ee00098617dc5} 
+auto {\bfseries Sleep} (TTime until)
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_base_af9264dcf4631dfa5d7a79148f36905d1}\label{class_n_net_1_1_t_poller_base_af9264dcf4631dfa5d7a79148f36905d1} 
+{\footnotesize template$<$typename Rep, typename Period$>$ }\\auto {\bfseries Sleep} (std\+::chrono\+::duration$<$ Rep, Period $>$ duration)
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_base_aea08fab15fd419093ffc18b9a5b5b267}\label{class_n_net_1_1_t_poller_base_aea08fab15fd419093ffc18b9a5b5b267} 
+auto {\bfseries Yield} ()
+\item 
+void \mbox{\hyperlink{class_n_net_1_1_t_poller_base_a402d1b611ee88296e5853f22cb559c0e}{Wakeup}} (\mbox{\hyperlink{struct_n_net_1_1_t_event}{TEvent}} \&\&change)
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_base_af6804d6768be5be6254355ec5fb143e9}\label{class_n_net_1_1_t_poller_base_af6804d6768be5be6254355ec5fb143e9} 
+void {\bfseries Wakeup\+Ready\+Handles} ()
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_base_a53a432cfd20b24377c78a25f351dd6ff}\label{class_n_net_1_1_t_poller_base_a53a432cfd20b24377c78a25f351dd6ff} 
+void {\bfseries Set\+Max\+Duration} (std\+::chrono\+::milliseconds max\+Duration)
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_base_a9df9e635e76b7c333c3db6cb45950996}\label{class_n_net_1_1_t_poller_base_a9df9e635e76b7c333c3db6cb45950996} 
+auto {\bfseries Timers\+Size} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_base_a0008a394cf1744e9369e60bcf75cdfc5}\label{class_n_net_1_1_t_poller_base_a0008a394cf1744e9369e60bcf75cdfc5} 
+timespec {\bfseries Get\+Timeout} () const
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_base_a4b9dbb4524e688ab7fbb2139a2cf39cb}\label{class_n_net_1_1_t_poller_base_a4b9dbb4524e688ab7fbb2139a2cf39cb} 
+void {\bfseries Reset} ()
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_base_a5552a86441c63d811e6a0d6039d391bd}\label{class_n_net_1_1_t_poller_base_a5552a86441c63d811e6a0d6039d391bd} 
+void {\bfseries Process\+Timers} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_base_ad9dd7feb761339f5c7aa0614ed4a6d35}\label{class_n_net_1_1_t_poller_base_ad9dd7feb761339f5c7aa0614ed4a6d35} 
+static constexpr timespec {\bfseries Get\+Max\+Duration} (std\+::chrono\+::milliseconds duration)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_base_a89d1a51b43037fd32359536167119b95}\label{class_n_net_1_1_t_poller_base_a89d1a51b43037fd32359536167119b95} 
+int {\bfseries Max\+Fd\+\_\+} = -\/1
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_base_ac5ee3ec8bf6d2c2a7d233fca320cd44e}\label{class_n_net_1_1_t_poller_base_ac5ee3ec8bf6d2c2a7d233fca320cd44e} 
+std\+::vector$<$ \mbox{\hyperlink{struct_n_net_1_1_t_event}{TEvent}} $>$ {\bfseries Changes\+\_\+}
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_base_a879f1f18716aa8dcc4acdf3a2091b6d2}\label{class_n_net_1_1_t_poller_base_a879f1f18716aa8dcc4acdf3a2091b6d2} 
+std\+::vector$<$ \mbox{\hyperlink{struct_n_net_1_1_t_event}{TEvent}} $>$ {\bfseries Ready\+Events\+\_\+}
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_base_ae087572babbd8152aa25a6ac385a9c02}\label{class_n_net_1_1_t_poller_base_ae087572babbd8152aa25a6ac385a9c02} 
+unsigned {\bfseries Timer\+Id\+\_\+} = 0
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_base_a97bb349d12b646020bc2584bc1251627}\label{class_n_net_1_1_t_poller_base_a97bb349d12b646020bc2584bc1251627} 
+std\+::priority\+\_\+queue$<$ \mbox{\hyperlink{struct_n_net_1_1_t_timer}{TTimer}} $>$ {\bfseries Timers\+\_\+}
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_base_aba0ad77d59297e66413565ca9b71cd33}\label{class_n_net_1_1_t_poller_base_aba0ad77d59297e66413565ca9b71cd33} 
+TTime {\bfseries Last\+Timers\+Process\+Time\+\_\+}
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_base_a5b134a972d3eee29a0e758cf5b198f6b}\label{class_n_net_1_1_t_poller_base_a5b134a972d3eee29a0e758cf5b198f6b} 
+unsigned {\bfseries Last\+Fired\+Timer\+\_\+} = (unsigned)(-\/1)
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_base_a1984b2e5e91c537e4938a9900bed294d}\label{class_n_net_1_1_t_poller_base_a1984b2e5e91c537e4938a9900bed294d} 
+std\+::chrono\+::milliseconds {\bfseries Max\+Duration\+\_\+} = std\+::chrono\+::milliseconds(100)
+\item 
+\Hypertarget{class_n_net_1_1_t_poller_base_a98e530e56732cf5bd44cee9bcb560e1f}\label{class_n_net_1_1_t_poller_base_a98e530e56732cf5bd44cee9bcb560e1f} 
+timespec {\bfseries Max\+Duration\+Ts\+\_\+} = Get\+Max\+Duration(Max\+Duration\+\_\+)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_n_net_1_1_t_poller_base_a402d1b611ee88296e5853f22cb559c0e}\index{NNet::TPollerBase@{NNet::TPollerBase}!Wakeup@{Wakeup}}
+\index{Wakeup@{Wakeup}!NNet::TPollerBase@{NNet::TPollerBase}}
+\doxysubsubsection{\texorpdfstring{Wakeup()}{Wakeup()}}
+{\footnotesize\ttfamily \label{class_n_net_1_1_t_poller_base_a402d1b611ee88296e5853f22cb559c0e} 
+void NNet\+::\+TPoller\+Base\+::\+Wakeup (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_n_net_1_1_t_event}{TEvent}} \&\&}]{change}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Wakes up the coroutine associated with the given \doxylink{struct_n_net_1_1_t_event}{TEvent} {\ttfamily change}, then checks whether that coroutine has added a new wait on the same file descriptor (Fd). We first store the current size of the {\ttfamily Changes\+\_\+} vector and call {\ttfamily change.\+Handle.\+resume()}.
+
+If after resuming, the coroutine does NOT add (or match) a wait entry for {\ttfamily change.\+Fd}, we assume that this descriptor is not in use yet and remove it from the poller by resetting {\ttfamily change.\+Handle} and appending {\ttfamily change} to {\ttfamily Changes\+\_\+}.
+
+In most cases, {\ttfamily Changes\+\_\+} grows by exactly one entry after resuming a coroutine (it suspends again on a descriptor), but there are scenarios where it can grow by more than one. For example, one coroutine might launch another coroutine without waiting; that second coroutine suspends on Read\+Some/\+Write\+Some, returns control to the first coroutine, which then also suspends on Read\+Some/\+Write\+Some. In that chain of calls, multiple new waits can be added before returning here, so {\ttfamily Changes\+\_\+} can increase by 2 (or potentially more) in a single wake-\/up cycle. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+coroio/poller.\+hpp\end{DoxyCompactItemize}

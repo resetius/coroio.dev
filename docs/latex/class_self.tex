@@ -1,0 +1,39 @@
+\doxysection{Self Class Reference}
+\hypertarget{class_self}{}\label{class_self}\index{Self@{Self}}
+
+
+A minimal example of a coroutine "{}awaitable"{} object.  
+
+
+
+
+{\ttfamily \#include $<$promises.\+hpp$>$}
+
+
+
+\doxysubsection{Detailed Description}
+A minimal example of a coroutine "{}awaitable"{} object. 
+
+This structure stores a coroutine handle and demonstrates how a coroutine can be suspended and resumed.\hypertarget{class_self_autotoc_md1}{}\doxysubsubsubsection{\texorpdfstring{Example Usage}{Example Usage}}\label{class_self_autotoc_md1}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ A\ simple\ coroutine\ that\ uses\ 'Self'\ as\ an\ awaitable:}}
+\DoxyCodeLine{std::coroutine\_handle<>\ exampleCoroutine()\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ co\_await\ our\ custom\ awaitable}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ handle\ =\ \textcolor{keyword}{co\_await}\ Self\{\};}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ 'handle'\ is\ a\ std::coroutine\_handle\ to\ this\ coroutine.}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ You\ can\ perform\ actions\ like\ handle.destroy(),\ handle.resume(),\ etc.}}
+\DoxyCodeLine{\ \ \ \ ...}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+Internally, it captures the coroutine handle in its await\+\_\+suspend step. 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+coroio/promises.\+hpp\end{DoxyCompactItemize}

@@ -13,14 +13,15 @@ exclude:
   - LICENSE
   - Gemfile
   - .gitignore
-  - docs
 
 header_pages:
   - _pages/benchmarks.md
   - _pages/source.md
+  - _pages/docs.md
 
 include:
   - _pages
+  - docs
 
 github_username: resetius
 linkedin_username: alexey-ozeritskiy
