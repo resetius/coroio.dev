@@ -28,7 +28,7 @@
 \DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_byte_reader_a88f26215dec26ee31a0fd327b503ff19}{TByteReader}}(\mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}}\&\ socket)}
 \DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ :\ Socket(socket)}
 \DoxyCodeLine{00062\ \ \ \ \ \{\ \}}
-\DoxyCodeLine{00080\ \ \ \ \ TFuture<void>\ \mbox{\hyperlink{struct_n_net_1_1_t_byte_reader_a06eec1258239223532bf1ef4d8e24eab}{Read}}(\textcolor{keywordtype}{void}*\ data,\ \textcolor{keywordtype}{size\_t}\ size)\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<void>}}\ \mbox{\hyperlink{struct_n_net_1_1_t_byte_reader_a06eec1258239223532bf1ef4d8e24eab}{Read}}(\textcolor{keywordtype}{void}*\ data,\ \textcolor{keywordtype}{size\_t}\ size)\ \{}
 \DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}*\ p\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(data);}
 \DoxyCodeLine{00082\ }
 \DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!Buffer.empty())\ \{}
@@ -52,7 +52,7 @@
 \DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_return};}
 \DoxyCodeLine{00103\ \ \ \ \ \}}
-\DoxyCodeLine{00121\ \ \ \ \ TFuture<std::string>\ \mbox{\hyperlink{struct_n_net_1_1_t_byte_reader_a0fba0689cf0fc26d154189697742d286}{ReadUntil}}(\textcolor{keyword}{const}\ std::string\&\ delimiter)}
+\DoxyCodeLine{00121\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<std::string>}}\ \mbox{\hyperlink{struct_n_net_1_1_t_byte_reader_a0fba0689cf0fc26d154189697742d286}{ReadUntil}}(\textcolor{keyword}{const}\ std::string\&\ delimiter)}
 \DoxyCodeLine{00122\ \ \ \ \ \{}
 \DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ std::string\ result;}
 \DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ tempBuffer[1024];}
@@ -93,7 +93,7 @@
 \DoxyCodeLine{00195\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_byte_writer_a5d0ccd2ed16ef6c4d0fa5bccbb8b113e}{TByteWriter}}(\mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}}\&\ socket)}
 \DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ :\ Socket(socket)}
 \DoxyCodeLine{00197\ \ \ \ \ \{\ \}}
-\DoxyCodeLine{00213\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValueTask<void>}}\ \mbox{\hyperlink{struct_n_net_1_1_t_byte_writer_a2a77c89db4f196b917ee79f2d42300e5}{Write}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ data,\ \textcolor{keywordtype}{size\_t}\ size)\ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<void>}}\ \mbox{\hyperlink{struct_n_net_1_1_t_byte_writer_acc8363d16f9b540439d7e9c95185ecae}{Write}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ data,\ \textcolor{keywordtype}{size\_t}\ size)\ \{}
 \DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ p\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keyword}{const\ }\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(data);}
 \DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (size\ !=\ 0)\ \{}
 \DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ readSize\ =\ \textcolor{keyword}{co\_await}\ Socket.WriteSome(p,\ size);}
@@ -108,9 +108,9 @@
 \DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_return};}
 \DoxyCodeLine{00227\ \ \ \ \ \}}
-\DoxyCodeLine{00240\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValueTask<void>}}\ \mbox{\hyperlink{struct_n_net_1_1_t_byte_writer_aad8d69302e5e15dd8e515aa67eda093b}{Write}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_n_net_1_1_t_line}{TLine}}\&\ line)\ \{}
-\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_await}\ \mbox{\hyperlink{struct_n_net_1_1_t_byte_writer_a2a77c89db4f196b917ee79f2d42300e5}{Write}}(line.Part1.data(),\ line.Part1.size());}
-\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_await}\ \mbox{\hyperlink{struct_n_net_1_1_t_byte_writer_a2a77c89db4f196b917ee79f2d42300e5}{Write}}(line.Part2.data(),\ line.Part2.size());}
+\DoxyCodeLine{00240\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<void>}}\ \mbox{\hyperlink{struct_n_net_1_1_t_byte_writer_a1f907d3c1d0856578f11af55f1d12360}{Write}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_n_net_1_1_t_line}{TLine}}\&\ line)\ \{}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_await}\ \mbox{\hyperlink{struct_n_net_1_1_t_byte_writer_acc8363d16f9b540439d7e9c95185ecae}{Write}}(line.Part1.data(),\ line.Part1.size());}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_await}\ \mbox{\hyperlink{struct_n_net_1_1_t_byte_writer_acc8363d16f9b540439d7e9c95185ecae}{Write}}(line.Part2.data(),\ line.Part2.size());}
 \DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_return};}
 \DoxyCodeLine{00244\ \ \ \ \ \}}
 \DoxyCodeLine{00245\ }
@@ -123,7 +123,7 @@
 \DoxyCodeLine{00293\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_struct_reader_a01aed1fb8dc52c06e5177b13b02c0f3a}{TStructReader}}(\mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}}\&\ socket)}
 \DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ :\ Socket(socket)}
 \DoxyCodeLine{00295\ \ \ \ \ \{\ \}}
-\DoxyCodeLine{00311\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValueTask<T>}}\ \mbox{\hyperlink{struct_n_net_1_1_t_struct_reader_a2a8f1a16e1a64481863d2d66a9437a1d}{Read}}()\ \{}
+\DoxyCodeLine{00311\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<T>}}\ \mbox{\hyperlink{struct_n_net_1_1_t_struct_reader_ab01ad1a8c37cc594376b468201382ef0}{Read}}()\ \{}
 \DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ T\ res;}
 \DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ size\ =\ \textcolor{keyword}{sizeof}(T);}
 \DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}*\ p\ =\ \textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(\&res);}
@@ -183,7 +183,7 @@
 \DoxyCodeLine{00589\ \ \ \ \ \ \ \ \ ,\ Splitter(maxLineSize)}
 \DoxyCodeLine{00590\ \ \ \ \ \ \ \ \ ,\ ChunkSize(maxLineSize\ /\ 2)}
 \DoxyCodeLine{00591\ \ \ \ \ \{\ \}}
-\DoxyCodeLine{00603\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValueTask<TLine>}}\ \mbox{\hyperlink{struct_n_net_1_1_t_line_reader_a4be30743c85c96587dd9e6b9ce54389d}{Read}}()\ \{}
+\DoxyCodeLine{00603\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<TLine>}}\ \mbox{\hyperlink{struct_n_net_1_1_t_line_reader_ab67aad2e1bd4efa504ab0c4a3f7a4bec}{Read}}()\ \{}
 \DoxyCodeLine{00604\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ line\ =\ Splitter.Pop();}
 \DoxyCodeLine{00605\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!line)\ \{}
 \DoxyCodeLine{00606\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ buf\ =\ Splitter.Acquire(ChunkSize);}

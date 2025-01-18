@@ -14,7 +14,7 @@ A utility for reading a fixed-\/size structure of type {\ttfamily T} from a sock
 \item 
 \mbox{\hyperlink{struct_n_net_1_1_t_struct_reader_a01aed1fb8dc52c06e5177b13b02c0f3a}{TStruct\+Reader}} (\mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}} \&socket)
 \begin{DoxyCompactList}\small\item\em Constructs a reader with a reference to the given socket. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValue\+Task}}$<$ T $>$ \mbox{\hyperlink{struct_n_net_1_1_t_struct_reader_a2a8f1a16e1a64481863d2d66a9437a1d}{Read}} ()
+\mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture}}$<$ T $>$ \mbox{\hyperlink{struct_n_net_1_1_t_struct_reader_ab01ad1a8c37cc594376b468201382ef0}{Read}} ()
 \begin{DoxyCompactList}\small\item\em Reads a single instance of type {\ttfamily T} from the socket. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -23,7 +23,7 @@ A utility for reading a fixed-\/size structure of type {\ttfamily T} from a sock
 class NNet\+::\+TStruct\+Reader$<$ T, TSocket $>$}
 A utility for reading a fixed-\/size structure of type {\ttfamily T} from a socket-\/like object. 
 
-This class expects the socket to provide a method {\ttfamily \doxylink{struct_n_net_1_1_t_value_task}{TValue\+Task$<$ssize\+\_\+t$>$} Read\+Some(void\texorpdfstring{$\ast$}{*} buffer, size\+\_\+t size)}, which returns\+:
+This class expects the socket to provide a method {\ttfamily TValue\+Task$<$ssize\+\_\+t$>$ Read\+Some(void\texorpdfstring{$\ast$}{*} buffer, size\+\_\+t size)}, which returns\+:
 \begin{DoxyItemize}
 \item 0 if the connection is closed,
 \item a positive number for the count of bytes successfully read,
@@ -82,12 +82,12 @@ Constructs a reader with a reference to the given socket.
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{struct_n_net_1_1_t_struct_reader_a2a8f1a16e1a64481863d2d66a9437a1d}\index{NNet::TStructReader$<$ T, TSocket $>$@{NNet::TStructReader$<$ T, TSocket $>$}!Read@{Read}}
+\Hypertarget{struct_n_net_1_1_t_struct_reader_ab01ad1a8c37cc594376b468201382ef0}\index{NNet::TStructReader$<$ T, TSocket $>$@{NNet::TStructReader$<$ T, TSocket $>$}!Read@{Read}}
 \index{Read@{Read}!NNet::TStructReader$<$ T, TSocket $>$@{NNet::TStructReader$<$ T, TSocket $>$}}
 \doxysubsubsection{\texorpdfstring{Read()}{Read()}}
-{\footnotesize\ttfamily \label{struct_n_net_1_1_t_struct_reader_a2a8f1a16e1a64481863d2d66a9437a1d} 
+{\footnotesize\ttfamily \label{struct_n_net_1_1_t_struct_reader_ab01ad1a8c37cc594376b468201382ef0} 
 template$<$typename T, typename \mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}}$>$ \\
-\mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValue\+Task}}$<$ T $>$ \mbox{\hyperlink{struct_n_net_1_1_t_struct_reader}{NNet\+::\+TStruct\+Reader}}$<$ T, \mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}} $>$\+::\+Read (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture}}$<$ T $>$ \mbox{\hyperlink{struct_n_net_1_1_t_struct_reader}{NNet\+::\+TStruct\+Reader}}$<$ T, \mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}} $>$\+::\+Read (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -102,7 +102,7 @@ Reads a single instance of type {\ttfamily T} from the socket.
 \end{DoxyItemize}
 
 \begin{DoxyReturn}{Returns}
-A \doxylink{struct_n_net_1_1_t_value_task}{TValue\+Task$<$\+T$>$} that completes once the entire structure is read.
+A TValue\+Task$<$\+T$>$ that completes once the entire structure is read.
 \end{DoxyReturn}
 
 \begin{DoxyExceptions}{Exceptions}

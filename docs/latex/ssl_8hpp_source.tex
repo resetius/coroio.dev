@@ -93,27 +93,27 @@
 \DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ SSL\_set\_tlsext\_host\_name(Ssl,\ host.c\_str());}
 \DoxyCodeLine{00090\ \ \ \ \ \}}
 \DoxyCodeLine{00091\ }
-\DoxyCodeLine{00092\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValueTask<TSslSocket<THandle>}}>\ Accept()\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<TSslSocket<THandle>}}>\ Accept()\ \{}
 \DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ underlying\ =\ std::move(\textcolor{keyword}{co\_await}\ Socket.Accept());}
 \DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ socket\ =\ TSslSocket(std::move(underlying),\ *Ctx);}
 \DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ SSL\_set\_accept\_state(socket.Ssl);}
 \DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_return}\ std::move(socket);}
 \DoxyCodeLine{00097\ \ \ \ \ \}}
 \DoxyCodeLine{00098\ }
-\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValueTask<void>}}\ AcceptHandshake()\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<void>}}\ AcceptHandshake()\ \{}
 \DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ assert(!Handshake);}
 \DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ SSL\_set\_accept\_state(Ssl);}
 \DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_return}\ \textcolor{keyword}{co\_await}\ DoHandshake();}
 \DoxyCodeLine{00103\ \ \ \ \ \}}
 \DoxyCodeLine{00104\ }
-\DoxyCodeLine{00105\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValueTask<void>}}\ Connect(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}}\&\ address,\ TTime\ deadline\ =\ TTime::max())\ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<void>}}\ Connect(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}}\&\ address,\ TTime\ deadline\ =\ TTime::max())\ \{}
 \DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ assert(!Handshake);}
 \DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_await}\ Socket.Connect(address,\ deadline);}
 \DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ SSL\_set\_connect\_state(Ssl);}
 \DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_return}\ \textcolor{keyword}{co\_await}\ DoHandshake();}
 \DoxyCodeLine{00110\ \ \ \ \ \}}
 \DoxyCodeLine{00111\ }
-\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValueTask<ssize\_t>}}\ ReadSome(\textcolor{keywordtype}{void}*\ data,\ \textcolor{keywordtype}{size\_t}\ size)\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<ssize\_t>}}\ ReadSome(\textcolor{keywordtype}{void}*\ data,\ \textcolor{keywordtype}{size\_t}\ size)\ \{}
 \DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_await}\ WaitHandshake();}
 \DoxyCodeLine{00114\ }
 \DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ SSL\_read(Ssl,\ data,\ size);}
@@ -131,7 +131,7 @@
 \DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_return}\ n;}
 \DoxyCodeLine{00128\ \ \ \ \ \}}
 \DoxyCodeLine{00129\ }
-\DoxyCodeLine{00130\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValueTask<ssize\_t>}}\ WriteSome(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ data,\ \textcolor{keywordtype}{size\_t}\ size)\ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<ssize\_t>}}\ WriteSome(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ data,\ \textcolor{keywordtype}{size\_t}\ size)\ \{}
 \DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_await}\ WaitHandshake();}
 \DoxyCodeLine{00132\ }
 \DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ r\ =\ size;}
@@ -159,11 +159,11 @@
 \DoxyCodeLine{00155\ \ \ \ \ \}}
 \DoxyCodeLine{00156\ }
 \DoxyCodeLine{00157\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00158\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValueTask<void>}}\ DoIO()\ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<void>}}\ DoIO()\ \{}
 \DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ buf[1024];}
 \DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ n;}
 \DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((n\ =\ BIO\_read(Wbio,\ buf,\ \textcolor{keyword}{sizeof}(buf)))\ >\ 0)\ \{}
-\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_await}\ \mbox{\hyperlink{struct_n_net_1_1_t_byte_writer}{TByteWriter}}(Socket).\mbox{\hyperlink{struct_n_net_1_1_t_byte_writer_a2a77c89db4f196b917ee79f2d42300e5}{Write}}(buf,\ n);}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_await}\ \mbox{\hyperlink{struct_n_net_1_1_t_byte_writer}{TByteWriter}}(Socket).\mbox{\hyperlink{struct_n_net_1_1_t_byte_writer_acc8363d16f9b540439d7e9c95185ecae}{Write}}(buf,\ n);}
 \DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ <\ 0\ \&\&\ !BIO\_should\_retry(Wbio))\ \{}
 \DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Cannot\ read\ Wbio"{}});}
@@ -188,7 +188,7 @@
 \DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_return};}
 \DoxyCodeLine{00185\ \ \ \ \ \}}
 \DoxyCodeLine{00186\ }
-\DoxyCodeLine{00187\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValueTask<void>}}\ DoHandshake()\ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<void>}}\ DoHandshake()\ \{}
 \DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ r;}
 \DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ LogState();}
 \DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((r\ =\ SSL\_do\_handshake(Ssl))\ !=\ 1)\ \{}

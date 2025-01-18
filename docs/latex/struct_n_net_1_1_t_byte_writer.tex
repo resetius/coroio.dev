@@ -14,9 +14,9 @@ A utility for writing data to a socket-\/like object.
 \item 
 \mbox{\hyperlink{struct_n_net_1_1_t_byte_writer_a5d0ccd2ed16ef6c4d0fa5bccbb8b113e}{TByte\+Writer}} (\mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}} \&socket)
 \begin{DoxyCompactList}\small\item\em Constructs a writer for the given socket. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValue\+Task}}$<$ void $>$ \mbox{\hyperlink{struct_n_net_1_1_t_byte_writer_a2a77c89db4f196b917ee79f2d42300e5}{Write}} (const void \texorpdfstring{$\ast$}{*}data, size\+\_\+t size)
+\mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture}}$<$ void $>$ \mbox{\hyperlink{struct_n_net_1_1_t_byte_writer_acc8363d16f9b540439d7e9c95185ecae}{Write}} (const void \texorpdfstring{$\ast$}{*}data, size\+\_\+t size)
 \begin{DoxyCompactList}\small\item\em Writes exactly {\ttfamily size} bytes from {\ttfamily data} to the socket. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValue\+Task}}$<$ void $>$ \mbox{\hyperlink{struct_n_net_1_1_t_byte_writer_aad8d69302e5e15dd8e515aa67eda093b}{Write}} (const \mbox{\hyperlink{struct_n_net_1_1_t_line}{TLine}} \&line)
+\mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture}}$<$ void $>$ \mbox{\hyperlink{struct_n_net_1_1_t_byte_writer_a1f907d3c1d0856578f11af55f1d12360}{Write}} (const \mbox{\hyperlink{struct_n_net_1_1_t_line}{TLine}} \&line)
 \begin{DoxyCompactList}\small\item\em Writes a {\ttfamily \doxylink{struct_n_net_1_1_t_line}{TLine}} object by sequentially writing its parts. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -29,7 +29,7 @@ This class provides methods to write a specified number of bytes or to write a {
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em \doxylink{class_n_net_1_1_t_socket}{TSocket}} & The socket type used for writing bytes. It must provide a method {\ttfamily \doxylink{struct_n_net_1_1_t_value_task}{TValue\+Task$<$ssize\+\_\+t$>$} Write\+Some(const void\texorpdfstring{$\ast$}{*} data, size\+\_\+t size)} which returns\+:
+{\em \doxylink{class_n_net_1_1_t_socket}{TSocket}} & The socket type used for writing bytes. It must provide a method {\ttfamily TValue\+Task$<$ssize\+\_\+t$>$ Write\+Some(const void\texorpdfstring{$\ast$}{*} data, size\+\_\+t size)} which returns\+:
 \begin{DoxyItemize}
 \item 0 if the connection is closed,
 \item a positive number for the count of bytes successfully written,
@@ -77,18 +77,18 @@ Constructs a writer for the given socket.
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{struct_n_net_1_1_t_byte_writer_aad8d69302e5e15dd8e515aa67eda093b}\index{NNet::TByteWriter$<$ TSocket $>$@{NNet::TByteWriter$<$ TSocket $>$}!Write@{Write}}
+\Hypertarget{struct_n_net_1_1_t_byte_writer_a1f907d3c1d0856578f11af55f1d12360}\index{NNet::TByteWriter$<$ TSocket $>$@{NNet::TByteWriter$<$ TSocket $>$}!Write@{Write}}
 \index{Write@{Write}!NNet::TByteWriter$<$ TSocket $>$@{NNet::TByteWriter$<$ TSocket $>$}}
 \doxysubsubsection{\texorpdfstring{Write()}{Write()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \label{struct_n_net_1_1_t_byte_writer_aad8d69302e5e15dd8e515aa67eda093b} 
+{\footnotesize\ttfamily \label{struct_n_net_1_1_t_byte_writer_a1f907d3c1d0856578f11af55f1d12360} 
 template$<$typename \mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}}$>$ \\
-\mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValue\+Task}}$<$ void $>$ \mbox{\hyperlink{struct_n_net_1_1_t_byte_writer}{NNet\+::\+TByte\+Writer}}$<$ \mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}} $>$\+::\+Write (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_n_net_1_1_t_line}{TLine}} \&}]{line}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture}}$<$ void $>$ \mbox{\hyperlink{struct_n_net_1_1_t_byte_writer}{NNet\+::\+TByte\+Writer}}$<$ \mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}} $>$\+::\+Write (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_n_net_1_1_t_line}{TLine}} \&}]{line}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
 Writes a {\ttfamily \doxylink{struct_n_net_1_1_t_line}{TLine}} object by sequentially writing its parts. 
 
-This method calls \doxylink{struct_n_net_1_1_t_byte_writer_a2a77c89db4f196b917ee79f2d42300e5}{Write(const void\texorpdfstring{$\ast$}{*}, size\+\_\+t)} for {\ttfamily line.\+Part1} and then {\ttfamily line.\+Part2}.
+This method calls \doxylink{struct_n_net_1_1_t_byte_writer_acc8363d16f9b540439d7e9c95185ecae}{Write(const void\texorpdfstring{$\ast$}{*}, size\+\_\+t)} for {\ttfamily line.\+Part1} and then {\ttfamily line.\+Part2}.
 
 
 \begin{DoxyParams}{Parameters}
@@ -96,19 +96,19 @@ This method calls \doxylink{struct_n_net_1_1_t_byte_writer_a2a77c89db4f196b917ee
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-A \doxylink{struct_n_net_1_1_t_value_task_3_01void_01_4}{TValue\+Task$<$void$>$} that completes once both parts have been fully written.
+A TValue\+Task$<$void$>$ that completes once both parts have been fully written.
 \end{DoxyReturn}
 
 \begin{DoxyExceptions}{Exceptions}
 {\em std\+::runtime\+\_\+error} & If the connection is closed while writing. \\
 \hline
 \end{DoxyExceptions}
-\Hypertarget{struct_n_net_1_1_t_byte_writer_a2a77c89db4f196b917ee79f2d42300e5}\index{NNet::TByteWriter$<$ TSocket $>$@{NNet::TByteWriter$<$ TSocket $>$}!Write@{Write}}
+\Hypertarget{struct_n_net_1_1_t_byte_writer_acc8363d16f9b540439d7e9c95185ecae}\index{NNet::TByteWriter$<$ TSocket $>$@{NNet::TByteWriter$<$ TSocket $>$}!Write@{Write}}
 \index{Write@{Write}!NNet::TByteWriter$<$ TSocket $>$@{NNet::TByteWriter$<$ TSocket $>$}}
 \doxysubsubsection{\texorpdfstring{Write()}{Write()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \label{struct_n_net_1_1_t_byte_writer_a2a77c89db4f196b917ee79f2d42300e5} 
+{\footnotesize\ttfamily \label{struct_n_net_1_1_t_byte_writer_acc8363d16f9b540439d7e9c95185ecae} 
 template$<$typename \mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}}$>$ \\
-\mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValue\+Task}}$<$ void $>$ \mbox{\hyperlink{struct_n_net_1_1_t_byte_writer}{NNet\+::\+TByte\+Writer}}$<$ \mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}} $>$\+::\+Write (\begin{DoxyParamCaption}\item[{const void \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{size\+\_\+t}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture}}$<$ void $>$ \mbox{\hyperlink{struct_n_net_1_1_t_byte_writer}{NNet\+::\+TByte\+Writer}}$<$ \mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}} $>$\+::\+Write (\begin{DoxyParamCaption}\item[{const void \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{size\+\_\+t}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -129,7 +129,7 @@ Writes exactly {\ttfamily size} bytes from {\ttfamily data} to the socket.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-A \doxylink{struct_n_net_1_1_t_value_task_3_01void_01_4}{TValue\+Task$<$void$>$} that completes when all bytes have been written or an exception is thrown if the socket is closed.
+A TValue\+Task$<$void$>$ that completes when all bytes have been written or an exception is thrown if the socket is closed.
 \end{DoxyReturn}
 
 \begin{DoxyExceptions}{Exceptions}

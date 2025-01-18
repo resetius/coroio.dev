@@ -12,6 +12,13 @@ var hierarchy =
     [ "NNet::TEvent", "struct_n_net_1_1_t_event.html", null ],
     [ "NNet::TFileOps", "class_n_net_1_1_t_file_ops.html", null ],
     [ "NNet::TFinalAwaiter< T >", "struct_n_net_1_1_t_final_awaiter.html", null ],
+    [ "NNet::TFutureBase< T >", "struct_n_net_1_1_t_future_base.html", [
+      [ "NNet::TFuture< T >", "struct_n_net_1_1_t_future.html", null ]
+    ] ],
+    [ "NNet::TFutureBase< void >", "struct_n_net_1_1_t_future_base.html", [
+      [ "NNet::TFuture< void >", "struct_n_net_1_1_t_future_3_01void_01_4.html", null ],
+      [ "NNet::TFuture< void >", "struct_n_net_1_1_t_future_3_01void_01_4.html", null ]
+    ] ],
     [ "NNet::THandlePair", "struct_n_net_1_1_t_handle_pair.html", null ],
     [ "NNet::THostPort", "class_n_net_1_1_t_host_port.html", null ],
     [ "NNet::TInitializer", "class_n_net_1_1_t_initializer.html", null ],
@@ -20,6 +27,13 @@ var hierarchy =
     [ "NNet::TLineSplitter", "struct_n_net_1_1_t_line_splitter.html", null ],
     [ "NNet::TLoop< TPoller >", "class_n_net_1_1_t_loop.html", null ],
     [ "NNet::TPollerBase", "class_n_net_1_1_t_poller_base.html", null ],
+    [ "NNet::TPromiseBase< T >", "struct_n_net_1_1_t_promise_base.html", [
+      [ "NNet::TPromise< T >", "struct_n_net_1_1_t_promise.html", null ]
+    ] ],
+    [ "NNet::TPromiseBase< void >", "struct_n_net_1_1_t_promise_base.html", [
+      [ "NNet::TPromise< void >", "struct_n_net_1_1_t_promise_3_01void_01_4.html", null ],
+      [ "NNet::TPromise< void >", "struct_n_net_1_1_t_promise_3_01void_01_4.html", null ]
+    ] ],
     [ "NNet::TResolvConf", "class_n_net_1_1_t_resolv_conf.html", null ],
     [ "NNet::TResolver< TPoller >", "class_n_net_1_1_t_resolver.html", null ],
     [ "NNet::TSocketOps", "class_n_net_1_1_t_socket_ops.html", [
@@ -39,20 +53,6 @@ var hierarchy =
     [ "NNet::TSslSocket< THandle >", "class_n_net_1_1_t_ssl_socket.html", null ],
     [ "NNet::TStructReader< T, TSocket >", "struct_n_net_1_1_t_struct_reader.html", null ],
     [ "NNet::TTimer", "struct_n_net_1_1_t_timer.html", null ],
-    [ "NNet::TValuePromiseBase< T >", "struct_n_net_1_1_t_value_promise_base.html", [
-      [ "NNet::TValuePromise< T >", "struct_n_net_1_1_t_value_promise.html", null ]
-    ] ],
-    [ "NNet::TValuePromiseBase< void >", "struct_n_net_1_1_t_value_promise_base.html", [
-      [ "NNet::TValuePromise< void >", "struct_n_net_1_1_t_value_promise_3_01void_01_4.html", null ],
-      [ "NNet::TValuePromise< void >", "struct_n_net_1_1_t_value_promise_3_01void_01_4.html", null ]
-    ] ],
-    [ "NNet::TValueTaskBase< T >", "struct_n_net_1_1_t_value_task_base.html", [
-      [ "NNet::TValueTask< T >", "struct_n_net_1_1_t_value_task.html", null ]
-    ] ],
-    [ "NNet::TValueTaskBase< void >", "struct_n_net_1_1_t_value_task_base.html", [
-      [ "NNet::TValueTask< void >", "struct_n_net_1_1_t_value_task_3_01void_01_4.html", null ],
-      [ "NNet::TValueTask< void >", "struct_n_net_1_1_t_value_task_3_01void_01_4.html", null ]
-    ] ],
     [ "NNet::TVoidPromise", "struct_n_net_1_1_t_void_promise.html", null ],
     [ "NNet::TVoidSuspendedPromise", "struct_n_net_1_1_t_void_suspended_promise.html", null ],
     [ "NNet::TWebSocket< TSocket >", "class_n_net_1_1_t_web_socket.html", null ],

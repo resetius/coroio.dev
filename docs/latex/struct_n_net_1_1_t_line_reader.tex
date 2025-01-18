@@ -14,7 +14,7 @@ Reads a complete line from a socket using a zero-\/copy line splitter.
 \item 
 \mbox{\hyperlink{struct_n_net_1_1_t_line_reader_a42714161f82dbc80770f6a1a0be610ea}{TLine\+Reader}} (\mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}} \&socket, int max\+Line\+Size=4096)
 \begin{DoxyCompactList}\small\item\em Constructs a line reader with the given socket and maximum line size. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValue\+Task}}$<$ \mbox{\hyperlink{struct_n_net_1_1_t_line}{TLine}} $>$ \mbox{\hyperlink{struct_n_net_1_1_t_line_reader_a4be30743c85c96587dd9e6b9ce54389d}{Read}} ()
+\mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture}}$<$ \mbox{\hyperlink{struct_n_net_1_1_t_line}{TLine}} $>$ \mbox{\hyperlink{struct_n_net_1_1_t_line_reader_ab67aad2e1bd4efa504ab0c4a3f7a4bec}{Read}} ()
 \begin{DoxyCompactList}\small\item\em Reads and returns the next complete line from the socket. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -25,11 +25,11 @@ Reads a complete line from a socket using a zero-\/copy line splitter.
 
 This class encapsulates a socket and a zero-\/copy line splitter to provide efficient line-\/based reading. Data is read from the socket in chunks and fed into a circular buffer maintained by the splitter. The splitter then extracts complete lines as soon as they become available.
 
-The maximum line size can be specified via the constructor (default is 4096 bytes); a chunk size (default to half of the maximum line size) is used when acquiring space from the splitter for new data. Each call to \doxylink{struct_n_net_1_1_t_line_reader_a4be30743c85c96587dd9e6b9ce54389d}{Read()} returns a complete line (of type {\ttfamily \doxylink{struct_n_net_1_1_t_line}{TLine}}). A {\ttfamily \doxylink{struct_n_net_1_1_t_line}{TLine}} typically contains string views {\ttfamily Part1} and {\ttfamily Part2}, which together represent the line (useful when a line wraps around the circular buffer).
+The maximum line size can be specified via the constructor (default is 4096 bytes); a chunk size (default to half of the maximum line size) is used when acquiring space from the splitter for new data. Each call to \doxylink{struct_n_net_1_1_t_line_reader_ab67aad2e1bd4efa504ab0c4a3f7a4bec}{Read()} returns a complete line (of type {\ttfamily \doxylink{struct_n_net_1_1_t_line}{TLine}}). A {\ttfamily \doxylink{struct_n_net_1_1_t_line}{TLine}} typically contains string views {\ttfamily Part1} and {\ttfamily Part2}, which together represent the line (useful when a line wraps around the circular buffer).
 
 
 \begin{DoxyTemplParams}{Template Parameters}
-{\em \doxylink{class_n_net_1_1_t_socket}{TSocket}} & The socket type used for reading. \doxylink{class_n_net_1_1_t_socket}{TSocket} must provide a method\+: {\ttfamily \doxylink{struct_n_net_1_1_t_value_task}{TValue\+Task$<$ssize\+\_\+t$>$} Read\+Some(void\texorpdfstring{$\ast$}{*} buffer, size\+\_\+t size)} that reads data asynchronously.\\
+{\em \doxylink{class_n_net_1_1_t_socket}{TSocket}} & The socket type used for reading. \doxylink{class_n_net_1_1_t_socket}{TSocket} must provide a method\+: {\ttfamily TValue\+Task$<$ssize\+\_\+t$>$ Read\+Some(void\texorpdfstring{$\ast$}{*} buffer, size\+\_\+t size)} that reads data asynchronously.\\
 \hline
 \end{DoxyTemplParams}
 \hypertarget{struct_n_net_1_1_t_line_reader_autotoc_md8}{}\doxysubsubsubsection{\texorpdfstring{Example Usage}{Example Usage}}\label{struct_n_net_1_1_t_line_reader_autotoc_md8}
@@ -76,12 +76,12 @@ The maximum line size (default 4096) determines the capacity of the underlying z
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{struct_n_net_1_1_t_line_reader_a4be30743c85c96587dd9e6b9ce54389d}\index{NNet::TLineReader$<$ TSocket $>$@{NNet::TLineReader$<$ TSocket $>$}!Read@{Read}}
+\Hypertarget{struct_n_net_1_1_t_line_reader_ab67aad2e1bd4efa504ab0c4a3f7a4bec}\index{NNet::TLineReader$<$ TSocket $>$@{NNet::TLineReader$<$ TSocket $>$}!Read@{Read}}
 \index{Read@{Read}!NNet::TLineReader$<$ TSocket $>$@{NNet::TLineReader$<$ TSocket $>$}}
 \doxysubsubsection{\texorpdfstring{Read()}{Read()}}
-{\footnotesize\ttfamily \label{struct_n_net_1_1_t_line_reader_a4be30743c85c96587dd9e6b9ce54389d} 
+{\footnotesize\ttfamily \label{struct_n_net_1_1_t_line_reader_ab67aad2e1bd4efa504ab0c4a3f7a4bec} 
 template$<$typename \mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}}$>$ \\
-\mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValue\+Task}}$<$ \mbox{\hyperlink{struct_n_net_1_1_t_line}{TLine}} $>$ \mbox{\hyperlink{struct_n_net_1_1_t_line_reader}{NNet\+::\+TLine\+Reader}}$<$ \mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}} $>$\+::\+Read (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture}}$<$ \mbox{\hyperlink{struct_n_net_1_1_t_line}{TLine}} $>$ \mbox{\hyperlink{struct_n_net_1_1_t_line_reader}{NNet\+::\+TLine\+Reader}}$<$ \mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}} $>$\+::\+Read (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -90,7 +90,7 @@ Reads and returns the next complete line from the socket.
 This method repeatedly attempts to pop a complete line from the splitter. If no complete line is available, it acquires a chunk of the splitter’s internal buffer and reads data from the socket into that space. After committing the newly read data, it retries extracting a line. The method returns a {\ttfamily \doxylink{struct_n_net_1_1_t_line}{TLine}} (which may contain two parts, if the line wraps around the circular buffer).
 
 \begin{DoxyReturn}{Returns}
-A \doxylink{struct_n_net_1_1_t_value_task}{TValue\+Task$<$\+TLine$>$} that completes once a full line is available. 
+A TValue\+Task$<$\+TLine$>$ that completes once a full line is available. 
 \end{DoxyReturn}
 
 

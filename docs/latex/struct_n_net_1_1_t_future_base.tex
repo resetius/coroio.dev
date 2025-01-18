@@ -1,0 +1,55 @@
+\doxysection{NNet\+::TFuture\+Base\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{struct_n_net_1_1_t_future_base}{}\label{struct_n_net_1_1_t_future_base}\index{NNet::TFutureBase$<$ T $>$@{NNet::TFutureBase$<$ T $>$}}
+Inheritance diagram for NNet\+::TFuture\+Base\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{struct_n_net_1_1_t_future_base}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{struct_n_net_1_1_t_future_base_ae1ab29da8f8c8b57a60a3692ab257891}\label{struct_n_net_1_1_t_future_base_ae1ab29da8f8c8b57a60a3692ab257891} 
+using {\bfseries promise\+\_\+type} = \mbox{\hyperlink{struct_n_net_1_1_t_promise}{TPromise}}$<$T$>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{struct_n_net_1_1_t_future_base_ae0a50d170adcac653ffe433ca56436e8}\label{struct_n_net_1_1_t_future_base_ae0a50d170adcac653ffe433ca56436e8} 
+{\bfseries TFuture\+Base} (\mbox{\hyperlink{struct_n_net_1_1_t_promise}{TPromise}}$<$ T $>$ \&promise)
+\item 
+\Hypertarget{struct_n_net_1_1_t_future_base_a0418b31fdb39f0eaa884b1020501e234}\label{struct_n_net_1_1_t_future_base_a0418b31fdb39f0eaa884b1020501e234} 
+{\bfseries TFuture\+Base} (\mbox{\hyperlink{struct_n_net_1_1_t_future_base}{TFuture\+Base}} \&\&other)
+\item 
+\Hypertarget{struct_n_net_1_1_t_future_base_af50a46369cef826e0ef522d1b2bbd278}\label{struct_n_net_1_1_t_future_base_af50a46369cef826e0ef522d1b2bbd278} 
+{\bfseries TFuture\+Base} (const \mbox{\hyperlink{struct_n_net_1_1_t_future_base}{TFuture\+Base}} \&)=delete
+\item 
+\Hypertarget{struct_n_net_1_1_t_future_base_a1973c12cc1a5acdbf0980fc882abd64c}\label{struct_n_net_1_1_t_future_base_a1973c12cc1a5acdbf0980fc882abd64c} 
+\mbox{\hyperlink{struct_n_net_1_1_t_future_base}{TFuture\+Base}} \& {\bfseries operator=} (const \mbox{\hyperlink{struct_n_net_1_1_t_future_base}{TFuture\+Base}} \&)=delete
+\item 
+\Hypertarget{struct_n_net_1_1_t_future_base_af0d15fa6fe13526ecf819313ecaa3eab}\label{struct_n_net_1_1_t_future_base_af0d15fa6fe13526ecf819313ecaa3eab} 
+\mbox{\hyperlink{struct_n_net_1_1_t_future_base}{TFuture\+Base}} \& {\bfseries operator=} (\mbox{\hyperlink{struct_n_net_1_1_t_future_base}{TFuture\+Base}} \&\&other)
+\item 
+\Hypertarget{struct_n_net_1_1_t_future_base_a35042007675c8d4916c35b62958ba41b}\label{struct_n_net_1_1_t_future_base_a35042007675c8d4916c35b62958ba41b} 
+bool {\bfseries await\+\_\+ready} () const
+\item 
+\Hypertarget{struct_n_net_1_1_t_future_base_abf1fb2cca3b215ae5edc7ebdc70f8727}\label{struct_n_net_1_1_t_future_base_abf1fb2cca3b215ae5edc7ebdc70f8727} 
+bool {\bfseries done} () const
+\item 
+\Hypertarget{struct_n_net_1_1_t_future_base_abc8c7b2d1208a35fd18b3ddcfc64b436}\label{struct_n_net_1_1_t_future_base_abc8c7b2d1208a35fd18b3ddcfc64b436} 
+std\+::coroutine\+\_\+handle {\bfseries raw} ()
+\item 
+\Hypertarget{struct_n_net_1_1_t_future_base_a35c5bf6aa6610f98ac1f31860179ce34}\label{struct_n_net_1_1_t_future_base_a35c5bf6aa6610f98ac1f31860179ce34} 
+void {\bfseries await\+\_\+suspend} (std\+::coroutine\+\_\+handle$<$$>$ caller)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{struct_n_net_1_1_t_future_base_a662f866821c4952560dcfe89a60d367c}\label{struct_n_net_1_1_t_future_base_a662f866821c4952560dcfe89a60d367c} 
+std\+::coroutine\+\_\+handle$<$ \mbox{\hyperlink{struct_n_net_1_1_t_promise}{TPromise}}$<$ T $>$ $>$ {\bfseries Coro} = nullptr
+\end{DoxyCompactItemize}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+coroio/corochain.\+hpp\end{DoxyCompactItemize}

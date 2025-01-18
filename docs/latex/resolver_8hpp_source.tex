@@ -38,18 +38,18 @@
 \DoxyCodeLine{00034\ \ \ \ \ TResolver(\mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}}\ dnsAddr,\ TPoller\&\ poller,\ EDNSType\ defaultType\ =\ EDNSType::A);}
 \DoxyCodeLine{00035\ \ \ \ \ \string~TResolver();}
 \DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValueTask<std::vector<TAddress>}}>\ Resolve(\textcolor{keyword}{const}\ std::string\&\ hostname,\ EDNSType\ type\ =\ EDNSType::DEFAULT);}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<std::vector<TAddress>}}>\ Resolve(\textcolor{keyword}{const}\ std::string\&\ hostname,\ EDNSType\ type\ =\ EDNSType::DEFAULT);}
 \DoxyCodeLine{00038\ }
 \DoxyCodeLine{00039\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00040\ \ \ \ \ TFuture<void>\ SenderTask();}
-\DoxyCodeLine{00041\ \ \ \ \ TFuture<void>\ ReceiverTask();}
-\DoxyCodeLine{00042\ \ \ \ \ TFuture<void>\ TimeoutsTask();}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<void>}}\ SenderTask();}
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<void>}}\ ReceiverTask();}
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<void>}}\ TimeoutsTask();}
 \DoxyCodeLine{00043\ }
 \DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ ResumeSender();}
 \DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ \ \ \ \ TFuture<void>\ Sender;}
-\DoxyCodeLine{00047\ \ \ \ \ TFuture<void>\ Receiver;}
-\DoxyCodeLine{00048\ \ \ \ \ TFuture<void>\ Timeouts;}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<void>}}\ Sender;}
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<void>}}\ Receiver;}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<void>}}\ Timeouts;}
 \DoxyCodeLine{00049\ \ \ \ \ std::coroutine\_handle<>\ SenderSuspended;}
 \DoxyCodeLine{00050\ }
 \DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}}\ DnsAddr;}
@@ -105,7 +105,7 @@
 \DoxyCodeLine{00101\ \ \ \ \ THostPort(\textcolor{keyword}{const}\ std::string\&\ host,\ \textcolor{keywordtype}{int}\ port);}
 \DoxyCodeLine{00102\ }
 \DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00104\ \ \ \ \ TFuture<TAddress>\ Resolve(\mbox{\hyperlink{class_n_net_1_1_t_resolver}{TResolver<T>}}\&\ resolver);}
+\DoxyCodeLine{00104\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<TAddress>}}\ Resolve(\mbox{\hyperlink{class_n_net_1_1_t_resolver}{TResolver<T>}}\&\ resolver);}
 \DoxyCodeLine{00105\ }
 \DoxyCodeLine{00106\ \textcolor{keyword}{private}:}
 \DoxyCodeLine{00107\ \ \ \ \ std::string\ Host;}

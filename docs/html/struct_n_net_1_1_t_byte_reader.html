@@ -135,10 +135,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a88f26215dec26ee31a0fd327b503ff19" id="r_a88f26215dec26ee31a0fd327b503ff19"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a88f26215dec26ee31a0fd327b503ff19">TByteReader</a> (<a class="el" href="class_n_net_1_1_t_socket.html">TSocket</a> &amp;socket)</td></tr>
 <tr class="memdesc:a88f26215dec26ee31a0fd327b503ff19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a reader for the given socket.  <br /></td></tr>
 <tr class="separator:a88f26215dec26ee31a0fd327b503ff19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06eec1258239223532bf1ef4d8e24eab" id="r_a06eec1258239223532bf1ef4d8e24eab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_n_net_1_1_t_value_task.html">TFuture</a>&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06eec1258239223532bf1ef4d8e24eab">Read</a> (void *data, size_t size)</td></tr>
+<tr class="memitem:a06eec1258239223532bf1ef4d8e24eab" id="r_a06eec1258239223532bf1ef4d8e24eab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_n_net_1_1_t_future.html">TFuture</a>&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06eec1258239223532bf1ef4d8e24eab">Read</a> (void *data, size_t size)</td></tr>
 <tr class="memdesc:a06eec1258239223532bf1ef4d8e24eab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads exactly <code class="param">size</code> bytes and stores them into <code class="param">data</code>.  <br /></td></tr>
 <tr class="separator:a06eec1258239223532bf1ef4d8e24eab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0fba0689cf0fc26d154189697742d286" id="r_a0fba0689cf0fc26d154189697742d286"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_n_net_1_1_t_value_task.html">TFuture</a>&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0fba0689cf0fc26d154189697742d286">ReadUntil</a> (const std::string &amp;delimiter)</td></tr>
+<tr class="memitem:a0fba0689cf0fc26d154189697742d286" id="r_a0fba0689cf0fc26d154189697742d286"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_n_net_1_1_t_future.html">TFuture</a>&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0fba0689cf0fc26d154189697742d286">ReadUntil</a> (const std::string &amp;delimiter)</td></tr>
 <tr class="memdesc:a0fba0689cf0fc26d154189697742d286"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads data until the given <code class="param">delimiter</code> is encountered.  <br /></td></tr>
 <tr class="separator:a0fba0689cf0fc26d154189697742d286"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -148,7 +148,7 @@ class NNet::TByteReader&lt; TSocket &gt;</div><p>A utility for reading data from
 <p>This class manages an internal buffer so that any data read beyond what is immediately requested can be stored and used in subsequent reads.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname"><a class="el" href="class_n_net_1_1_t_socket.html">TSocket</a></td><td>The socket type used for reading bytes. It must provide a method <code>TFuture&lt;ssize_t&gt; ReadSome(void* buffer, size_t size)</code> which returns:<ul>
+    <tr><td class="paramname"><a class="el" href="class_n_net_1_1_t_socket.html">TSocket</a></td><td>The socket type used for reading bytes. It must provide a method <code><a class="el" href="struct_n_net_1_1_t_future.html">TFuture&lt;ssize_t&gt;</a> ReadSome(void* buffer, size_t size)</code> which returns:<ul>
 <li>0 on connection closure,</li>
 <li>a positive number for the count of bytes successfully read,</li>
 <li>a negative number to indicate a recoverable read error (in which case a retry may be attempted).</li>
@@ -159,7 +159,7 @@ class NNet::TByteReader&lt; TSocket &gt;</div><p>A utility for reading data from
 </dl>
 <h3><a class="anchor" id="autotoc_md2"></a>
 Example Usage</h3>
-<div class="fragment"><div class="line">TFuture&lt;void&gt; ExampleFunction(<a class="code hl_class" href="class_n_net_1_1_t_socket.html">TSocket</a>&amp; socket) {</div>
+<div class="fragment"><div class="line"><a class="code hl_struct" href="struct_n_net_1_1_t_future.html">TFuture&lt;void&gt;</a> ExampleFunction(<a class="code hl_class" href="class_n_net_1_1_t_socket.html">TSocket</a>&amp; socket) {</div>
 <div class="line">    <a class="code hl_function" href="#a88f26215dec26ee31a0fd327b503ff19">TByteReader&lt;TSocket&gt;</a> reader(socket);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Read a fixed number of bytes</span></div>
@@ -175,6 +175,7 @@ Example Usage</h3>
 <div class="line">}</div>
 <div class="ttc" id="aclass_n_net_1_1_t_socket_html"><div class="ttname"><a href="class_n_net_1_1_t_socket.html">NNet::TSocket</a></div><div class="ttdef"><b>Definition</b> socket.hpp:225</div></div>
 <div class="ttc" id="astruct_n_net_1_1_t_byte_reader_html_a88f26215dec26ee31a0fd327b503ff19"><div class="ttname"><a href="#a88f26215dec26ee31a0fd327b503ff19">NNet::TByteReader::TByteReader</a></div><div class="ttdeci">TByteReader(TSocket &amp;socket)</div><div class="ttdoc">Constructs a reader for the given socket.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:60</div></div>
+<div class="ttc" id="astruct_n_net_1_1_t_future_html"><div class="ttname"><a href="struct_n_net_1_1_t_future.html">NNet::TFuture</a></div><div class="ttdef"><b>Definition</b> corochain.hpp:90</div></div>
 </div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a88f26215dec26ee31a0fd327b503ff19" name="a88f26215dec26ee31a0fd327b503ff19"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a88f26215dec26ee31a0fd327b503ff19">&#9670;&#160;</a></span>TByteReader()</h2>
@@ -224,7 +225,7 @@ template&lt;typename <a class="el" href="class_n_net_1_1_t_socket.html">TSocket<
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_n_net_1_1_t_value_task.html">TFuture</a>&lt; void &gt; <a class="el" href="struct_n_net_1_1_t_byte_reader.html">NNet::TByteReader</a>&lt; <a class="el" href="class_n_net_1_1_t_socket.html">TSocket</a> &gt;::Read </td>
+          <td class="memname"><a class="el" href="struct_n_net_1_1_t_future.html">TFuture</a>&lt; void &gt; <a class="el" href="struct_n_net_1_1_t_byte_reader.html">NNet::TByteReader</a>&lt; <a class="el" href="class_n_net_1_1_t_socket.html">TSocket</a> &gt;::Read </td>
           <td>(</td>
           <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
         </tr>
@@ -255,7 +256,7 @@ template&lt;typename <a class="el" href="class_n_net_1_1_t_socket.html">TSocket<
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A TFuture&lt;void&gt; that completes when all bytes are read.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="struct_n_net_1_1_t_future_3_01void_01_4.html">TFuture&lt;void&gt;</a> that completes when all bytes are read.</dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::runtime_error</td><td>If the connection is closed before <code class="param">size</code> bytes are fully read. </td></tr>
@@ -277,7 +278,7 @@ template&lt;typename <a class="el" href="class_n_net_1_1_t_socket.html">TSocket<
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_n_net_1_1_t_value_task.html">TFuture</a>&lt; std::string &gt; <a class="el" href="struct_n_net_1_1_t_byte_reader.html">NNet::TByteReader</a>&lt; <a class="el" href="class_n_net_1_1_t_socket.html">TSocket</a> &gt;::ReadUntil </td>
+          <td class="memname"><a class="el" href="struct_n_net_1_1_t_future.html">TFuture</a>&lt; std::string &gt; <a class="el" href="struct_n_net_1_1_t_byte_reader.html">NNet::TByteReader</a>&lt; <a class="el" href="class_n_net_1_1_t_socket.html">TSocket</a> &gt;::ReadUntil </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>delimiter</em></span></td><td>)</td>
           <td></td>
@@ -304,7 +305,7 @@ template&lt;typename <a class="el" href="class_n_net_1_1_t_socket.html">TSocket<
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A TFuture&lt;std::string&gt; that completes once the delimiter is found, returning everything up to and including that delimiter.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="struct_n_net_1_1_t_future.html">TFuture&lt;std::string&gt;</a> that completes once the delimiter is found, returning everything up to and including that delimiter.</dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::runtime_error</td><td>If the connection is closed before the delimiter is found. </td></tr>

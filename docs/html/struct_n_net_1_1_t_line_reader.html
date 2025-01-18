@@ -135,25 +135,25 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a42714161f82dbc80770f6a1a0be610ea" id="r_a42714161f82dbc80770f6a1a0be610ea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a42714161f82dbc80770f6a1a0be610ea">TLineReader</a> (<a class="el" href="class_n_net_1_1_t_socket.html">TSocket</a> &amp;socket, int maxLineSize=4096)</td></tr>
 <tr class="memdesc:a42714161f82dbc80770f6a1a0be610ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a line reader with the given socket and maximum line size.  <br /></td></tr>
 <tr class="separator:a42714161f82dbc80770f6a1a0be610ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4be30743c85c96587dd9e6b9ce54389d" id="r_a4be30743c85c96587dd9e6b9ce54389d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_n_net_1_1_t_value_task.html">TValueTask</a>&lt; <a class="el" href="struct_n_net_1_1_t_line.html">TLine</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4be30743c85c96587dd9e6b9ce54389d">Read</a> ()</td></tr>
-<tr class="memdesc:a4be30743c85c96587dd9e6b9ce54389d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads and returns the next complete line from the socket.  <br /></td></tr>
-<tr class="separator:a4be30743c85c96587dd9e6b9ce54389d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab67aad2e1bd4efa504ab0c4a3f7a4bec" id="r_ab67aad2e1bd4efa504ab0c4a3f7a4bec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_n_net_1_1_t_future.html">TFuture</a>&lt; <a class="el" href="struct_n_net_1_1_t_line.html">TLine</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab67aad2e1bd4efa504ab0c4a3f7a4bec">Read</a> ()</td></tr>
+<tr class="memdesc:ab67aad2e1bd4efa504ab0c4a3f7a4bec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads and returns the next complete line from the socket.  <br /></td></tr>
+<tr class="separator:ab67aad2e1bd4efa504ab0c4a3f7a4bec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename <a class="el" href="class_n_net_1_1_t_socket.html">TSocket</a>&gt;<br />
 class NNet::TLineReader&lt; TSocket &gt;</div><p>Reads a complete line from a socket using a zero-copy line splitter. </p>
 <p>This class encapsulates a socket and a zero-copy line splitter to provide efficient line-based reading. Data is read from the socket in chunks and fed into a circular buffer maintained by the splitter. The splitter then extracts complete lines as soon as they become available.</p>
-<p>The maximum line size can be specified via the constructor (default is 4096 bytes); a chunk size (default to half of the maximum line size) is used when acquiring space from the splitter for new data. Each call to <a class="el" href="#a4be30743c85c96587dd9e6b9ce54389d">Read()</a> returns a complete line (of type <code><a class="el" href="struct_n_net_1_1_t_line.html">TLine</a></code>). A <code><a class="el" href="struct_n_net_1_1_t_line.html">TLine</a></code> typically contains string views <code>Part1</code> and <code>Part2</code>, which together represent the line (useful when a line wraps around the circular buffer).</p>
+<p>The maximum line size can be specified via the constructor (default is 4096 bytes); a chunk size (default to half of the maximum line size) is used when acquiring space from the splitter for new data. Each call to <a class="el" href="#ab67aad2e1bd4efa504ab0c4a3f7a4bec">Read()</a> returns a complete line (of type <code><a class="el" href="struct_n_net_1_1_t_line.html">TLine</a></code>). A <code><a class="el" href="struct_n_net_1_1_t_line.html">TLine</a></code> typically contains string views <code>Part1</code> and <code>Part2</code>, which together represent the line (useful when a line wraps around the circular buffer).</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname"><a class="el" href="class_n_net_1_1_t_socket.html">TSocket</a></td><td>The socket type used for reading. <a class="el" href="class_n_net_1_1_t_socket.html">TSocket</a> must provide a method: <code><a class="el" href="struct_n_net_1_1_t_value_task.html">TValueTask&lt;ssize_t&gt;</a> ReadSome(void* buffer, size_t size)</code> that reads data asynchronously.</td></tr>
+    <tr><td class="paramname"><a class="el" href="class_n_net_1_1_t_socket.html">TSocket</a></td><td>The socket type used for reading. <a class="el" href="class_n_net_1_1_t_socket.html">TSocket</a> must provide a method: <code>TValueTask&lt;ssize_t&gt; ReadSome(void* buffer, size_t size)</code> that reads data asynchronously.</td></tr>
   </table>
   </dd>
 </dl>
 <h3><a class="anchor" id="autotoc_md8"></a>
 Example Usage</h3>
 <div class="fragment"><div class="line"><span class="comment">// Example function that processes lines read from the socket:</span></div>
-<div class="line"><a class="code hl_struct" href="struct_n_net_1_1_t_value_task.html">TValueTask&lt;void&gt;</a> processLines(<a class="code hl_class" href="class_n_net_1_1_t_socket.html">TSocket</a>&amp; socket) {</div>
+<div class="line">TValueTask&lt;void&gt; processLines(<a class="code hl_class" href="class_n_net_1_1_t_socket.html">TSocket</a>&amp; socket) {</div>
 <div class="line">    <a class="code hl_function" href="#a42714161f82dbc80770f6a1a0be610ea">TLineReader&lt;TSocket&gt;</a> lineReader(socket);</div>
 <div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
 <div class="line">        <a class="code hl_struct" href="struct_n_net_1_1_t_line.html">TLine</a> line = <span class="keyword">co_await</span> lineReader.Read();</div>
@@ -168,7 +168,6 @@ Example Usage</h3>
 <div class="ttc" id="aclass_n_net_1_1_t_socket_html"><div class="ttname"><a href="class_n_net_1_1_t_socket.html">NNet::TSocket</a></div><div class="ttdef"><b>Definition</b> socket.hpp:225</div></div>
 <div class="ttc" id="astruct_n_net_1_1_t_line_html"><div class="ttname"><a href="struct_n_net_1_1_t_line.html">NNet::TLine</a></div><div class="ttdef"><b>Definition</b> sockutils.hpp:9</div></div>
 <div class="ttc" id="astruct_n_net_1_1_t_line_reader_html_a42714161f82dbc80770f6a1a0be610ea"><div class="ttname"><a href="#a42714161f82dbc80770f6a1a0be610ea">NNet::TLineReader::TLineReader</a></div><div class="ttdeci">TLineReader(TSocket &amp;socket, int maxLineSize=4096)</div><div class="ttdoc">Constructs a line reader with the given socket and maximum line size.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:587</div></div>
-<div class="ttc" id="astruct_n_net_1_1_t_value_task_html"><div class="ttname"><a href="struct_n_net_1_1_t_value_task.html">NNet::TValueTask</a></div><div class="ttdef"><b>Definition</b> corochain.hpp:90</div></div>
 </div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a42714161f82dbc80770f6a1a0be610ea" name="a42714161f82dbc80770f6a1a0be610ea"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a42714161f82dbc80770f6a1a0be610ea">&#9670;&#160;</a></span>TLineReader()</h2>
@@ -212,8 +211,8 @@ template&lt;typename <a class="el" href="class_n_net_1_1_t_socket.html">TSocket<
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a4be30743c85c96587dd9e6b9ce54389d" name="a4be30743c85c96587dd9e6b9ce54389d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4be30743c85c96587dd9e6b9ce54389d">&#9670;&#160;</a></span>Read()</h2>
+<a id="ab67aad2e1bd4efa504ab0c4a3f7a4bec" name="ab67aad2e1bd4efa504ab0c4a3f7a4bec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab67aad2e1bd4efa504ab0c4a3f7a4bec">&#9670;&#160;</a></span>Read()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -224,7 +223,7 @@ template&lt;typename <a class="el" href="class_n_net_1_1_t_socket.html">TSocket<
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_n_net_1_1_t_value_task.html">TValueTask</a>&lt; <a class="el" href="struct_n_net_1_1_t_line.html">TLine</a> &gt; <a class="el" href="struct_n_net_1_1_t_line_reader.html">NNet::TLineReader</a>&lt; <a class="el" href="class_n_net_1_1_t_socket.html">TSocket</a> &gt;::Read </td>
+          <td class="memname"><a class="el" href="struct_n_net_1_1_t_future.html">TFuture</a>&lt; <a class="el" href="struct_n_net_1_1_t_line.html">TLine</a> &gt; <a class="el" href="struct_n_net_1_1_t_line_reader.html">NNet::TLineReader</a>&lt; <a class="el" href="class_n_net_1_1_t_socket.html">TSocket</a> &gt;::Read </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -239,7 +238,7 @@ template&lt;typename <a class="el" href="class_n_net_1_1_t_socket.html">TSocket<
 
 <p>Reads and returns the next complete line from the socket. </p>
 <p>This method repeatedly attempts to pop a complete line from the splitter. If no complete line is available, it acquires a chunk of the splitter’s internal buffer and reads data from the socket into that space. After committing the newly read data, it retries extracting a line. The method returns a <code><a class="el" href="struct_n_net_1_1_t_line.html">TLine</a></code> (which may contain two parts, if the line wraps around the circular buffer).</p>
-<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="struct_n_net_1_1_t_value_task.html">TValueTask&lt;TLine&gt;</a> that completes once a full line is available. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A TValueTask&lt;TLine&gt; that completes once a full line is available. </dd></dl>
 
 </div>
 </div>

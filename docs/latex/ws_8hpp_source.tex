@@ -34,7 +34,7 @@
 \DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ ,\ Writer(socket)}
 \DoxyCodeLine{00031\ \ \ \ \ \{\ \}}
 \DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \ \ \ \ TFuture<void>\ Connect(\textcolor{keyword}{const}\ std::string\&\ host,\ \textcolor{keyword}{const}\ std::string\&\ path)\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<void>}}\ Connect(\textcolor{keyword}{const}\ std::string\&\ host,\ \textcolor{keyword}{const}\ std::string\&\ path)\ \{}
 \DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ key\ =\ GenerateWebSocketKey(Rd);}
 \DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ std::string\ request\ =}
 \DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}GET\ "{}}\ +\ path\ +\ \textcolor{stringliteral}{"{}\ HTTP/1.1\(\backslash\)r\(\backslash\)n"{}}}
@@ -59,11 +59,11 @@
 \DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_return};}
 \DoxyCodeLine{00056\ \ \ \ \ \}}
 \DoxyCodeLine{00057\ }
-\DoxyCodeLine{00058\ \ \ \ \ TFuture<void>\ SendText(std::string\_view\ message)\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<void>}}\ SendText(std::string\_view\ message)\ \{}
 \DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_await}\ SendFrame(0x1,\ message);}
 \DoxyCodeLine{00060\ \ \ \ \ \}}
 \DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ \ \ \ \ TFuture<std::string\_view>\ ReceiveText()\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<std::string\_view>}}\ ReceiveText()\ \{}
 \DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ [opcode,\ payload]\ =\ \textcolor{keyword}{co\_await}\ ReceiveFrame();}
 \DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (opcode\ !=\ 0x1)\ \{}
 \DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(}
@@ -83,7 +83,7 @@
 \DoxyCodeLine{00079\ \ \ \ \ std::string\ Payload;}
 \DoxyCodeLine{00080\ \ \ \ \ std::vector<uint8\_t>\ Frame;}
 \DoxyCodeLine{00081\ }
-\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValueTask<void>}}\ SendFrame(uint8\_t\ opcode,\ std::string\_view\ payload)\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<void>}}\ SendFrame(uint8\_t\ opcode,\ std::string\_view\ payload)\ \{}
 \DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ Frame.clear();}
 \DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ Frame.push\_back(0x80\ |\ opcode);}
 \DoxyCodeLine{00085\ }
@@ -114,7 +114,7 @@
 \DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_return};}
 \DoxyCodeLine{00111\ \ \ \ \ \}}
 \DoxyCodeLine{00112\ }
-\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_value_task}{TValueTask<std::pair<uint8\_t,\ std::string\_view>}}>\ ReceiveFrame()\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<std::pair<uint8\_t,\ std::string\_view>}}>\ ReceiveFrame()\ \{}
 \DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ uint8\_t\ header[2];}
 \DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_await}\ Reader.Read(header,\ \textcolor{keyword}{sizeof}(header));}
 \DoxyCodeLine{00116\ }
