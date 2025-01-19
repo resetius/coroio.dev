@@ -133,6 +133,15 @@ Key Features</h1>
 <li><a class="el" href="struct_n_net_1_1_t_byte_reader.html">TByteReader</a> and <a class="el" href="struct_n_net_1_1_t_byte_writer.html">TByteWriter</a> for byte-level I/O.</li>
 <li><a class="el" href="class_n_net_1_1_t_resolver.html">TResolver</a> and <a class="el" href="class_n_net_1_1_t_resolv_conf.html">TResolvConf</a> for DNS resolution.</li>
 </ul>
+<p>In addition to these, the library supports multiple polling mechanisms for asynchronous operations:</p>
+<ul>
+<li><a class="el" href="class_n_net_1_1_t_select.html">TSelect</a> - Poller using the select() system call.</li>
+<li><a class="el" href="class_n_net_1_1_t_poll.html">TPoll</a> - Poller using the poll() system call.</li>
+<li><a class="el" href="class_n_net_1_1_t_e_poll.html">TEPoll</a> - Linux-specific poller using epoll.</li>
+<li><a class="el" href="class_n_net_1_1_t_kqueue.html">TKqueue</a> - Poller for macOS/FreeBSD using kqueue.</li>
+<li><a class="el" href="class_n_net_1_1_t_i_o_cp.html">TIOCp</a> - Poller for Windows using IOCP.</li>
+<li><a class="el" href="class_n_net_1_1_t_uring.html">TUring</a> - Linux-specific poller using io_uring.</li>
+</ul>
 <h1><a class="anchor" id="example_sec"></a>
 Example: Echo Client</h1>
 <p>The following example demonstrates a simple echo client. The client reads lines from standard input, sends them to an echo server, and then prints the response.</p>
@@ -174,7 +183,15 @@ Further Information</h1>
 <li><a class="el" href="class_n_net_1_1_t_socket.html">TSocket</a> and <a class="el" href="class_n_net_1_1_t_poller_driven_socket.html">TPollerDrivenSocket</a></li>
 <li><a class="el" href="class_n_net_1_1_t_file_handle.html">TFileHandle</a> and <a class="el" href="class_n_net_1_1_t_poller_driven_file_handle.html">TPollerDrivenFileHandle</a></li>
 <li><a class="el" href="struct_n_net_1_1_t_line_reader.html">TLineReader</a>, <a class="el" href="struct_n_net_1_1_t_byte_reader.html">TByteReader</a>, and <a class="el" href="struct_n_net_1_1_t_byte_writer.html">TByteWriter</a></li>
-<li><a class="el" href="class_n_net_1_1_t_resolver.html">TResolver</a> and <a class="el" href="class_n_net_1_1_t_resolv_conf.html">TResolvConf</a> </li>
+<li><a class="el" href="class_n_net_1_1_t_resolver.html">TResolver</a> and <a class="el" href="class_n_net_1_1_t_resolv_conf.html">TResolvConf</a></li>
+</ul>
+<p>For the available pollers, see:</p><ul>
+<li><a class="el" href="class_n_net_1_1_t_select.html">TSelect</a></li>
+<li><a class="el" href="class_n_net_1_1_t_poll.html">TPoll</a></li>
+<li><a class="el" href="class_n_net_1_1_t_e_poll.html">TEPoll</a></li>
+<li><a class="el" href="class_n_net_1_1_t_kqueue.html">TKqueue</a></li>
+<li><a class="el" href="class_n_net_1_1_t_i_o_cp.html">TIOCp</a></li>
+<li><a class="el" href="class_n_net_1_1_t_uring.html">TUring</a> </li>
 </ul>
 </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
