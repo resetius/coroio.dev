@@ -135,7 +135,7 @@ $(function(){initNavTree('functions_func.html',''); initResizable(true); });
 <h3><a id="index_c" name="index_c"></a>- c -</h3><ul>
 <li>Close()&#160;:&#160;<a class="el" href="class_n_net_1_1_t_socket_base.html#ac0deb2a1fd4b9b137eb0273a455e38e5">NNet::TSocketBase&lt; TSockOps &gt;</a>, <a class="el" href="class_n_net_1_1_t_socket_base.html#ac0deb2a1fd4b9b137eb0273a455e38e5">NNet::TSocketBase&lt; void &gt;</a></li>
 <li>Commit()&#160;:&#160;<a class="el" href="struct_n_net_1_1_t_zero_copy_line_splitter.html#abb13941bdde48ab6559a79149ac66353">NNet::TZeroCopyLineSplitter</a></li>
-<li>Connect()&#160;:&#160;<a class="el" href="class_n_net_1_1_t_poller_driven_socket.html#a967470636b23c33a9bceaf1d23b9292f">NNet::TPollerDrivenSocket&lt; T &gt;</a>, <a class="el" href="class_n_net_1_1_t_socket.html#a31bab995eb6f74be32a5762358386998">NNet::TSocket</a></li>
+<li>Connect()&#160;:&#160;<a class="el" href="class_n_net_1_1_t_poller_driven_socket.html#a967470636b23c33a9bceaf1d23b9292f">NNet::TPollerDrivenSocket&lt; T &gt;</a>, <a class="el" href="class_n_net_1_1_t_socket.html#a31bab995eb6f74be32a5762358386998">NNet::TSocket</a>, <a class="el" href="class_n_net_1_1_t_web_socket.html#a5028ec836b4e9c74cd9d1862b8450e10">NNet::TWebSocket&lt; TSocket &gt;</a></li>
 <li>Create()&#160;:&#160;<a class="el" href="class_n_net_1_1_t_socket_base_3_01void_01_4.html#a6ccea3dfc59c8a24c15a1c313e77784d">NNet::TSocketBase&lt; void &gt;</a></li>
 </ul>
 
@@ -180,12 +180,14 @@ $(function(){initNavTree('functions_func.html',''); initResizable(true); });
 <li>ReadSome()&#160;:&#160;<a class="el" href="class_n_net_1_1_t_poller_driven_file_handle.html#afb8999e1e3e4035424f753ec8f34e2f5">NNet::TPollerDrivenFileHandle&lt; T &gt;</a>, <a class="el" href="class_n_net_1_1_t_poller_driven_socket.html#a5011ea1ad7eb7f6b75d883be21f25567">NNet::TPollerDrivenSocket&lt; T &gt;</a>, <a class="el" href="class_n_net_1_1_t_socket_base.html#aaf2e0b5cccc278c02ef48bcd253ff4fd">NNet::TSocketBase&lt; TSockOps &gt;</a>, <a class="el" href="class_n_net_1_1_t_socket_base.html#aaf2e0b5cccc278c02ef48bcd253ff4fd">NNet::TSocketBase&lt; void &gt;</a></li>
 <li>ReadSomeYield()&#160;:&#160;<a class="el" href="class_n_net_1_1_t_poller_driven_file_handle.html#a858b13c72857b0ffa00cc8ccc5822a8b">NNet::TPollerDrivenFileHandle&lt; T &gt;</a>, <a class="el" href="class_n_net_1_1_t_poller_driven_socket.html#a4d280fd66adab8936e7b917d88bedf37">NNet::TPollerDrivenSocket&lt; T &gt;</a>, <a class="el" href="class_n_net_1_1_t_socket_base.html#af15b3141e3ebcf34283423ca895cec48">NNet::TSocketBase&lt; TSockOps &gt;</a>, <a class="el" href="class_n_net_1_1_t_socket_base.html#af15b3141e3ebcf34283423ca895cec48">NNet::TSocketBase&lt; void &gt;</a></li>
 <li>ReadUntil()&#160;:&#160;<a class="el" href="struct_n_net_1_1_t_byte_reader.html#a0fba0689cf0fc26d154189697742d286">NNet::TByteReader&lt; TSocket &gt;</a></li>
+<li>ReceiveText()&#160;:&#160;<a class="el" href="class_n_net_1_1_t_web_socket.html#af34220618cf99f70debf1301dd502acb">NNet::TWebSocket&lt; TSocket &gt;</a></li>
 <li>RemoteAddr()&#160;:&#160;<a class="el" href="class_n_net_1_1_t_socket.html#a2c7be109be0d7d96bb42c918d26883cd">NNet::TSocket</a></li>
 <li>Resolve()&#160;:&#160;<a class="el" href="class_n_net_1_1_t_resolver.html#a03b305046ba4cd002ccf6f308cd8039f">NNet::TResolver&lt; TPoller &gt;</a></li>
 </ul>
 
 
 <h3><a id="index_s" name="index_s"></a>- s -</h3><ul>
+<li>SendText()&#160;:&#160;<a class="el" href="class_n_net_1_1_t_web_socket.html#adef36f335a05589611bdbfcdd22286cf">NNet::TWebSocket&lt; TSocket &gt;</a></li>
 <li>Setup()&#160;:&#160;<a class="el" href="class_n_net_1_1_t_socket_base_3_01void_01_4.html#a5123a941977e3426269c2d9cd9c70c13">NNet::TSocketBase&lt; void &gt;</a></li>
 <li>Step()&#160;:&#160;<a class="el" href="class_n_net_1_1_t_loop.html#ad528377d1b81c264334d7271953b6e2b">NNet::TLoop&lt; TPoller &gt;</a></li>
 <li>Stop()&#160;:&#160;<a class="el" href="class_n_net_1_1_t_loop.html#a3b3f1469844eaa90ad8d0326d361793b">NNet::TLoop&lt; TPoller &gt;</a></li>
@@ -207,6 +209,7 @@ $(function(){initNavTree('functions_func.html',''); initResizable(true); });
 <li>TSocket()&#160;:&#160;<a class="el" href="class_n_net_1_1_t_socket.html#a194d35853eb507357d3651c0bc6beb10">NNet::TSocket</a></li>
 <li>TSocketBase()&#160;:&#160;<a class="el" href="class_n_net_1_1_t_socket_base.html#a00cd2e4ff65978ce06a326fcbbc1734e">NNet::TSocketBase&lt; TSockOps &gt;</a>, <a class="el" href="class_n_net_1_1_t_socket_base.html#a00cd2e4ff65978ce06a326fcbbc1734e">NNet::TSocketBase&lt; void &gt;</a></li>
 <li>TStructReader()&#160;:&#160;<a class="el" href="struct_n_net_1_1_t_struct_reader.html#a01aed1fb8dc52c06e5177b13b02c0f3a">NNet::TStructReader&lt; T, TSocket &gt;</a></li>
+<li>TWebSocket()&#160;:&#160;<a class="el" href="class_n_net_1_1_t_web_socket.html#a36745522f809720a9bfa223de97f5514">NNet::TWebSocket&lt; TSocket &gt;</a></li>
 <li>TZeroCopyLineSplitter()&#160;:&#160;<a class="el" href="struct_n_net_1_1_t_zero_copy_line_splitter.html#af64b01796eb016cca29c41a39cb85de3">NNet::TZeroCopyLineSplitter</a></li>
 </ul>
 

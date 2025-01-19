@@ -44,6 +44,6 @@ var searchData=
   ['tvoidsuspendedpromise_41',['TVoidSuspendedPromise',['../struct_n_net_1_1_t_void_suspended_promise.html',1,'NNet']]],
   ['tvoidsuspendedtask_42',['TVoidSuspendedTask',['../struct_n_net_1_1_t_void_suspended_task.html',1,'NNet']]],
   ['tvoidtask_43',['TVoidTask',['../struct_n_net_1_1_t_void_task.html',1,'NNet']]],
-  ['twebsocket_44',['TWebSocket',['../class_n_net_1_1_t_web_socket.html',1,'NNet']]],
+  ['twebsocket_44',['TWebSocket',['../class_n_net_1_1_t_web_socket.html',1,'NNet::TWebSocket&lt; TSocket &gt;'],['../class_n_net_1_1_t_web_socket.html#a36745522f809720a9bfa223de97f5514',1,'NNet::TWebSocket::TWebSocket()']]],
   ['tzerocopylinesplitter_45',['TZeroCopyLineSplitter',['../struct_n_net_1_1_t_zero_copy_line_splitter.html',1,'NNet::TZeroCopyLineSplitter'],['../struct_n_net_1_1_t_zero_copy_line_splitter.html#af64b01796eb016cca29c41a39cb85de3',1,'NNet::TZeroCopyLineSplitter::TZeroCopyLineSplitter()']]]
 ];

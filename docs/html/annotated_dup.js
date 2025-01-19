@@ -38,7 +38,7 @@ var annotated_dup =
       [ "TVoidSuspendedPromise", "struct_n_net_1_1_t_void_suspended_promise.html", null ],
       [ "TVoidSuspendedTask", "struct_n_net_1_1_t_void_suspended_task.html", null ],
       [ "TVoidTask", "struct_n_net_1_1_t_void_task.html", null ],
-      [ "TWebSocket", "class_n_net_1_1_t_web_socket.html", null ],
+      [ "TWebSocket", "class_n_net_1_1_t_web_socket.html", "class_n_net_1_1_t_web_socket" ],
       [ "TZeroCopyLineSplitter", "struct_n_net_1_1_t_zero_copy_line_splitter.html", "struct_n_net_1_1_t_zero_copy_line_splitter" ]
     ] ],
     [ "Self", "class_self.html", null ]

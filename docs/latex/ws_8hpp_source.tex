@@ -25,131 +25,131 @@
 \DoxyCodeLine{00021\ std::string\ GenerateWebSocketKey(std::random\_device\&\ rd);}
 \DoxyCodeLine{00022\ \textcolor{keywordtype}{void}\ CheckSecWebSocketAccept(\textcolor{keyword}{const}\ std::string\&\ allServerHeaders,\ \textcolor{keyword}{const}\ std::string\&\ clientKeyBase64);}
 \DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TSocket>}
-\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }TWebSocket\ \{}
-\DoxyCodeLine{00026\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{explicit}\ TWebSocket(\mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}}\&\ socket)}
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ :\ Socket(socket)}
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ ,\ Reader(socket)}
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ ,\ Writer(socket)}
-\DoxyCodeLine{00031\ \ \ \ \ \{\ \}}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<void>}}\ Connect(\textcolor{keyword}{const}\ std::string\&\ host,\ \textcolor{keyword}{const}\ std::string\&\ path)\ \{}
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ key\ =\ GenerateWebSocketKey(Rd);}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ std::string\ request\ =}
-\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}GET\ "{}}\ +\ path\ +\ \textcolor{stringliteral}{"{}\ HTTP/1.1\(\backslash\)r\(\backslash\)n"{}}}
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Host:\ "{}}\ +\ host\ +\ \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n"{}}}
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}User-\/Agent:\ coroio\(\backslash\)r\(\backslash\)n"{}}}
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Accept:\ */*\(\backslash\)r\(\backslash\)n"{}}}
-\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Connection:\ Upgrade\(\backslash\)r\(\backslash\)n"{}}}
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Upgrade:\ websocket\(\backslash\)r\(\backslash\)n"{}}}
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Sec-\/WebSocket-\/Key:\ "{}}\ +\ key\ +\ \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n"{}}}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Sec-\/WebSocket-\/Version:\ 13\(\backslash\)r\(\backslash\)n\(\backslash\)r\(\backslash\)n"{}};}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_await}\ Writer.Write(request.data(),\ request.size());}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ response\ =\ \textcolor{keyword}{co\_await}\ Reader.ReadUntil(\textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n\(\backslash\)r\(\backslash\)n"{}});}
-\DoxyCodeLine{00048\ }
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ CheckSecWebSocketAccept(response,\ key);}
-\DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (response.find(\textcolor{stringliteral}{"{}101\ Switching\ Protocols"{}})\ ==\ std::string::npos)\ \{}
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Failed\ to\ establish\ WebSocket\ connection"{}});}
-\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_return};}
-\DoxyCodeLine{00056\ \ \ \ \ \}}
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<void>}}\ SendText(std::string\_view\ message)\ \{}
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_await}\ SendFrame(0x1,\ message);}
-\DoxyCodeLine{00060\ \ \ \ \ \}}
-\DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<std::string\_view>}}\ ReceiveText()\ \{}
-\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ [opcode,\ payload]\ =\ \textcolor{keyword}{co\_await}\ ReceiveFrame();}
-\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (opcode\ !=\ 0x1)\ \{}
-\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(}
-\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Unexpected\ opcode:\ "{}}\ +}
-\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::to\_string(opcode)\ +}
-\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ ,\ expected\ text\ frame,\ got:\ '"{}}\ +}
-\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string(payload)\ +\ \textcolor{stringliteral}{"{}'"{}});}
-\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_return}\ payload;}
-\DoxyCodeLine{00072\ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ TSocket>}
+\DoxyCodeLine{00061\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_n_net_1_1_t_web_socket_a36745522f809720a9bfa223de97f5514}{TWebSocket}}\ \{}
+\DoxyCodeLine{00062\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_n_net_1_1_t_web_socket_a36745522f809720a9bfa223de97f5514}{TWebSocket}}(\mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}}\&\ socket)}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ :\ Socket(socket)}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ ,\ Reader(socket)}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ ,\ Writer(socket)}
+\DoxyCodeLine{00072\ \ \ \ \ \{\ \}}
 \DoxyCodeLine{00073\ }
-\DoxyCodeLine{00074\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00075\ \ \ \ \ \mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}}\&\ Socket;}
-\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_byte_reader}{TByteReader<TSocket>}}\ Reader;}
-\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_byte_writer}{TByteWriter<TSocket>}}\ Writer;}
-\DoxyCodeLine{00078\ \ \ \ \ std::random\_device\ Rd;}
-\DoxyCodeLine{00079\ \ \ \ \ std::string\ Payload;}
-\DoxyCodeLine{00080\ \ \ \ \ std::vector<uint8\_t>\ Frame;}
-\DoxyCodeLine{00081\ }
-\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<void>}}\ SendFrame(uint8\_t\ opcode,\ std::string\_view\ payload)\ \{}
-\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ Frame.clear();}
-\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ Frame.push\_back(0x80\ |\ opcode);}
-\DoxyCodeLine{00085\ }
-\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ uint8\_t\ maskingKey[4];}
-\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 4;\ ++i)\ \{}
-\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ maskingKey[i]\ =\ \textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(Rd());}
-\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00090\ }
-\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (payload.size()\ <=\ 125)\ \{}
-\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ Frame.push\_back(0x80\ |\ \textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(payload.size()));}
-\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (payload.size()\ <=\ 0xFFFF)\ \{}
-\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ Frame.push\_back(0x80\ |\ 126);}
-\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ length\ =\ htons(\textcolor{keyword}{static\_cast<}uint16\_t\textcolor{keyword}{>}(payload.size()));}
-\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ Frame.insert(Frame.end(),\ \textcolor{keyword}{reinterpret\_cast<}uint8\_t*\textcolor{keyword}{>}(\&length),\ \textcolor{keyword}{reinterpret\_cast<}uint8\_t*\textcolor{keyword}{>}(\&length)\ +\ 2);}
-\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ Frame.push\_back(0x80\ |\ 127);}
-\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ uint64\_t\ length\ =\ htonll(payload.size());}
-\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ Frame.insert(Frame.end(),\ \textcolor{keyword}{reinterpret\_cast<}uint8\_t*\textcolor{keyword}{>}(\&length),\ \textcolor{keyword}{reinterpret\_cast<}uint8\_t*\textcolor{keyword}{>}(\&length)\ +\ 8);}
-\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00102\ }
-\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ Frame.insert(Frame.end(),\ std::begin(maskingKey),\ std::end(maskingKey));}
-\DoxyCodeLine{00104\ }
-\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ payload.size();\ ++i)\ \{}
-\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ Frame.push\_back(payload[i]\ \string^\ maskingKey[i\ \%\ 4]);}
-\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00108\ }
-\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_await}\ Writer.Write(Frame.data(),\ Frame.size());}
-\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_return};}
-\DoxyCodeLine{00111\ \ \ \ \ \}}
-\DoxyCodeLine{00112\ }
-\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<std::pair<uint8\_t,\ std::string\_view>}}>\ ReceiveFrame()\ \{}
-\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ uint8\_t\ header[2];}
-\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_await}\ Reader.Read(header,\ \textcolor{keyword}{sizeof}(header));}
-\DoxyCodeLine{00116\ }
-\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ uint8\_t\ opcode\ =\ header[0]\ \&\ 0x0F;}
-\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ masked\ =\ header[1]\ \&\ 0x80;}
-\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ uint64\_t\ payloadLength\ =\ header[1]\ \&\ 0x7F;}
+\DoxyCodeLine{00086\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<void>}}\ \mbox{\hyperlink{class_n_net_1_1_t_web_socket_a5028ec836b4e9c74cd9d1862b8450e10}{Connect}}(\textcolor{keyword}{const}\ std::string\&\ host,\ \textcolor{keyword}{const}\ std::string\&\ path)\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ key\ =\ GenerateWebSocketKey(Rd);}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ std::string\ request\ =}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}GET\ "{}}\ +\ path\ +\ \textcolor{stringliteral}{"{}\ HTTP/1.1\(\backslash\)r\(\backslash\)n"{}}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Host:\ "{}}\ +\ host\ +\ \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n"{}}}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}User-\/Agent:\ coroio\(\backslash\)r\(\backslash\)n"{}}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Accept:\ */*\(\backslash\)r\(\backslash\)n"{}}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Connection:\ Upgrade\(\backslash\)r\(\backslash\)n"{}}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Upgrade:\ websocket\(\backslash\)r\(\backslash\)n"{}}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Sec-\/WebSocket-\/Key:\ "{}}\ +\ key\ +\ \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n"{}}}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Sec-\/WebSocket-\/Version:\ 13\(\backslash\)r\(\backslash\)n\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_await}\ Writer.Write(request.data(),\ request.size());}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ response\ =\ \textcolor{keyword}{co\_await}\ Reader.ReadUntil(\textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n\(\backslash\)r\(\backslash\)n"{}});}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ CheckSecWebSocketAccept(response,\ key);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (response.find(\textcolor{stringliteral}{"{}101\ Switching\ Protocols"{}})\ ==\ std::string::npos)\ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Failed\ to\ establish\ WebSocket\ connection"{}});}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_return};}
+\DoxyCodeLine{00109\ \ \ \ \ \}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00117\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<void>}}\ \mbox{\hyperlink{class_n_net_1_1_t_web_socket_adef36f335a05589611bdbfcdd22286cf}{SendText}}(std::string\_view\ message)\ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_await}\ SendFrame(0x1,\ message);}
+\DoxyCodeLine{00119\ \ \ \ \ \}}
 \DoxyCodeLine{00120\ }
-\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (payloadLength\ ==\ 126)\ \{}
-\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ extendedLength;}
-\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_await}\ Reader.Read(\&extendedLength,\ \textcolor{keyword}{sizeof}(extendedLength));}
-\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ payloadLength\ =\ ntohs(extendedLength);}
-\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (payloadLength\ ==\ 127)\ \{}
-\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ uint64\_t\ extendedLength;}
-\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_await}\ Reader.Read(\&extendedLength,\ \textcolor{keyword}{sizeof}(extendedLength));}
-\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ payloadLength\ =\ ntohll(extendedLength);}
-\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00130\ }
-\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ uint8\_t\ mask[4]\ =\ \{0\};}
-\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (masked)\ \{}
-\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_await}\ Reader.Read(mask,\ \textcolor{keyword}{sizeof}(mask));}
-\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00135\ }
-\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ Payload.resize(payloadLength);}
-\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_await}\ Reader.Read(Payload.data(),\ Payload.size());}
-\DoxyCodeLine{00138\ }
-\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (masked)\ \{}
-\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ Payload.size();\ ++i)\ \{}
-\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Payload[i]\ \string^=\ mask[i\ \%\ 4];}
-\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00144\ }
-\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_return}\ \{opcode,\ Payload\};}
-\DoxyCodeLine{00146\ \ \ \ \ \}}
-\DoxyCodeLine{00147\ \};}
+\DoxyCodeLine{00129\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<std::string\_view>}}\ \mbox{\hyperlink{class_n_net_1_1_t_web_socket_af34220618cf99f70debf1301dd502acb}{ReceiveText}}()\ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ [opcode,\ payload]\ =\ \textcolor{keyword}{co\_await}\ ReceiveFrame();}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (opcode\ !=\ 0x1)\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Unexpected\ opcode:\ "{}}\ +}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::to\_string(opcode)\ +}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ ,\ expected\ text\ frame,\ got:\ '"{}}\ +}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string(payload)\ +\ \textcolor{stringliteral}{"{}'"{}});}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_return}\ payload;}
+\DoxyCodeLine{00139\ \ \ \ \ \}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00142\ \ \ \ \ \mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}}\&\ Socket;}
+\DoxyCodeLine{00143\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_byte_reader}{TByteReader<TSocket>}}\ Reader;}
+\DoxyCodeLine{00144\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_byte_writer}{TByteWriter<TSocket>}}\ Writer;}
+\DoxyCodeLine{00145\ \ \ \ \ std::random\_device\ Rd;}
+\DoxyCodeLine{00146\ \ \ \ \ std::string\ Payload;}
+\DoxyCodeLine{00147\ \ \ \ \ std::vector<uint8\_t>\ Frame;}
 \DoxyCodeLine{00148\ }
-\DoxyCodeLine{00149\ \}\ \textcolor{comment}{//\ namespace\ NNet\ \{}}
+\DoxyCodeLine{00149\ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<void>}}\ SendFrame(uint8\_t\ opcode,\ std::string\_view\ payload)\ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ Frame.clear();}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ Frame.push\_back(0x80\ |\ opcode);}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ uint8\_t\ maskingKey[4];}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 4;\ ++i)\ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ maskingKey[i]\ =\ \textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(Rd());}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (payload.size()\ <=\ 125)\ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ Frame.push\_back(0x80\ |\ \textcolor{keyword}{static\_cast<}uint8\_t\textcolor{keyword}{>}(payload.size()));}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (payload.size()\ <=\ 0xFFFF)\ \{}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ Frame.push\_back(0x80\ |\ 126);}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ length\ =\ htons(\textcolor{keyword}{static\_cast<}uint16\_t\textcolor{keyword}{>}(payload.size()));}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ Frame.insert(Frame.end(),\ \textcolor{keyword}{reinterpret\_cast<}uint8\_t*\textcolor{keyword}{>}(\&length),\ \textcolor{keyword}{reinterpret\_cast<}uint8\_t*\textcolor{keyword}{>}(\&length)\ +\ 2);}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ Frame.push\_back(0x80\ |\ 127);}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ uint64\_t\ length\ =\ htonll(payload.size());}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ Frame.insert(Frame.end(),\ \textcolor{keyword}{reinterpret\_cast<}uint8\_t*\textcolor{keyword}{>}(\&length),\ \textcolor{keyword}{reinterpret\_cast<}uint8\_t*\textcolor{keyword}{>}(\&length)\ +\ 8);}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ Frame.insert(Frame.end(),\ std::begin(maskingKey),\ std::end(maskingKey));}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ payload.size();\ ++i)\ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ Frame.push\_back(payload[i]\ \string^\ maskingKey[i\ \%\ 4]);}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_await}\ Writer.Write(Frame.data(),\ Frame.size());}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_return};}
+\DoxyCodeLine{00178\ \ \ \ \ \}}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \ \ \ \ TFuture<std::pair<uint8\_t,\ std::string\_view>>\ ReceiveFrame()\ \{}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ uint8\_t\ header[2];}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_await}\ Reader.Read(header,\ \textcolor{keyword}{sizeof}(header));}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ uint8\_t\ opcode\ =\ header[0]\ \&\ 0x0F;}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ masked\ =\ header[1]\ \&\ 0x80;}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ uint64\_t\ payloadLength\ =\ header[1]\ \&\ 0x7F;}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (payloadLength\ ==\ 126)\ \{}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ extendedLength;}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_await}\ Reader.Read(\&extendedLength,\ \textcolor{keyword}{sizeof}(extendedLength));}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ payloadLength\ =\ ntohs(extendedLength);}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (payloadLength\ ==\ 127)\ \{}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ uint64\_t\ extendedLength;}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_await}\ Reader.Read(\&extendedLength,\ \textcolor{keyword}{sizeof}(extendedLength));}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ payloadLength\ =\ ntohll(extendedLength);}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ uint8\_t\ mask[4]\ =\ \{0\};}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (masked)\ \{}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_await}\ Reader.Read(mask,\ \textcolor{keyword}{sizeof}(mask));}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ Payload.resize(payloadLength);}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_await}\ Reader.Read(Payload.data(),\ Payload.size());}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (masked)\ \{}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ Payload.size();\ ++i)\ \{}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Payload[i]\ \string^=\ mask[i\ \%\ 4];}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_return}\ \{opcode,\ Payload\};}
+\DoxyCodeLine{00213\ \ \ \ \ \}}
+\DoxyCodeLine{00214\ \};}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \}\ \textcolor{comment}{//\ namespace\ NNet\ \{}}
 
 \end{DoxyCode}
