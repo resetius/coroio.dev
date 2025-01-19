@@ -21,7 +21,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>COROIO: Main Page</title>
+<title>COROIO: Asynchronous I/O &amp; Networking Library</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -117,10 +117,66 @@ $(function(){initNavTree('index.html',''); initResizable(true); });
 </div>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">COROIO Documentation</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">Asynchronous I/O &amp; Networking Library </div></div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><h1><a class="anchor" id="intro_sec"></a>
+Introduction</h1>
+<p>This library provides advanced asynchronous I/O and networking capabilities using coroutine-based APIs and poller-driven execution. It supports high-performance operations for both network sockets and file handles.</p>
+<h1><a class="anchor" id="features_sec"></a>
+Key Features</h1>
+<p>The library’s core functionality is exposed through a few high-level classes:</p><ul>
+<li><a class="el" href="class_n_net_1_1_t_socket.html">TSocket</a> and <a class="el" href="class_n_net_1_1_t_poller_driven_socket.html">TPollerDrivenSocket</a> for asynchronous networking.</li>
+<li><a class="el" href="class_n_net_1_1_t_file_handle.html">TFileHandle</a> and <a class="el" href="class_n_net_1_1_t_poller_driven_file_handle.html">TPollerDrivenFileHandle</a> for asynchronous file I/O.</li>
+<li><a class="el" href="struct_n_net_1_1_t_line_reader.html">TLineReader</a> for efficient, line-based input.</li>
+<li><a class="el" href="struct_n_net_1_1_t_byte_reader.html">TByteReader</a> and <a class="el" href="struct_n_net_1_1_t_byte_writer.html">TByteWriter</a> for byte-level I/O.</li>
+<li><a class="el" href="class_n_net_1_1_t_resolver.html">TResolver</a> and <a class="el" href="class_n_net_1_1_t_resolv_conf.html">TResolvConf</a> for DNS resolution.</li>
+</ul>
+<h1><a class="anchor" id="example_sec"></a>
+Example: Echo Client</h1>
+<p>The following example demonstrates a simple echo client. The client reads lines from standard input, sends them to an echo server, and then prints the response.</p>
+<div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keywordtype">bool</span> debug, <span class="keyword">typename</span> TPoller&gt;</div>
+<div class="line">TFuture&lt;void&gt; client(TPoller&amp; poller, TAddress addr)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> maxLineSize = 4096;</div>
+<div class="line">    <span class="keyword">using </span>TSocket = <span class="keyword">typename</span> TPoller::TSocket;</div>
+<div class="line">    <span class="keyword">using </span>TFileHandle = <span class="keyword">typename</span> TPoller::TFileHandle;</div>
+<div class="line">    std::vector&lt;char&gt; in(maxLineSize);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">try</span> {</div>
+<div class="line">        TFileHandle input{0, poller}; <span class="comment">// stdin</span></div>
+<div class="line">        TSocket socket{poller, addr.Domain()};</div>
+<div class="line">        <a class="code hl_class" href="struct_n_net_1_1_t_line_reader.html">TLineReader</a> lineReader(input, maxLineSize);</div>
+<div class="line">        <a class="code hl_class" href="struct_n_net_1_1_t_byte_writer.html">TByteWriter</a> byteWriter(socket);</div>
+<div class="line">        <a class="code hl_class" href="struct_n_net_1_1_t_byte_reader.html">TByteReader</a> byteReader(socket);</div>
+<div class="line"> </div>
+<div class="line">        <span class="keyword">co_await</span> socket.Connect(addr, TClock::now() + std::chrono::milliseconds(1000));</div>
+<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">auto</span> line = <span class="keyword">co_await</span> lineReader.Read()) {</div>
+<div class="line">            <span class="keyword">co_await</span> byteWriter.Write(line);</div>
+<div class="line">            <span class="keyword">co_await</span> byteReader.Read(in.data(), line.Size());</div>
+<div class="line">            <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (debug) {</div>
+<div class="line">                std::cout &lt;&lt; <span class="stringliteral">&quot;Received: &quot;</span> &lt;&lt; std::string_view(in.data(), line.Size()) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">    } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp; ex) {</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Exception: &quot;</span> &lt;&lt; ex.what() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">co_return</span>;</div>
+<div class="line">}</div>
+<div class="ttc" id="astruct_n_net_1_1_t_byte_reader_html"><div class="ttname"><a href="struct_n_net_1_1_t_byte_reader.html">NNet::TByteReader</a></div><div class="ttdoc">A utility for reading data from a socket-like object, either a fixed number of bytes or until a speci...</div><div class="ttdef"><b>Definition</b> sockutils.hpp:55</div></div>
+<div class="ttc" id="astruct_n_net_1_1_t_byte_writer_html"><div class="ttname"><a href="struct_n_net_1_1_t_byte_writer.html">NNet::TByteWriter</a></div><div class="ttdoc">A utility for writing data to a socket-like object.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:190</div></div>
+<div class="ttc" id="astruct_n_net_1_1_t_line_reader_html"><div class="ttname"><a href="struct_n_net_1_1_t_line_reader.html">NNet::TLineReader</a></div><div class="ttdoc">Reads a complete line from a socket using a zero-copy line splitter.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:577</div></div>
+</div><!-- fragment --><h1><a class="anchor" id="further_sec"></a>
+Further Information</h1>
+<p>For more details on each component, please refer to the following classes:</p><ul>
+<li><a class="el" href="class_n_net_1_1_t_socket.html">TSocket</a> and <a class="el" href="class_n_net_1_1_t_poller_driven_socket.html">TPollerDrivenSocket</a></li>
+<li><a class="el" href="class_n_net_1_1_t_file_handle.html">TFileHandle</a> and <a class="el" href="class_n_net_1_1_t_poller_driven_file_handle.html">TPollerDrivenFileHandle</a></li>
+<li><a class="el" href="struct_n_net_1_1_t_line_reader.html">TLineReader</a>, <a class="el" href="struct_n_net_1_1_t_byte_reader.html">TByteReader</a>, and <a class="el" href="struct_n_net_1_1_t_byte_writer.html">TByteWriter</a></li>
+<li><a class="el" href="class_n_net_1_1_t_resolver.html">TResolver</a> and <a class="el" href="class_n_net_1_1_t_resolv_conf.html">TResolvConf</a> </li>
+</ul>
+</div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
 </div><!-- contents -->
 </div><!-- doc-content -->

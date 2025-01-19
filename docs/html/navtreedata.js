@@ -25,6 +25,7 @@
 var NAVTREE =
 [
   [ "COROIO", "index.html", [
+    [ "Asynchronous I/O & Networking Library", "index.html", "index" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],

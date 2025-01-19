@@ -1,0 +1,55 @@
+\chapter{Asynchronous I/O \& Networking Library}
+\hypertarget{index}{}\label{index}\index{Asynchronous I/O \& Networking Library@{Asynchronous I/O \& Networking Library}}
+\hypertarget{index_intro_sec}{}\doxysection{\texorpdfstring{Introduction}{Introduction}}\label{index_intro_sec}
+This library provides advanced asynchronous I/O and networking capabilities using coroutine-\/based APIs and poller-\/driven execution. It supports high-\/performance operations for both network sockets and file handles.\hypertarget{index_features_sec}{}\doxysection{\texorpdfstring{Key Features}{Key Features}}\label{index_features_sec}
+The library’s core functionality is exposed through a few high-\/level classes\+:
+\begin{DoxyItemize}
+\item \doxylink{class_n_net_1_1_t_socket}{TSocket} and \doxylink{class_n_net_1_1_t_poller_driven_socket}{TPoller\+Driven\+Socket} for asynchronous networking.
+\item \doxylink{class_n_net_1_1_t_file_handle}{TFile\+Handle} and \doxylink{class_n_net_1_1_t_poller_driven_file_handle}{TPoller\+Driven\+File\+Handle} for asynchronous file I/O.
+\item \doxylink{struct_n_net_1_1_t_line_reader}{TLine\+Reader} for efficient, line-\/based input.
+\item \doxylink{struct_n_net_1_1_t_byte_reader}{TByte\+Reader} and \doxylink{struct_n_net_1_1_t_byte_writer}{TByte\+Writer} for byte-\/level I/O.
+\item \doxylink{class_n_net_1_1_t_resolver}{TResolver} and \doxylink{class_n_net_1_1_t_resolv_conf}{TResolv\+Conf} for DNS resolution.
+\end{DoxyItemize}\hypertarget{index_example_sec}{}\doxysection{\texorpdfstring{Example\+: Echo Client}{Example\+: Echo Client}}\label{index_example_sec}
+The following example demonstrates a simple echo client. The client reads lines from standard input, sends them to an echo server, and then prints the response.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keywordtype}{bool}\ debug,\ \textcolor{keyword}{typename}\ TPoller>}
+\DoxyCodeLine{\mbox{\hyperlink{struct_n_net_1_1_t_future}{TFuture<void>}}\ client(TPoller\&\ poller,\ \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}}\ addr)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ maxLineSize\ =\ 4096;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}}\ =\ \textcolor{keyword}{typename}\ TPoller::TSocket;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{class_n_net_1_1_t_file_handle}{TFileHandle}}\ =\ \textcolor{keyword}{typename}\ TPoller::TFileHandle;}
+\DoxyCodeLine{\ \ \ \ std::vector<char>\ in(maxLineSize);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{class_n_net_1_1_t_file_handle}{TFileHandle}}\ input\{0,\ poller\};\ \textcolor{comment}{//\ stdin}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ TSocket\ socket\{poller,\ addr.\mbox{\hyperlink{class_n_net_1_1_t_address_a23d57a7dc6ae5d181fcfd67a58ee6a5d}{Domain}}()\};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_line_reader}{TLineReader}}\ lineReader(input,\ maxLineSize);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_byte_writer}{TByteWriter}}\ byteWriter(socket);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_n_net_1_1_t_byte_reader}{TByteReader}}\ byteReader(socket);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{co\_await}\ socket.Connect(addr,\ TClock::now()\ +\ std::chrono::milliseconds(1000));}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{auto}\ line\ =\ \textcolor{keyword}{co\_await}\ lineReader.Read())\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_await}\ byteWriter.Write(line);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{co\_await}\ byteReader.Read(in.data(),\ line.Size());}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (debug)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Received:\ "{}}\ <<\ std::string\_view(in.data(),\ line.Size())\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::exception\&\ ex)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Exception:\ "{}}\ <<\ ex.what()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{co\_return};}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{index_further_sec}{}\doxysection{\texorpdfstring{Further Information}{Further Information}}\label{index_further_sec}
+For more details on each component, please refer to the following classes\+:
+\begin{DoxyItemize}
+\item \doxylink{class_n_net_1_1_t_socket}{TSocket} and \doxylink{class_n_net_1_1_t_poller_driven_socket}{TPoller\+Driven\+Socket}
+\item \doxylink{class_n_net_1_1_t_file_handle}{TFile\+Handle} and \doxylink{class_n_net_1_1_t_poller_driven_file_handle}{TPoller\+Driven\+File\+Handle}
+\item \doxylink{struct_n_net_1_1_t_line_reader}{TLine\+Reader}, \doxylink{struct_n_net_1_1_t_byte_reader}{TByte\+Reader}, and \doxylink{struct_n_net_1_1_t_byte_writer}{TByte\+Writer}
+\item \doxylink{class_n_net_1_1_t_resolver}{TResolver} and \doxylink{class_n_net_1_1_t_resolv_conf}{TResolv\+Conf} 
+\end{DoxyItemize}
