@@ -40,7 +40,7 @@ var annotated_dup =
       [ "TSslSocket", "class_n_net_1_1_t_ssl_socket.html", "class_n_net_1_1_t_ssl_socket" ],
       [ "TStructReader", "struct_n_net_1_1_t_struct_reader.html", "struct_n_net_1_1_t_struct_reader" ],
       [ "TTimer", "struct_n_net_1_1_t_timer.html", null ],
-      [ "TUring", "class_n_net_1_1_t_uring.html", null ],
+      [ "TUring", "class_n_net_1_1_t_uring.html", "class_n_net_1_1_t_uring" ],
       [ "TVoidPromise", "struct_n_net_1_1_t_void_promise.html", null ],
       [ "TVoidSuspendedPromise", "struct_n_net_1_1_t_void_suspended_promise.html", null ],
       [ "TVoidSuspendedTask", "struct_n_net_1_1_t_void_suspended_task.html", null ],
