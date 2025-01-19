@@ -1,5 +1,14 @@
 \doxysection{NNet\+::TSocket\+Base\texorpdfstring{$<$}{<} TSock\+Ops \texorpdfstring{$>$}{>} Class Template Reference}
 \hypertarget{class_n_net_1_1_t_socket_base}{}\label{class_n_net_1_1_t_socket_base}\index{NNet::TSocketBase$<$ TSockOps $>$@{NNet::TSocketBase$<$ TSockOps $>$}}
+
+
+Template base class implementing asynchronous socket I/O operations.  
+
+
+
+
+{\ttfamily \#include $<$socket.\+hpp$>$}
+
 Inheritance diagram for NNet\+::TSocket\+Base\texorpdfstring{$<$}{<} TSock\+Ops \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -39,6 +48,34 @@ void \mbox{\hyperlink{class_n_net_1_1_t_socket_base_ac0deb2a1fd4b9b137eb0273a455
 \Hypertarget{class_n_net_1_1_t_socket_base_a2cb098860669ca76af45e01cceb0da2a}\label{class_n_net_1_1_t_socket_base_a2cb098860669ca76af45e01cceb0da2a} 
 \mbox{\hyperlink{class_n_net_1_1_t_socket_base}{TSocket\+Base}} \& {\bfseries operator=} (\mbox{\hyperlink{class_n_net_1_1_t_socket_base}{TSocket\+Base}} \&other) const =delete
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename \mbox{\hyperlink{class_n_net_1_1_t_sock_ops}{TSock\+Ops}}$>$\newline
+class NNet\+::\+TSocket\+Base$<$ TSock\+Ops $>$}
+Template base class implementing asynchronous socket I/O operations. 
+
+This class extends the internal \doxylink{class_n_net_1_1_t_socket_base_3_01void_01_4}{TSocket\+Base$<$void$>$} by implementing asynchronous operations based on a type-\/specific socket operations trait, \doxylink{class_n_net_1_1_t_sock_ops}{TSock\+Ops}. The \doxylink{class_n_net_1_1_t_sock_ops}{TSock\+Ops} type must implement the following static methods\+:
+\begin{DoxyItemize}
+\item {\ttfamily static int TSock\+Ops\+::read(int fd, void\texorpdfstring{$\ast$}{*} buf, size\+\_\+t size)}
+\item {\ttfamily static int TSock\+Ops\+::write(int fd, const void\texorpdfstring{$\ast$}{*} buf, size\+\_\+t size)}
+\item {\ttfamily static int TSock\+Ops\+::close(int fd)}
+\end{DoxyItemize}
+
+It provides awaitable methods for reading and writing\+:
+\begin{DoxyItemize}
+\item \doxylink{class_n_net_1_1_t_socket_base_aaf2e0b5cccc278c02ef48bcd253ff4fd}{Read\+Some()} and \doxylink{class_n_net_1_1_t_socket_base_af15b3141e3ebcf34283423ca895cec48}{Read\+Some\+Yield()} perform asynchronous reads.
+\item \doxylink{class_n_net_1_1_t_socket_base_a456c0bd8d8e3e5a949329a963809fd24}{Write\+Some()} and \doxylink{class_n_net_1_1_t_socket_base_a17cff91c44720ae245405fab977746c5}{Write\+Some\+Yield()} perform asynchronous writes.
+\item \doxylink{class_n_net_1_1_t_socket_base_a1039bddf2bcba3f1277319ab90a5d63e}{Monitor()} provides an awaitable to detect remote hang-\/ups.
+\end{DoxyItemize}
+
+Both variants such as \doxylink{class_n_net_1_1_t_socket}{TSocket} and \doxylink{class_n_net_1_1_t_file_handle}{TFile\+Handle} (or similarly named higher-\/level wrappers) inherit from this class and expose the more user-\/friendly API. End users should use these derived classes, rather than interacting with TSocket\+Base$<$\+TSock\+Ops$>$ directly.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em \doxylink{class_n_net_1_1_t_sock_ops}{TSock\+Ops}} & The type that provides low-\/level socket operations. \\
+\hline
+\end{DoxyTemplParams}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}

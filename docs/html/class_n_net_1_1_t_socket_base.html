@@ -126,6 +126,11 @@ $(function(){initNavTree('class_n_net_1_1_t_socket_base.html',''); initResizable
   <div class="headertitle"><div class="title">NNet::TSocketBase&lt; TSockOps &gt; Class Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Template base class implementing asynchronous socket I/O operations.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="socket_8hpp_source.html">socket.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for NNet::TSocketBase&lt; TSockOps &gt;:</div>
 <div class="dyncontent">
@@ -166,10 +171,10 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a00cd2e4ff65978ce06a326fcbbc1734e" id="r_a00cd2e4ff65978ce06a326fcbbc1734e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00cd2e4ff65978ce06a326fcbbc1734e">TSocketBase</a> (<a class="el" href="class_n_net_1_1_t_poller_base.html">TPollerBase</a> &amp;poller, int domain, int type)</td></tr>
-<tr class="memdesc:a00cd2e4ff65978ce06a326fcbbc1734e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="class_n_net_1_1_t_socket_base.html">TSocketBase</a> with a new socket descriptor.  <br /></td></tr>
+<tr class="memdesc:a00cd2e4ff65978ce06a326fcbbc1734e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="class_n_net_1_1_t_socket_base.html" title="Template base class implementing asynchronous socket I/O operations.">TSocketBase</a> with a new socket descriptor.  <br /></td></tr>
 <tr class="separator:a00cd2e4ff65978ce06a326fcbbc1734e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acab6c128c65691ebf1018009088d27da" id="r_acab6c128c65691ebf1018009088d27da"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acab6c128c65691ebf1018009088d27da">TSocketBase</a> (int fd, <a class="el" href="class_n_net_1_1_t_poller_base.html">TPollerBase</a> &amp;poller)</td></tr>
-<tr class="memdesc:acab6c128c65691ebf1018009088d27da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="class_n_net_1_1_t_socket_base.html">TSocketBase</a> from an existing socket descriptor.  <br /></td></tr>
+<tr class="memdesc:acab6c128c65691ebf1018009088d27da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="class_n_net_1_1_t_socket_base.html" title="Template base class implementing asynchronous socket I/O operations.">TSocketBase</a> from an existing socket descriptor.  <br /></td></tr>
 <tr class="separator:acab6c128c65691ebf1018009088d27da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81d28c56a970b68d8e870cdef3294bd4" id="r_a81d28c56a970b68d8e870cdef3294bd4"><td class="memItemLeft" align="right" valign="top"><a id="a81d28c56a970b68d8e870cdef3294bd4" name="a81d28c56a970b68d8e870cdef3294bd4"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>TSocketBase</b> (const <a class="el" href="class_n_net_1_1_t_socket_base.html">TSocketBase</a> &amp;other)=delete</td></tr>
@@ -178,7 +183,27 @@ Protected Member Functions</h2></td></tr>
 <a class="el" href="class_n_net_1_1_t_socket_base.html">TSocketBase</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="class_n_net_1_1_t_socket_base.html">TSocketBase</a> &amp;other) const =delete</td></tr>
 <tr class="separator:a2cb098860669ca76af45e01cceb0da2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename <a class="el" href="class_n_net_1_1_t_sock_ops.html">TSockOps</a>&gt;<br />
+class NNet::TSocketBase&lt; TSockOps &gt;</div><p>Template base class implementing asynchronous socket I/O operations. </p>
+<p>This class extends the internal <a class="el" href="class_n_net_1_1_t_socket_base_3_01void_01_4.html">TSocketBase&lt;void&gt;</a> by implementing asynchronous operations based on a type-specific socket operations trait, <a class="el" href="class_n_net_1_1_t_sock_ops.html">TSockOps</a>. The <a class="el" href="class_n_net_1_1_t_sock_ops.html">TSockOps</a> type must implement the following static methods:</p><ul>
+<li><code>static int TSockOps::read(int fd, void* buf, size_t size)</code></li>
+<li><code>static int TSockOps::write(int fd, const void* buf, size_t size)</code></li>
+<li><code>static int TSockOps::close(int fd)</code></li>
+</ul>
+<p>It provides awaitable methods for reading and writing:</p><ul>
+<li><a class="el" href="#aaf2e0b5cccc278c02ef48bcd253ff4fd">ReadSome()</a> and <a class="el" href="#af15b3141e3ebcf34283423ca895cec48">ReadSomeYield()</a> perform asynchronous reads.</li>
+<li><a class="el" href="#a456c0bd8d8e3e5a949329a963809fd24">WriteSome()</a> and <a class="el" href="#a17cff91c44720ae245405fab977746c5">WriteSomeYield()</a> perform asynchronous writes.</li>
+<li><a class="el" href="#a1039bddf2bcba3f1277319ab90a5d63e">Monitor()</a> provides an awaitable to detect remote hang-ups.</li>
+</ul>
+<p>Both variants such as <a class="el" href="class_n_net_1_1_t_socket.html">TSocket</a> and <a class="el" href="class_n_net_1_1_t_file_handle.html">TFileHandle</a> (or similarly named higher-level wrappers) inherit from this class and expose the more user-friendly API. End users should use these derived classes, rather than interacting with TSocketBase&lt;TSockOps&gt; directly.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname"><a class="el" href="class_n_net_1_1_t_sock_ops.html">TSockOps</a></td><td>The type that provides low-level socket operations. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a00cd2e4ff65978ce06a326fcbbc1734e" name="a00cd2e4ff65978ce06a326fcbbc1734e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a00cd2e4ff65978ce06a326fcbbc1734e">&#9670;&#160;</a></span>TSocketBase() <span class="overload">[1/2]</span></h2>
 
@@ -213,7 +238,7 @@ template&lt;typename <a class="el" href="class_n_net_1_1_t_sock_ops.html">TSockO
 </table>
 </div><div class="memdoc">
 
-<p>Constructs a <a class="el" href="class_n_net_1_1_t_socket_base.html">TSocketBase</a> with a new socket descriptor. </p>
+<p>Constructs a <a class="el" href="class_n_net_1_1_t_socket_base.html" title="Template base class implementing asynchronous socket I/O operations.">TSocketBase</a> with a new socket descriptor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">poller</td><td>Reference to the poller responsible for asynchronous operations. </td></tr>
@@ -254,7 +279,7 @@ template&lt;typename <a class="el" href="class_n_net_1_1_t_sock_ops.html">TSockO
 </table>
 </div><div class="memdoc">
 
-<p>Constructs a <a class="el" href="class_n_net_1_1_t_socket_base.html">TSocketBase</a> from an existing socket descriptor. </p>
+<p>Constructs a <a class="el" href="class_n_net_1_1_t_socket_base.html" title="Template base class implementing asynchronous socket I/O operations.">TSocketBase</a> from an existing socket descriptor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">fd</td><td>An already created socket descriptor. </td></tr>

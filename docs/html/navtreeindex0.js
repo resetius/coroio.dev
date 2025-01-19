@@ -87,7 +87,6 @@ var NAVTREEINDEX0 =
 "class_n_net_1_1_t_ssl_socket.html":[0,0,0,30],
 "class_n_net_1_1_t_web_socket.html":[0,0,0,37],
 "class_self.html":[0,0,1],
-"class_t_socket_base_3_01_t_sock_ops_01_4.html":[0,0,2],
 "classes.html":[0,1],
 "corochain_8hpp_source.html":[1,0,0,3],
 "dir_160c7548cbf22adf8fa4b0e963f5268e.html":[1,0,0],

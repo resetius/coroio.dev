@@ -41,6 +41,5 @@ var annotated_dup =
       [ "TWebSocket", "class_n_net_1_1_t_web_socket.html", null ],
       [ "TZeroCopyLineSplitter", "struct_n_net_1_1_t_zero_copy_line_splitter.html", "struct_n_net_1_1_t_zero_copy_line_splitter" ]
     ] ],
-    [ "Self", "class_self.html", null ],
-    [ "TSocketBase< TSockOps >", "class_t_socket_base_3_01_t_sock_ops_01_4.html", null ]
+    [ "Self", "class_self.html", null ]
 ];

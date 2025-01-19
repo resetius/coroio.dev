@@ -46,7 +46,6 @@ var hierarchy =
         [ "NNet::TPollerDrivenFileHandle< T >", "class_n_net_1_1_t_poller_driven_file_handle.html", null ]
       ] ]
     ] ],
-    [ "TSocketBase< TSockOps >", "class_t_socket_base_3_01_t_sock_ops_01_4.html", null ],
     [ "NNet::TSocketBase< void >", "class_n_net_1_1_t_socket_base_3_01void_01_4.html", null ],
     [ "NNet::TSockOps", "class_n_net_1_1_t_sock_ops.html", null ],
     [ "NNet::TSslContext", "struct_n_net_1_1_t_ssl_context.html", null ],
