@@ -137,193 +137,255 @@ $(function(){initNavTree('poller_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">namespace </span>NNet {</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_poller_base.html">   18</a></span><span class="keyword">class </span>TPollerBase {</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    TPollerBase() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    TPollerBase(<span class="keyword">const</span> TPollerBase&amp; ) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    TPollerBase&amp; operator=(<span class="keyword">const</span> TPollerBase&amp; ) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">unsigned</span> AddTimer(TTime deadline, THandle h) {</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        Timers_.emplace(<a class="code hl_struct" href="struct_n_net_1_1_t_timer.html">TTimer</a>{deadline, TimerId_, h});</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keywordflow">return</span> TimerId_++;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    }</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">bool</span> RemoveTimer(<span class="keywordtype">unsigned</span> timerId, TTime deadline) {</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keywordtype">bool</span> fired = timerId == LastFiredTimer_;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="keywordflow">if</span> (!fired) {</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            Timers_.emplace(<a class="code hl_struct" href="struct_n_net_1_1_t_timer.html">TTimer</a>{deadline, timerId, {}}); <span class="comment">// insert empty timer before existing</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        }</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="keywordflow">return</span> fired;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    }</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">void</span> AddRead(<span class="keywordtype">int</span> fd, THandle h) {</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        MaxFd_ = std::max(MaxFd_, fd);</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        Changes_.emplace_back(<a class="code hl_struct" href="struct_n_net_1_1_t_event.html">TEvent</a>{fd, TEvent::READ, h});</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    }</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">void</span> AddWrite(<span class="keywordtype">int</span> fd, THandle h) {</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        MaxFd_ = std::max(MaxFd_, fd);</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        Changes_.emplace_back(<a class="code hl_struct" href="struct_n_net_1_1_t_event.html">TEvent</a>{fd, TEvent::WRITE, h});</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    }</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">void</span> AddRemoteHup(<span class="keywordtype">int</span> fd, THandle h) {</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        MaxFd_ = std::max(MaxFd_, fd);</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        Changes_.emplace_back(<a class="code hl_struct" href="struct_n_net_1_1_t_event.html">TEvent</a>{fd, TEvent::RHUP, h});</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    }</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">void</span> RemoveEvent(<span class="keywordtype">int</span> fd) {</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="comment">// TODO: resume waiting coroutines here</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        MaxFd_ = std::max(MaxFd_, fd);</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        Changes_.emplace_back(<a class="code hl_struct" href="struct_n_net_1_1_t_event.html">TEvent</a>{fd, TEvent::READ|TEvent::WRITE|TEvent::RHUP, {}});</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    }</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">void</span> RemoveEvent(THandle <span class="comment">/*h*/</span>) {</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="comment">// TODO: Add new vector for this type of removing</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="comment">// Will be called in destuctor of unfinished futures</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    }</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keyword">auto</span> Sleep(TTime until) {</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="keyword">struct </span>TAwaitableSleep {</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            TAwaitableSleep(TPollerBase* poller, TTime n)</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                : poller(poller)</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                , n(n)</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            { }</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            ~TAwaitableSleep() {</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>                <span class="keywordflow">if</span> (poller) {</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                    poller-&gt;RemoveTimer(timerId, n);</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>                }</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            }</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            TAwaitableSleep(TAwaitableSleep&amp;&amp; other)</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                : poller(other.poller)</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                , n(other.n)</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            {</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>                other.poller = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            }</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            TAwaitableSleep(<span class="keyword">const</span> TAwaitableSleep&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            TAwaitableSleep&amp; operator=(<span class="keyword">const</span> TAwaitableSleep&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            <span class="keywordtype">bool</span> await_ready() {</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            }</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            <span class="keywordtype">void</span> await_suspend(std::coroutine_handle&lt;&gt; h) {</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>                timerId = poller-&gt;AddTimer(n, h);</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            }</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>            <span class="keywordtype">void</span> await_resume() { poller = <span class="keyword">nullptr</span>; }</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            TPollerBase* poller;</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            TTime n;</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            <span class="keywordtype">unsigned</span> timerId = 0;</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        };</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <span class="keywordflow">return</span> TAwaitableSleep{<span class="keyword">this</span>,until};</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    }</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Rep, <span class="keyword">typename</span> Period&gt;</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keyword">auto</span> Sleep(std::chrono::duration&lt;Rep,Period&gt; duration) {</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <span class="keywordflow">return</span> Sleep(TClock::now() + duration);</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    }</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keyword">auto</span> Yield() {</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <span class="keywordflow">return</span> Sleep(TTime{});</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    }</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span></div>
-<div class="foldopen" id="foldopen00130" data-start="{" data-end="}">
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_poller_base.html#a402d1b611ee88296e5853f22cb559c0e">  130</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#a402d1b611ee88296e5853f22cb559c0e">Wakeup</a>(<a class="code hl_struct" href="struct_n_net_1_1_t_event.html">TEvent</a>&amp;&amp; change) {</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        <span class="keyword">auto</span> index = Changes_.size();</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        change.Handle.resume();</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <span class="keywordflow">if</span> (change.Fd &gt;= 0) {</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>            <span class="keywordtype">bool</span> matched = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>            <span class="keywordflow">for</span> (; index &lt; Changes_.size() &amp;&amp; !matched; index++) {</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>                matched = Changes_[index].Match(change);</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>            }</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>            <span class="keywordflow">if</span> (!matched) {</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>                change.Handle = {};</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>                Changes_.emplace_back(std::move(change));</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>            }</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        }</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    }</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span></div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="};">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_poller_base.html">   44</a></span><span class="keyword">class </span><a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#a0bf870f24ff1b7dedeb0f132dcfa9f05">TPollerBase</a> {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_poller_base.html#a0bf870f24ff1b7dedeb0f132dcfa9f05">   47</a></span>    <a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#a0bf870f24ff1b7dedeb0f132dcfa9f05">TPollerBase</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_poller_base.html#a236d38889ae16fecc1774a5db08f231d">   50</a></span>    <a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#a236d38889ae16fecc1774a5db08f231d">TPollerBase</a>(<span class="keyword">const</span> <a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#a0bf870f24ff1b7dedeb0f132dcfa9f05">TPollerBase</a>&amp; ) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#a0bf870f24ff1b7dedeb0f132dcfa9f05">TPollerBase</a>&amp; operator=(<span class="keyword">const</span> <a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#a0bf870f24ff1b7dedeb0f132dcfa9f05">TPollerBase</a>&amp; ) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span></div>
+<div class="foldopen" id="foldopen00062" data-start="{" data-end="}">
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_poller_base.html#a66e728fd17de36c493a0e915115d417e">   62</a></span>    <span class="keywordtype">unsigned</span> <a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#a66e728fd17de36c493a0e915115d417e">AddTimer</a>(TTime deadline, THandle h) {</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#a97bb349d12b646020bc2584bc1251627">Timers_</a>.emplace(<a class="code hl_struct" href="struct_n_net_1_1_t_timer.html">TTimer</a>{deadline, <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#ae087572babbd8152aa25a6ac385a9c02">TimerId_</a>, h});</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#ae087572babbd8152aa25a6ac385a9c02">TimerId_</a>++;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    }</div>
 </div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <span class="keywordtype">void</span> WakeupReadyHandles() {</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp;&amp; ev : ReadyEvents_) {</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>            <a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#a402d1b611ee88296e5853f22cb559c0e">Wakeup</a>(std::move(ev));</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        }</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    }</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <span class="keywordtype">void</span> SetMaxDuration(std::chrono::milliseconds maxDuration) {</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        MaxDuration_ = maxDuration;</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        MaxDurationTs_ = GetMaxDuration(MaxDuration_);</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    }</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="keyword">auto</span> TimersSize()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        <span class="keywordflow">return</span> Timers_.size();</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    }</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    timespec GetTimeout()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        <span class="keywordflow">return</span> Timers_.empty()</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>            ? MaxDurationTs_</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>            : Timers_.top().Deadline == TTime{}</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>                ? timespec {0, 0}</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>                : GetTimespec(TClock::now(), Timers_.top().Deadline, MaxDuration_);</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    }</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span></div>
+<div class="foldopen" id="foldopen00077" data-start="{" data-end="}">
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_poller_base.html#a9bbf27b42f97eded40eb715f56340025">   77</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#a9bbf27b42f97eded40eb715f56340025">RemoveTimer</a>(<span class="keywordtype">unsigned</span> timerId, TTime deadline) {</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="keywordtype">bool</span> fired = timerId == <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#a5b134a972d3eee29a0e758cf5b198f6b">LastFiredTimer_</a>;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keywordflow">if</span> (!fired) {</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#a97bb349d12b646020bc2584bc1251627">Timers_</a>.emplace(<a class="code hl_struct" href="struct_n_net_1_1_t_timer.html">TTimer</a>{deadline, timerId, {}}); <span class="comment">// insert empty timer before existing</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        }</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="keywordflow">return</span> fired;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    }</div>
+</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span></div>
+<div class="foldopen" id="foldopen00091" data-start="{" data-end="}">
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_poller_base.html#ab6a316e28273f1867347ccf08933f506">   91</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#ab6a316e28273f1867347ccf08933f506">AddRead</a>(<span class="keywordtype">int</span> fd, THandle h) {</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#a89d1a51b43037fd32359536167119b95">MaxFd_</a> = std::max(<a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#a89d1a51b43037fd32359536167119b95">MaxFd_</a>, fd);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#ac5ee3ec8bf6d2c2a7d233fca320cd44e">Changes_</a>.emplace_back(<a class="code hl_struct" href="struct_n_net_1_1_t_event.html">TEvent</a>{fd, TEvent::READ, h});</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    }</div>
+</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span></div>
+<div class="foldopen" id="foldopen00101" data-start="{" data-end="}">
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_poller_base.html#a89b328d4fd41f981d576dd48463ab5b2">  101</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#a89b328d4fd41f981d576dd48463ab5b2">AddWrite</a>(<span class="keywordtype">int</span> fd, THandle h) {</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#a89d1a51b43037fd32359536167119b95">MaxFd_</a> = std::max(<a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#a89d1a51b43037fd32359536167119b95">MaxFd_</a>, fd);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#ac5ee3ec8bf6d2c2a7d233fca320cd44e">Changes_</a>.emplace_back(<a class="code hl_struct" href="struct_n_net_1_1_t_event.html">TEvent</a>{fd, TEvent::WRITE, h});</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    }</div>
+</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span></div>
+<div class="foldopen" id="foldopen00111" data-start="{" data-end="}">
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_poller_base.html#a0572e77df07a824c0c4948fc548a7d4e">  111</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#a0572e77df07a824c0c4948fc548a7d4e">AddRemoteHup</a>(<span class="keywordtype">int</span> fd, THandle h) {</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#a89d1a51b43037fd32359536167119b95">MaxFd_</a> = std::max(<a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#a89d1a51b43037fd32359536167119b95">MaxFd_</a>, fd);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#ac5ee3ec8bf6d2c2a7d233fca320cd44e">Changes_</a>.emplace_back(<a class="code hl_struct" href="struct_n_net_1_1_t_event.html">TEvent</a>{fd, TEvent::RHUP, h});</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    }</div>
+</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span></div>
+<div class="foldopen" id="foldopen00122" data-start="{" data-end="}">
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_poller_base.html#aa07a131f7224e0c939e2df9b83982146">  122</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#aa07a131f7224e0c939e2df9b83982146">RemoveEvent</a>(<span class="keywordtype">int</span> fd) {</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <span class="comment">// TODO: resume waiting coroutines here</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#a89d1a51b43037fd32359536167119b95">MaxFd_</a> = std::max(<a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#a89d1a51b43037fd32359536167119b95">MaxFd_</a>, fd);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#ac5ee3ec8bf6d2c2a7d233fca320cd44e">Changes_</a>.emplace_back(<a class="code hl_struct" href="struct_n_net_1_1_t_event.html">TEvent</a>{fd, TEvent::READ|TEvent::WRITE|TEvent::RHUP, {}});</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    }</div>
+</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span></div>
+<div class="foldopen" id="foldopen00135" data-start="{" data-end="}">
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_poller_base.html#ab78789b92e7aa174e72c3d569deec1e7">  135</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#ab78789b92e7aa174e72c3d569deec1e7">RemoveEvent</a>(THandle <span class="comment">/*h*/</span>) {</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        <span class="comment">// TODO: Add new vector for this type of removing</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <span class="comment">// Will be called in destuctor of unfinished futures</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    }</div>
+</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span></div>
+<div class="foldopen" id="foldopen00147" data-start="{" data-end="}">
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_poller_base.html#a9550c4ddfa4a29b3723ee00098617dc5">  147</a></span>    <span class="keyword">auto</span> <a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#a9550c4ddfa4a29b3723ee00098617dc5">Sleep</a>(TTime until) {</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        <span class="keyword">struct </span>TAwaitableSleep {</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>            TAwaitableSleep(<a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#a0bf870f24ff1b7dedeb0f132dcfa9f05">TPollerBase</a>* poller, TTime n)</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>                : poller(poller)</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>                , n(n)</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>            { }</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>            ~TAwaitableSleep() {</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>                <span class="keywordflow">if</span> (poller) {</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>                    poller-&gt;<a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#a9bbf27b42f97eded40eb715f56340025">RemoveTimer</a>(timerId, n);</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>                }</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>            }</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>            TAwaitableSleep(TAwaitableSleep&amp;&amp; other)</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>                : poller(other.poller)</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>                , n(other.n)</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            {</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>                other.poller = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>            }</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>            TAwaitableSleep(<span class="keyword">const</span> TAwaitableSleep&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>            TAwaitableSleep&amp; operator=(<span class="keyword">const</span> TAwaitableSleep&amp;) = <span class="keyword">delete</span>;</div>
 <div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> timespec GetMaxDuration(std::chrono::milliseconds duration) {</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        <span class="keyword">auto</span> p1 = std::chrono::duration_cast&lt;std::chrono::seconds&gt;(duration);</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        <span class="keyword">auto</span> p2 = std::chrono::duration_cast&lt;std::chrono::nanoseconds&gt;(duration - p1);</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        timespec ts;</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        ts.tv_sec = p1.count();</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        ts.tv_nsec = p2.count();</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        <span class="keywordflow">return</span> ts;</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    }</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <span class="keywordtype">void</span> Reset() {</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        ReadyEvents_.clear();</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        Changes_.clear();</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        MaxFd_ = 0;</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    }</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>            <span class="keywordtype">bool</span> await_ready() {</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>            }</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>            <span class="keywordtype">void</span> await_suspend(std::coroutine_handle&lt;&gt; h) {</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>                timerId = poller-&gt;<a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#a66e728fd17de36c493a0e915115d417e">AddTimer</a>(n, h);</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>            }</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>            <span class="keywordtype">void</span> await_resume() { poller = <span class="keyword">nullptr</span>; }</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>            <a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#a0bf870f24ff1b7dedeb0f132dcfa9f05">TPollerBase</a>* poller;</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>            TTime n;</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>            <span class="keywordtype">unsigned</span> timerId = 0;</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        };</div>
 <div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <span class="keywordtype">void</span> ProcessTimers() {</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>        <span class="keyword">auto</span> now = TClock::now();</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        <span class="keywordtype">bool</span> first = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>        <span class="keywordtype">unsigned</span> prevId = 0;</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        <span class="keywordflow">while</span> (!Timers_.empty()&amp;&amp;Timers_.top().Deadline &lt;= now) {</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>            TTimer timer = Timers_.top(); Timers_.pop();</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>            <span class="keywordflow">if</span> ((first || prevId != timer.Id) &amp;&amp; timer.Handle) { <span class="comment">// skip removed timers</span></div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>                LastFiredTimer_ = timer.Id;</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>                timer.Handle.resume();</div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>            }</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>            first = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>            prevId = timer.Id;</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        }</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        LastTimersProcessTime_ = now;</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    }</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <span class="keywordtype">int</span> MaxFd_ = -1;</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    std::vector&lt;TEvent&gt; Changes_;</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    std::vector&lt;TEvent&gt; ReadyEvents_;</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    <span class="keywordtype">unsigned</span> TimerId_ = 0;</div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    std::priority_queue&lt;TTimer&gt; Timers_;</div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    TTime LastTimersProcessTime_;</div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    <span class="keywordtype">unsigned</span> LastFiredTimer_ = (unsigned)(-1);</div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    std::chrono::milliseconds MaxDuration_ = std::chrono::milliseconds(100);</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    timespec MaxDurationTs_ = GetMaxDuration(MaxDuration_);</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>};</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        <span class="keywordflow">return</span> TAwaitableSleep{<span class="keyword">this</span>,until};</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    }</div>
 </div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>} <span class="comment">// namespace NNet</span></div>
-<div class="ttc" id="aclass_n_net_1_1_t_poller_base_html_a402d1b611ee88296e5853f22cb559c0e"><div class="ttname"><a href="class_n_net_1_1_t_poller_base.html#a402d1b611ee88296e5853f22cb559c0e">NNet::TPollerBase::Wakeup</a></div><div class="ttdeci">void Wakeup(TEvent &amp;&amp;change)</div><div class="ttdef"><b>Definition</b> poller.hpp:130</div></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span></div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> Rep, <span class="keyword">typename</span> Period&gt;</div>
+<div class="foldopen" id="foldopen00195" data-start="{" data-end="}">
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_poller_base.html#af9264dcf4631dfa5d7a79148f36905d1">  195</a></span>    <span class="keyword">auto</span> <a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#af9264dcf4631dfa5d7a79148f36905d1">Sleep</a>(std::chrono::duration&lt;Rep,Period&gt; duration) {</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#a9550c4ddfa4a29b3723ee00098617dc5">Sleep</a>(TClock::now() + duration);</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    }</div>
+</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span></div>
+<div class="foldopen" id="foldopen00205" data-start="{" data-end="}">
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_poller_base.html#aea08fab15fd419093ffc18b9a5b5b267">  205</a></span>    <span class="keyword">auto</span> <a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#aea08fab15fd419093ffc18b9a5b5b267">Yield</a>() {</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#a9550c4ddfa4a29b3723ee00098617dc5">Sleep</a>(TTime{});</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    }</div>
+</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span></div>
+<div class="foldopen" id="foldopen00217" data-start="{" data-end="}">
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_poller_base.html#a402d1b611ee88296e5853f22cb559c0e">  217</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#a402d1b611ee88296e5853f22cb559c0e">Wakeup</a>(<a class="code hl_struct" href="struct_n_net_1_1_t_event.html">TEvent</a>&amp;&amp; change) {</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>        <span class="keyword">auto</span> index = <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#ac5ee3ec8bf6d2c2a7d233fca320cd44e">Changes_</a>.size();</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        change.Handle.resume();</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>        <span class="keywordflow">if</span> (change.Fd &gt;= 0) {</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>            <span class="keywordtype">bool</span> matched = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>            <span class="keywordflow">for</span> (; index &lt; <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#ac5ee3ec8bf6d2c2a7d233fca320cd44e">Changes_</a>.size() &amp;&amp; !matched; index++) {</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>                matched = <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#ac5ee3ec8bf6d2c2a7d233fca320cd44e">Changes_</a>[index].Match(change);</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>            }</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>            <span class="keywordflow">if</span> (!matched) {</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>                change.Handle = {};</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>                <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#ac5ee3ec8bf6d2c2a7d233fca320cd44e">Changes_</a>.emplace_back(std::move(change));</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>            }</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        }</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    }</div>
+</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span></div>
+<div class="foldopen" id="foldopen00253" data-start="{" data-end="}">
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_poller_base.html#af6804d6768be5be6254355ec5fb143e9">  253</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#af6804d6768be5be6254355ec5fb143e9">WakeupReadyHandles</a>() {</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp;&amp; ev : <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#a879f1f18716aa8dcc4acdf3a2091b6d2">ReadyEvents_</a>) {</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>            <a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#a402d1b611ee88296e5853f22cb559c0e">Wakeup</a>(std::move(ev));</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        }</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    }</div>
+</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span></div>
+<div class="foldopen" id="foldopen00263" data-start="{" data-end="}">
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_poller_base.html#a53a432cfd20b24377c78a25f351dd6ff">  263</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#a53a432cfd20b24377c78a25f351dd6ff">SetMaxDuration</a>(std::chrono::milliseconds maxDuration) {</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>        <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#a1984b2e5e91c537e4938a9900bed294d">MaxDuration_</a> = maxDuration;</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>        <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#a98e530e56732cf5bd44cee9bcb560e1f">MaxDurationTs_</a> = <a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#ad9dd7feb761339f5c7aa0614ed4a6d35">GetMaxDuration</a>(<a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#a1984b2e5e91c537e4938a9900bed294d">MaxDuration_</a>);</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    }</div>
+</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span></div>
+<div class="foldopen" id="foldopen00268" data-start="{" data-end="}">
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_poller_base.html#a9df9e635e76b7c333c3db6cb45950996">  268</a></span>    <span class="keyword">auto</span> <a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#a9df9e635e76b7c333c3db6cb45950996">TimersSize</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#a97bb349d12b646020bc2584bc1251627">Timers_</a>.size();</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    }</div>
+</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span> </div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span><span class="keyword">protected</span>:</div>
+<div class="foldopen" id="foldopen00278" data-start="{" data-end="}">
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_poller_base.html#a0008a394cf1744e9369e60bcf75cdfc5">  278</a></span>    timespec <a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#a0008a394cf1744e9369e60bcf75cdfc5">GetTimeout</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#a97bb349d12b646020bc2584bc1251627">Timers_</a>.empty()</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>            ? <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#a98e530e56732cf5bd44cee9bcb560e1f">MaxDurationTs_</a></div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>            : <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#a97bb349d12b646020bc2584bc1251627">Timers_</a>.top().Deadline == TTime{}</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>                ? timespec {0, 0}</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>                : GetTimespec(TClock::now(), <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#a97bb349d12b646020bc2584bc1251627">Timers_</a>.top().Deadline, <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#a1984b2e5e91c537e4938a9900bed294d">MaxDuration_</a>);</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>    }</div>
+</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span></div>
+<div class="foldopen" id="foldopen00291" data-start="{" data-end="}">
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_poller_base.html#ad9dd7feb761339f5c7aa0614ed4a6d35">  291</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> timespec <a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#ad9dd7feb761339f5c7aa0614ed4a6d35">GetMaxDuration</a>(std::chrono::milliseconds duration) {</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>        <span class="keyword">auto</span> p1 = std::chrono::duration_cast&lt;std::chrono::seconds&gt;(duration);</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>        <span class="keyword">auto</span> p2 = std::chrono::duration_cast&lt;std::chrono::nanoseconds&gt;(duration - p1);</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>        timespec ts;</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>        ts.tv_sec = p1.count();</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>        ts.tv_nsec = p2.count();</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>        <span class="keywordflow">return</span> ts;</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>    }</div>
+</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span></div>
+<div class="foldopen" id="foldopen00300" data-start="{" data-end="}">
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_poller_base.html#a4b9dbb4524e688ab7fbb2139a2cf39cb">  300</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#a4b9dbb4524e688ab7fbb2139a2cf39cb">Reset</a>() {</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>        <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#a879f1f18716aa8dcc4acdf3a2091b6d2">ReadyEvents_</a>.clear();</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>        <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#ac5ee3ec8bf6d2c2a7d233fca320cd44e">Changes_</a>.clear();</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>        <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#a89d1a51b43037fd32359536167119b95">MaxFd_</a> = 0;</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>    }</div>
+</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span></div>
+<div class="foldopen" id="foldopen00311" data-start="{" data-end="}">
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_poller_base.html#a5552a86441c63d811e6a0d6039d391bd">  311</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#a5552a86441c63d811e6a0d6039d391bd">ProcessTimers</a>() {</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>        <span class="keyword">auto</span> now = TClock::now();</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>        <span class="keywordtype">bool</span> first = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>        <span class="keywordtype">unsigned</span> prevId = 0;</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span> </div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>        <span class="keywordflow">while</span> (!<a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#a97bb349d12b646020bc2584bc1251627">Timers_</a>.empty()&amp;&amp;<a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#a97bb349d12b646020bc2584bc1251627">Timers_</a>.top().Deadline &lt;= now) {</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>            <a class="code hl_struct" href="struct_n_net_1_1_t_timer.html">TTimer</a> timer = <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#a97bb349d12b646020bc2584bc1251627">Timers_</a>.top(); <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#a97bb349d12b646020bc2584bc1251627">Timers_</a>.pop();</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span> </div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>            <span class="keywordflow">if</span> ((first || prevId != timer.Id) &amp;&amp; timer.Handle) { <span class="comment">// skip removed timers</span></div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>                <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#a5b134a972d3eee29a0e758cf5b198f6b">LastFiredTimer_</a> = timer.Id;</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>                timer.Handle.resume();</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>            }</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span> </div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>            first = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>            prevId = timer.Id;</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>        }</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span> </div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>        <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#aba0ad77d59297e66413565ca9b71cd33">LastTimersProcessTime_</a> = now;</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>    }</div>
+</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span> </div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_poller_base.html#a89d1a51b43037fd32359536167119b95">  331</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#a89d1a51b43037fd32359536167119b95">MaxFd_</a> = -1; </div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_poller_base.html#ac5ee3ec8bf6d2c2a7d233fca320cd44e">  332</a></span>    std::vector&lt;TEvent&gt; <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#ac5ee3ec8bf6d2c2a7d233fca320cd44e">Changes_</a>; </div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_poller_base.html#a879f1f18716aa8dcc4acdf3a2091b6d2">  333</a></span>    std::vector&lt;TEvent&gt; <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#a879f1f18716aa8dcc4acdf3a2091b6d2">ReadyEvents_</a>; </div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_poller_base.html#ae087572babbd8152aa25a6ac385a9c02">  334</a></span>    <span class="keywordtype">unsigned</span> <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#ae087572babbd8152aa25a6ac385a9c02">TimerId_</a> = 0; </div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_poller_base.html#a97bb349d12b646020bc2584bc1251627">  335</a></span>    std::priority_queue&lt;TTimer&gt; <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#a97bb349d12b646020bc2584bc1251627">Timers_</a>; </div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_poller_base.html#aba0ad77d59297e66413565ca9b71cd33">  336</a></span>    TTime <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#aba0ad77d59297e66413565ca9b71cd33">LastTimersProcessTime_</a>; </div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_poller_base.html#a5b134a972d3eee29a0e758cf5b198f6b">  337</a></span>    <span class="keywordtype">unsigned</span> <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#a5b134a972d3eee29a0e758cf5b198f6b">LastFiredTimer_</a> = (unsigned)(-1); </div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_poller_base.html#a1984b2e5e91c537e4938a9900bed294d">  338</a></span>    std::chrono::milliseconds <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#a1984b2e5e91c537e4938a9900bed294d">MaxDuration_</a> = std::chrono::milliseconds(100); </div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_poller_base.html#a98e530e56732cf5bd44cee9bcb560e1f">  339</a></span>    timespec <a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#a98e530e56732cf5bd44cee9bcb560e1f">MaxDurationTs_</a> = <a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#ad9dd7feb761339f5c7aa0614ed4a6d35">GetMaxDuration</a>(<a class="code hl_variable" href="class_n_net_1_1_t_poller_base.html#a1984b2e5e91c537e4938a9900bed294d">MaxDuration_</a>); </div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>};</div>
+</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span> </div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>} <span class="comment">// namespace NNet</span></div>
+<div class="ttc" id="aclass_n_net_1_1_t_poller_base_html_a0008a394cf1744e9369e60bcf75cdfc5"><div class="ttname"><a href="class_n_net_1_1_t_poller_base.html#a0008a394cf1744e9369e60bcf75cdfc5">NNet::TPollerBase::GetTimeout</a></div><div class="ttdeci">timespec GetTimeout() const</div><div class="ttdoc">Computes the poll timeout based on scheduled timers.</div><div class="ttdef"><b>Definition</b> poller.hpp:278</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_poller_base_html_a0572e77df07a824c0c4948fc548a7d4e"><div class="ttname"><a href="class_n_net_1_1_t_poller_base.html#a0572e77df07a824c0c4948fc548a7d4e">NNet::TPollerBase::AddRemoteHup</a></div><div class="ttdeci">void AddRemoteHup(int fd, THandle h)</div><div class="ttdoc">Registers a remote hang-up (RHUP) event.</div><div class="ttdef"><b>Definition</b> poller.hpp:111</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_poller_base_html_a0bf870f24ff1b7dedeb0f132dcfa9f05"><div class="ttname"><a href="class_n_net_1_1_t_poller_base.html#a0bf870f24ff1b7dedeb0f132dcfa9f05">NNet::TPollerBase::TPollerBase</a></div><div class="ttdeci">TPollerBase()=default</div><div class="ttdoc">Default constructor.</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_poller_base_html_a1984b2e5e91c537e4938a9900bed294d"><div class="ttname"><a href="class_n_net_1_1_t_poller_base.html#a1984b2e5e91c537e4938a9900bed294d">NNet::TPollerBase::MaxDuration_</a></div><div class="ttdeci">std::chrono::milliseconds MaxDuration_</div><div class="ttdoc">Maximum poll duration.</div><div class="ttdef"><b>Definition</b> poller.hpp:338</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_poller_base_html_a236d38889ae16fecc1774a5db08f231d"><div class="ttname"><a href="class_n_net_1_1_t_poller_base.html#a236d38889ae16fecc1774a5db08f231d">NNet::TPollerBase::TPollerBase</a></div><div class="ttdeci">TPollerBase(const TPollerBase &amp;)=delete</div><div class="ttdoc">Copying is disabled.</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_poller_base_html_a402d1b611ee88296e5853f22cb559c0e"><div class="ttname"><a href="class_n_net_1_1_t_poller_base.html#a402d1b611ee88296e5853f22cb559c0e">NNet::TPollerBase::Wakeup</a></div><div class="ttdeci">void Wakeup(TEvent &amp;&amp;change)</div><div class="ttdoc">Wakes up a coroutine waiting on an event.</div><div class="ttdef"><b>Definition</b> poller.hpp:217</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_poller_base_html_a4b9dbb4524e688ab7fbb2139a2cf39cb"><div class="ttname"><a href="class_n_net_1_1_t_poller_base.html#a4b9dbb4524e688ab7fbb2139a2cf39cb">NNet::TPollerBase::Reset</a></div><div class="ttdeci">void Reset()</div><div class="ttdoc">Clears the lists of ready events and pending changes.</div><div class="ttdef"><b>Definition</b> poller.hpp:300</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_poller_base_html_a53a432cfd20b24377c78a25f351dd6ff"><div class="ttname"><a href="class_n_net_1_1_t_poller_base.html#a53a432cfd20b24377c78a25f351dd6ff">NNet::TPollerBase::SetMaxDuration</a></div><div class="ttdeci">void SetMaxDuration(std::chrono::milliseconds maxDuration)</div><div class="ttdoc">Sets the maximum polling duration.</div><div class="ttdef"><b>Definition</b> poller.hpp:263</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_poller_base_html_a5552a86441c63d811e6a0d6039d391bd"><div class="ttname"><a href="class_n_net_1_1_t_poller_base.html#a5552a86441c63d811e6a0d6039d391bd">NNet::TPollerBase::ProcessTimers</a></div><div class="ttdeci">void ProcessTimers()</div><div class="ttdoc">Processes scheduled timers.</div><div class="ttdef"><b>Definition</b> poller.hpp:311</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_poller_base_html_a5b134a972d3eee29a0e758cf5b198f6b"><div class="ttname"><a href="class_n_net_1_1_t_poller_base.html#a5b134a972d3eee29a0e758cf5b198f6b">NNet::TPollerBase::LastFiredTimer_</a></div><div class="ttdeci">unsigned LastFiredTimer_</div><div class="ttdoc">ID of the last fired timer.</div><div class="ttdef"><b>Definition</b> poller.hpp:337</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_poller_base_html_a66e728fd17de36c493a0e915115d417e"><div class="ttname"><a href="class_n_net_1_1_t_poller_base.html#a66e728fd17de36c493a0e915115d417e">NNet::TPollerBase::AddTimer</a></div><div class="ttdeci">unsigned AddTimer(TTime deadline, THandle h)</div><div class="ttdoc">Schedules a timer.</div><div class="ttdef"><b>Definition</b> poller.hpp:62</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_poller_base_html_a879f1f18716aa8dcc4acdf3a2091b6d2"><div class="ttname"><a href="class_n_net_1_1_t_poller_base.html#a879f1f18716aa8dcc4acdf3a2091b6d2">NNet::TPollerBase::ReadyEvents_</a></div><div class="ttdeci">std::vector&lt; TEvent &gt; ReadyEvents_</div><div class="ttdoc">Events ready to wake up their coroutines.</div><div class="ttdef"><b>Definition</b> poller.hpp:333</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_poller_base_html_a89b328d4fd41f981d576dd48463ab5b2"><div class="ttname"><a href="class_n_net_1_1_t_poller_base.html#a89b328d4fd41f981d576dd48463ab5b2">NNet::TPollerBase::AddWrite</a></div><div class="ttdeci">void AddWrite(int fd, THandle h)</div><div class="ttdoc">Registers a write event on a file descriptor.</div><div class="ttdef"><b>Definition</b> poller.hpp:101</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_poller_base_html_a89d1a51b43037fd32359536167119b95"><div class="ttname"><a href="class_n_net_1_1_t_poller_base.html#a89d1a51b43037fd32359536167119b95">NNet::TPollerBase::MaxFd_</a></div><div class="ttdeci">int MaxFd_</div><div class="ttdoc">Highest file descriptor in use.</div><div class="ttdef"><b>Definition</b> poller.hpp:331</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_poller_base_html_a9550c4ddfa4a29b3723ee00098617dc5"><div class="ttname"><a href="class_n_net_1_1_t_poller_base.html#a9550c4ddfa4a29b3723ee00098617dc5">NNet::TPollerBase::Sleep</a></div><div class="ttdeci">auto Sleep(TTime until)</div><div class="ttdoc">Suspends execution until the specified time.</div><div class="ttdef"><b>Definition</b> poller.hpp:147</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_poller_base_html_a97bb349d12b646020bc2584bc1251627"><div class="ttname"><a href="class_n_net_1_1_t_poller_base.html#a97bb349d12b646020bc2584bc1251627">NNet::TPollerBase::Timers_</a></div><div class="ttdeci">std::priority_queue&lt; TTimer &gt; Timers_</div><div class="ttdoc">Priority queue for scheduled timers.</div><div class="ttdef"><b>Definition</b> poller.hpp:335</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_poller_base_html_a98e530e56732cf5bd44cee9bcb560e1f"><div class="ttname"><a href="class_n_net_1_1_t_poller_base.html#a98e530e56732cf5bd44cee9bcb560e1f">NNet::TPollerBase::MaxDurationTs_</a></div><div class="ttdeci">timespec MaxDurationTs_</div><div class="ttdoc">Max duration represented as timespec.</div><div class="ttdef"><b>Definition</b> poller.hpp:339</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_poller_base_html_a9bbf27b42f97eded40eb715f56340025"><div class="ttname"><a href="class_n_net_1_1_t_poller_base.html#a9bbf27b42f97eded40eb715f56340025">NNet::TPollerBase::RemoveTimer</a></div><div class="ttdeci">bool RemoveTimer(unsigned timerId, TTime deadline)</div><div class="ttdoc">Removes or cancels a timer.</div><div class="ttdef"><b>Definition</b> poller.hpp:77</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_poller_base_html_a9df9e635e76b7c333c3db6cb45950996"><div class="ttname"><a href="class_n_net_1_1_t_poller_base.html#a9df9e635e76b7c333c3db6cb45950996">NNet::TPollerBase::TimersSize</a></div><div class="ttdeci">auto TimersSize() const</div><div class="ttdoc">Returns the number of scheduled timers.</div><div class="ttdef"><b>Definition</b> poller.hpp:268</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_poller_base_html_aa07a131f7224e0c939e2df9b83982146"><div class="ttname"><a href="class_n_net_1_1_t_poller_base.html#aa07a131f7224e0c939e2df9b83982146">NNet::TPollerBase::RemoveEvent</a></div><div class="ttdeci">void RemoveEvent(int fd)</div><div class="ttdoc">Removes registered events for a specific file descriptor.</div><div class="ttdef"><b>Definition</b> poller.hpp:122</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_poller_base_html_ab6a316e28273f1867347ccf08933f506"><div class="ttname"><a href="class_n_net_1_1_t_poller_base.html#ab6a316e28273f1867347ccf08933f506">NNet::TPollerBase::AddRead</a></div><div class="ttdeci">void AddRead(int fd, THandle h)</div><div class="ttdoc">Registers a read event on a file descriptor.</div><div class="ttdef"><b>Definition</b> poller.hpp:91</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_poller_base_html_ab78789b92e7aa174e72c3d569deec1e7"><div class="ttname"><a href="class_n_net_1_1_t_poller_base.html#ab78789b92e7aa174e72c3d569deec1e7">NNet::TPollerBase::RemoveEvent</a></div><div class="ttdeci">void RemoveEvent(THandle)</div><div class="ttdoc">Removes events associated with a given coroutine handle.</div><div class="ttdef"><b>Definition</b> poller.hpp:135</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_poller_base_html_aba0ad77d59297e66413565ca9b71cd33"><div class="ttname"><a href="class_n_net_1_1_t_poller_base.html#aba0ad77d59297e66413565ca9b71cd33">NNet::TPollerBase::LastTimersProcessTime_</a></div><div class="ttdeci">TTime LastTimersProcessTime_</div><div class="ttdoc">Last time timers were processed.</div><div class="ttdef"><b>Definition</b> poller.hpp:336</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_poller_base_html_ac5ee3ec8bf6d2c2a7d233fca320cd44e"><div class="ttname"><a href="class_n_net_1_1_t_poller_base.html#ac5ee3ec8bf6d2c2a7d233fca320cd44e">NNet::TPollerBase::Changes_</a></div><div class="ttdeci">std::vector&lt; TEvent &gt; Changes_</div><div class="ttdoc">Pending changes (registered events).</div><div class="ttdef"><b>Definition</b> poller.hpp:332</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_poller_base_html_ad9dd7feb761339f5c7aa0614ed4a6d35"><div class="ttname"><a href="class_n_net_1_1_t_poller_base.html#ad9dd7feb761339f5c7aa0614ed4a6d35">NNet::TPollerBase::GetMaxDuration</a></div><div class="ttdeci">static constexpr timespec GetMaxDuration(std::chrono::milliseconds duration)</div><div class="ttdoc">Computes a timespec from a duration.</div><div class="ttdef"><b>Definition</b> poller.hpp:291</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_poller_base_html_ae087572babbd8152aa25a6ac385a9c02"><div class="ttname"><a href="class_n_net_1_1_t_poller_base.html#ae087572babbd8152aa25a6ac385a9c02">NNet::TPollerBase::TimerId_</a></div><div class="ttdeci">unsigned TimerId_</div><div class="ttdoc">Counter for generating unique timer IDs.</div><div class="ttdef"><b>Definition</b> poller.hpp:334</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_poller_base_html_aea08fab15fd419093ffc18b9a5b5b267"><div class="ttname"><a href="class_n_net_1_1_t_poller_base.html#aea08fab15fd419093ffc18b9a5b5b267">NNet::TPollerBase::Yield</a></div><div class="ttdeci">auto Yield()</div><div class="ttdoc">Yields execution to the next event loop iteration.</div><div class="ttdef"><b>Definition</b> poller.hpp:205</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_poller_base_html_af6804d6768be5be6254355ec5fb143e9"><div class="ttname"><a href="class_n_net_1_1_t_poller_base.html#af6804d6768be5be6254355ec5fb143e9">NNet::TPollerBase::WakeupReadyHandles</a></div><div class="ttdeci">void WakeupReadyHandles()</div><div class="ttdoc">Wakes up all coroutines waiting on ready events.</div><div class="ttdef"><b>Definition</b> poller.hpp:253</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_poller_base_html_af9264dcf4631dfa5d7a79148f36905d1"><div class="ttname"><a href="class_n_net_1_1_t_poller_base.html#af9264dcf4631dfa5d7a79148f36905d1">NNet::TPollerBase::Sleep</a></div><div class="ttdeci">auto Sleep(std::chrono::duration&lt; Rep, Period &gt; duration)</div><div class="ttdoc">Overload of Sleep() accepting a duration.</div><div class="ttdef"><b>Definition</b> poller.hpp:195</div></div>
 <div class="ttc" id="astruct_n_net_1_1_t_event_html"><div class="ttname"><a href="struct_n_net_1_1_t_event.html">NNet::TEvent</a></div><div class="ttdef"><b>Definition</b> base.hpp:33</div></div>
 <div class="ttc" id="astruct_n_net_1_1_t_timer_html"><div class="ttname"><a href="struct_n_net_1_1_t_timer.html">NNet::TTimer</a></div><div class="ttdef"><b>Definition</b> base.hpp:18</div></div>
 </div><!-- fragment --></div><!-- contents -->

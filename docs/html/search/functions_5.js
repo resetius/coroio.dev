@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['listen_0',['Listen',['../class_n_net_1_1_t_socket.html#aed8042050a98c5e5f5e452a1173d0426',1,'NNet::TSocket']]],
-  ['localaddr_1',['LocalAddr',['../class_n_net_1_1_t_socket.html#a8e033d81fc57c13a0a1a357bbae8bd80',1,'NNet::TSocket']]],
-  ['loop_2',['Loop',['../class_n_net_1_1_t_loop.html#af3ab33e9a2fc311254a15935861990dc',1,'NNet::TLoop']]]
+  ['getmaxduration_0',['GetMaxDuration',['../class_n_net_1_1_t_poller_base.html#ad9dd7feb761339f5c7aa0614ed4a6d35',1,'NNet::TPollerBase']]],
+  ['gettimeout_1',['GetTimeout',['../class_n_net_1_1_t_poller_base.html#a0008a394cf1744e9369e60bcf75cdfc5',1,'NNet::TPollerBase']]]
 ];

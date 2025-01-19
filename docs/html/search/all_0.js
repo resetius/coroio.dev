@@ -5,5 +5,9 @@ var searchData=
   ['accepthandshake_2',['AcceptHandshake',['../class_n_net_1_1_t_ssl_socket.html#af68106743408b767267c90a41c74fcc6',1,'NNet::TSslSocket']]],
   ['acquire_3',['Acquire',['../struct_n_net_1_1_t_zero_copy_line_splitter.html#ae046dcda237bb388211cc3227dfe1465',1,'NNet::TZeroCopyLineSplitter']]],
   ['addr_4',['Addr',['../class_n_net_1_1_t_address.html#a570e6467fd514471994692466f3e4a1b',1,'NNet::TAddress']]],
-  ['asynchronous_20i_20o_20networking_20library_5',['Asynchronous I/O &amp; Networking Library',['../index.html',1,'']]]
+  ['addread_5',['AddRead',['../class_n_net_1_1_t_poller_base.html#ab6a316e28273f1867347ccf08933f506',1,'NNet::TPollerBase']]],
+  ['addremotehup_6',['AddRemoteHup',['../class_n_net_1_1_t_poller_base.html#a0572e77df07a824c0c4948fc548a7d4e',1,'NNet::TPollerBase']]],
+  ['addtimer_7',['AddTimer',['../class_n_net_1_1_t_poller_base.html#a66e728fd17de36c493a0e915115d417e',1,'NNet::TPollerBase']]],
+  ['addwrite_8',['AddWrite',['../class_n_net_1_1_t_poller_base.html#a89b328d4fd41f981d576dd48463ab5b2',1,'NNet::TPollerBase']]],
+  ['asynchronous_20i_20o_20networking_20library_9',['Asynchronous I/O &amp; Networking Library',['../index.html',1,'']]]
 ];

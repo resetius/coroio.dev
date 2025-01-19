@@ -194,7 +194,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>Fd_</b> = -1</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Internal base class encapsulating a socket (or file) descriptor and its poller. </p>
-<p>This class stores a file descriptor and a pointer to a poller (<a class="el" href="class_n_net_1_1_t_poller_base.html">TPollerBase</a>) to support asynchronous I/O operations. It provides functionality to create a new socket descriptor (via <a class="el" href="#a6ccea3dfc59c8a24c15a1c313e77784d">Create()</a>) and to set it up (via <a class="el" href="#a5123a941977e3426269c2d9cd9c70c13">Setup()</a>). Additionally, it holds the descriptor and allows cleanup via <a class="el" href="class_n_net_1_1_t_socket_base.html#ac0deb2a1fd4b9b137eb0273a455e38e5">Close()</a>.</p>
+<p>This class stores a file descriptor and a pointer to a poller (<a class="el" href="class_n_net_1_1_t_poller_base.html" title="Base class for pollers managing asynchronous I/O events and timers.">TPollerBase</a>) to support asynchronous I/O operations. It provides functionality to create a new socket descriptor (via <a class="el" href="#a6ccea3dfc59c8a24c15a1c313e77784d">Create()</a>) and to set it up (via <a class="el" href="#a5123a941977e3426269c2d9cd9c70c13">Setup()</a>). Additionally, it holds the descriptor and allows cleanup via <a class="el" href="class_n_net_1_1_t_socket_base.html#ac0deb2a1fd4b9b137eb0273a455e38e5">Close()</a>.</p>
 <dl class="section note"><dt>Note</dt><dd>This class is intended solely for internal use within the library. End-users should not interact directly with this class; instead, use the higher-level wrapper classes: <a class="el" href="class_n_net_1_1_t_socket.html">TSocket</a>, <a class="el" href="class_n_net_1_1_t_file_handle.html">TFileHandle</a>, <a class="el" href="class_n_net_1_1_t_poller_driven_socket.html">TPollerDrivenSocket</a>, or <a class="el" href="class_n_net_1_1_t_poller_driven_file_handle.html">TPollerDrivenFileHandle</a>. </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a00cd2e4ff65978ce06a326fcbbc1734e" name="a00cd2e4ff65978ce06a326fcbbc1734e"></a>
@@ -400,7 +400,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>Fd_</b> = -1</td></tr>
 </div><div class="memdoc">
 
 <p>Returns the poller associated with this socket. </p>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to the <a class="el" href="class_n_net_1_1_t_poller_base.html">TPollerBase</a> responsible for managing asynchronous events. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the <a class="el" href="class_n_net_1_1_t_poller_base.html" title="Base class for pollers managing asynchronous I/O events and timers.">TPollerBase</a> responsible for managing asynchronous events. </dd></dl>
 
 </div>
 </div>

@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['i_20o_20networking_20library_0',['Asynchronous I/O &amp; Networking Library',['../index.html',1,'']]],
-  ['important_20notes_1',['Important Notes',['../struct_n_net_1_1_t_line_splitter.html#autotoc_md6',1,'']]],
-  ['information_2',['Further Information',['../index.html#further_sec',1,'']]],
-  ['introduction_3',['Introduction',['../index.html#intro_sec',1,'']]]
+  ['getmaxduration_0',['GetMaxDuration',['../class_n_net_1_1_t_poller_base.html#ad9dd7feb761339f5c7aa0614ed4a6d35',1,'NNet::TPollerBase']]],
+  ['gettimeout_1',['GetTimeout',['../class_n_net_1_1_t_poller_base.html#a0008a394cf1744e9369e60bcf75cdfc5',1,'NNet::TPollerBase']]]
 ];
