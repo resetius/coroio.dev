@@ -125,7 +125,7 @@ $(function(){initNavTree('class_n_net_1_1_t_loop.html',''); initResizable(true);
 </div><!--header-->
 <div class="contents">
 
-<p>A generic event loop wrapper that uses TSelect as its poller.  
+<p>A generic event loop wrapper that uses <a class="el" href="class_n_net_1_1_t_select.html" title="Poller implementation based on the select() system call.">TSelect</a> as its poller.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="loop_8hpp_source.html">loop.hpp</a>&gt;</code></p>
@@ -151,7 +151,7 @@ TPoller &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>Poller</b> (
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename TPoller&gt;<br />
-class NNet::TLoop&lt; TPoller &gt;</div><p>A generic event loop wrapper that uses TSelect as its poller. </p>
+class NNet::TLoop&lt; TPoller &gt;</div><p>A generic event loop wrapper that uses <a class="el" href="class_n_net_1_1_t_select.html" title="Poller implementation based on the select() system call.">TSelect</a> as its poller. </p>
 <p>The event loop continuously calls <a class="el" href="#ad528377d1b81c264334d7271953b6e2b">Step()</a> until explicitly stopped via <a class="el" href="#a3b3f1469844eaa90ad8d0326d361793b">Stop()</a>.</p>
 <h3><a class="anchor" id="autotoc_md0"></a>
 Example Usage</h3>
@@ -177,7 +177,7 @@ Example Usage</h3>
 <div class="ttc" id="aclass_n_net_1_1_t_loop_html_ad528377d1b81c264334d7271953b6e2b"><div class="ttname"><a href="#ad528377d1b81c264334d7271953b6e2b">NNet::TLoop::Step</a></div><div class="ttdeci">void Step()</div><div class="ttdoc">Performs a single iteration of polling and waking up ready handles.</div><div class="ttdef"><b>Definition</b> loop.hpp:53</div></div>
 </div><!-- fragment --><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">TPoller</td><td>A type that provides polling and wakeup mechanisms (TSelect here). </td></tr>
+    <tr><td class="paramname">TPoller</td><td>A type that provides polling and wakeup mechanisms (<a class="el" href="class_n_net_1_1_t_select.html" title="Poller implementation based on the select() system call.">TSelect</a> here). </td></tr>
   </table>
   </dd>
 </dl>

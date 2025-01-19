@@ -6,6 +6,7 @@ var hierarchy =
     ] ],
     [ "Self", "class_self.html", null ],
     [ "NNet::TAddress", "class_n_net_1_1_t_address.html", null ],
+    [ "NNet::TArenaAllocator< T, PoolSize >", "class_n_net_1_1_t_arena_allocator.html", null ],
     [ "NNet::TSocketBase< TSockOps >::TAwaitable< T >", "struct_n_net_1_1_t_socket_base_1_1_t_awaitable.html", null ],
     [ "NNet::TByteReader< TSocket >", "struct_n_net_1_1_t_byte_reader.html", null ],
     [ "NNet::TByteWriter< TSocket >", "struct_n_net_1_1_t_byte_writer.html", null ],
@@ -26,7 +27,14 @@ var hierarchy =
     [ "NNet::TLineReader< TSocket >", "struct_n_net_1_1_t_line_reader.html", null ],
     [ "NNet::TLineSplitter", "struct_n_net_1_1_t_line_splitter.html", null ],
     [ "NNet::TLoop< TPoller >", "class_n_net_1_1_t_loop.html", null ],
-    [ "NNet::TPollerBase", "class_n_net_1_1_t_poller_base.html", null ],
+    [ "NNet::TPollerBase", "class_n_net_1_1_t_poller_base.html", [
+      [ "NNet::TEPoll", "class_n_net_1_1_t_e_poll.html", null ],
+      [ "NNet::TIOCp", "class_n_net_1_1_t_i_o_cp.html", null ],
+      [ "NNet::TKqueue", "class_n_net_1_1_t_kqueue.html", null ],
+      [ "NNet::TPoll", "class_n_net_1_1_t_poll.html", null ],
+      [ "NNet::TSelect", "class_n_net_1_1_t_select.html", null ],
+      [ "NNet::TUring", "class_n_net_1_1_t_uring.html", null ]
+    ] ],
     [ "NNet::TPromiseBase< T >", "struct_n_net_1_1_t_promise_base.html", [
       [ "NNet::TPromise< T >", "struct_n_net_1_1_t_promise.html", null ]
     ] ],
@@ -38,11 +46,15 @@ var hierarchy =
     [ "NNet::TResolver< TPoller >", "class_n_net_1_1_t_resolver.html", null ],
     [ "NNet::TSocketBase< TSockOps >", "class_n_net_1_1_t_socket_base.html", [
       [ "NNet::TSocket", "class_n_net_1_1_t_socket.html", [
+        [ "NNet::TPollerDrivenSocket< TIOCp >", "class_n_net_1_1_t_poller_driven_socket.html", null ],
+        [ "NNet::TPollerDrivenSocket< TUring >", "class_n_net_1_1_t_poller_driven_socket.html", null ],
         [ "NNet::TPollerDrivenSocket< T >", "class_n_net_1_1_t_poller_driven_socket.html", null ]
       ] ]
     ] ],
     [ "NNet::TSocketBase< TFileOps >", "class_n_net_1_1_t_socket_base.html", [
       [ "NNet::TFileHandle", "class_n_net_1_1_t_file_handle.html", [
+        [ "NNet::TPollerDrivenFileHandle< TIOCp >", "class_n_net_1_1_t_poller_driven_file_handle.html", null ],
+        [ "NNet::TPollerDrivenFileHandle< TUring >", "class_n_net_1_1_t_poller_driven_file_handle.html", null ],
         [ "NNet::TPollerDrivenFileHandle< T >", "class_n_net_1_1_t_poller_driven_file_handle.html", null ]
       ] ]
     ] ],

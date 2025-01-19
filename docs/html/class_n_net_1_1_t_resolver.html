@@ -158,7 +158,7 @@ class NNet::TResolver&lt; TPoller &gt;</div><p>Resolves hostnames into IP addres
 <h3><a class="anchor" id="autotoc_md2"></a>
 Example Usage</h3>
 <div class="fragment"><div class="line"><span class="comment">// Assume TSelect is a poller type with methods Poll() and WakeupReadyHandles()</span></div>
-<div class="line">TSelect poller;</div>
+<div class="line"><a class="code hl_class" href="class_n_net_1_1_t_select.html">TSelect</a> poller;</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Create a resolver using the default nameserver specified in /etc/resolv.conf</span></div>
 <div class="line"><a class="code hl_function" href="#a901c9a034e2f8d13ca7056dc893981ca">TResolver&lt;TSelect&gt;</a> resolver(poller);</div>
@@ -168,6 +168,7 @@ Example Usage</h3>
 <div class="line"><span class="comment">// Later (in an asynchronous context) use:</span></div>
 <div class="line"><span class="comment">// auto addresses = co_await futureAddresses;</span></div>
 <div class="ttc" id="aclass_n_net_1_1_t_resolver_html_a901c9a034e2f8d13ca7056dc893981ca"><div class="ttname"><a href="#a901c9a034e2f8d13ca7056dc893981ca">NNet::TResolver::TResolver</a></div><div class="ttdeci">TResolver(TPoller &amp;poller, EDNSType defaultType=EDNSType::A)</div><div class="ttdoc">Constructs a TResolver using the default resolv configuration.</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_select_html"><div class="ttname"><a href="class_n_net_1_1_t_select.html">NNet::TSelect</a></div><div class="ttdoc">Poller implementation based on the select() system call.</div><div class="ttdef"><b>Definition</b> select.hpp:36</div></div>
 <div class="ttc" id="astruct_n_net_1_1_t_future_html"><div class="ttname"><a href="struct_n_net_1_1_t_future.html">NNet::TFuture</a></div><div class="ttdef"><b>Definition</b> corochain.hpp:90</div></div>
 </div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a901c9a034e2f8d13ca7056dc893981ca" name="a901c9a034e2f8d13ca7056dc893981ca"></a>
