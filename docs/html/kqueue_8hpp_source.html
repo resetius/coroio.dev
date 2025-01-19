@@ -131,28 +131,31 @@ $(function(){initNavTree('kqueue_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;socket.hpp&quot;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">namespace </span>NNet {</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="foldopen" id="foldopen00012" data-start="{" data-end="};">
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_kqueue.html">   12</a></span><span class="keyword">class </span>TKqueue: <span class="keyword">public</span> <a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#a0bf870f24ff1b7dedeb0f132dcfa9f05">TPollerBase</a> {</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keyword">using </span>TSocket = <a class="code hl_class" href="class_n_net_1_1_t_socket.html">NNet::TSocket</a>;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">using </span>TFileHandle = <a class="code hl_class" href="class_n_net_1_1_t_file_handle.html">NNet::TFileHandle</a>;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    TKqueue();</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    ~TKqueue();</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">void</span> Poll();</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">int</span> Fd_;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    std::vector&lt;THandlePair&gt; InEvents_; <span class="comment">// all events in kqueue</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    std::vector&lt;struct kevent&gt; ChangeList_;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    std::vector&lt;struct kevent&gt; OutEvents_;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>};</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span></div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="};">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_kqueue.html">   36</a></span><span class="keyword">class </span><a class="code hl_function" href="class_n_net_1_1_t_kqueue.html#afae9fd91dea8958a475a978d6c05758f">TKqueue</a>: <span class="keyword">public</span> <a class="code hl_function" href="class_n_net_1_1_t_poller_base.html#a0bf870f24ff1b7dedeb0f132dcfa9f05">TPollerBase</a> {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_kqueue.html#afa6d0d0978dc078e7605b2d7fd1cfa84">   39</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="class_n_net_1_1_t_kqueue.html#afa6d0d0978dc078e7605b2d7fd1cfa84">TSocket</a> = <a class="code hl_class" href="class_n_net_1_1_t_socket.html">NNet::TSocket</a>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_kqueue.html#a85bf6bf9772abcdc62910a255c13632a">   41</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="class_n_net_1_1_t_kqueue.html#a85bf6bf9772abcdc62910a255c13632a">TFileHandle</a> = <a class="code hl_class" href="class_n_net_1_1_t_file_handle.html">NNet::TFileHandle</a>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_kqueue.html#afae9fd91dea8958a475a978d6c05758f">   47</a></span>    <a class="code hl_function" href="class_n_net_1_1_t_kqueue.html#afae9fd91dea8958a475a978d6c05758f">TKqueue</a>();</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_kqueue.html#aa5379d347a8bbf39b3af5d43d4a2fa71">   53</a></span>    <a class="code hl_function" href="class_n_net_1_1_t_kqueue.html#aa5379d347a8bbf39b3af5d43d4a2fa71">~TKqueue</a>();</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="class_n_net_1_1_t_kqueue.html#ab4de93d1e3b6e4d137c38c4e9372936e">   60</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_n_net_1_1_t_kqueue.html#ab4de93d1e3b6e4d137c38c4e9372936e">Poll</a>();</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">int</span> Fd_; </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    std::vector&lt;THandlePair&gt; InEvents_; </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    std::vector&lt;struct kevent&gt; ChangeList_; </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    std::vector&lt;struct kevent&gt; OutEvents_; </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>};</div>
 </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>} <span class="comment">// namespace NNet</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>} <span class="comment">// namespace NNet</span></div>
 <div class="ttc" id="aclass_n_net_1_1_t_file_handle_html"><div class="ttname"><a href="class_n_net_1_1_t_file_handle.html">NNet::TFileHandle</a></div><div class="ttdoc">Asynchronous file handle that owns its file descriptor.</div><div class="ttdef"><b>Definition</b> socket.hpp:317</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_kqueue_html_a85bf6bf9772abcdc62910a255c13632a"><div class="ttname"><a href="class_n_net_1_1_t_kqueue.html#a85bf6bf9772abcdc62910a255c13632a">NNet::TKqueue::TFileHandle</a></div><div class="ttdeci">NNet::TFileHandle TFileHandle</div><div class="ttdoc">Alias for the file handle type.</div><div class="ttdef"><b>Definition</b> kqueue.hpp:41</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_kqueue_html_aa5379d347a8bbf39b3af5d43d4a2fa71"><div class="ttname"><a href="class_n_net_1_1_t_kqueue.html#aa5379d347a8bbf39b3af5d43d4a2fa71">NNet::TKqueue::~TKqueue</a></div><div class="ttdeci">~TKqueue()</div><div class="ttdoc">Destroys the TKqueue instance.</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_kqueue_html_ab4de93d1e3b6e4d137c38c4e9372936e"><div class="ttname"><a href="class_n_net_1_1_t_kqueue.html#ab4de93d1e3b6e4d137c38c4e9372936e">NNet::TKqueue::Poll</a></div><div class="ttdeci">void Poll()</div><div class="ttdoc">Polls for I/O events using kqueue.</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_kqueue_html_afa6d0d0978dc078e7605b2d7fd1cfa84"><div class="ttname"><a href="class_n_net_1_1_t_kqueue.html#afa6d0d0978dc078e7605b2d7fd1cfa84">NNet::TKqueue::TSocket</a></div><div class="ttdeci">NNet::TSocket TSocket</div><div class="ttdoc">Alias for the socket type.</div><div class="ttdef"><b>Definition</b> kqueue.hpp:39</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_kqueue_html_afae9fd91dea8958a475a978d6c05758f"><div class="ttname"><a href="class_n_net_1_1_t_kqueue.html#afae9fd91dea8958a475a978d6c05758f">NNet::TKqueue::TKqueue</a></div><div class="ttdeci">TKqueue()</div><div class="ttdoc">Constructs the TKqueue instance.</div></div>
 <div class="ttc" id="aclass_n_net_1_1_t_poller_base_html_a0bf870f24ff1b7dedeb0f132dcfa9f05"><div class="ttname"><a href="class_n_net_1_1_t_poller_base.html#a0bf870f24ff1b7dedeb0f132dcfa9f05">NNet::TPollerBase::TPollerBase</a></div><div class="ttdeci">TPollerBase()=default</div><div class="ttdoc">Default constructor.</div></div>
 <div class="ttc" id="aclass_n_net_1_1_t_socket_html"><div class="ttname"><a href="class_n_net_1_1_t_socket.html">NNet::TSocket</a></div><div class="ttdoc">High-level asynchronous socket for network communication.</div><div class="ttdef"><b>Definition</b> socket.hpp:364</div></div>
 </div><!-- fragment --></div><!-- contents -->

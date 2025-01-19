@@ -125,6 +125,11 @@ $(function(){initNavTree('class_n_net_1_1_t_e_poll.html',''); initResizable(true
   <div class="headertitle"><div class="title">NNet::TEPoll Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Linux-specific poller implementation using epoll.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="epoll_8hpp_source.html">epoll.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for NNet::TEPoll:</div>
 <div class="dyncontent">
@@ -139,15 +144,25 @@ Inheritance diagram for NNet::TEPoll:</div>
 Public Types</h2></td></tr>
 <tr class="memitem:a68620674a80a93dd9cae52f6de2c0653" id="r_a68620674a80a93dd9cae52f6de2c0653"><td class="memItemLeft" align="right" valign="top"><a id="a68620674a80a93dd9cae52f6de2c0653" name="a68620674a80a93dd9cae52f6de2c0653"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>TSocket</b> = <a class="el" href="class_n_net_1_1_t_socket.html">NNet::TSocket</a></td></tr>
+<tr class="memdesc:a68620674a80a93dd9cae52f6de2c0653"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for the socket type. <br /></td></tr>
 <tr class="separator:a68620674a80a93dd9cae52f6de2c0653"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ea717a2418f88250ab10b727550c95b" id="r_a7ea717a2418f88250ab10b727550c95b"><td class="memItemLeft" align="right" valign="top"><a id="a7ea717a2418f88250ab10b727550c95b" name="a7ea717a2418f88250ab10b727550c95b"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>TFileHandle</b> = <a class="el" href="class_n_net_1_1_t_file_handle.html">NNet::TFileHandle</a></td></tr>
+<tr class="memdesc:a7ea717a2418f88250ab10b727550c95b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for the file handle type. <br /></td></tr>
 <tr class="separator:a7ea717a2418f88250ab10b727550c95b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:adc938184836f86951bc4759ada6b2328" id="r_adc938184836f86951bc4759ada6b2328"><td class="memItemLeft" align="right" valign="top"><a id="adc938184836f86951bc4759ada6b2328" name="adc938184836f86951bc4759ada6b2328"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Poll</b> ()</td></tr>
+<tr class="memitem:a75af99357b1db79df5bfb5b8b9750c89" id="r_a75af99357b1db79df5bfb5b8b9750c89"><td class="memItemLeft" align="right" valign="top"><a id="a75af99357b1db79df5bfb5b8b9750c89" name="a75af99357b1db79df5bfb5b8b9750c89"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TEPoll</b> ()</td></tr>
+<tr class="memdesc:a75af99357b1db79df5bfb5b8b9750c89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <a class="el" href="class_n_net_1_1_t_e_poll.html" title="Linux-specific poller implementation using epoll.">TEPoll</a> instance. <br /></td></tr>
+<tr class="separator:a75af99357b1db79df5bfb5b8b9750c89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6386d9b23969ba1714e7167f74438f2d" id="r_a6386d9b23969ba1714e7167f74438f2d"><td class="memItemLeft" align="right" valign="top"><a id="a6386d9b23969ba1714e7167f74438f2d" name="a6386d9b23969ba1714e7167f74438f2d"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~TEPoll</b> ()</td></tr>
+<tr class="memdesc:a6386d9b23969ba1714e7167f74438f2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructs the <a class="el" href="class_n_net_1_1_t_e_poll.html" title="Linux-specific poller implementation using epoll.">TEPoll</a> instance and cleans up resources. <br /></td></tr>
+<tr class="separator:a6386d9b23969ba1714e7167f74438f2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc938184836f86951bc4759ada6b2328" id="r_adc938184836f86951bc4759ada6b2328"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adc938184836f86951bc4759ada6b2328">Poll</a> ()</td></tr>
+<tr class="memdesc:adc938184836f86951bc4759ada6b2328"><td class="mdescLeft">&#160;</td><td class="mdescRight">Polls for I/O events using the epoll API.  <br /></td></tr>
 <tr class="separator:adc938184836f86951bc4759ada6b2328"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_n_net_1_1_t_poller_base"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_n_net_1_1_t_poller_base')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_n_net_1_1_t_poller_base.html">NNet::TPollerBase</a></td></tr>
 <tr class="memitem:a0bf870f24ff1b7dedeb0f132dcfa9f05 inherit pub_methods_class_n_net_1_1_t_poller_base" id="r_a0bf870f24ff1b7dedeb0f132dcfa9f05"><td class="memItemLeft" align="right" valign="top">
@@ -261,6 +276,44 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
 <tr class="memdesc:a98e530e56732cf5bd44cee9bcb560e1f inherit pro_attribs_class_n_net_1_1_t_poller_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max duration represented as timespec. <br /></td></tr>
 <tr class="separator:a98e530e56732cf5bd44cee9bcb560e1f inherit pro_attribs_class_n_net_1_1_t_poller_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Linux-specific poller implementation using epoll. </p>
+<p><a class="el" href="class_n_net_1_1_t_e_poll.html" title="Linux-specific poller implementation using epoll.">TEPoll</a> inherits from <a class="el" href="class_n_net_1_1_t_poller_base.html" title="Base class for pollers managing asynchronous I/O events and timers.">TPollerBase</a> and provides an implementation of asynchronous I/O event polling based on the Linux epoll API. It is used only on Linux systems.</p>
+<p>The class defines the following type aliases for ease of use:</p><ul>
+<li><code><a class="el" href="class_n_net_1_1_t_socket.html" title="High-level asynchronous socket for network communication.">TSocket</a></code> is defined as <a class="el" href="class_n_net_1_1_t_socket.html" title="High-level asynchronous socket for network communication.">NNet::TSocket</a>.</li>
+<li><code><a class="el" href="class_n_net_1_1_t_file_handle.html" title="Asynchronous file handle that owns its file descriptor.">TFileHandle</a></code> is defined as <a class="el" href="class_n_net_1_1_t_file_handle.html" title="Asynchronous file handle that owns its file descriptor.">NNet::TFileHandle</a>.</li>
+</ul>
+<p>Main methods:</p><ul>
+<li><a class="el" href="#a75af99357b1db79df5bfb5b8b9750c89">TEPoll()</a> and <a class="el" href="#a6386d9b23969ba1714e7167f74438f2d">~TEPoll</a>() for construction and cleanup.</li>
+<li><a class="el" href="#adc938184836f86951bc4759ada6b2328">Poll()</a> which polls for I/O events and processes them.</li>
+</ul>
+<p>Internal data members include:</p><ul>
+<li>The epoll file descriptor (<code>Fd_</code>).</li>
+<li>An internal container (<code>InEvents_</code>) holding all registered events.</li>
+<li>A vector (<code>OutEvents_</code>) to store the events returned by epoll_wait.</li>
+</ul>
+<dl class="section note"><dt>Note</dt><dd>This class is only supported on Linux. </dd></dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="adc938184836f86951bc4759ada6b2328" name="adc938184836f86951bc4759ada6b2328"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc938184836f86951bc4759ada6b2328">&#9670;&#160;</a></span>Poll()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NNet::TEPoll::Poll </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Polls for I/O events using the epoll API. </p>
+<p>This method calls epoll_wait to detect ready events, processes the returned events, and updates the internal event structures. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>coroio/<a class="el" href="epoll_8hpp_source.html">epoll.hpp</a></li>
 </ul>
