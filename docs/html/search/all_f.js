@@ -37,7 +37,7 @@ var searchData=
   ['tsocketbase_3c_20void_20_3e_34',['TSocketBase&lt; void &gt;',['../class_n_net_1_1_t_socket_base_3_01void_01_4.html',1,'NNet']]],
   ['tsockops_35',['TSockOps',['../class_n_net_1_1_t_sock_ops.html',1,'NNet']]],
   ['tsslcontext_36',['TSslContext',['../struct_n_net_1_1_t_ssl_context.html',1,'NNet']]],
-  ['tsslsocket_37',['TSslSocket',['../class_n_net_1_1_t_ssl_socket.html',1,'NNet']]],
+  ['tsslsocket_37',['TSslSocket',['../class_n_net_1_1_t_ssl_socket.html',1,'NNet::TSslSocket&lt; TSocket &gt;'],['../class_n_net_1_1_t_ssl_socket.html#ae54568141ee336140cbfb90f40b64e9b',1,'NNet::TSslSocket::TSslSocket()']]],
   ['tstructreader_38',['TStructReader',['../struct_n_net_1_1_t_struct_reader.html',1,'NNet::TStructReader&lt; T, TSocket &gt;'],['../struct_n_net_1_1_t_struct_reader.html#a01aed1fb8dc52c06e5177b13b02c0f3a',1,'NNet::TStructReader::TStructReader()']]],
   ['ttimer_39',['TTimer',['../struct_n_net_1_1_t_timer.html',1,'NNet']]],
   ['tvoidpromise_40',['TVoidPromise',['../struct_n_net_1_1_t_void_promise.html',1,'NNet']]],

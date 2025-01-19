@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nameservers_0',['Nameservers',['../class_n_net_1_1_t_resolv_conf.html#a2d4f6d8c2b74f4e31c350e4400f7da44',1,'NNet::TResolvConf']]]
+  ['ctx_0',['Ctx',['../struct_n_net_1_1_t_ssl_context.html#ae4fd7317426394cc600259188930c9ed',1,'NNet::TSslContext']]]
 ];
