@@ -36,18 +36,18 @@ var hierarchy =
     ] ],
     [ "NNet::TResolvConf", "class_n_net_1_1_t_resolv_conf.html", null ],
     [ "NNet::TResolver< TPoller >", "class_n_net_1_1_t_resolver.html", null ],
-    [ "NNet::TSocketOps", "class_n_net_1_1_t_socket_ops.html", [
-      [ "NNet::TSocketBase< TFileOps >", "class_n_net_1_1_t_socket_base.html", [
-        [ "NNet::TFileHandle", "class_n_net_1_1_t_file_handle.html", [
-          [ "NNet::TPollerDrivenFileHandle< T >", "class_n_net_1_1_t_poller_driven_file_handle.html", null ]
-        ] ]
-      ] ],
-      [ "NNet::TSocketBase< TSockOps >", "class_n_net_1_1_t_socket_base.html", [
-        [ "NNet::TSocket", "class_n_net_1_1_t_socket.html", [
-          [ "NNet::TPollerDrivenSocket< T >", "class_n_net_1_1_t_poller_driven_socket.html", null ]
-        ] ]
+    [ "NNet::TSocketBase< TSockOps >", "class_n_net_1_1_t_socket_base.html", [
+      [ "NNet::TSocket", "class_n_net_1_1_t_socket.html", [
+        [ "NNet::TPollerDrivenSocket< T >", "class_n_net_1_1_t_poller_driven_socket.html", null ]
       ] ]
     ] ],
+    [ "NNet::TSocketBase< TFileOps >", "class_n_net_1_1_t_socket_base.html", [
+      [ "NNet::TFileHandle", "class_n_net_1_1_t_file_handle.html", [
+        [ "NNet::TPollerDrivenFileHandle< T >", "class_n_net_1_1_t_poller_driven_file_handle.html", null ]
+      ] ]
+    ] ],
+    [ "TSocketBase< TSockOps >", "class_t_socket_base_3_01_t_sock_ops_01_4.html", null ],
+    [ "NNet::TSocketBase< void >", "class_n_net_1_1_t_socket_base_3_01void_01_4.html", null ],
     [ "NNet::TSockOps", "class_n_net_1_1_t_sock_ops.html", null ],
     [ "NNet::TSslContext", "struct_n_net_1_1_t_ssl_context.html", null ],
     [ "NNet::TSslSocket< THandle >", "class_n_net_1_1_t_ssl_socket.html", null ],

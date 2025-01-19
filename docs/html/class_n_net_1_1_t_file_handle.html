@@ -124,22 +124,26 @@ $(function(){initNavTree('class_n_net_1_1_t_file_handle.html',''); initResizable
   <div class="headertitle"><div class="title">NNet::TFileHandle Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Asynchronous file handle that owns its file descriptor.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="socket_8hpp_source.html">socket.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for NNet::TFileHandle:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_n_net_1_1_t_file_handle.png" usemap="#NNet::TFileHandle_map" alt=""/>
   <map id="NNet::TFileHandle_map" name="NNet::TFileHandle_map">
-<area href="class_n_net_1_1_t_socket_base.html" alt="NNet::TSocketBase&lt; TFileOps &gt;" shape="rect" coords="0,56,216,80"/>
-<area href="class_n_net_1_1_t_socket_ops.html" alt="NNet::TSocketOps" shape="rect" coords="0,0,216,24"/>
-<area href="class_n_net_1_1_t_poller_driven_file_handle.html" alt="NNet::TPollerDrivenFileHandle&lt; T &gt;" shape="rect" coords="0,168,216,192"/>
+<area href="class_n_net_1_1_t_socket_base.html" alt="NNet::TSocketBase&lt; TFileOps &gt;" shape="rect" coords="0,0,216,24"/>
+<area href="class_n_net_1_1_t_poller_driven_file_handle.html" title="Asynchronous file handle driven by the poller&#39;s implementation." alt="NNet::TPollerDrivenFileHandle&lt; T &gt;" shape="rect" coords="0,112,216,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aaa8cd75cbb02faa92b9ffbbb7f7cbf39" id="r_aaa8cd75cbb02faa92b9ffbbb7f7cbf39"><td class="memItemLeft" align="right" valign="top"><a id="aaa8cd75cbb02faa92b9ffbbb7f7cbf39" name="aaa8cd75cbb02faa92b9ffbbb7f7cbf39"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TFileHandle</b> (int fd, <a class="el" href="class_n_net_1_1_t_poller_base.html">TPollerBase</a> &amp;poller)</td></tr>
+<tr class="memitem:aaa8cd75cbb02faa92b9ffbbb7f7cbf39" id="r_aaa8cd75cbb02faa92b9ffbbb7f7cbf39"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa8cd75cbb02faa92b9ffbbb7f7cbf39">TFileHandle</a> (int fd, <a class="el" href="class_n_net_1_1_t_poller_base.html">TPollerBase</a> &amp;poller)</td></tr>
+<tr class="memdesc:aaa8cd75cbb02faa92b9ffbbb7f7cbf39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="class_n_net_1_1_t_file_handle.html" title="Asynchronous file handle that owns its file descriptor.">TFileHandle</a> from an existing file descriptor.  <br /></td></tr>
 <tr class="separator:aaa8cd75cbb02faa92b9ffbbb7f7cbf39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85e78ee1a2f94ebad94c11b6a29321f0" id="r_a85e78ee1a2f94ebad94c11b6a29321f0"><td class="memItemLeft" align="right" valign="top"><a id="a85e78ee1a2f94ebad94c11b6a29321f0" name="a85e78ee1a2f94ebad94c11b6a29321f0"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>TFileHandle</b> (<a class="el" href="class_n_net_1_1_t_file_handle.html">TFileHandle</a> &amp;&amp;other)</td></tr>
@@ -148,64 +152,83 @@ Public Member Functions</h2></td></tr>
 <a class="el" href="class_n_net_1_1_t_file_handle.html">TFileHandle</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="class_n_net_1_1_t_file_handle.html">TFileHandle</a> &amp;&amp;other)</td></tr>
 <tr class="separator:afca7ec58ceb91066f828c07eb49b44db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_n_net_1_1_t_socket_base"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_n_net_1_1_t_socket_base')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_n_net_1_1_t_socket_base.html">NNet::TSocketBase&lt; TFileOps &gt;</a></td></tr>
-<tr class="memitem:a00cd2e4ff65978ce06a326fcbbc1734e inherit pub_methods_class_n_net_1_1_t_socket_base" id="r_a00cd2e4ff65978ce06a326fcbbc1734e"><td class="memItemLeft" align="right" valign="top">
-&#160;</td><td class="memItemRight" valign="bottom"><b>TSocketBase</b> (<a class="el" href="class_n_net_1_1_t_poller_base.html">TPollerBase</a> &amp;poller, int domain, int type)</td></tr>
-<tr class="separator:a00cd2e4ff65978ce06a326fcbbc1734e inherit pub_methods_class_n_net_1_1_t_socket_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acab6c128c65691ebf1018009088d27da inherit pub_methods_class_n_net_1_1_t_socket_base" id="r_acab6c128c65691ebf1018009088d27da"><td class="memItemLeft" align="right" valign="top">
-&#160;</td><td class="memItemRight" valign="bottom"><b>TSocketBase</b> (int fd, <a class="el" href="class_n_net_1_1_t_poller_base.html">TPollerBase</a> &amp;poller)</td></tr>
-<tr class="separator:acab6c128c65691ebf1018009088d27da inherit pub_methods_class_n_net_1_1_t_socket_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81d28c56a970b68d8e870cdef3294bd4 inherit pub_methods_class_n_net_1_1_t_socket_base" id="r_a81d28c56a970b68d8e870cdef3294bd4"><td class="memItemLeft" align="right" valign="top">
-&#160;</td><td class="memItemRight" valign="bottom"><b>TSocketBase</b> (const <a class="el" href="class_n_net_1_1_t_socket_base.html">TSocketBase</a> &amp;other)=delete</td></tr>
-<tr class="separator:a81d28c56a970b68d8e870cdef3294bd4 inherit pub_methods_class_n_net_1_1_t_socket_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2cb098860669ca76af45e01cceb0da2a inherit pub_methods_class_n_net_1_1_t_socket_base" id="r_a2cb098860669ca76af45e01cceb0da2a"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="class_n_net_1_1_t_socket_base.html">TSocketBase</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="class_n_net_1_1_t_socket_base.html">TSocketBase</a> &amp;other) const=delete</td></tr>
-<tr class="separator:a2cb098860669ca76af45e01cceb0da2a inherit pub_methods_class_n_net_1_1_t_socket_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf2e0b5cccc278c02ef48bcd253ff4fd inherit pub_methods_class_n_net_1_1_t_socket_base" id="r_aaf2e0b5cccc278c02ef48bcd253ff4fd"><td class="memItemLeft" align="right" valign="top">
-auto&#160;</td><td class="memItemRight" valign="bottom"><b>ReadSome</b> (void *buf, size_t size)</td></tr>
+<tr class="memitem:aaf2e0b5cccc278c02ef48bcd253ff4fd inherit pub_methods_class_n_net_1_1_t_socket_base" id="r_aaf2e0b5cccc278c02ef48bcd253ff4fd"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_net_1_1_t_socket_base.html#aaf2e0b5cccc278c02ef48bcd253ff4fd">ReadSome</a> (void *buf, size_t size)</td></tr>
+<tr class="memdesc:aaf2e0b5cccc278c02ef48bcd253ff4fd inherit pub_methods_class_n_net_1_1_t_socket_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously reads data from the socket into the provided buffer.  <br /></td></tr>
 <tr class="separator:aaf2e0b5cccc278c02ef48bcd253ff4fd inherit pub_methods_class_n_net_1_1_t_socket_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af15b3141e3ebcf34283423ca895cec48 inherit pub_methods_class_n_net_1_1_t_socket_base" id="r_af15b3141e3ebcf34283423ca895cec48"><td class="memItemLeft" align="right" valign="top">
-auto&#160;</td><td class="memItemRight" valign="bottom"><b>ReadSomeYield</b> (void *buf, size_t size)</td></tr>
+<tr class="memitem:af15b3141e3ebcf34283423ca895cec48 inherit pub_methods_class_n_net_1_1_t_socket_base" id="r_af15b3141e3ebcf34283423ca895cec48"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_net_1_1_t_socket_base.html#af15b3141e3ebcf34283423ca895cec48">ReadSomeYield</a> (void *buf, size_t size)</td></tr>
+<tr class="memdesc:af15b3141e3ebcf34283423ca895cec48 inherit pub_methods_class_n_net_1_1_t_socket_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forces a read operation on the next event loop iteration.  <br /></td></tr>
 <tr class="separator:af15b3141e3ebcf34283423ca895cec48 inherit pub_methods_class_n_net_1_1_t_socket_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a456c0bd8d8e3e5a949329a963809fd24 inherit pub_methods_class_n_net_1_1_t_socket_base" id="r_a456c0bd8d8e3e5a949329a963809fd24"><td class="memItemLeft" align="right" valign="top">
-auto&#160;</td><td class="memItemRight" valign="bottom"><b>WriteSome</b> (const void *buf, size_t size)</td></tr>
+<tr class="memitem:a456c0bd8d8e3e5a949329a963809fd24 inherit pub_methods_class_n_net_1_1_t_socket_base" id="r_a456c0bd8d8e3e5a949329a963809fd24"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_net_1_1_t_socket_base.html#a456c0bd8d8e3e5a949329a963809fd24">WriteSome</a> (const void *buf, size_t size)</td></tr>
+<tr class="memdesc:a456c0bd8d8e3e5a949329a963809fd24 inherit pub_methods_class_n_net_1_1_t_socket_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously writes data from the provided buffer to the socket.  <br /></td></tr>
 <tr class="separator:a456c0bd8d8e3e5a949329a963809fd24 inherit pub_methods_class_n_net_1_1_t_socket_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17cff91c44720ae245405fab977746c5 inherit pub_methods_class_n_net_1_1_t_socket_base" id="r_a17cff91c44720ae245405fab977746c5"><td class="memItemLeft" align="right" valign="top">
-auto&#160;</td><td class="memItemRight" valign="bottom"><b>WriteSomeYield</b> (const void *buf, size_t size)</td></tr>
+<tr class="memitem:a17cff91c44720ae245405fab977746c5 inherit pub_methods_class_n_net_1_1_t_socket_base" id="r_a17cff91c44720ae245405fab977746c5"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_net_1_1_t_socket_base.html#a17cff91c44720ae245405fab977746c5">WriteSomeYield</a> (const void *buf, size_t size)</td></tr>
+<tr class="memdesc:a17cff91c44720ae245405fab977746c5 inherit pub_methods_class_n_net_1_1_t_socket_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forces a write operation on the next event loop iteration.  <br /></td></tr>
 <tr class="separator:a17cff91c44720ae245405fab977746c5 inherit pub_methods_class_n_net_1_1_t_socket_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1039bddf2bcba3f1277319ab90a5d63e inherit pub_methods_class_n_net_1_1_t_socket_base" id="r_a1039bddf2bcba3f1277319ab90a5d63e"><td class="memItemLeft" align="right" valign="top">
-auto&#160;</td><td class="memItemRight" valign="bottom"><b>Monitor</b> ()</td></tr>
+<tr class="memitem:a1039bddf2bcba3f1277319ab90a5d63e inherit pub_methods_class_n_net_1_1_t_socket_base" id="r_a1039bddf2bcba3f1277319ab90a5d63e"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_net_1_1_t_socket_base.html#a1039bddf2bcba3f1277319ab90a5d63e">Monitor</a> ()</td></tr>
+<tr class="memdesc:a1039bddf2bcba3f1277319ab90a5d63e inherit pub_methods_class_n_net_1_1_t_socket_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Monitors the socket for remote hang-up (closure).  <br /></td></tr>
 <tr class="separator:a1039bddf2bcba3f1277319ab90a5d63e inherit pub_methods_class_n_net_1_1_t_socket_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0deb2a1fd4b9b137eb0273a455e38e5 inherit pub_methods_class_n_net_1_1_t_socket_base" id="r_ac0deb2a1fd4b9b137eb0273a455e38e5"><td class="memItemLeft" align="right" valign="top">
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Close</b> ()</td></tr>
+<tr class="memitem:ac0deb2a1fd4b9b137eb0273a455e38e5 inherit pub_methods_class_n_net_1_1_t_socket_base" id="r_ac0deb2a1fd4b9b137eb0273a455e38e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_net_1_1_t_socket_base.html#ac0deb2a1fd4b9b137eb0273a455e38e5">Close</a> ()</td></tr>
+<tr class="memdesc:ac0deb2a1fd4b9b137eb0273a455e38e5 inherit pub_methods_class_n_net_1_1_t_socket_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the socket.  <br /></td></tr>
 <tr class="separator:ac0deb2a1fd4b9b137eb0273a455e38e5 inherit pub_methods_class_n_net_1_1_t_socket_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_class_n_net_1_1_t_socket_ops"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_n_net_1_1_t_socket_ops')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_n_net_1_1_t_socket_ops.html">NNet::TSocketOps</a></td></tr>
-<tr class="memitem:a3adab5e97db1739e2d9abacd3e25a987 inherit pub_methods_class_n_net_1_1_t_socket_ops" id="r_a3adab5e97db1739e2d9abacd3e25a987"><td class="memItemLeft" align="right" valign="top">
-&#160;</td><td class="memItemRight" valign="bottom"><b>TSocketOps</b> (<a class="el" href="class_n_net_1_1_t_poller_base.html">TPollerBase</a> &amp;poller, int domain, int type)</td></tr>
-<tr class="separator:a3adab5e97db1739e2d9abacd3e25a987 inherit pub_methods_class_n_net_1_1_t_socket_ops"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a76103e56327e191f6184624c1b8cba inherit pub_methods_class_n_net_1_1_t_socket_ops" id="r_a6a76103e56327e191f6184624c1b8cba"><td class="memItemLeft" align="right" valign="top">
-&#160;</td><td class="memItemRight" valign="bottom"><b>TSocketOps</b> (int fd, <a class="el" href="class_n_net_1_1_t_poller_base.html">TPollerBase</a> &amp;poller)</td></tr>
-<tr class="separator:a6a76103e56327e191f6184624c1b8cba inherit pub_methods_class_n_net_1_1_t_socket_ops"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5420842a804b1a4368c1437668ce0283 inherit pub_methods_class_n_net_1_1_t_socket_ops" id="r_a5420842a804b1a4368c1437668ce0283"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="class_n_net_1_1_t_poller_base.html">TPollerBase</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>Poller</b> ()</td></tr>
-<tr class="separator:a5420842a804b1a4368c1437668ce0283 inherit pub_methods_class_n_net_1_1_t_socket_ops"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_methods_class_n_net_1_1_t_socket_ops"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_class_n_net_1_1_t_socket_ops')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_n_net_1_1_t_socket_ops.html">NNet::TSocketOps</a></td></tr>
-<tr class="memitem:a83dac61b605fa6712335d483a8c57300 inherit pro_methods_class_n_net_1_1_t_socket_ops" id="r_a83dac61b605fa6712335d483a8c57300"><td class="memItemLeft" align="right" valign="top">
-int&#160;</td><td class="memItemRight" valign="bottom"><b>Create</b> (int domain, int type)</td></tr>
-<tr class="separator:a83dac61b605fa6712335d483a8c57300 inherit pro_methods_class_n_net_1_1_t_socket_ops"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe496109ae7e86ece28fecedf48f392e inherit pro_methods_class_n_net_1_1_t_socket_ops" id="r_abe496109ae7e86ece28fecedf48f392e"><td class="memItemLeft" align="right" valign="top">
-int&#160;</td><td class="memItemRight" valign="bottom"><b>Setup</b> (int s)</td></tr>
-<tr class="separator:abe496109ae7e86ece28fecedf48f392e inherit pro_methods_class_n_net_1_1_t_socket_ops"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_attribs_class_n_net_1_1_t_socket_ops"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_class_n_net_1_1_t_socket_ops')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_n_net_1_1_t_socket_ops.html">NNet::TSocketOps</a></td></tr>
-<tr class="memitem:af89daa759612f9d85112b7097a7baba3 inherit pro_attribs_class_n_net_1_1_t_socket_ops" id="r_af89daa759612f9d85112b7097a7baba3"><td class="memItemLeft" align="right" valign="top">
-<a class="el" href="class_n_net_1_1_t_poller_base.html">TPollerBase</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>Poller_</b> = nullptr</td></tr>
-<tr class="separator:af89daa759612f9d85112b7097a7baba3 inherit pro_attribs_class_n_net_1_1_t_socket_ops"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ea85a7454c452ddd36ff61993c542fa inherit pro_attribs_class_n_net_1_1_t_socket_ops" id="r_a2ea85a7454c452ddd36ff61993c542fa"><td class="memItemLeft" align="right" valign="top">
-int&#160;</td><td class="memItemRight" valign="bottom"><b>Fd_</b> = -1</td></tr>
-<tr class="separator:a2ea85a7454c452ddd36ff61993c542fa inherit pro_attribs_class_n_net_1_1_t_socket_ops"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_class_n_net_1_1_t_socket_base"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_class_n_net_1_1_t_socket_base')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_n_net_1_1_t_socket_base.html">NNet::TSocketBase&lt; TFileOps &gt;</a></td></tr>
+<tr class="memitem:a00cd2e4ff65978ce06a326fcbbc1734e inherit pro_methods_class_n_net_1_1_t_socket_base" id="r_a00cd2e4ff65978ce06a326fcbbc1734e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_net_1_1_t_socket_base.html#a00cd2e4ff65978ce06a326fcbbc1734e">TSocketBase</a> (<a class="el" href="class_n_net_1_1_t_poller_base.html">TPollerBase</a> &amp;poller, int domain, int type)</td></tr>
+<tr class="memdesc:a00cd2e4ff65978ce06a326fcbbc1734e inherit pro_methods_class_n_net_1_1_t_socket_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="class_n_net_1_1_t_socket_base.html">TSocketBase</a> with a new socket descriptor.  <br /></td></tr>
+<tr class="separator:a00cd2e4ff65978ce06a326fcbbc1734e inherit pro_methods_class_n_net_1_1_t_socket_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acab6c128c65691ebf1018009088d27da inherit pro_methods_class_n_net_1_1_t_socket_base" id="r_acab6c128c65691ebf1018009088d27da"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_n_net_1_1_t_socket_base.html#acab6c128c65691ebf1018009088d27da">TSocketBase</a> (int fd, <a class="el" href="class_n_net_1_1_t_poller_base.html">TPollerBase</a> &amp;poller)</td></tr>
+<tr class="memdesc:acab6c128c65691ebf1018009088d27da inherit pro_methods_class_n_net_1_1_t_socket_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="class_n_net_1_1_t_socket_base.html">TSocketBase</a> from an existing socket descriptor.  <br /></td></tr>
+<tr class="separator:acab6c128c65691ebf1018009088d27da inherit pro_methods_class_n_net_1_1_t_socket_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81d28c56a970b68d8e870cdef3294bd4 inherit pro_methods_class_n_net_1_1_t_socket_base" id="r_a81d28c56a970b68d8e870cdef3294bd4"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>TSocketBase</b> (const <a class="el" href="class_n_net_1_1_t_socket_base.html">TSocketBase</a> &amp;other)=delete</td></tr>
+<tr class="separator:a81d28c56a970b68d8e870cdef3294bd4 inherit pro_methods_class_n_net_1_1_t_socket_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cb098860669ca76af45e01cceb0da2a inherit pro_methods_class_n_net_1_1_t_socket_base" id="r_a2cb098860669ca76af45e01cceb0da2a"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="class_n_net_1_1_t_socket_base.html">TSocketBase</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="class_n_net_1_1_t_socket_base.html">TSocketBase</a> &amp;other) const=delete</td></tr>
+<tr class="separator:a2cb098860669ca76af45e01cceb0da2a inherit pro_methods_class_n_net_1_1_t_socket_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Asynchronous file handle that owns its file descriptor. </p>
+<p>The passed file descriptor is owned by <a class="el" href="class_n_net_1_1_t_file_handle.html" title="Asynchronous file handle that owns its file descriptor.">TFileHandle</a> and will be closed automatically when the object is destroyed. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aaa8cd75cbb02faa92b9ffbbb7f7cbf39" name="aaa8cd75cbb02faa92b9ffbbb7f7cbf39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa8cd75cbb02faa92b9ffbbb7f7cbf39">&#9670;&#160;</a></span>TFileHandle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">NNet::TFileHandle::TFileHandle </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>fd</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_n_net_1_1_t_poller_base.html">TPollerBase</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>poller</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs a <a class="el" href="class_n_net_1_1_t_file_handle.html" title="Asynchronous file handle that owns its file descriptor.">TFileHandle</a> from an existing file descriptor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fd</td><td>The file descriptor to be managed. </td></tr>
+    <tr><td class="paramname">poller</td><td>Reference to a poller for asynchronous operations. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>coroio/<a class="el" href="socket_8hpp_source.html">socket.hpp</a></li>
 </ul>

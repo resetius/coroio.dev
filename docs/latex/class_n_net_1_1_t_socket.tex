@@ -1,9 +1,18 @@
 \doxysection{NNet\+::TSocket Class Reference}
 \hypertarget{class_n_net_1_1_t_socket}{}\label{class_n_net_1_1_t_socket}\index{NNet::TSocket@{NNet::TSocket}}
+
+
+High-\/level asynchronous socket for network communication.  
+
+
+
+
+{\ttfamily \#include $<$socket.\+hpp$>$}
+
 Inheritance diagram for NNet\+::TSocket\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=4.000000cm]{class_n_net_1_1_t_socket}
+\includegraphics[height=3.000000cm]{class_n_net_1_1_t_socket}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Public Types}
@@ -15,71 +24,48 @@ using {\bfseries TPoller} = \mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPol
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_n_net_1_1_t_socket_a194d35853eb507357d3651c0bc6beb10}\label{class_n_net_1_1_t_socket_a194d35853eb507357d3651c0bc6beb10} 
-{\bfseries TSocket} (\mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \&poller, int domain, int type=SOCK\+\_\+\+STREAM)
-\item 
-\Hypertarget{class_n_net_1_1_t_socket_a5b45bf6e02887ccc2ad85d7d815ed4e2}\label{class_n_net_1_1_t_socket_a5b45bf6e02887ccc2ad85d7d815ed4e2} 
-{\bfseries TSocket} (const \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}} \&addr, int fd, \mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \&poller)
-\item 
+\mbox{\hyperlink{class_n_net_1_1_t_socket_a194d35853eb507357d3651c0bc6beb10}{TSocket}} (\mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \&poller, int domain, int type=SOCK\+\_\+\+STREAM)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_n_net_1_1_t_socket}{TSocket} using the given poller, address family, and socket type. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_n_net_1_1_t_socket_a5b45bf6e02887ccc2ad85d7d815ed4e2}{TSocket}} (const \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}} \&addr, int fd, \mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \&poller)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_n_net_1_1_t_socket}{TSocket} for an already-\/connected socket. \end{DoxyCompactList}\item 
 \Hypertarget{class_n_net_1_1_t_socket_a101bf5371b9e08d1e9f6949d7dc4daf7}\label{class_n_net_1_1_t_socket_a101bf5371b9e08d1e9f6949d7dc4daf7} 
 {\bfseries TSocket} (\mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}} \&\&other)
 \item 
 \Hypertarget{class_n_net_1_1_t_socket_ac0109010786bea7debe405504a315d4d}\label{class_n_net_1_1_t_socket_ac0109010786bea7debe405504a315d4d} 
 \mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}} \& {\bfseries operator=} (\mbox{\hyperlink{class_n_net_1_1_t_socket}{TSocket}} \&\&other)
 \item 
-\Hypertarget{class_n_net_1_1_t_socket_a31bab995eb6f74be32a5762358386998}\label{class_n_net_1_1_t_socket_a31bab995eb6f74be32a5762358386998} 
-auto {\bfseries Connect} (const \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}} \&addr, TTime deadline=TTime\+::max())
-\item 
-\Hypertarget{class_n_net_1_1_t_socket_a7d57a7f85d0d3ba7222f24224137b494}\label{class_n_net_1_1_t_socket_a7d57a7f85d0d3ba7222f24224137b494} 
-auto {\bfseries Accept} ()
-\item 
+auto \mbox{\hyperlink{class_n_net_1_1_t_socket_a31bab995eb6f74be32a5762358386998}{Connect}} (const \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}} \&addr, TTime deadline=TTime\+::max())
+\begin{DoxyCompactList}\small\item\em Asynchronously connects to the specified address. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{class_n_net_1_1_t_socket_a7d57a7f85d0d3ba7222f24224137b494}{Accept}} ()
+\begin{DoxyCompactList}\small\item\em Asynchronously accepts an incoming connection. \end{DoxyCompactList}\item 
 \Hypertarget{class_n_net_1_1_t_socket_a7aafb8a059235cb45d98f92a541ca0d5}\label{class_n_net_1_1_t_socket_a7aafb8a059235cb45d98f92a541ca0d5} 
 void {\bfseries Bind} (const \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}} \&addr)
-\item 
+\begin{DoxyCompactList}\small\item\em Binds the socket to the specified local address. \end{DoxyCompactList}\item 
 \Hypertarget{class_n_net_1_1_t_socket_aed8042050a98c5e5f5e452a1173d0426}\label{class_n_net_1_1_t_socket_aed8042050a98c5e5f5e452a1173d0426} 
 void {\bfseries Listen} (int backlog=128)
-\item 
-\Hypertarget{class_n_net_1_1_t_socket_a2c7be109be0d7d96bb42c918d26883cd}\label{class_n_net_1_1_t_socket_a2c7be109be0d7d96bb42c918d26883cd} 
-const std\+::optional$<$ \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}} $>$ \& {\bfseries Remote\+Addr} () const
-\item 
-\Hypertarget{class_n_net_1_1_t_socket_a8e033d81fc57c13a0a1a357bbae8bd80}\label{class_n_net_1_1_t_socket_a8e033d81fc57c13a0a1a357bbae8bd80} 
-const std\+::optional$<$ \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}} $>$ \& {\bfseries Local\+Addr} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Puts the socket in a listening state with an optional backlog (default is 128). \end{DoxyCompactList}\item 
+const std\+::optional$<$ \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}} $>$ \& \mbox{\hyperlink{class_n_net_1_1_t_socket_a2c7be109be0d7d96bb42c918d26883cd}{Remote\+Addr}} () const
+\begin{DoxyCompactList}\small\item\em Returns the remote address of the connected peer. \end{DoxyCompactList}\item 
+const std\+::optional$<$ \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}} $>$ \& \mbox{\hyperlink{class_n_net_1_1_t_socket_a8e033d81fc57c13a0a1a357bbae8bd80}{Local\+Addr}} () const
+\begin{DoxyCompactList}\small\item\em Returns the local address to which the socket is bound. \end{DoxyCompactList}\item 
 \Hypertarget{class_n_net_1_1_t_socket_a4c13ce159122b82427278376b32c1122}\label{class_n_net_1_1_t_socket_a4c13ce159122b82427278376b32c1122} 
 int {\bfseries Fd} () const
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Returns the underlying socket descriptor. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_n_net_1_1_t_socket_base}{NNet\+::\+TSocket\+Base$<$ TSock\+Ops $>$}}}
 \begin{DoxyCompactItemize}
 \item 
-{\bfseries TSocket\+Base} (\mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \&poller, int domain, int type)
-\item 
-{\bfseries TSocket\+Base} (int fd, \mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \&poller)
-\item 
-{\bfseries TSocket\+Base} (const \mbox{\hyperlink{class_n_net_1_1_t_socket_base}{TSocket\+Base}} \&other)=delete
-\item 
-\mbox{\hyperlink{class_n_net_1_1_t_socket_base}{TSocket\+Base}} \& {\bfseries operator=} (\mbox{\hyperlink{class_n_net_1_1_t_socket_base}{TSocket\+Base}} \&other) const =delete
-\item 
-auto {\bfseries Read\+Some} (void \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
-\item 
-auto {\bfseries Read\+Some\+Yield} (void \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
-\item 
-auto {\bfseries Write\+Some} (const void \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
-\item 
-auto {\bfseries Write\+Some\+Yield} (const void \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
-\item 
-auto {\bfseries Monitor} ()
-\item 
-void {\bfseries Close} ()
-\end{DoxyCompactItemize}
-\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_n_net_1_1_t_socket_ops}{NNet\+::\+TSocket\+Ops}}}
-\begin{DoxyCompactItemize}
-\item 
-{\bfseries TSocket\+Ops} (\mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \&poller, int domain, int type)
-\item 
-{\bfseries TSocket\+Ops} (int fd, \mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \&poller)
-\item 
-\mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \texorpdfstring{$\ast$}{*} {\bfseries Poller} ()
-\end{DoxyCompactItemize}
+auto \mbox{\hyperlink{class_n_net_1_1_t_socket_base_aaf2e0b5cccc278c02ef48bcd253ff4fd}{Read\+Some}} (void \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Asynchronously reads data from the socket into the provided buffer. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{class_n_net_1_1_t_socket_base_af15b3141e3ebcf34283423ca895cec48}{Read\+Some\+Yield}} (void \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Forces a read operation on the next event loop iteration. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{class_n_net_1_1_t_socket_base_a456c0bd8d8e3e5a949329a963809fd24}{Write\+Some}} (const void \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Asynchronously writes data from the provided buffer to the socket. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{class_n_net_1_1_t_socket_base_a17cff91c44720ae245405fab977746c5}{Write\+Some\+Yield}} (const void \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Forces a write operation on the next event loop iteration. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{class_n_net_1_1_t_socket_base_a1039bddf2bcba3f1277319ab90a5d63e}{Monitor}} ()
+\begin{DoxyCompactList}\small\item\em Monitors the socket for remote hang-\/up (closure). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_n_net_1_1_t_socket_base_ac0deb2a1fd4b9b137eb0273a455e38e5}{Close}} ()
+\begin{DoxyCompactList}\small\item\em Closes the socket. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -89,21 +75,138 @@ std\+::optional$<$ \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}} $>$ {\
 \Hypertarget{class_n_net_1_1_t_socket_afc0bea7421b0a00e75ce0b116fcb999c}\label{class_n_net_1_1_t_socket_afc0bea7421b0a00e75ce0b116fcb999c} 
 std\+::optional$<$ \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}} $>$ {\bfseries Remote\+Addr\+\_\+}
 \end{DoxyCompactItemize}
-\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_n_net_1_1_t_socket_ops}{NNet\+::\+TSocket\+Ops}}}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \texorpdfstring{$\ast$}{*} {\bfseries Poller\+\_\+} = nullptr
-\item 
-int {\bfseries Fd\+\_\+} = -\/1
-\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
-\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_n_net_1_1_t_socket_ops}{NNet\+::\+TSocket\+Ops}}}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_n_net_1_1_t_socket_base}{NNet\+::\+TSocket\+Base$<$ TSock\+Ops $>$}}}
 \begin{DoxyCompactItemize}
 \item 
-int {\bfseries Create} (int domain, int type)
+\mbox{\hyperlink{class_n_net_1_1_t_socket_base_a00cd2e4ff65978ce06a326fcbbc1734e}{TSocket\+Base}} (\mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \&poller, int domain, int type)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_n_net_1_1_t_socket_base}{TSocket\+Base} with a new socket descriptor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_n_net_1_1_t_socket_base_acab6c128c65691ebf1018009088d27da}{TSocket\+Base}} (int fd, \mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \&poller)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_n_net_1_1_t_socket_base}{TSocket\+Base} from an existing socket descriptor. \end{DoxyCompactList}\item 
+{\bfseries TSocket\+Base} (const \mbox{\hyperlink{class_n_net_1_1_t_socket_base}{TSocket\+Base}} \&other)=delete
 \item 
-int {\bfseries Setup} (int s)
+\mbox{\hyperlink{class_n_net_1_1_t_socket_base}{TSocket\+Base}} \& {\bfseries operator=} (\mbox{\hyperlink{class_n_net_1_1_t_socket_base}{TSocket\+Base}} \&other) const =delete
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+High-\/level asynchronous socket for network communication. 
+
+\doxylink{class_n_net_1_1_t_socket}{TSocket} provides an easy-\/to-\/use interface for common network operations such as connecting, accepting, binding, and listening. It also stores the local and remote addresses. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_n_net_1_1_t_socket_a194d35853eb507357d3651c0bc6beb10}\index{NNet::TSocket@{NNet::TSocket}!TSocket@{TSocket}}
+\index{TSocket@{TSocket}!NNet::TSocket@{NNet::TSocket}}
+\doxysubsubsection{\texorpdfstring{TSocket()}{TSocket()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_n_net_1_1_t_socket_a194d35853eb507357d3651c0bc6beb10} 
+NNet\+::\+TSocket\+::\+TSocket (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \&}]{poller}{, }\item[{int}]{domain}{, }\item[{int}]{type}{ = {\ttfamily SOCK\+\_\+STREAM}}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_n_net_1_1_t_socket}{TSocket} using the given poller, address family, and socket type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em poller} & Reference to the poller for asynchronous operations. \\
+\hline
+{\em domain} & The address family (e.\+g., AF\+\_\+\+INET, AF\+\_\+\+INET6). \\
+\hline
+{\em type} & The socket type; defaults to SOCK\+\_\+\+STREAM. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_n_net_1_1_t_socket_a5b45bf6e02887ccc2ad85d7d815ed4e2}\index{NNet::TSocket@{NNet::TSocket}!TSocket@{TSocket}}
+\index{TSocket@{TSocket}!NNet::TSocket@{NNet::TSocket}}
+\doxysubsubsection{\texorpdfstring{TSocket()}{TSocket()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_n_net_1_1_t_socket_a5b45bf6e02887ccc2ad85d7d815ed4e2} 
+NNet\+::\+TSocket\+::\+TSocket (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}} \&}]{addr}{, }\item[{int}]{fd}{, }\item[{\mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \&}]{poller}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a \doxylink{class_n_net_1_1_t_socket}{TSocket} for an already-\/connected socket. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em addr} & The remote address. \\
+\hline
+{\em fd} & The existing socket descriptor. \\
+\hline
+{\em poller} & Reference to the poller. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_n_net_1_1_t_socket_a7d57a7f85d0d3ba7222f24224137b494}\index{NNet::TSocket@{NNet::TSocket}!Accept@{Accept}}
+\index{Accept@{Accept}!NNet::TSocket@{NNet::TSocket}}
+\doxysubsubsection{\texorpdfstring{Accept()}{Accept()}}
+{\footnotesize\ttfamily \label{class_n_net_1_1_t_socket_a7d57a7f85d0d3ba7222f24224137b494} 
+auto NNet\+::\+TSocket\+::\+Accept (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Asynchronously accepts an incoming connection. 
+
+This awaitable suspends until a new connection is ready on the socket and then returns a new \doxylink{class_n_net_1_1_t_socket}{TSocket} object representing the client connection.
+
+\begin{DoxyReturn}{Returns}
+An awaitable object that yields a \doxylink{class_n_net_1_1_t_socket}{TSocket} for the new connection.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::system\+\_\+error} & if accept() fails. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_n_net_1_1_t_socket_a31bab995eb6f74be32a5762358386998}\index{NNet::TSocket@{NNet::TSocket}!Connect@{Connect}}
+\index{Connect@{Connect}!NNet::TSocket@{NNet::TSocket}}
+\doxysubsubsection{\texorpdfstring{Connect()}{Connect()}}
+{\footnotesize\ttfamily \label{class_n_net_1_1_t_socket_a31bab995eb6f74be32a5762358386998} 
+auto NNet\+::\+TSocket\+::\+Connect (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}} \&}]{addr}{, }\item[{TTime}]{deadline}{ = {\ttfamily TTime\+:\+:max()}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Asynchronously connects to the specified address. 
+
+Initiates a connection to {\ttfamily addr}. If the socket is already connected, an error is thrown. A deadline may be specified to time out the connection.
+
+
+\begin{DoxyParams}{Parameters}
+{\em addr} & The destination address. \\
+\hline
+{\em deadline} & (Optional) Timeout deadline; defaults to TTime\+::max(). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An awaitable object that suspends until the connection is established.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+If a deadline is specified and exceeded, the awaitable will throw a timed-\/out error. 
+\end{DoxyNote}
+\Hypertarget{class_n_net_1_1_t_socket_a8e033d81fc57c13a0a1a357bbae8bd80}\index{NNet::TSocket@{NNet::TSocket}!LocalAddr@{LocalAddr}}
+\index{LocalAddr@{LocalAddr}!NNet::TSocket@{NNet::TSocket}}
+\doxysubsubsection{\texorpdfstring{LocalAddr()}{LocalAddr()}}
+{\footnotesize\ttfamily \label{class_n_net_1_1_t_socket_a8e033d81fc57c13a0a1a357bbae8bd80} 
+const std\+::optional$<$ \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}} $>$ \& NNet\+::\+TSocket\+::\+Local\+Addr (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the local address to which the socket is bound. 
+
+\begin{DoxyReturn}{Returns}
+An optional \doxylink{class_n_net_1_1_t_address}{TAddress} holding the local address. 
+\end{DoxyReturn}
+\Hypertarget{class_n_net_1_1_t_socket_a2c7be109be0d7d96bb42c918d26883cd}\index{NNet::TSocket@{NNet::TSocket}!RemoteAddr@{RemoteAddr}}
+\index{RemoteAddr@{RemoteAddr}!NNet::TSocket@{NNet::TSocket}}
+\doxysubsubsection{\texorpdfstring{RemoteAddr()}{RemoteAddr()}}
+{\footnotesize\ttfamily \label{class_n_net_1_1_t_socket_a2c7be109be0d7d96bb42c918d26883cd} 
+const std\+::optional$<$ \mbox{\hyperlink{class_n_net_1_1_t_address}{TAddress}} $>$ \& NNet\+::\+TSocket\+::\+Remote\+Addr (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Returns the remote address of the connected peer. 
+
+\begin{DoxyReturn}{Returns}
+An optional \doxylink{class_n_net_1_1_t_address}{TAddress} holding the remote peer\textquotesingle{}s address. 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

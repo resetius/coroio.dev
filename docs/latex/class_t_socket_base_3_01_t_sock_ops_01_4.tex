@@ -1,0 +1,42 @@
+\doxysection{TSocket\+Base\texorpdfstring{$<$}{<} TSock\+Ops \texorpdfstring{$>$}{>} Class Reference}
+\hypertarget{class_t_socket_base_3_01_t_sock_ops_01_4}{}\label{class_t_socket_base_3_01_t_sock_ops_01_4}\index{TSocketBase$<$ TSockOps $>$@{TSocketBase$<$ TSockOps $>$}}
+
+
+Template base class implementing asynchronous socket I/O operations.  
+
+
+
+
+{\ttfamily \#include $<$socket.\+hpp$>$}
+
+
+
+\doxysubsection{Detailed Description}
+Template base class implementing asynchronous socket I/O operations. 
+
+This class extends the internal TSocket\+Base$<$void$>$ by implementing asynchronous operations based on a type-\/specific socket operations trait, TSock\+Ops. The TSock\+Ops type must implement the following static methods\+:
+\begin{DoxyItemize}
+\item {\ttfamily static int TSock\+Ops\+::read(int fd, void\texorpdfstring{$\ast$}{*} buf, size\+\_\+t size)}
+\item {\ttfamily static int TSock\+Ops\+::write(int fd, const void\texorpdfstring{$\ast$}{*} buf, size\+\_\+t size)}
+\item {\ttfamily static int TSock\+Ops\+::close(int fd)}
+\end{DoxyItemize}
+
+It provides awaitable methods for reading and writing\+:
+\begin{DoxyItemize}
+\item Read\+Some() and Read\+Some\+Yield() perform asynchronous reads.
+\item Write\+Some() and Write\+Some\+Yield() perform asynchronous writes.
+\item Monitor() provides an awaitable to detect remote hang-\/ups.
+\end{DoxyItemize}
+
+Both variants such as TSocket and TFile\+Handle (or similarly named higher-\/level wrappers) inherit from this class and expose the more user-\/friendly API. End users should use these derived classes, rather than interacting with \doxylink{class_t_socket_base_3_01_t_sock_ops_01_4}{TSocket\+Base$<$\+TSock\+Ops$>$} directly.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TSock\+Ops} & The type that provides low-\/level socket operations. \\
+\hline
+\end{DoxyTemplParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+coroio/socket.\+hpp\end{DoxyCompactItemize}

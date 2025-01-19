@@ -1,9 +1,18 @@
 \doxysection{NNet\+::TPoller\+Driven\+File\+Handle\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
 \hypertarget{class_n_net_1_1_t_poller_driven_file_handle}{}\label{class_n_net_1_1_t_poller_driven_file_handle}\index{NNet::TPollerDrivenFileHandle$<$ T $>$@{NNet::TPollerDrivenFileHandle$<$ T $>$}}
+
+
+Asynchronous file handle driven by the poller\textquotesingle{}s implementation.  
+
+
+
+
+{\ttfamily \#include $<$socket.\+hpp$>$}
+
 Inheritance diagram for NNet\+::TPoller\+Driven\+File\+Handle\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=4.000000cm]{class_n_net_1_1_t_poller_driven_file_handle}
+\includegraphics[height=3.000000cm]{class_n_net_1_1_t_poller_driven_file_handle}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Public Types}
@@ -15,26 +24,23 @@ using {\bfseries TPoller} = T
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_n_net_1_1_t_poller_driven_file_handle_ac0f71c0de9aa6f3102991bef0cb04589}\label{class_n_net_1_1_t_poller_driven_file_handle_ac0f71c0de9aa6f3102991bef0cb04589} 
-{\bfseries TPoller\+Driven\+File\+Handle} (int fd, T \&poller)
-\item 
-\Hypertarget{class_n_net_1_1_t_poller_driven_file_handle_afb8999e1e3e4035424f753ec8f34e2f5}\label{class_n_net_1_1_t_poller_driven_file_handle_afb8999e1e3e4035424f753ec8f34e2f5} 
-auto {\bfseries Read\+Some} (void \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
-\item 
-\Hypertarget{class_n_net_1_1_t_poller_driven_file_handle_aaa703074ba9ffb7f79a3d7985d8be5a0}\label{class_n_net_1_1_t_poller_driven_file_handle_aaa703074ba9ffb7f79a3d7985d8be5a0} 
-auto {\bfseries Write\+Some} (const void \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
-\item 
+\mbox{\hyperlink{class_n_net_1_1_t_poller_driven_file_handle_ac0f71c0de9aa6f3102991bef0cb04589}{TPoller\+Driven\+File\+Handle}} (int fd, T \&poller)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_n_net_1_1_t_poller_driven_file_handle}{TPoller\+Driven\+File\+Handle} from an existing file descriptor. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{class_n_net_1_1_t_poller_driven_file_handle_afb8999e1e3e4035424f753ec8f34e2f5}{Read\+Some}} (void \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Asynchronously reads data from the file into the provided buffer. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{class_n_net_1_1_t_poller_driven_file_handle_aaa703074ba9ffb7f79a3d7985d8be5a0}{Write\+Some}} (const void \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Asynchronously writes data from the provided buffer to the file. \end{DoxyCompactList}\item 
 \Hypertarget{class_n_net_1_1_t_poller_driven_file_handle_a022cdb6423118ef922525fb4d7675941}\label{class_n_net_1_1_t_poller_driven_file_handle_a022cdb6423118ef922525fb4d7675941} 
 auto {\bfseries Write\+Some\+Yield} (const void \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
-\item 
+\begin{DoxyCompactList}\small\item\em The Write\+Some\+Yield and Read\+Some\+Yield variants behave similarly to Write\+Some/\+Read\+Some. \end{DoxyCompactList}\item 
 \Hypertarget{class_n_net_1_1_t_poller_driven_file_handle_a858b13c72857b0ffa00cc8ccc5822a8b}\label{class_n_net_1_1_t_poller_driven_file_handle_a858b13c72857b0ffa00cc8ccc5822a8b} 
 auto {\bfseries Read\+Some\+Yield} (void \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The Write\+Some\+Yield and Read\+Some\+Yield variants behave similarly to Write\+Some/\+Read\+Some. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_n_net_1_1_t_file_handle}{NNet\+::\+TFile\+Handle}}}
 \begin{DoxyCompactItemize}
 \item 
-{\bfseries TFile\+Handle} (int fd, \mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \&poller)
-\item 
+\mbox{\hyperlink{class_n_net_1_1_t_file_handle_aaa8cd75cbb02faa92b9ffbbb7f7cbf39}{TFile\+Handle}} (int fd, \mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \&poller)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_n_net_1_1_t_file_handle}{TFile\+Handle} from an existing file descriptor. \end{DoxyCompactList}\item 
 {\bfseries TFile\+Handle} (\mbox{\hyperlink{class_n_net_1_1_t_file_handle}{TFile\+Handle}} \&\&other)
 \item 
 \mbox{\hyperlink{class_n_net_1_1_t_file_handle}{TFile\+Handle}} \& {\bfseries operator=} (\mbox{\hyperlink{class_n_net_1_1_t_file_handle}{TFile\+Handle}} \&\&other)
@@ -42,50 +48,118 @@ auto {\bfseries Read\+Some\+Yield} (void \texorpdfstring{$\ast$}{*}buf, size\+\_
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_n_net_1_1_t_socket_base}{NNet\+::\+TSocket\+Base$<$ TFile\+Ops $>$}}}
 \begin{DoxyCompactItemize}
 \item 
-{\bfseries TSocket\+Base} (\mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \&poller, int domain, int type)
+auto \mbox{\hyperlink{class_n_net_1_1_t_socket_base_aaf2e0b5cccc278c02ef48bcd253ff4fd}{Read\+Some}} (void \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Asynchronously reads data from the socket into the provided buffer. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{class_n_net_1_1_t_socket_base_af15b3141e3ebcf34283423ca895cec48}{Read\+Some\+Yield}} (void \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Forces a read operation on the next event loop iteration. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{class_n_net_1_1_t_socket_base_a456c0bd8d8e3e5a949329a963809fd24}{Write\+Some}} (const void \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Asynchronously writes data from the provided buffer to the socket. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{class_n_net_1_1_t_socket_base_a17cff91c44720ae245405fab977746c5}{Write\+Some\+Yield}} (const void \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Forces a write operation on the next event loop iteration. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{class_n_net_1_1_t_socket_base_a1039bddf2bcba3f1277319ab90a5d63e}{Monitor}} ()
+\begin{DoxyCompactList}\small\item\em Monitors the socket for remote hang-\/up (closure). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_n_net_1_1_t_socket_base_ac0deb2a1fd4b9b137eb0273a455e38e5}{Close}} ()
+\begin{DoxyCompactList}\small\item\em Closes the socket. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_n_net_1_1_t_socket_base}{NNet\+::\+TSocket\+Base$<$ TFile\+Ops $>$}}}
+\begin{DoxyCompactItemize}
 \item 
-{\bfseries TSocket\+Base} (int fd, \mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \&poller)
-\item 
+\mbox{\hyperlink{class_n_net_1_1_t_socket_base_a00cd2e4ff65978ce06a326fcbbc1734e}{TSocket\+Base}} (\mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \&poller, int domain, int type)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_n_net_1_1_t_socket_base}{TSocket\+Base} with a new socket descriptor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_n_net_1_1_t_socket_base_acab6c128c65691ebf1018009088d27da}{TSocket\+Base}} (int fd, \mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \&poller)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_n_net_1_1_t_socket_base}{TSocket\+Base} from an existing socket descriptor. \end{DoxyCompactList}\item 
 {\bfseries TSocket\+Base} (const \mbox{\hyperlink{class_n_net_1_1_t_socket_base}{TSocket\+Base}} \&other)=delete
 \item 
 \mbox{\hyperlink{class_n_net_1_1_t_socket_base}{TSocket\+Base}} \& {\bfseries operator=} (\mbox{\hyperlink{class_n_net_1_1_t_socket_base}{TSocket\+Base}} \&other) const=delete
-\item 
-auto {\bfseries Read\+Some} (void \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
-\item 
-auto {\bfseries Read\+Some\+Yield} (void \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
-\item 
-auto {\bfseries Write\+Some} (const void \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
-\item 
-auto {\bfseries Write\+Some\+Yield} (const void \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
-\item 
-auto {\bfseries Monitor} ()
-\item 
-void {\bfseries Close} ()
 \end{DoxyCompactItemize}
-\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_n_net_1_1_t_socket_ops}{NNet\+::\+TSocket\+Ops}}}
-\begin{DoxyCompactItemize}
-\item 
-{\bfseries TSocket\+Ops} (\mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \&poller, int domain, int type)
-\item 
-{\bfseries TSocket\+Ops} (int fd, \mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \&poller)
-\item 
-\mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \texorpdfstring{$\ast$}{*} {\bfseries Poller} ()
-\end{DoxyCompactItemize}
-\doxysubsubsection*{Additional Inherited Members}
-\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_n_net_1_1_t_socket_ops}{NNet\+::\+TSocket\+Ops}}}
-\begin{DoxyCompactItemize}
-\item 
-int {\bfseries Create} (int domain, int type)
-\item 
-int {\bfseries Setup} (int s)
-\end{DoxyCompactItemize}
-\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_n_net_1_1_t_socket_ops}{NNet\+::\+TSocket\+Ops}}}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \texorpdfstring{$\ast$}{*} {\bfseries Poller\+\_\+} = nullptr
-\item 
-int {\bfseries Fd\+\_\+} = -\/1
-\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class NNet\+::\+TPoller\+Driven\+File\+Handle$<$ T $>$}
+Asynchronous file handle driven by the poller\textquotesingle{}s implementation. 
+
+This class implements file I/O operations (e.\+g. read, write) using methods provided by the poller. In such scenarios, the poller controls the behavior of these operations (for example, when using io\+\_\+uring on Linux or IOCP on Windows).
+
+Ordinary users should not choose a file handle type directly. Instead, they should use the type defined by the poller (i.\+e. {\ttfamily typename} TPoller\+::\+TFile\+Handle), which will resolve to either \doxylink{class_n_net_1_1_t_file_handle}{TFile\+Handle} or \doxylink{class_n_net_1_1_t_poller_driven_file_handle}{TPoller\+Driven\+File\+Handle} depending on the poller in use.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The poller type that defines the asynchronous file operations. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_n_net_1_1_t_poller_driven_file_handle_ac0f71c0de9aa6f3102991bef0cb04589}\index{NNet::TPollerDrivenFileHandle$<$ T $>$@{NNet::TPollerDrivenFileHandle$<$ T $>$}!TPollerDrivenFileHandle@{TPollerDrivenFileHandle}}
+\index{TPollerDrivenFileHandle@{TPollerDrivenFileHandle}!NNet::TPollerDrivenFileHandle$<$ T $>$@{NNet::TPollerDrivenFileHandle$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{TPollerDrivenFileHandle()}{TPollerDrivenFileHandle()}}
+{\footnotesize\ttfamily \label{class_n_net_1_1_t_poller_driven_file_handle_ac0f71c0de9aa6f3102991bef0cb04589} 
+template$<$typename T$>$ \\
+\mbox{\hyperlink{class_n_net_1_1_t_poller_driven_file_handle}{NNet\+::\+TPoller\+Driven\+File\+Handle}}$<$ T $>$\+::\+TPoller\+Driven\+File\+Handle (\begin{DoxyParamCaption}\item[{int}]{fd}{, }\item[{T \&}]{poller}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructs a \doxylink{class_n_net_1_1_t_poller_driven_file_handle}{TPoller\+Driven\+File\+Handle} from an existing file descriptor. 
+
+The file descriptor is owned by the \doxylink{class_n_net_1_1_t_poller_driven_file_handle}{TPoller\+Driven\+File\+Handle} and will be closed in the destructor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em fd} & The file descriptor to manage. \\
+\hline
+{\em poller} & Reference to the poller for asynchronous I/O. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_n_net_1_1_t_poller_driven_file_handle_afb8999e1e3e4035424f753ec8f34e2f5}\index{NNet::TPollerDrivenFileHandle$<$ T $>$@{NNet::TPollerDrivenFileHandle$<$ T $>$}!ReadSome@{ReadSome}}
+\index{ReadSome@{ReadSome}!NNet::TPollerDrivenFileHandle$<$ T $>$@{NNet::TPollerDrivenFileHandle$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{ReadSome()}{ReadSome()}}
+{\footnotesize\ttfamily \label{class_n_net_1_1_t_poller_driven_file_handle_afb8999e1e3e4035424f753ec8f34e2f5} 
+template$<$typename T$>$ \\
+auto \mbox{\hyperlink{class_n_net_1_1_t_poller_driven_file_handle}{NNet\+::\+TPoller\+Driven\+File\+Handle}}$<$ T $>$\+::\+Read\+Some (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{buf}{, }\item[{size\+\_\+t}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Asynchronously reads data from the file into the provided buffer. 
+
+Returns an awaitable object that suspends until data is available, then returns the number of bytes read.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & Pointer to the buffer where the data will be stored. \\
+\hline
+{\em size} & The number of bytes to read. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An awaitable yielding the number of bytes read. 
+\end{DoxyReturn}
+\Hypertarget{class_n_net_1_1_t_poller_driven_file_handle_aaa703074ba9ffb7f79a3d7985d8be5a0}\index{NNet::TPollerDrivenFileHandle$<$ T $>$@{NNet::TPollerDrivenFileHandle$<$ T $>$}!WriteSome@{WriteSome}}
+\index{WriteSome@{WriteSome}!NNet::TPollerDrivenFileHandle$<$ T $>$@{NNet::TPollerDrivenFileHandle$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{WriteSome()}{WriteSome()}}
+{\footnotesize\ttfamily \label{class_n_net_1_1_t_poller_driven_file_handle_aaa703074ba9ffb7f79a3d7985d8be5a0} 
+template$<$typename T$>$ \\
+auto \mbox{\hyperlink{class_n_net_1_1_t_poller_driven_file_handle}{NNet\+::\+TPoller\+Driven\+File\+Handle}}$<$ T $>$\+::\+Write\+Some (\begin{DoxyParamCaption}\item[{const void \texorpdfstring{$\ast$}{*}}]{buf}{, }\item[{size\+\_\+t}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Asynchronously writes data from the provided buffer to the file. 
+
+Returns an awaitable object that suspends until the data is written, then returns the number of bytes written.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & Pointer to the data to write. \\
+\hline
+{\em size} & The number of bytes to write. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An awaitable yielding the number of bytes written. 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

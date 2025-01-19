@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['commit_0',['Commit',['../struct_n_net_1_1_t_zero_copy_line_splitter.html#abb13941bdde48ab6559a79149ac66353',1,'NNet::TZeroCopyLineSplitter']]]
+  ['bind_0',['Bind',['../class_n_net_1_1_t_socket.html#a7aafb8a059235cb45d98f92a541ca0d5',1,'NNet::TSocket']]]
 ];

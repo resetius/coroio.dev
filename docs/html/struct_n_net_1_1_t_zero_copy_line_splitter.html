@@ -169,7 +169,7 @@ Zero-Copy Example (Reading from a Socket)</h3>
 <div class="line">        }</div>
 <div class="line"> </div>
 <div class="line">        <span class="comment">// Read directly into the splitter&#39;s internal buffer</span></div>
-<div class="line">        ssize_t bytesRead = socket.ReadSome(span.data(), span.size());</div>
+<div class="line">        ssize_t bytesRead = socket.<a class="code hl_function" href="class_n_net_1_1_t_socket_base.html#aaf2e0b5cccc278c02ef48bcd253ff4fd">ReadSome</a>(span.data(), span.size());</div>
 <div class="line">        <span class="keywordflow">if</span> (bytesRead &lt;= 0) {</div>
 <div class="line">            <span class="comment">// 0 =&gt; socket closed, negative =&gt; error</span></div>
 <div class="line">            <span class="keywordflow">break</span>;</div>
@@ -189,7 +189,8 @@ Zero-Copy Example (Reading from a Socket)</h3>
 <div class="line">        }</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aclass_n_net_1_1_t_socket_html"><div class="ttname"><a href="class_n_net_1_1_t_socket.html">NNet::TSocket</a></div><div class="ttdef"><b>Definition</b> socket.hpp:225</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_socket_base_html_aaf2e0b5cccc278c02ef48bcd253ff4fd"><div class="ttname"><a href="class_n_net_1_1_t_socket_base.html#aaf2e0b5cccc278c02ef48bcd253ff4fd">NNet::TSocketBase::ReadSome</a></div><div class="ttdeci">auto ReadSome(void *buf, size_t size)</div><div class="ttdoc">Asynchronously reads data from the socket into the provided buffer.</div><div class="ttdef"><b>Definition</b> socket.hpp:138</div></div>
+<div class="ttc" id="aclass_n_net_1_1_t_socket_html"><div class="ttname"><a href="class_n_net_1_1_t_socket.html">NNet::TSocket</a></div><div class="ttdoc">High-level asynchronous socket for network communication.</div><div class="ttdef"><b>Definition</b> socket.hpp:364</div></div>
 <div class="ttc" id="astruct_n_net_1_1_t_zero_copy_line_splitter_html_af64b01796eb016cca29c41a39cb85de3"><div class="ttname"><a href="#af64b01796eb016cca29c41a39cb85de3">NNet::TZeroCopyLineSplitter::TZeroCopyLineSplitter</a></div><div class="ttdeci">TZeroCopyLineSplitter(int maxLen)</div><div class="ttdoc">Constructs a zero-copy line splitter with a fixed ring buffer capacity.</div></div>
 </div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af64b01796eb016cca29c41a39cb85de3" name="af64b01796eb016cca29c41a39cb85de3"></a>

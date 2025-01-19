@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['loop_0',['Loop',['../class_n_net_1_1_t_loop.html#af3ab33e9a2fc311254a15935861990dc',1,'NNet::TLoop']]]
+  ['important_20notes_0',['Important Notes',['../struct_n_net_1_1_t_line_splitter.html#autotoc_md6',1,'']]]
 ];

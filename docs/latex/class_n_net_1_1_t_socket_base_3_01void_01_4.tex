@@ -1,0 +1,283 @@
+\doxysection{NNet\+::TSocket\+Base\texorpdfstring{$<$}{<} void \texorpdfstring{$>$}{>} Class Reference}
+\hypertarget{class_n_net_1_1_t_socket_base_3_01void_01_4}{}\label{class_n_net_1_1_t_socket_base_3_01void_01_4}\index{NNet::TSocketBase$<$ void $>$@{NNet::TSocketBase$<$ void $>$}}
+
+
+Internal base class encapsulating a socket (or file) descriptor and its poller.  
+
+
+
+
+{\ttfamily \#include $<$socket.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_n_net_1_1_t_socket_base_3_01void_01_4_a312b175b7dcab2e1ca8ca275f0c8c210}{Poller}} ()
+\begin{DoxyCompactList}\small\item\em Returns the poller associated with this socket. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{class_n_net_1_1_t_socket_base_aaf2e0b5cccc278c02ef48bcd253ff4fd}{Read\+Some}} (void \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Asynchronously reads data from the socket into the provided buffer. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{class_n_net_1_1_t_socket_base_af15b3141e3ebcf34283423ca895cec48}{Read\+Some\+Yield}} (void \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Forces a read operation on the next event loop iteration. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{class_n_net_1_1_t_socket_base_a456c0bd8d8e3e5a949329a963809fd24}{Write\+Some}} (const void \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Asynchronously writes data from the provided buffer to the socket. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{class_n_net_1_1_t_socket_base_a17cff91c44720ae245405fab977746c5}{Write\+Some\+Yield}} (const void \texorpdfstring{$\ast$}{*}buf, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Forces a write operation on the next event loop iteration. \end{DoxyCompactList}\item 
+auto \mbox{\hyperlink{class_n_net_1_1_t_socket_base_a1039bddf2bcba3f1277319ab90a5d63e}{Monitor}} ()
+\begin{DoxyCompactList}\small\item\em Monitors the socket for remote hang-\/up (closure). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_n_net_1_1_t_socket_base_ac0deb2a1fd4b9b137eb0273a455e38e5}{Close}} ()
+\begin{DoxyCompactList}\small\item\em Closes the socket. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_n_net_1_1_t_socket_base_3_01void_01_4_a34dee8fcfbe083a34118dea48f982952}\label{class_n_net_1_1_t_socket_base_3_01void_01_4_a34dee8fcfbe083a34118dea48f982952} 
+{\bfseries TSocket\+Base} (\mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \&poller, int domain, int type)
+\item 
+\Hypertarget{class_n_net_1_1_t_socket_base_3_01void_01_4_ac906ff1c9eee014ec095dc45e04ca6b6}\label{class_n_net_1_1_t_socket_base_3_01void_01_4_ac906ff1c9eee014ec095dc45e04ca6b6} 
+{\bfseries TSocket\+Base} (int fd, \mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \&poller)
+\item 
+int \mbox{\hyperlink{class_n_net_1_1_t_socket_base_3_01void_01_4_a6ccea3dfc59c8a24c15a1c313e77784d}{Create}} (int domain, int type)
+\begin{DoxyCompactList}\small\item\em Creates a new socket descriptor. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_n_net_1_1_t_socket_base_3_01void_01_4_a5123a941977e3426269c2d9cd9c70c13}{Setup}} (int s)
+\begin{DoxyCompactList}\small\item\em Performs additional setup on the socket descriptor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_n_net_1_1_t_socket_base_a00cd2e4ff65978ce06a326fcbbc1734e}{TSocket\+Base}} (\mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \&poller, int domain, int type)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_n_net_1_1_t_socket_base}{TSocket\+Base} with a new socket descriptor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_n_net_1_1_t_socket_base_acab6c128c65691ebf1018009088d27da}{TSocket\+Base}} (int fd, \mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \&poller)
+\begin{DoxyCompactList}\small\item\em Constructs a \doxylink{class_n_net_1_1_t_socket_base}{TSocket\+Base} from an existing socket descriptor. \end{DoxyCompactList}\item 
+\Hypertarget{class_n_net_1_1_t_socket_base_a81d28c56a970b68d8e870cdef3294bd4}\label{class_n_net_1_1_t_socket_base_a81d28c56a970b68d8e870cdef3294bd4} 
+{\bfseries TSocket\+Base} (const \mbox{\hyperlink{class_n_net_1_1_t_socket_base}{TSocket\+Base}} \&other)=delete
+\item 
+\Hypertarget{class_n_net_1_1_t_socket_base_a2cb098860669ca76af45e01cceb0da2a}\label{class_n_net_1_1_t_socket_base_a2cb098860669ca76af45e01cceb0da2a} 
+\mbox{\hyperlink{class_n_net_1_1_t_socket_base}{TSocket\+Base}} \& {\bfseries operator=} (\mbox{\hyperlink{class_n_net_1_1_t_socket_base}{TSocket\+Base}} \&other) const=delete
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_n_net_1_1_t_socket_base_3_01void_01_4_a889e61f9e566094636e6a9935ef11d5e}\label{class_n_net_1_1_t_socket_base_3_01void_01_4_a889e61f9e566094636e6a9935ef11d5e} 
+\mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \texorpdfstring{$\ast$}{*} {\bfseries Poller\+\_\+} = nullptr
+\item 
+\Hypertarget{class_n_net_1_1_t_socket_base_3_01void_01_4_ac1df52ddb5a945474deaf30eac7ed674}\label{class_n_net_1_1_t_socket_base_3_01void_01_4_ac1df52ddb5a945474deaf30eac7ed674} 
+int {\bfseries Fd\+\_\+} = -\/1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Internal base class encapsulating a socket (or file) descriptor and its poller. 
+
+This class stores a file descriptor and a pointer to a poller (\doxylink{class_n_net_1_1_t_poller_base}{TPoller\+Base}) to support asynchronous I/O operations. It provides functionality to create a new socket descriptor (via \doxylink{class_n_net_1_1_t_socket_base_3_01void_01_4_a6ccea3dfc59c8a24c15a1c313e77784d}{Create()}) and to set it up (via \doxylink{class_n_net_1_1_t_socket_base_3_01void_01_4_a5123a941977e3426269c2d9cd9c70c13}{Setup()}). Additionally, it holds the descriptor and allows cleanup via \doxylink{class_n_net_1_1_t_socket_base_ac0deb2a1fd4b9b137eb0273a455e38e5}{Close()}.
+
+\begin{DoxyNote}{Note}
+This class is intended solely for internal use within the library. End-\/users should not interact directly with this class; instead, use the higher-\/level wrapper classes\+: \doxylink{class_n_net_1_1_t_socket}{TSocket}, \doxylink{class_n_net_1_1_t_file_handle}{TFile\+Handle}, \doxylink{class_n_net_1_1_t_poller_driven_socket}{TPoller\+Driven\+Socket}, or \doxylink{class_n_net_1_1_t_poller_driven_file_handle}{TPoller\+Driven\+File\+Handle}. 
+\end{DoxyNote}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_n_net_1_1_t_socket_base_a00cd2e4ff65978ce06a326fcbbc1734e}\index{NNet::TSocketBase$<$ void $>$@{NNet::TSocketBase$<$ void $>$}!TSocketBase@{TSocketBase}}
+\index{TSocketBase@{TSocketBase}!NNet::TSocketBase$<$ void $>$@{NNet::TSocketBase$<$ void $>$}}
+\doxysubsubsection{\texorpdfstring{TSocketBase()}{TSocketBase()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_n_net_1_1_t_socket_base_a00cd2e4ff65978ce06a326fcbbc1734e} 
+\mbox{\hyperlink{class_n_net_1_1_t_socket_base}{NNet\+::\+TSocket\+Base}}$<$ void $>$\+::\+TSocket\+Base (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \&}]{poller}{, }\item[{int}]{domain}{, }\item[{int}]{type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Constructs a \doxylink{class_n_net_1_1_t_socket_base}{TSocket\+Base} with a new socket descriptor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em poller} & Reference to the poller responsible for asynchronous operations. \\
+\hline
+{\em domain} & The address family (e.\+g., AF\+\_\+\+INET, AF\+\_\+\+INET6). \\
+\hline
+{\em type} & The socket type (e.\+g., SOCK\+\_\+\+STREAM, SOCK\+\_\+\+DGRAM). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_n_net_1_1_t_socket_base_acab6c128c65691ebf1018009088d27da}\index{NNet::TSocketBase$<$ void $>$@{NNet::TSocketBase$<$ void $>$}!TSocketBase@{TSocketBase}}
+\index{TSocketBase@{TSocketBase}!NNet::TSocketBase$<$ void $>$@{NNet::TSocketBase$<$ void $>$}}
+\doxysubsubsection{\texorpdfstring{TSocketBase()}{TSocketBase()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_n_net_1_1_t_socket_base_acab6c128c65691ebf1018009088d27da} 
+\mbox{\hyperlink{class_n_net_1_1_t_socket_base}{NNet\+::\+TSocket\+Base}}$<$ void $>$\+::\+TSocket\+Base (\begin{DoxyParamCaption}\item[{int}]{fd}{, }\item[{\mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \&}]{poller}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Constructs a \doxylink{class_n_net_1_1_t_socket_base}{TSocket\+Base} from an existing socket descriptor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fd} & An already created socket descriptor. \\
+\hline
+{\em poller} & Reference to the poller managing asynchronous I/O. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_n_net_1_1_t_socket_base_ac0deb2a1fd4b9b137eb0273a455e38e5}\index{NNet::TSocketBase$<$ void $>$@{NNet::TSocketBase$<$ void $>$}!Close@{Close}}
+\index{Close@{Close}!NNet::TSocketBase$<$ void $>$@{NNet::TSocketBase$<$ void $>$}}
+\doxysubsubsection{\texorpdfstring{Close()}{Close()}}
+{\footnotesize\ttfamily \label{class_n_net_1_1_t_socket_base_ac0deb2a1fd4b9b137eb0273a455e38e5} 
+void \mbox{\hyperlink{class_n_net_1_1_t_socket_base}{NNet\+::\+TSocket\+Base}}$<$ void $>$\+::\+Close (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Closes the socket. 
+
+Closes the socket using the low-\/level operation provided by \doxylink{class_n_net_1_1_t_sock_ops}{TSock\+Ops}, removes it from the poller, and marks the descriptor as invalid. \Hypertarget{class_n_net_1_1_t_socket_base_3_01void_01_4_a6ccea3dfc59c8a24c15a1c313e77784d}\index{NNet::TSocketBase$<$ void $>$@{NNet::TSocketBase$<$ void $>$}!Create@{Create}}
+\index{Create@{Create}!NNet::TSocketBase$<$ void $>$@{NNet::TSocketBase$<$ void $>$}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily \label{class_n_net_1_1_t_socket_base_3_01void_01_4_a6ccea3dfc59c8a24c15a1c313e77784d} 
+int \mbox{\hyperlink{class_n_net_1_1_t_socket_base}{NNet\+::\+TSocket\+Base}}$<$ void $>$\+::\+Create (\begin{DoxyParamCaption}\item[{int}]{domain}{, }\item[{int}]{type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Creates a new socket descriptor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em domain} & The protocol family of the socket. \\
+\hline
+{\em type} & The type of socket. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The socket descriptor on success, or -\/1 on failure. 
+\end{DoxyReturn}
+\Hypertarget{class_n_net_1_1_t_socket_base_a1039bddf2bcba3f1277319ab90a5d63e}\index{NNet::TSocketBase$<$ void $>$@{NNet::TSocketBase$<$ void $>$}!Monitor@{Monitor}}
+\index{Monitor@{Monitor}!NNet::TSocketBase$<$ void $>$@{NNet::TSocketBase$<$ void $>$}}
+\doxysubsubsection{\texorpdfstring{Monitor()}{Monitor()}}
+{\footnotesize\ttfamily \label{class_n_net_1_1_t_socket_base_a1039bddf2bcba3f1277319ab90a5d63e} 
+auto \mbox{\hyperlink{class_n_net_1_1_t_socket_base}{NNet\+::\+TSocket\+Base}}$<$ void $>$\+::\+Monitor (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Monitors the socket for remote hang-\/up (closure). 
+
+This awaitable suspends the coroutine until a remote hang-\/up is detected.
+
+\begin{DoxyReturn}{Returns}
+An awaitable object that yields a boolean value (true) once the remote hang-\/up is detected. 
+\end{DoxyReturn}
+\Hypertarget{class_n_net_1_1_t_socket_base_3_01void_01_4_a312b175b7dcab2e1ca8ca275f0c8c210}\index{NNet::TSocketBase$<$ void $>$@{NNet::TSocketBase$<$ void $>$}!Poller@{Poller}}
+\index{Poller@{Poller}!NNet::TSocketBase$<$ void $>$@{NNet::TSocketBase$<$ void $>$}}
+\doxysubsubsection{\texorpdfstring{Poller()}{Poller()}}
+{\footnotesize\ttfamily \label{class_n_net_1_1_t_socket_base_3_01void_01_4_a312b175b7dcab2e1ca8ca275f0c8c210} 
+\mbox{\hyperlink{class_n_net_1_1_t_poller_base}{TPoller\+Base}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_n_net_1_1_t_socket_base}{NNet\+::\+TSocket\+Base}}$<$ void $>$\+::\+Poller (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the poller associated with this socket. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the \doxylink{class_n_net_1_1_t_poller_base}{TPoller\+Base} responsible for managing asynchronous events. 
+\end{DoxyReturn}
+\Hypertarget{class_n_net_1_1_t_socket_base_aaf2e0b5cccc278c02ef48bcd253ff4fd}\index{NNet::TSocketBase$<$ void $>$@{NNet::TSocketBase$<$ void $>$}!ReadSome@{ReadSome}}
+\index{ReadSome@{ReadSome}!NNet::TSocketBase$<$ void $>$@{NNet::TSocketBase$<$ void $>$}}
+\doxysubsubsection{\texorpdfstring{ReadSome()}{ReadSome()}}
+{\footnotesize\ttfamily \label{class_n_net_1_1_t_socket_base_aaf2e0b5cccc278c02ef48bcd253ff4fd} 
+auto \mbox{\hyperlink{class_n_net_1_1_t_socket_base}{NNet\+::\+TSocket\+Base}}$<$ void $>$\+::\+Read\+Some (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{buf}{, }\item[{size\+\_\+t}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Asynchronously reads data from the socket into the provided buffer. 
+
+When awaited, this method suspends the current coroutine until the read operation completes and then returns the number of bytes read.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & Pointer to the destination buffer. \\
+\hline
+{\em size} & The number of bytes to read. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An awaitable object that yields the number of bytes read. 
+\end{DoxyReturn}
+\Hypertarget{class_n_net_1_1_t_socket_base_af15b3141e3ebcf34283423ca895cec48}\index{NNet::TSocketBase$<$ void $>$@{NNet::TSocketBase$<$ void $>$}!ReadSomeYield@{ReadSomeYield}}
+\index{ReadSomeYield@{ReadSomeYield}!NNet::TSocketBase$<$ void $>$@{NNet::TSocketBase$<$ void $>$}}
+\doxysubsubsection{\texorpdfstring{ReadSomeYield()}{ReadSomeYield()}}
+{\footnotesize\ttfamily \label{class_n_net_1_1_t_socket_base_af15b3141e3ebcf34283423ca895cec48} 
+auto \mbox{\hyperlink{class_n_net_1_1_t_socket_base}{NNet\+::\+TSocket\+Base}}$<$ void $>$\+::\+Read\+Some\+Yield (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{buf}{, }\item[{size\+\_\+t}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Forces a read operation on the next event loop iteration. 
+
+Similar to \doxylink{class_n_net_1_1_t_socket_base_aaf2e0b5cccc278c02ef48bcd253ff4fd}{Read\+Some()}, but this variant ensures that the read is deferred to the next iteration of the event loop.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & Pointer to the buffer where data will be stored. \\
+\hline
+{\em size} & Number of bytes to read. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An awaitable object yielding the number of bytes read. 
+\end{DoxyReturn}
+\Hypertarget{class_n_net_1_1_t_socket_base_3_01void_01_4_a5123a941977e3426269c2d9cd9c70c13}\index{NNet::TSocketBase$<$ void $>$@{NNet::TSocketBase$<$ void $>$}!Setup@{Setup}}
+\index{Setup@{Setup}!NNet::TSocketBase$<$ void $>$@{NNet::TSocketBase$<$ void $>$}}
+\doxysubsubsection{\texorpdfstring{Setup()}{Setup()}}
+{\footnotesize\ttfamily \label{class_n_net_1_1_t_socket_base_3_01void_01_4_a5123a941977e3426269c2d9cd9c70c13} 
+int \mbox{\hyperlink{class_n_net_1_1_t_socket_base}{NNet\+::\+TSocket\+Base}}$<$ void $>$\+::\+Setup (\begin{DoxyParamCaption}\item[{int}]{s}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Performs additional setup on the socket descriptor. 
+
+This method may set socket options and configure the descriptor as needed.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The socket descriptor to set up. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A status code indicating success or failure. 
+\end{DoxyReturn}
+\Hypertarget{class_n_net_1_1_t_socket_base_a456c0bd8d8e3e5a949329a963809fd24}\index{NNet::TSocketBase$<$ void $>$@{NNet::TSocketBase$<$ void $>$}!WriteSome@{WriteSome}}
+\index{WriteSome@{WriteSome}!NNet::TSocketBase$<$ void $>$@{NNet::TSocketBase$<$ void $>$}}
+\doxysubsubsection{\texorpdfstring{WriteSome()}{WriteSome()}}
+{\footnotesize\ttfamily \label{class_n_net_1_1_t_socket_base_a456c0bd8d8e3e5a949329a963809fd24} 
+auto \mbox{\hyperlink{class_n_net_1_1_t_socket_base}{NNet\+::\+TSocket\+Base}}$<$ void $>$\+::\+Write\+Some (\begin{DoxyParamCaption}\item[{const void \texorpdfstring{$\ast$}{*}}]{buf}{, }\item[{size\+\_\+t}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Asynchronously writes data from the provided buffer to the socket. 
+
+This method suspends the current coroutine until the data is written, and then returns the number of bytes successfully written.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & Pointer to the data to be written. \\
+\hline
+{\em size} & The number of bytes to write. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An awaitable object that yields the number of bytes written. 
+\end{DoxyReturn}
+\Hypertarget{class_n_net_1_1_t_socket_base_a17cff91c44720ae245405fab977746c5}\index{NNet::TSocketBase$<$ void $>$@{NNet::TSocketBase$<$ void $>$}!WriteSomeYield@{WriteSomeYield}}
+\index{WriteSomeYield@{WriteSomeYield}!NNet::TSocketBase$<$ void $>$@{NNet::TSocketBase$<$ void $>$}}
+\doxysubsubsection{\texorpdfstring{WriteSomeYield()}{WriteSomeYield()}}
+{\footnotesize\ttfamily \label{class_n_net_1_1_t_socket_base_a17cff91c44720ae245405fab977746c5} 
+auto \mbox{\hyperlink{class_n_net_1_1_t_socket_base}{NNet\+::\+TSocket\+Base}}$<$ void $>$\+::\+Write\+Some\+Yield (\begin{DoxyParamCaption}\item[{const void \texorpdfstring{$\ast$}{*}}]{buf}{, }\item[{size\+\_\+t}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Forces a write operation on the next event loop iteration. 
+
+This variant behaves similarly to \doxylink{class_n_net_1_1_t_socket_base_a456c0bd8d8e3e5a949329a963809fd24}{Write\+Some()} but defers execution until the next loop iteration.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & Pointer to the data to be written. \\
+\hline
+{\em size} & Number of bytes to write. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An awaitable object that yields the number of bytes written. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+coroio/socket.\+hpp\end{DoxyCompactItemize}
