@@ -26,3 +26,8 @@ include:
 github_username: resetius
 linkedin_username: alexey-ozeritskiy
 twitter_username: resetius
+
+
+url: "https://coroio.dev" 
+plugins:
+  - jekyll-sitemap
