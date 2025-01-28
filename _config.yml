@@ -22,6 +22,7 @@ header_pages:
 include:
   - _pages
   - docs
+  - video
 
 github_username: resetius
 linkedin_username: alexey-ozeritskiy
