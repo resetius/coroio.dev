@@ -15,6 +15,7 @@ exclude:
   - .gitignore
 
 header_pages:
+  - _pages/scenarios.md
   - _pages/benchmarks.md
   - _pages/source.md
   - _pages/docs.md
