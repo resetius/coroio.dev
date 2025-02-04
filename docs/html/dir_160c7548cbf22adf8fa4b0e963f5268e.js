@@ -3,7 +3,7 @@ var dir_160c7548cbf22adf8fa4b0e963f5268e =
     [ "address.hpp", "address_8hpp_source.html", null ],
     [ "all.hpp", "all_8hpp_source.html", null ],
     [ "base.hpp", "base_8hpp_source.html", null ],
-    [ "corochain.hpp", "corochain_8hpp_source.html", null ],
+    [ "corochain.hpp", "corochain_8hpp.html", "corochain_8hpp" ],
     [ "epoll.hpp", "epoll_8hpp_source.html", null ],
     [ "init.hpp", "init_8hpp_source.html", null ],
     [ "iocp.hpp", "iocp_8hpp_source.html", null ],

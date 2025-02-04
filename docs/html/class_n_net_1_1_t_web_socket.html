@@ -148,8 +148,8 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename <a class="el" href="class_n_net_1_1_t_socket.html">TSocket</a>&gt;<br />
 class NNet::TWebSocket&lt; TSocket &gt;</div><p>Implements a WebSocket protocol layer on top of a given socket. </p>
-<p>The <a class="el" href="class_n_net_1_1_t_web_socket.html" title="Implements a WebSocket protocol layer on top of a given socket.">TWebSocket</a> class wraps an underlying socket (of type <code><a class="el" href="class_n_net_1_1_t_socket.html" title="High-level asynchronous socket for network communication.">TSocket</a></code>) to implement the WebSocket handshake, sending, and receiving of text frames. It uses asynchronous operations (via <a class="el" href="struct_n_net_1_1_t_future.html">TFuture</a>) for I/O, and it internally maintains a reader and writer.</p>
-<h3><a class="anchor" id="autotoc_md10"></a>
+<p>The <a class="el" href="class_n_net_1_1_t_web_socket.html" title="Implements a WebSocket protocol layer on top of a given socket.">TWebSocket</a> class wraps an underlying socket (of type <code><a class="el" href="class_n_net_1_1_t_socket.html" title="High-level asynchronous socket for network communication.">TSocket</a></code>) to implement the WebSocket handshake, sending, and receiving of text frames. It uses asynchronous operations (via <a class="el" href="struct_n_net_1_1_t_future.html" title="Future type for coroutines returning a value of type T.">TFuture</a>) for I/O, and it internally maintains a reader and writer.</p>
+<h3><a class="anchor" id="autotoc_md11"></a>
 Overview</h3>
 <ul>
 <li><a class="el" href="#a5028ec836b4e9c74cd9d1862b8450e10">Connect()</a> initiates the WebSocket handshake.</li>
@@ -162,7 +162,7 @@ Overview</h3>
   </table>
   </dd>
 </dl>
-<h3><a class="anchor" id="autotoc_md11"></a>
+<h3><a class="anchor" id="autotoc_md12"></a>
 Example: Minimal WebSocket Client</h3>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;coroio/ws.hpp&gt;</span></div>
@@ -183,7 +183,7 @@ Example: Minimal WebSocket Client</h3>
 <div class="line">}</div>
 <div class="ttc" id="aclass_n_net_1_1_t_socket_html"><div class="ttname"><a href="class_n_net_1_1_t_socket.html">NNet::TSocket</a></div><div class="ttdoc">High-level asynchronous socket for network communication.</div><div class="ttdef"><b>Definition</b> socket.hpp:364</div></div>
 <div class="ttc" id="aclass_n_net_1_1_t_web_socket_html_a36745522f809720a9bfa223de97f5514"><div class="ttname"><a href="#a36745522f809720a9bfa223de97f5514">NNet::TWebSocket::TWebSocket</a></div><div class="ttdeci">TWebSocket(TSocket &amp;socket)</div><div class="ttdoc">Constructs a WebSocket instance wrapping the provided socket.</div><div class="ttdef"><b>Definition</b> ws.hpp:68</div></div>
-<div class="ttc" id="astruct_n_net_1_1_t_future_html"><div class="ttname"><a href="struct_n_net_1_1_t_future.html">NNet::TFuture</a></div><div class="ttdef"><b>Definition</b> corochain.hpp:90</div></div>
+<div class="ttc" id="astruct_n_net_1_1_t_future_html"><div class="ttname"><a href="struct_n_net_1_1_t_future.html">NNet::TFuture</a></div><div class="ttdoc">Future type for coroutines returning a value of type T.</div><div class="ttdef"><b>Definition</b> corochain.hpp:175</div></div>
 </div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a36745522f809720a9bfa223de97f5514" name="a36745522f809720a9bfa223de97f5514"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a36745522f809720a9bfa223de97f5514">&#9670;&#160;</a></span>TWebSocket()</h2>
@@ -259,7 +259,7 @@ template&lt;typename <a class="el" href="class_n_net_1_1_t_socket.html">TSocket<
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="struct_n_net_1_1_t_future.html">TFuture</a> that completes when the handshake is successful. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="struct_n_net_1_1_t_future.html" title="Future type for coroutines returning a value of type T.">TFuture</a> that completes when the handshake is successful. </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::runtime_error</td><td>if the handshake fails. </td></tr>
@@ -296,7 +296,7 @@ template&lt;typename <a class="el" href="class_n_net_1_1_t_socket.html">TSocket<
 
 <p>Receives a text message from the WebSocket. </p>
 <p>Waits for an incoming frame, validates that it is a text frame, and returns its payload.</p>
-<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="struct_n_net_1_1_t_future.html">TFuture</a> that yields a string_view containing the text message. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="struct_n_net_1_1_t_future.html" title="Future type for coroutines returning a value of type T.">TFuture</a> that yields a string_view containing the text message. </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::runtime_error</td><td>if a non-text frame is received. </td></tr>
@@ -338,7 +338,7 @@ template&lt;typename <a class="el" href="class_n_net_1_1_t_socket.html">TSocket<
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="struct_n_net_1_1_t_future.html">TFuture</a> that completes when the message has been sent. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="struct_n_net_1_1_t_future.html" title="Future type for coroutines returning a value of type T.">TFuture</a> that completes when the message has been sent. </dd></dl>
 
 </div>
 </div>

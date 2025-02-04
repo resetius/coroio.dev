@@ -46,7 +46,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "address_8hpp_source.html",
-"struct_n_net_1_1_t_zero_copy_line_splitter.html#abb13941bdde48ab6559a79149ac66353"
+"struct_n_net_1_1_t_struct_reader.html#ab01ad1a8c37cc594376b468201382ef0"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

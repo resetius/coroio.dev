@@ -125,13 +125,18 @@ $(function(){initNavTree('struct_n_net_1_1_t_promise.html',''); initResizable(tr
   <div class="headertitle"><div class="title">NNet::TPromise&lt; T &gt; Struct Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Promise for coroutines that return a value of type T.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="corochain_8hpp_source.html">corochain.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for NNet::TPromise&lt; T &gt;:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="struct_n_net_1_1_t_promise.png" usemap="#NNet::TPromise_3C_20T_20_3E_map" alt=""/>
   <map id="NNet::TPromise_3C_20T_20_3E_map" name="NNet::TPromise_3C_20T_20_3E_map">
-<area href="struct_n_net_1_1_t_promise_base.html" alt="NNet::TPromiseBase&lt; T &gt;" shape="rect" coords="0,0,157,24"/>
+<area href="struct_n_net_1_1_t_promise_base.html" title="Base promise type for coroutines." alt="NNet::TPromiseBase&lt; T &gt;" shape="rect" coords="0,0,157,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -161,13 +166,25 @@ std::suspend_never&#160;</td><td class="memItemRight" valign="bottom"><b>initial
 Public Attributes</h2></td></tr>
 <tr class="memitem:a4daa9fceeebdd0b98801948c3bdd6345" id="r_a4daa9fceeebdd0b98801948c3bdd6345"><td class="memItemLeft" align="right" valign="top"><a id="a4daa9fceeebdd0b98801948c3bdd6345" name="a4daa9fceeebdd0b98801948c3bdd6345"></a>
 std::optional&lt; std::variant&lt; T, std::exception_ptr &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ErrorOr</b></td></tr>
+<tr class="memdesc:a4daa9fceeebdd0b98801948c3bdd6345"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional container that holds either the result or an exception. <br /></td></tr>
 <tr class="separator:a4daa9fceeebdd0b98801948c3bdd6345"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_struct_n_net_1_1_t_promise_base"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_attribs_struct_n_net_1_1_t_promise_base')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="struct_n_net_1_1_t_promise_base.html">NNet::TPromiseBase&lt; T &gt;</a></td></tr>
 <tr class="memitem:a626ed67af8509be79f53697069b904bc inherit pub_attribs_struct_n_net_1_1_t_promise_base" id="r_a626ed67af8509be79f53697069b904bc"><td class="memItemLeft" align="right" valign="top">
 std::coroutine_handle&#160;</td><td class="memItemRight" valign="bottom"><b>Caller</b> = std::noop_coroutine()</td></tr>
+<tr class="memdesc:a626ed67af8509be79f53697069b904bc inherit pub_attribs_struct_n_net_1_1_t_promise_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle to the caller coroutine (initialized to a no-operation coroutine). <br /></td></tr>
 <tr class="separator:a626ed67af8509be79f53697069b904bc inherit pub_attribs_struct_n_net_1_1_t_promise_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T&gt;<br />
+struct NNet::TPromise&lt; T &gt;</div><p>Promise for coroutines that return a value of type T. </p>
+<p>Stores either the result of the coroutine or an exception pointer if an error occurs during execution.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The type of the return value. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>coroio/<a class="el" href="corochain_8hpp_source.html">corochain.hpp</a></li>
 </ul>
 </div><!-- contents -->
