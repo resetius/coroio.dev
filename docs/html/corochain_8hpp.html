@@ -187,24 +187,26 @@ Example Usage</h2>
 <div class="line"><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"> </div>
+<div class="line"><span class="keyword">using namespace </span>NNet;</div>
+<div class="line"> </div>
 <div class="line"><span class="comment">// A coroutine that returns an integer.</span></div>
-<div class="line"><a class="code hl_struct" href="struct_n_net_1_1_t_future.html">NNet::TFuture&lt;int&gt;</a> getInt() {</div>
+<div class="line"><a class="code hl_struct" href="struct_n_net_1_1_t_future.html">TFuture&lt;int&gt;</a> getInt() {</div>
 <div class="line">    <span class="keyword">co_return</span> 42;</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// A coroutine that returns void.</span></div>
-<div class="line"><a class="code hl_struct" href="struct_n_net_1_1_t_future.html">NNet::TFuture&lt;void&gt;</a> doSomething() {</div>
+<div class="line"><a class="code hl_struct" href="struct_n_net_1_1_t_future.html">TFuture&lt;void&gt;</a> doSomething() {</div>
 <div class="line">    <span class="comment">// Perform some work...</span></div>
 <div class="line">    <span class="keyword">co_return</span>;</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// A coroutine that waits for all futures to complete.</span></div>
-<div class="line"><a class="code hl_struct" href="struct_n_net_1_1_t_future.html">NNet::TFuture&lt;void&gt;</a> testAll() {</div>
-<div class="line">    std::vector&lt;NNet::TFuture&lt;int&gt;&gt; futures;</div>
+<div class="line"><a class="code hl_struct" href="struct_n_net_1_1_t_future.html">TFuture&lt;void&gt;</a> testAll() {</div>
+<div class="line">    std::vector&lt;TFuture&lt;int&gt;&gt; futures;</div>
 <div class="line">    futures.push_back(getInt());</div>
 <div class="line">    futures.push_back(getInt());</div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">auto</span> results = <span class="keyword">co_await</span> <a class="code hl_function" href="#adb78d9d3ff33476a0eeca4d1a4232f75">NNet::All</a>(std::move(futures));</div>
+<div class="line">    <span class="keyword">auto</span> results = <span class="keyword">co_await</span> <a class="code hl_function" href="#adb78d9d3ff33476a0eeca4d1a4232f75">All</a>(std::move(futures));</div>
 <div class="line">    <span class="comment">// Process results...</span></div>
 <div class="line">    <span class="keywordflow">for</span> (<span class="keyword">auto</span> res : results) {</div>
 <div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Result: &quot;</span> &lt;&lt; res &lt;&lt; std::endl;</div>
@@ -213,18 +215,18 @@ Example Usage</h2>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// A coroutine that waits for any future to complete.</span></div>
-<div class="line"><a class="code hl_struct" href="struct_n_net_1_1_t_future.html">NNet::TFuture&lt;int&gt;</a> testAny() {</div>
-<div class="line">    std::vector&lt;NNet::TFuture&lt;int&gt;&gt; futures;</div>
+<div class="line"><a class="code hl_struct" href="struct_n_net_1_1_t_future.html">TFuture&lt;int&gt;</a> testAny() {</div>
+<div class="line">    std::vector&lt;TFuture&lt;int&gt;&gt; futures;</div>
 <div class="line">    futures.push_back(getInt());</div>
 <div class="line">    futures.push_back(getInt());</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordtype">int</span> result = <span class="keyword">co_await</span> <a class="code hl_function" href="#aac05bd9ab44dfb1d8e3448e79801e4c6">NNet::Any</a>(std::move(futures));</div>
+<div class="line">    <span class="keywordtype">int</span> result = <span class="keyword">co_await</span> <a class="code hl_function" href="#aac05bd9ab44dfb1d8e3448e79801e4c6">Any</a>(std::move(futures));</div>
 <div class="line">    <span class="keyword">co_return</span> result;</div>
 <div class="line">}</div>
 <div class="ttc" id="acorochain_8hpp_html"><div class="ttname"><a href="corochain_8hpp.html">corochain.hpp</a></div><div class="ttdoc">Implementation of a promise/future system for coroutines.</div></div>
-<div class="ttc" id="acorochain_8hpp_html_aac05bd9ab44dfb1d8e3448e79801e4c6"><div class="ttname"><a href="#aac05bd9ab44dfb1d8e3448e79801e4c6">NNet::Any</a></div><div class="ttdeci">TFuture&lt; T &gt; Any(std::vector&lt; TFuture&lt; T &gt; &gt; &amp;&amp;futures)</div><div class="ttdoc">Awaits the completion of any one of the given futures and returns its result.</div><div class="ttdef"><b>Definition</b> corochain.hpp:334</div></div>
-<div class="ttc" id="acorochain_8hpp_html_adb78d9d3ff33476a0eeca4d1a4232f75"><div class="ttname"><a href="#adb78d9d3ff33476a0eeca4d1a4232f75">NNet::All</a></div><div class="ttdeci">TFuture&lt; std::vector&lt; T &gt; &gt; All(std::vector&lt; TFuture&lt; T &gt; &gt; &amp;&amp;futures)</div><div class="ttdoc">Awaits the completion of all futures and collects their results.</div><div class="ttdef"><b>Definition</b> corochain.hpp:300</div></div>
-<div class="ttc" id="astruct_n_net_1_1_t_future_html"><div class="ttname"><a href="struct_n_net_1_1_t_future.html">NNet::TFuture</a></div><div class="ttdoc">Future type for coroutines returning a value of type T.</div><div class="ttdef"><b>Definition</b> corochain.hpp:175</div></div>
+<div class="ttc" id="acorochain_8hpp_html_aac05bd9ab44dfb1d8e3448e79801e4c6"><div class="ttname"><a href="#aac05bd9ab44dfb1d8e3448e79801e4c6">NNet::Any</a></div><div class="ttdeci">TFuture&lt; T &gt; Any(std::vector&lt; TFuture&lt; T &gt; &gt; &amp;&amp;futures)</div><div class="ttdoc">Awaits the completion of any one of the given futures and returns its result.</div><div class="ttdef"><b>Definition</b> corochain.hpp:336</div></div>
+<div class="ttc" id="acorochain_8hpp_html_adb78d9d3ff33476a0eeca4d1a4232f75"><div class="ttname"><a href="#adb78d9d3ff33476a0eeca4d1a4232f75">NNet::All</a></div><div class="ttdeci">TFuture&lt; std::vector&lt; T &gt; &gt; All(std::vector&lt; TFuture&lt; T &gt; &gt; &amp;&amp;futures)</div><div class="ttdoc">Awaits the completion of all futures and collects their results.</div><div class="ttdef"><b>Definition</b> corochain.hpp:302</div></div>
+<div class="ttc" id="astruct_n_net_1_1_t_future_html"><div class="ttname"><a href="struct_n_net_1_1_t_future.html">NNet::TFuture</a></div><div class="ttdoc">Future type for coroutines returning a value of type T.</div><div class="ttdef"><b>Definition</b> corochain.hpp:177</div></div>
 </div><!-- fragment --> </div><h2 class="groupheader">Function Documentation</h2>
 <a id="adb78d9d3ff33476a0eeca4d1a4232f75" name="adb78d9d3ff33476a0eeca4d1a4232f75"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adb78d9d3ff33476a0eeca4d1a4232f75">&#9670;&#160;</a></span>All() <span class="overload">[1/2]</span></h2>
