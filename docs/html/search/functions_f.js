@@ -18,8 +18,10 @@ var searchData=
   ['tresolver_15',['TResolver',['../class_n_net_1_1_t_resolver.html#a901c9a034e2f8d13ca7056dc893981ca',1,'NNet::TResolver::TResolver(TPoller &amp;poller, EDNSType defaultType=EDNSType::A)'],['../class_n_net_1_1_t_resolver.html#aa21ad81f47fd798841e56fa1c4e7f0e3',1,'NNet::TResolver::TResolver(const TResolvConf &amp;conf, TPoller &amp;poller, EDNSType defaultType=EDNSType::A)'],['../class_n_net_1_1_t_resolver.html#a5366c2f6beab03f1233bb515eaaa18fa',1,'NNet::TResolver::TResolver(TAddress dnsAddr, TPoller &amp;poller, EDNSType defaultType=EDNSType::A)']]],
   ['tsocket_16',['TSocket',['../class_n_net_1_1_t_socket.html#a194d35853eb507357d3651c0bc6beb10',1,'NNet::TSocket::TSocket(TPollerBase &amp;poller, int domain, int type=SOCK_STREAM)'],['../class_n_net_1_1_t_socket.html#a5b45bf6e02887ccc2ad85d7d815ed4e2',1,'NNet::TSocket::TSocket(const TAddress &amp;addr, int fd, TPollerBase &amp;poller)']]],
   ['tsocketbase_17',['TSocketBase',['../class_n_net_1_1_t_socket_base.html#a00cd2e4ff65978ce06a326fcbbc1734e',1,'NNet::TSocketBase::TSocketBase(TPollerBase &amp;poller, int domain, int type)'],['../class_n_net_1_1_t_socket_base.html#acab6c128c65691ebf1018009088d27da',1,'NNet::TSocketBase::TSocketBase(int fd, TPollerBase &amp;poller)']]],
-  ['tstructreader_18',['TStructReader',['../struct_n_net_1_1_t_struct_reader.html#a01aed1fb8dc52c06e5177b13b02c0f3a',1,'NNet::TStructReader']]],
-  ['tunboundedvectorqueue_19',['TUnboundedVectorQueue',['../struct_n_net_1_1_n_actors_1_1_t_unbounded_vector_queue.html#a6e7b99ff4944cd0e92dd055806624bb8',1,'NNet::NActors::TUnboundedVectorQueue']]],
-  ['twebsocket_20',['TWebSocket',['../class_n_net_1_1_t_web_socket.html#a36745522f809720a9bfa223de97f5514',1,'NNet::TWebSocket']]],
-  ['tzerocopylinesplitter_21',['TZeroCopyLineSplitter',['../struct_n_net_1_1_t_zero_copy_line_splitter.html#af64b01796eb016cca29c41a39cb85de3',1,'NNet::TZeroCopyLineSplitter']]]
+  ['tsslsocket_18',['TSslSocket',['../class_n_net_1_1_t_ssl_socket.html#ae54568141ee336140cbfb90f40b64e9b',1,'NNet::TSslSocket']]],
+  ['tstructreader_19',['TStructReader',['../struct_n_net_1_1_t_struct_reader.html#a01aed1fb8dc52c06e5177b13b02c0f3a',1,'NNet::TStructReader']]],
+  ['tunboundedvectorqueue_20',['TUnboundedVectorQueue',['../struct_n_net_1_1_n_actors_1_1_t_unbounded_vector_queue.html#a6e7b99ff4944cd0e92dd055806624bb8',1,'NNet::NActors::TUnboundedVectorQueue']]],
+  ['turing_21',['TUring',['../class_n_net_1_1_t_uring.html#ad2d00c2a8d1187e79c81fb6cf49ff684',1,'NNet::TUring']]],
+  ['twebsocket_22',['TWebSocket',['../class_n_net_1_1_t_web_socket.html#a36745522f809720a9bfa223de97f5514',1,'NNet::TWebSocket']]],
+  ['tzerocopylinesplitter_23',['TZeroCopyLineSplitter',['../struct_n_net_1_1_t_zero_copy_line_splitter.html#af64b01796eb016cca29c41a39cb85de3',1,'NNet::TZeroCopyLineSplitter']]]
 ];

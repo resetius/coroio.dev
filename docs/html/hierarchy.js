@@ -60,7 +60,8 @@ var hierarchy =
       [ "NNet::TIOCp", "class_n_net_1_1_t_i_o_cp.html", null ],
       [ "NNet::TKqueue", "class_n_net_1_1_t_kqueue.html", null ],
       [ "NNet::TPoll", "class_n_net_1_1_t_poll.html", null ],
-      [ "NNet::TSelect", "class_n_net_1_1_t_select.html", null ]
+      [ "NNet::TSelect", "class_n_net_1_1_t_select.html", null ],
+      [ "NNet::TUring", "class_n_net_1_1_t_uring.html", null ]
     ] ],
     [ "NNet::TPromiseBase< T >", "struct_n_net_1_1_t_promise_base.html", [
       [ "NNet::TPromise< T >", "struct_n_net_1_1_t_promise.html", null ]
@@ -79,17 +80,21 @@ var hierarchy =
     [ "NNet::TSocketBase< TSockOps >", "class_n_net_1_1_t_socket_base.html", [
       [ "NNet::TSocket", "class_n_net_1_1_t_socket.html", [
         [ "NNet::TPollerDrivenSocket< TIOCp >", "class_n_net_1_1_t_poller_driven_socket.html", null ],
+        [ "NNet::TPollerDrivenSocket< TUring >", "class_n_net_1_1_t_poller_driven_socket.html", null ],
         [ "NNet::TPollerDrivenSocket< T >", "class_n_net_1_1_t_poller_driven_socket.html", null ]
       ] ]
     ] ],
     [ "NNet::TSocketBase< TFileOps >", "class_n_net_1_1_t_socket_base.html", [
       [ "NNet::TFileHandle", "class_n_net_1_1_t_file_handle.html", [
         [ "NNet::TPollerDrivenFileHandle< TIOCp >", "class_n_net_1_1_t_poller_driven_file_handle.html", null ],
+        [ "NNet::TPollerDrivenFileHandle< TUring >", "class_n_net_1_1_t_poller_driven_file_handle.html", null ],
         [ "NNet::TPollerDrivenFileHandle< T >", "class_n_net_1_1_t_poller_driven_file_handle.html", null ]
       ] ]
     ] ],
     [ "NNet::TSocketBase< void >", "class_n_net_1_1_t_socket_base_3_01void_01_4.html", null ],
     [ "NNet::TSockOps", "class_n_net_1_1_t_sock_ops.html", null ],
+    [ "NNet::TSslContext", "struct_n_net_1_1_t_ssl_context.html", null ],
+    [ "NNet::TSslSocket< TSocket >", "class_n_net_1_1_t_ssl_socket.html", null ],
     [ "NNet::TStructReader< T, TSocket >", "struct_n_net_1_1_t_struct_reader.html", null ],
     [ "NNet::TTimer", "struct_n_net_1_1_t_timer.html", null ],
     [ "NNet::NActors::TUnboundedVectorQueue< T >", "struct_n_net_1_1_n_actors_1_1_t_unbounded_vector_queue.html", null ],

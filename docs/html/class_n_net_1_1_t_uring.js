@@ -8,8 +8,6 @@ var class_n_net_1_1_t_uring =
     [ "Cancel", "class_n_net_1_1_t_uring.html#a33a150c8b21a47865c55adf0727c3b9d", null ],
     [ "Cancel", "class_n_net_1_1_t_uring.html#ad4586fc1400a1a35a00cb8f8031690e4", null ],
     [ "Connect", "class_n_net_1_1_t_uring.html#a93291371201e5e4397940bef822f1f4d", null ],
-    [ "Kernel", "class_n_net_1_1_t_uring.html#ab52e0dbcc27dc044b41e2cfd1ceac6c3", null ],
-    [ "KernelStr", "class_n_net_1_1_t_uring.html#a30e1d2dfe63ab038c4d5a4527d49801a", null ],
     [ "Poll", "class_n_net_1_1_t_uring.html#a61da7363c55c0e07c4a3ee59b0cf85c4", null ],
     [ "Read", "class_n_net_1_1_t_uring.html#a3a9d4260deb310de4a82df125d7b730c", null ],
     [ "Recv", "class_n_net_1_1_t_uring.html#a562cb0b278f30b8152b340e41d0b23f9", null ],
