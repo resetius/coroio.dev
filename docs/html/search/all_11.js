@@ -7,11 +7,12 @@ var searchData=
   ['sendtext_4',['SendText',['../class_n_net_1_1_t_web_socket.html#adef36f335a05589611bdbfcdd22286cf',1,'NNet::TWebSocket']]],
   ['setmaxduration_5',['SetMaxDuration',['../class_n_net_1_1_t_poller_base.html#a53a432cfd20b24377c78a25f351dd6ff',1,'NNet::TPollerBase']]],
   ['setup_6',['Setup',['../class_n_net_1_1_t_socket_base_3_01void_01_4.html#a5123a941977e3426269c2d9cd9c70c13',1,'NNet::TSocketBase&lt; void &gt;']]],
-  ['simple_20actor_20example_7',['Simple Actor Example',['../actor_8hpp.html#simple_actor',1,'']]],
-  ['size_8',['Size',['../struct_n_net_1_1_n_actors_1_1_t_unbounded_vector_queue.html#a378f1b5178b9a4b937006aebe9e0f56e',1,'NNet::NActors::TUnboundedVectorQueue']]],
-  ['sleep_9',['Sleep',['../class_n_net_1_1_t_poller_base.html#a9550c4ddfa4a29b3723ee00098617dc5',1,'NNet::TPollerBase::Sleep(TTime until)'],['../class_n_net_1_1_t_poller_base.html#af9264dcf4631dfa5d7a79148f36905d1',1,'NNet::TPollerBase::Sleep(std::chrono::duration&lt; Rep, Period &gt; duration)'],['../class_n_net_1_1_n_actors_1_1_t_actor_context.html#a7053b669aaf407ff276c76795fd8fa4c',1,'NNet::NActors::TActorContext::Sleep(TTime until)'],['../class_n_net_1_1_n_actors_1_1_t_actor_context.html#a2f552d11a54e8866e4892d6d3b70e24f',1,'NNet::NActors::TActorContext::Sleep(std::chrono::duration&lt; Rep, Period &gt; duration)']]],
-  ['socket_10',['Zero-Copy Example (Reading from a Socket)',['../struct_n_net_1_1_t_zero_copy_line_splitter.html#autotoc_md9',1,'']]],
-  ['startasync_11',['StartAsync',['../class_n_net_1_1_n_actors_1_1_t_actor_context.html#aa5b12e4eefd24e6372f25595684bfc16',1,'NNet::NActors::TActorContext']]],
-  ['step_12',['Step',['../class_n_net_1_1_t_loop.html#ad528377d1b81c264334d7271953b6e2b',1,'NNet::TLoop']]],
-  ['stop_13',['Stop',['../class_n_net_1_1_t_loop.html#a3b3f1469844eaa90ad8d0326d361793b',1,'NNet::TLoop']]]
+  ['simple_20actor_7',['Example: Simple Actor',['../index.html#actor_example_sec',1,'']]],
+  ['simple_20actor_20example_8',['Simple Actor Example',['../actor_8hpp.html#simple_actor',1,'']]],
+  ['size_9',['Size',['../struct_n_net_1_1_n_actors_1_1_t_unbounded_vector_queue.html#a378f1b5178b9a4b937006aebe9e0f56e',1,'NNet::NActors::TUnboundedVectorQueue']]],
+  ['sleep_10',['Sleep',['../class_n_net_1_1_t_poller_base.html#a9550c4ddfa4a29b3723ee00098617dc5',1,'NNet::TPollerBase::Sleep(TTime until)'],['../class_n_net_1_1_t_poller_base.html#af9264dcf4631dfa5d7a79148f36905d1',1,'NNet::TPollerBase::Sleep(std::chrono::duration&lt; Rep, Period &gt; duration)'],['../class_n_net_1_1_n_actors_1_1_t_actor_context.html#a7053b669aaf407ff276c76795fd8fa4c',1,'NNet::NActors::TActorContext::Sleep(TTime until)'],['../class_n_net_1_1_n_actors_1_1_t_actor_context.html#a2f552d11a54e8866e4892d6d3b70e24f',1,'NNet::NActors::TActorContext::Sleep(std::chrono::duration&lt; Rep, Period &gt; duration)']]],
+  ['socket_11',['Zero-Copy Example (Reading from a Socket)',['../struct_n_net_1_1_t_zero_copy_line_splitter.html#autotoc_md9',1,'']]],
+  ['startasync_12',['StartAsync',['../class_n_net_1_1_n_actors_1_1_t_actor_context.html#aa5b12e4eefd24e6372f25595684bfc16',1,'NNet::NActors::TActorContext']]],
+  ['step_13',['Step',['../class_n_net_1_1_t_loop.html#ad528377d1b81c264334d7271953b6e2b',1,'NNet::TLoop']]],
+  ['stop_14',['Stop',['../class_n_net_1_1_t_loop.html#a3b3f1469844eaa90ad8d0326d361793b',1,'NNet::TLoop']]]
 ];

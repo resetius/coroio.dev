@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"struct_n_net_1_1_n_actors_1_1has__data__members.html":[1,0,0,0,0],
 "struct_n_net_1_1_n_actors_1_1has__data__members_3_01_t_00_01std_1_1enable__if__t_3_01std_1_1is__f07827ddd16d1662b9b4b90dd996aff8.html":[1,0,0,0,1],
 "struct_n_net_1_1_t_byte_reader.html":[1,0,0,3],
 "struct_n_net_1_1_t_byte_reader.html#a06eec1258239223532bf1ef4d8e24eab":[1,0,0,3,1],

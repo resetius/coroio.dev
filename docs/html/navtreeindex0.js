@@ -214,9 +214,10 @@ var NAVTREEINDEX0 =
 "hierarchy.html":[1,2],
 "index.html":[],
 "index.html":[0],
+"index.html#actor_example_sec":[0,3],
 "index.html#example_sec":[0,2],
 "index.html#features_sec":[0,1],
-"index.html#further_sec":[0,3],
+"index.html#further_sec":[0,4],
 "index.html#intro_sec":[0,0],
 "init_8hpp_source.html":[2,0,0,7],
 "iocp_8hpp_source.html":[2,0,0,8],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "struct_n_net_1_1_n_actors_1_1_t_unbounded_vector_queue.html#a58db13a0ebccc4ceab5e8685b4f48775":[1,0,0,0,21,4],
 "struct_n_net_1_1_n_actors_1_1_t_unbounded_vector_queue.html#a6e7b99ff4944cd0e92dd055806624bb8":[1,0,0,0,21,0],
 "struct_n_net_1_1_n_actors_1_1_t_unbounded_vector_queue.html#ab1cb288afb4f5183d00e9126092df3d9":[1,0,0,0,21,3],
-"struct_n_net_1_1_n_actors_1_1_t_unbounded_vector_queue.html#ab6efda168b4ea6c72dcb84bf6447e4af":[1,0,0,0,21,1],
-"struct_n_net_1_1_n_actors_1_1has__data__members.html":[1,0,0,0,0]
+"struct_n_net_1_1_n_actors_1_1_t_unbounded_vector_queue.html#ab6efda168b4ea6c72dcb84bf6447e4af":[1,0,0,0,21,1]
 };

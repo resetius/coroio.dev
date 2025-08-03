@@ -237,7 +237,7 @@ Async Behavior Example</h2>
 <div class="line">        <span class="keyword">co_await</span> ctx-&gt;Sleep(std::chrono::milliseconds(100));</div>
 <div class="line"> </div>
 <div class="line">        <span class="keyword">auto</span> result = <span class="keyword">co_await</span> processAsync(msg.data);</div>
-<div class="line">        ctx-&gt;Send(ctx-&gt;Sender(), ResultMessage{result}, SerializeNear(ResultMessage{result}));</div>
+<div class="line">        ctx-&gt;Send(ctx-&gt;Sender(), ResultMessage{result});</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordtype">void</span> HandleUnknownMessage(TMessageId messageId, TBlob blob, TActorContext::TPtr ctx) {</div>

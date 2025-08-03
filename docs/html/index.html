@@ -118,12 +118,13 @@ Introduction</h1>
 <p>This library provides advanced asynchronous I/O and networking capabilities using coroutine-based APIs and poller-driven execution. It supports high-performance operations for both network sockets and file handles.</p>
 <h1 class="doxsection"><a class="anchor" id="features_sec"></a>
 Key Features</h1>
-<p>The library’s core functionality is exposed through a few high-level classes:</p><ul>
+<p>The library's core functionality is exposed through a few high-level classes:</p><ul>
 <li><a class="el" href="class_n_net_1_1_t_socket.html">TSocket</a> and <a class="el" href="class_n_net_1_1_t_poller_driven_socket.html">TPollerDrivenSocket</a> for asynchronous networking.</li>
 <li><a class="el" href="class_n_net_1_1_t_file_handle.html">TFileHandle</a> and <a class="el" href="class_n_net_1_1_t_poller_driven_file_handle.html">TPollerDrivenFileHandle</a> for asynchronous file I/O.</li>
 <li><a class="el" href="struct_n_net_1_1_t_line_reader.html">TLineReader</a> for efficient, line-based input.</li>
 <li><a class="el" href="struct_n_net_1_1_t_byte_reader.html">TByteReader</a> and <a class="el" href="struct_n_net_1_1_t_byte_writer.html">TByteWriter</a> for byte-level I/O.</li>
 <li><a class="el" href="class_n_net_1_1_t_resolver.html">TResolver</a> and <a class="el" href="class_n_net_1_1_t_resolv_conf.html">TResolvConf</a> for DNS resolution.</li>
+<li>Actor-based concurrency model for message-passing systems (see <a class="el" href="class_n_net_1_1_n_actors_1_1_i_actor.html">NNet::NActors::IActor</a>).</li>
 </ul>
 <p>In addition to these, the library supports multiple polling mechanisms for asynchronous operations:</p>
 <ul>
@@ -169,6 +170,40 @@ Example: Echo Client</h1>
 <div class="ttc" id="astruct_n_net_1_1_t_byte_reader_html"><div class="ttname"><a href="struct_n_net_1_1_t_byte_reader.html">NNet::TByteReader</a></div><div class="ttdoc">A utility for reading data from a socket-like object, either a fixed number of bytes or until a speci...</div><div class="ttdef"><b>Definition</b> sockutils.hpp:64</div></div>
 <div class="ttc" id="astruct_n_net_1_1_t_byte_writer_html"><div class="ttname"><a href="struct_n_net_1_1_t_byte_writer.html">NNet::TByteWriter</a></div><div class="ttdoc">A utility for writing data to a socket-like object.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:199</div></div>
 <div class="ttc" id="astruct_n_net_1_1_t_line_reader_html"><div class="ttname"><a href="struct_n_net_1_1_t_line_reader.html">NNet::TLineReader</a></div><div class="ttdoc">Reads a complete line from a socket using a zero-copy line splitter.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:586</div></div>
+</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="actor_example_sec"></a>
+Example: Simple Actor</h1>
+<p>The following example demonstrates basic actor usage for message processing:</p>
+<div class="fragment"><div class="line"><span class="keyword">struct </span>TCounterMessage {</div>
+<div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> TMessageId MessageId = 1;</div>
+<div class="line">    <span class="keywordtype">int</span> value;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>TCounterActor : <span class="keyword">public</span> IActor {</div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line">    <span class="keywordtype">int</span> counter = 0;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">    <span class="keywordtype">void</span> Receive(TMessageId messageId, TBlob blob, TActorContext::TPtr ctx)<span class="keyword"> override </span>{</div>
+<div class="line">        <span class="keywordflow">if</span> (messageId == TCounterMessage::MessageId) {</div>
+<div class="line">            <span class="keyword">auto</span> message = DeserializeNear&lt;TCounterMessage&gt;(blob);</div>
+<div class="line">            counter += message.value;</div>
+<div class="line">            std::cout &lt;&lt; <span class="stringliteral">&quot;Counter: &quot;</span> &lt;&lt; counter &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> TPoller&gt;</div>
+<div class="line"><a class="code hl_struct" href="struct_n_net_1_1_t_future.html">TFuture&lt;void&gt;</a> actorExample(TPoller&amp; poller) {</div>
+<div class="line">    TActorSystem actorSystem;</div>
+<div class="line">    <span class="keyword">auto</span> actorId = actorSystem.Register(std::make_unique&lt;TCounterActor&gt;());</div>
+<div class="line">    </div>
+<div class="line">    actorSystem.Send(actorId, TCounterMessage{5});</div>
+<div class="line">    actorSystem.Send(actorId, TCounterMessage{10});</div>
+<div class="line">    actorSystem.Send(actorId, TCounterMessage{-3});</div>
+<div class="line">    </div>
+<div class="line">    <span class="keyword">co_return</span>;</div>
+<div class="line">}</div>
+<div class="ttc" id="astruct_n_net_1_1_t_future_html"><div class="ttname"><a href="struct_n_net_1_1_t_future.html">NNet::TFuture</a></div><div class="ttdoc">Future type for coroutines returning a value of type T.</div><div class="ttdef"><b>Definition</b> corochain.hpp:182</div></div>
 </div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="further_sec"></a>
 Further Information</h1>
 <p>For more details on each component, please refer to the following classes:</p><ul>
