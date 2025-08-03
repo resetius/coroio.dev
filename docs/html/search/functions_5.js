@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['getmaxduration_0',['GetMaxDuration',['../class_n_net_1_1_t_poller_base.html#ad9dd7feb761339f5c7aa0614ed4a6d35',1,'NNet::TPollerBase']]],
-  ['gettimeout_1',['GetTimeout',['../class_n_net_1_1_t_poller_base.html#a0008a394cf1744e9369e60bcf75cdfc5',1,'NNet::TPollerBase']]]
+  ['fd_0',['Fd',['../class_n_net_1_1_t_socket.html#a4c13ce159122b82427278376b32c1122',1,'NNet::TSocket']]],
+  ['forward_1',['Forward',['../class_n_net_1_1_n_actors_1_1_t_actor_context.html#a5a828d85863f59055a082f811a428e6d',1,'NNet::NActors::TActorContext::Forward(TActorId to, TMessageId messageId, TBlob blob)'],['../class_n_net_1_1_n_actors_1_1_t_actor_context.html#a6fe07b7a15389fd8b034a3366a940d83',1,'NNet::NActors::TActorContext::Forward(TActorId to, T &amp;&amp;message)']]],
+  ['front_2',['Front',['../struct_n_net_1_1_n_actors_1_1_t_unbounded_vector_queue.html#a50b1013b679abed9e357602cff5427e0',1,'NNet::NActors::TUnboundedVectorQueue']]]
 ];

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['_7etepoll_0',['~TEPoll',['../class_n_net_1_1_t_e_poll.html#a6386d9b23969ba1714e7167f74438f2d',1,'NNet::TEPoll']]],
-  ['_7etkqueue_1',['~TKqueue',['../class_n_net_1_1_t_kqueue.html#aa5379d347a8bbf39b3af5d43d4a2fa71',1,'NNet::TKqueue']]]
+  ['yield_0',['Yield',['../class_n_net_1_1_t_poller_base.html#aea08fab15fd419093ffc18b9a5b5b267',1,'NNet::TPollerBase']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['socket_0',['Zero-Copy Example (Reading from a Socket)',['../struct_n_net_1_1_t_zero_copy_line_splitter.html#autotoc_md9',1,'']]]
+  ['queue_0',['Actor Message Queue',['../queue_8hpp.html#actor_usage',1,'']]],
+  ['queue_20operations_1',['Basic Queue Operations',['../queue_8hpp.html#basic_usage',1,'']]]
 ];

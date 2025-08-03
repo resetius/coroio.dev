@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['send_0',['Send',['../class_n_net_1_1_t_i_o_cp.html#abeb1ae3908ab2e604088776bd25204e0',1,'NNet::TIOCp']]],
-  ['sendtext_1',['SendText',['../class_n_net_1_1_t_web_socket.html#adef36f335a05589611bdbfcdd22286cf',1,'NNet::TWebSocket']]],
-  ['setmaxduration_2',['SetMaxDuration',['../class_n_net_1_1_t_poller_base.html#a53a432cfd20b24377c78a25f351dd6ff',1,'NNet::TPollerBase']]],
-  ['setup_3',['Setup',['../class_n_net_1_1_t_socket_base_3_01void_01_4.html#a5123a941977e3426269c2d9cd9c70c13',1,'NNet::TSocketBase&lt; void &gt;']]],
-  ['sleep_4',['Sleep',['../class_n_net_1_1_t_poller_base.html#a9550c4ddfa4a29b3723ee00098617dc5',1,'NNet::TPollerBase::Sleep(TTime until)'],['../class_n_net_1_1_t_poller_base.html#af9264dcf4631dfa5d7a79148f36905d1',1,'NNet::TPollerBase::Sleep(std::chrono::duration&lt; Rep, Period &gt; duration)']]],
-  ['step_5',['Step',['../class_n_net_1_1_t_loop.html#ad528377d1b81c264334d7271953b6e2b',1,'NNet::TLoop']]],
-  ['stop_6',['Stop',['../class_n_net_1_1_t_loop.html#a3b3f1469844eaa90ad8d0326d361793b',1,'NNet::TLoop']]]
+  ['poll_0',['Poll',['../class_n_net_1_1_t_select.html#a42b4c090d4f6970a7a5d4637f7a6cb12',1,'NNet::TSelect::Poll()'],['../class_n_net_1_1_t_poll.html#a3eda146479987f7a15cec8ae195495f2',1,'NNet::TPoll::Poll()'],['../class_n_net_1_1_t_e_poll.html#adc938184836f86951bc4759ada6b2328',1,'NNet::TEPoll::Poll()'],['../class_n_net_1_1_t_kqueue.html#ab4de93d1e3b6e4d137c38c4e9372936e',1,'NNet::TKqueue::Poll()'],['../class_n_net_1_1_t_i_o_cp.html#accc15f22548114b71ad0d73fc98abbce',1,'NNet::TIOCp::Poll()']]],
+  ['poller_1',['Poller',['../class_n_net_1_1_t_loop.html#a70077ce7da8cc7d14c5b44a8e50a9a0c',1,'NNet::TLoop::Poller()'],['../class_n_net_1_1_t_socket_base_3_01void_01_4.html#a312b175b7dcab2e1ca8ca275f0c8c210',1,'NNet::TSocketBase&lt; void &gt;::Poller()']]],
+  ['pop_2',['Pop',['../struct_n_net_1_1_t_line_splitter.html#af1ce0b2638579861c43b8bde322aa468',1,'NNet::TLineSplitter::Pop()'],['../struct_n_net_1_1_t_zero_copy_line_splitter.html#a1e1578720d20f66e7a1d6a05cbab7d73',1,'NNet::TZeroCopyLineSplitter::Pop()'],['../struct_n_net_1_1_n_actors_1_1_t_unbounded_vector_queue.html#ab1cb288afb4f5183d00e9126092df3d9',1,'NNet::NActors::TUnboundedVectorQueue::Pop()']]],
+  ['processtimers_3',['ProcessTimers',['../class_n_net_1_1_t_poller_base.html#a5552a86441c63d811e6a0d6039d391bd',1,'NNet::TPollerBase']]],
+  ['push_4',['Push',['../struct_n_net_1_1_t_line_splitter.html#a3147a073f1421daec77a92512cbb0132',1,'NNet::TLineSplitter::Push()'],['../struct_n_net_1_1_t_zero_copy_line_splitter.html#a4f342c7968fc6559a7103db01503b248',1,'NNet::TZeroCopyLineSplitter::Push()'],['../struct_n_net_1_1_n_actors_1_1_t_unbounded_vector_queue.html#a58db13a0ebccc4ceab5e8685b4f48775',1,'NNet::NActors::TUnboundedVectorQueue::Push()']]]
 ];

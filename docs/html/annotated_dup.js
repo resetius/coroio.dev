@@ -1,7 +1,32 @@
 var annotated_dup =
 [
     [ "NNet", null, [
+      [ "NActors", null, [
+        [ "has_data_members", "struct_n_net_1_1_n_actors_1_1has__data__members.html", null ],
+        [ "has_data_members< T, std::enable_if_t< std::is_empty_v< T > &&std::is_trivial_v< T > &&std::is_standard_layout_v< T > > >", "struct_n_net_1_1_n_actors_1_1has__data__members_3_01_t_00_01std_1_1enable__if__t_3_01std_1_1is__f07827ddd16d1662b9b4b90dd996aff8.html", null ],
+        [ "IActor", "class_n_net_1_1_n_actors_1_1_i_actor.html", "class_n_net_1_1_n_actors_1_1_i_actor" ],
+        [ "IBehavior", "class_n_net_1_1_n_actors_1_1_i_behavior.html", "class_n_net_1_1_n_actors_1_1_i_behavior" ],
+        [ "IBehaviorActor", "class_n_net_1_1_n_actors_1_1_i_behavior_actor.html", "class_n_net_1_1_n_actors_1_1_i_behavior_actor" ],
+        [ "ICoroActor", "class_n_net_1_1_n_actors_1_1_i_coro_actor.html", "class_n_net_1_1_n_actors_1_1_i_coro_actor" ],
+        [ "INode", "class_n_net_1_1_n_actors_1_1_i_node.html", null ],
+        [ "TActorContext", "class_n_net_1_1_n_actors_1_1_t_actor_context.html", "class_n_net_1_1_n_actors_1_1_t_actor_context" ],
+        [ "TActorId", "class_n_net_1_1_n_actors_1_1_t_actor_id.html", "class_n_net_1_1_n_actors_1_1_t_actor_id" ],
+        [ "TActorInternalState", "struct_n_net_1_1_n_actors_1_1_t_actor_internal_state.html", "struct_n_net_1_1_n_actors_1_1_t_actor_internal_state" ],
+        [ "TActorSystem", "class_n_net_1_1_n_actors_1_1_t_actor_system.html", null ],
+        [ "TAsk", "class_n_net_1_1_n_actors_1_1_t_ask.html", "class_n_net_1_1_n_actors_1_1_t_ask" ],
+        [ "TAskState", "class_n_net_1_1_n_actors_1_1_t_ask_state.html", null ],
+        [ "TBehavior", "class_n_net_1_1_n_actors_1_1_t_behavior.html", "class_n_net_1_1_n_actors_1_1_t_behavior" ],
+        [ "TBlob", "struct_n_net_1_1_n_actors_1_1_t_blob.html", null ],
+        [ "TEnvelope", "class_n_net_1_1_n_actors_1_1_t_envelope.html", "class_n_net_1_1_n_actors_1_1_t_envelope" ],
+        [ "TMessagesFactory", "class_n_net_1_1_n_actors_1_1_t_messages_factory.html", null ],
+        [ "TMockActorContext", "class_n_net_1_1_n_actors_1_1_t_mock_actor_context.html", null ],
+        [ "TNode", "class_n_net_1_1_n_actors_1_1_t_node.html", null ],
+        [ "TPoison", "struct_n_net_1_1_n_actors_1_1_t_poison.html", null ],
+        [ "TSendData", "struct_n_net_1_1_n_actors_1_1_t_send_data.html", null ],
+        [ "TUnboundedVectorQueue", "struct_n_net_1_1_n_actors_1_1_t_unbounded_vector_queue.html", "struct_n_net_1_1_n_actors_1_1_t_unbounded_vector_queue" ]
+      ] ],
       [ "TAddress", "class_n_net_1_1_t_address.html", "class_n_net_1_1_t_address" ],
+      [ "TArenaAllocator", "class_n_net_1_1_t_arena_allocator.html", null ],
       [ "TByteReader", "struct_n_net_1_1_t_byte_reader.html", "struct_n_net_1_1_t_byte_reader" ],
       [ "TByteWriter", "struct_n_net_1_1_t_byte_writer.html", "struct_n_net_1_1_t_byte_writer" ],
       [ "TEPoll", "class_n_net_1_1_t_e_poll.html", "class_n_net_1_1_t_e_poll" ],

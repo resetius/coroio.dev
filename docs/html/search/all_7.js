@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['i_20o_20networking_20library_0',['Asynchronous I/O &amp;amp; Networking Library',['../index.html',1,'']]],
-  ['ignore_1',['Ignore',['../struct_n_net_1_1_t_future.html#a8f69eafb8d44b1668d4e276572a60f3b',1,'NNet::TFuture::Ignore()'],['../struct_n_net_1_1_t_future.html#a8f69eafb8d44b1668d4e276572a60f3b',1,'NNet::TFuture&lt; void &gt;::Ignore()']]],
-  ['important_20notes_2',['Important Notes',['../struct_n_net_1_1_t_line_splitter.html#autotoc_md7',1,'']]],
-  ['information_3',['Further Information',['../index.html#further_sec',1,'']]],
-  ['introduction_4',['Introduction',['../index.html#intro_sec',1,'']]]
+  ['has_5fdata_5fmembers_0',['has_data_members',['../struct_n_net_1_1_n_actors_1_1has__data__members.html',1,'NNet::NActors']]],
+  ['has_5fdata_5fmembers_3c_20t_2c_20std_3a_3aenable_5fif_5ft_3c_20std_3a_3ais_5fempty_5fv_3c_20t_20_3e_20_26_26std_3a_3ais_5ftrivial_5fv_3c_20t_20_3e_20_26_26std_3a_3ais_5fstandard_5flayout_5fv_3c_20t_20_3e_20_3e_20_3e_1',['has_data_members&lt; T, std::enable_if_t&lt; std::is_empty_v&lt; T &gt; &amp;&amp;std::is_trivial_v&lt; T &gt; &amp;&amp;std::is_standard_layout_v&lt; T &gt; &gt; &gt;',['../struct_n_net_1_1_n_actors_1_1has__data__members_3_01_t_00_01std_1_1enable__if__t_3_01std_1_1is__f07827ddd16d1662b9b4b90dd996aff8.html',1,'NNet::NActors']]]
 ];

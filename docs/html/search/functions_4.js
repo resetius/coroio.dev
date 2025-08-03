@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fd_0',['Fd',['../class_n_net_1_1_t_socket.html#a4c13ce159122b82427278376b32c1122',1,'NNet::TSocket']]]
+  ['empty_0',['Empty',['../struct_n_net_1_1_n_actors_1_1_t_unbounded_vector_queue.html#ab6efda168b4ea6c72dcb84bf6447e4af',1,'NNet::NActors::TUnboundedVectorQueue']]]
 ];

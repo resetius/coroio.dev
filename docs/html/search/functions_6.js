@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['ignore_0',['Ignore',['../struct_n_net_1_1_t_future.html#a8f69eafb8d44b1668d4e276572a60f3b',1,'NNet::TFuture::Ignore()'],['../struct_n_net_1_1_t_future.html#a8f69eafb8d44b1668d4e276572a60f3b',1,'NNet::TFuture&lt; void &gt;::Ignore()']]]
+  ['getmaxduration_0',['GetMaxDuration',['../class_n_net_1_1_t_poller_base.html#ad9dd7feb761339f5c7aa0614ed4a6d35',1,'NNet::TPollerBase']]],
+  ['gettimeout_1',['GetTimeout',['../class_n_net_1_1_t_poller_base.html#a0008a394cf1744e9369e60bcf75cdfc5',1,'NNet::TPollerBase']]]
 ];

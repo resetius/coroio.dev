@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['websocket_20client_0',['Example: Minimal WebSocket Client',['../class_n_net_1_1_t_web_socket.html#autotoc_md12',1,'']]]
+  ['simple_20actor_20example_0',['Simple Actor Example',['../actor_8hpp.html#simple_actor',1,'']]],
+  ['socket_1',['Zero-Copy Example (Reading from a Socket)',['../struct_n_net_1_1_t_zero_copy_line_splitter.html#autotoc_md9',1,'']]]
 ];
