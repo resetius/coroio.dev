@@ -1,15 +1,16 @@
 ---
 layout: default
-title: "COROIO: Efficient Asynchronous I/O Library for C++20"
+title: "COROIO: Efficient Asynchronous I/O Library for Modern C++"
 ---
 
-# COROIO: Efficient Asynchronous I/O Library for C++20
+# COROIO: Efficient Asynchronous I/O Library for Modern C++
 
-[COROIO](https://github.com/resetius/coroio) is a modern C++20 library that leverages coroutines for efficient asynchronous programming, offering non-blocking I/O operations across multiple platforms.
+[COROIO](https://github.com/resetius/coroio) is a modern C++ library that leverages coroutines for efficient asynchronous programming, offering non-blocking I/O operations across multiple platforms.
 
 ## Key Features
 
-- **C++20 Coroutines**: Write asynchronous code in a clean and readable manner
+- **Coroutines**: Write asynchronous code in a clean and readable manner
+- **Actor Model**: Message-passing concurrency with typed behaviors and async processing
 - **Efficient Polling Mechanisms**: Support for various event notification systems, including:
   - select
   - epoll (Linux)
@@ -25,7 +26,7 @@ title: "COROIO: Efficient Asynchronous I/O Library for C++20"
 
 ## Why Choose COROIO?
 
-- **Simplicity**: Leverage C++20 coroutines for clear and concise asynchronous code
+- **Simplicity**: Leverage coroutines for clear and concise asynchronous code
 - **Efficiency**: Efficient I/O operations and event handling
 - **Versatility**: Develop network applications and servers with ease
 - **Future-Proof**: Built on modern C++ standards, ensuring long-term relevance and compatibility
