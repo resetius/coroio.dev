@@ -4,7 +4,7 @@ var corochain_8hpp =
     [ "NNet::TPromise< T >", "struct_n_net_1_1_t_promise.html", "struct_n_net_1_1_t_promise" ],
     [ "NNet::TFutureBase< T >", "struct_n_net_1_1_t_future_base.html", null ],
     [ "NNet::TFuture< T >", "struct_n_net_1_1_t_future.html", "struct_n_net_1_1_t_future" ],
-    [ "NNet::TPromise< void >", "struct_n_net_1_1_t_promise_3_01void_01_4.html", "struct_n_net_1_1_t_promise_3_01void_01_4" ],
+    [ "NNet::TPromise< void >", "struct_n_net_1_1_t_promise_3_01void_01_4.html", null ],
     [ "NNet::TFuture< void >", "struct_n_net_1_1_t_future_3_01void_01_4.html", "struct_n_net_1_1_t_future_3_01void_01_4" ],
     [ "NNet::TFinalAwaiter< T >", "struct_n_net_1_1_t_final_awaiter.html", null ],
     [ "NNet::All", "corochain_8hpp.html#adb78d9d3ff33476a0eeca4d1a4232f75", null ],

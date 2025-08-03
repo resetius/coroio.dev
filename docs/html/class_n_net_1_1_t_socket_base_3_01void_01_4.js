@@ -1,7 +1,5 @@
 var class_n_net_1_1_t_socket_base_3_01void_01_4 =
 [
-    [ "TSocketBase", "class_n_net_1_1_t_socket_base.html#a00cd2e4ff65978ce06a326fcbbc1734e", null ],
-    [ "TSocketBase", "class_n_net_1_1_t_socket_base.html#acab6c128c65691ebf1018009088d27da", null ],
     [ "Close", "class_n_net_1_1_t_socket_base.html#ac0deb2a1fd4b9b137eb0273a455e38e5", null ],
     [ "Create", "class_n_net_1_1_t_socket_base_3_01void_01_4.html#a6ccea3dfc59c8a24c15a1c313e77784d", null ],
     [ "Monitor", "class_n_net_1_1_t_socket_base.html#a1039bddf2bcba3f1277319ab90a5d63e", null ],

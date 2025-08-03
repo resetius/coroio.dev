@@ -2,7 +2,6 @@ var annotated_dup =
 [
     [ "NNet", null, [
       [ "TAddress", "class_n_net_1_1_t_address.html", "class_n_net_1_1_t_address" ],
-      [ "TArenaAllocator", "class_n_net_1_1_t_arena_allocator.html", null ],
       [ "TByteReader", "struct_n_net_1_1_t_byte_reader.html", "struct_n_net_1_1_t_byte_reader" ],
       [ "TByteWriter", "struct_n_net_1_1_t_byte_writer.html", "struct_n_net_1_1_t_byte_writer" ],
       [ "TEPoll", "class_n_net_1_1_t_e_poll.html", "class_n_net_1_1_t_e_poll" ],
@@ -27,7 +26,7 @@ var annotated_dup =
       [ "TPollerDrivenFileHandle", "class_n_net_1_1_t_poller_driven_file_handle.html", "class_n_net_1_1_t_poller_driven_file_handle" ],
       [ "TPollerDrivenSocket", "class_n_net_1_1_t_poller_driven_socket.html", "class_n_net_1_1_t_poller_driven_socket" ],
       [ "TPromise", "struct_n_net_1_1_t_promise.html", "struct_n_net_1_1_t_promise" ],
-      [ "TPromise< void >", "struct_n_net_1_1_t_promise_3_01void_01_4.html", "struct_n_net_1_1_t_promise_3_01void_01_4" ],
+      [ "TPromise< void >", "struct_n_net_1_1_t_promise_3_01void_01_4.html", null ],
       [ "TPromiseBase", "struct_n_net_1_1_t_promise_base.html", "struct_n_net_1_1_t_promise_base" ],
       [ "TResolvConf", "class_n_net_1_1_t_resolv_conf.html", "class_n_net_1_1_t_resolv_conf" ],
       [ "TResolver", "class_n_net_1_1_t_resolver.html", "class_n_net_1_1_t_resolver" ],
@@ -36,11 +35,8 @@ var annotated_dup =
       [ "TSocketBase", "class_n_net_1_1_t_socket_base.html", "class_n_net_1_1_t_socket_base" ],
       [ "TSocketBase< void >", "class_n_net_1_1_t_socket_base_3_01void_01_4.html", "class_n_net_1_1_t_socket_base_3_01void_01_4" ],
       [ "TSockOps", "class_n_net_1_1_t_sock_ops.html", null ],
-      [ "TSslContext", "struct_n_net_1_1_t_ssl_context.html", "struct_n_net_1_1_t_ssl_context" ],
-      [ "TSslSocket", "class_n_net_1_1_t_ssl_socket.html", "class_n_net_1_1_t_ssl_socket" ],
       [ "TStructReader", "struct_n_net_1_1_t_struct_reader.html", "struct_n_net_1_1_t_struct_reader" ],
       [ "TTimer", "struct_n_net_1_1_t_timer.html", null ],
-      [ "TUring", "class_n_net_1_1_t_uring.html", "class_n_net_1_1_t_uring" ],
       [ "TVoidPromise", "struct_n_net_1_1_t_void_promise.html", null ],
       [ "TVoidSuspendedPromise", "struct_n_net_1_1_t_void_suspended_promise.html", null ],
       [ "TVoidSuspendedTask", "struct_n_net_1_1_t_void_suspended_task.html", null ],
