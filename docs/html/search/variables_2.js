@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['erroror_0',['ErrorOr',['../struct_n_net_1_1_t_promise.html#a4daa9fceeebdd0b98801948c3bdd6345',1,'NNet::TPromise']]]
+  ['erroror_0',['ErrorOr',['../structNNet_1_1TPromise.html#ae08c3c9ffeab783831e99fa93f22156b',1,'NNet::TPromise']]]
 ];
