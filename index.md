@@ -7,6 +7,10 @@ title: "COROIO: Efficient Asynchronous I/O Library for Modern C++"
 
 [COROIO](https://github.com/resetius/coroio) is a modern C++ library that leverages coroutines for efficient asynchronous programming, offering non-blocking I/O operations across multiple platforms.
 
+Quick links:
+- Top-level README: https://github.com/resetius/coroio/blob/master/README.md
+- Actors documentation: https://github.com/resetius/coroio/blob/master/coroio/actors/README.md
+
 ## Key Features
 
 - **Coroutines**: Write asynchronous code in a clean and readable manner
@@ -37,4 +41,13 @@ Explore [COROIO](https://github.com/resetius/coroio) today and enhance your asyn
 [COROIO](https://github.com/resetius/coroio) is under active development, and we welcome feedback and contributions from the community.
 
 For source code and implementation details, visit our [GitHub repository](https://github.com/resetius/coroio).
+
+## Dependencies (minimal by design)
+
+The library is intentionally simple and has minimal dependencies:
+- Core modules have no external dependencies beyond the C++ standard library and the OS APIs.
+- Optional components:
+  - io_uring support on Linux uses liburing (optional).
+  - SSL/TLS uses OpenSSL (optional).
+  - Other features (like WebSocket) are layered on top of the core building blocks.
 
