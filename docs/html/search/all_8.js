@@ -10,5 +10,6 @@ var searchData=
   ['information_7',['Further Information',['../index.html#further_sec',1,'']]],
   ['inode_8',['INode',['../classNNet_1_1NActors_1_1INode.html',1,'NNet::NActors']]],
   ['introduction_9',['Introduction',['../index.html#intro_sec',1,'']]],
-  ['ioutputstream_10',['IOutputStream',['../classNNet_1_1NActors_1_1IOutputStream.html',1,'NNet::NActors']]]
+  ['ioutputstream_10',['IOutputStream',['../classNNet_1_1NActors_1_1IOutputStream.html',1,'NNet::NActors']]],
+  ['irouter_11',['IRouter',['../structNNet_1_1IRouter.html',1,'NNet']]]
 ];

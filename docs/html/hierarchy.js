@@ -20,6 +20,9 @@ var hierarchy =
         [ "NNet::NActors::TNode< TPoller >", "classNNet_1_1NActors_1_1TNode.html", null ]
       ] ]
     ] ],
+    [ "NNet::IRouter", "structNNet_1_1IRouter.html", [
+      [ "NNet::THelloWorldRouter", "classNNet_1_1THelloWorldRouter.html", null ]
+    ] ],
     [ "Self", "classSelf.html", null ],
     [ "NNet::NActors::TActorContext", "classNNet_1_1NActors_1_1TActorContext.html", [
       [ "NNet::NActors::TMockActorContext", "classNNet_1_1NActors_1_1TMockActorContext.html", null ]
@@ -83,8 +86,10 @@ var hierarchy =
     [ "NNet::TPromiseBase< void >", "structNNet_1_1TPromiseBase.html", [
       [ "NNet::TPromise< void >", "structNNet_1_1TPromise_3_01void_01_4.html", null ]
     ] ],
+    [ "NNet::TRequest", "classNNet_1_1TRequest.html", null ],
     [ "NNet::TResolvConf", "classNNet_1_1TResolvConf.html", null ],
     [ "NNet::TResolver", "classNNet_1_1TResolver.html", null ],
+    [ "NNet::TResponse", "classNNet_1_1TResponse.html", null ],
     [ "std::true_type", null, [
       [ "NNet::NActors::has_data_members< T, typename >", "structNNet_1_1NActors_1_1has__data__members.html", null ]
     ] ],
@@ -108,8 +113,10 @@ var hierarchy =
     [ "NNet::NActors::TUnboundedVectorQueue< T >", "structNNet_1_1NActors_1_1TUnboundedVectorQueue.html", null ],
     [ "NNet::NActors::TUnboundedVectorQueue< TLocalActorId >", "structNNet_1_1NActors_1_1TUnboundedVectorQueue.html", null ],
     [ "NNet::NActors::TUnboundedVectorQueue< TNodeId >", "structNNet_1_1NActors_1_1TUnboundedVectorQueue.html", null ],
+    [ "NNet::TUri", "classNNet_1_1TUri.html", null ],
     [ "NNet::TVoidPromise", "structNNet_1_1TVoidPromise.html", null ],
     [ "NNet::TVoidSuspendedPromise", "structNNet_1_1TVoidSuspendedPromise.html", null ],
+    [ "NNet::TWebServer< TSocket >", "classNNet_1_1TWebServer.html", null ],
     [ "NNet::TWebSocket< TSocket >", "classNNet_1_1TWebSocket.html", null ],
     [ "NNet::NActors::TZeroCopyEnvelopeReader", "classNNet_1_1NActors_1_1TZeroCopyEnvelopeReader.html", null ],
     [ "NNet::NActors::TZeroCopyEnvelopeReaderV2", "classNNet_1_1NActors_1_1TZeroCopyEnvelopeReaderV2.html", null ],
