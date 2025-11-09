@@ -57,6 +57,7 @@ var annotated_dup =
       [ "TLineReader", "structNNet_1_1TLineReader.html", "structNNet_1_1TLineReader" ],
       [ "TLineSplitter", "structNNet_1_1TLineSplitter.html", "structNNet_1_1TLineSplitter" ],
       [ "TLoop", "classNNet_1_1TLoop.html", "classNNet_1_1TLoop" ],
+      [ "TPipe", "classNNet_1_1TPipe.html", null ],
       [ "TPoll", "classNNet_1_1TPoll.html", "classNNet_1_1TPoll" ],
       [ "TPollerBase", "classNNet_1_1TPollerBase.html", "classNNet_1_1TPollerBase" ],
       [ "TPollerDrivenFileHandle", "classNNet_1_1TPollerDrivenFileHandle.html", "classNNet_1_1TPollerDrivenFileHandle" ],

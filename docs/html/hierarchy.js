@@ -71,6 +71,7 @@ var hierarchy =
     [ "NNet::TLineSplitter", "structNNet_1_1TLineSplitter.html", null ],
     [ "NNet::TLoop< TPoller >", "classNNet_1_1TLoop.html", null ],
     [ "NNet::NActors::TMessagesFactory", "classNNet_1_1NActors_1_1TMessagesFactory.html", null ],
+    [ "NNet::TPipe", "classNNet_1_1TPipe.html", null ],
     [ "NNet::NActors::TPoison", "structNNet_1_1NActors_1_1TPoison.html", null ],
     [ "NNet::TPollerBase", "classNNet_1_1TPollerBase.html", [
       [ "NNet::TEPoll", "classNNet_1_1TEPoll.html", null ],
