@@ -127,13 +127,31 @@ $(document).ready(function(){initNavTree('classNNet_1_1TPipe.html',''); initResi
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8af187a5a9d7d8c2f9a76fd469c38c7d" id="r_a8af187a5a9d7d8c2f9a76fd469c38c7d"><td class="memTemplParams" colspan="2"><a id="a8af187a5a9d7d8c2f9a76fd469c38c7d" name="a8af187a5a9d7d8c2f9a76fd469c38c7d"></a>
+<tr class="memitem:a13872a7679c1ac7d875e74f0138de37a" id="r_a13872a7679c1ac7d875e74f0138de37a"><td class="memTemplParams" colspan="2"><a id="a13872a7679c1ac7d875e74f0138de37a" name="a13872a7679c1ac7d875e74f0138de37a"></a>
 template&lt;typename TPoller &gt; </td></tr>
-<tr class="memitem:a8af187a5a9d7d8c2f9a76fd469c38c7d"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>TPipe</b> (TPoller &amp;poller, const std::string &amp;exe, const std::vector&lt; std::string &gt; &amp;args)</td></tr>
-<tr class="separator:a8af187a5a9d7d8c2f9a76fd469c38c7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13872a7679c1ac7d875e74f0138de37a"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>TPipe</b> (TPoller &amp;poller, const std::string &amp;exe, const std::vector&lt; std::string &gt; &amp;args, bool stderrToStdout=false)</td></tr>
+<tr class="separator:a13872a7679c1ac7d875e74f0138de37a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbb212340f0e313166f37fbf45b7ba2e" id="r_acbb212340f0e313166f37fbf45b7ba2e"><td class="memItemLeft" align="right" valign="top"><a id="acbb212340f0e313166f37fbf45b7ba2e" name="acbb212340f0e313166f37fbf45b7ba2e"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>Pid</b> () const</td></tr>
+<tr class="separator:acbb212340f0e313166f37fbf45b7ba2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12ebaaf5e8688ecfc3ea0e9f5b7a1257" id="r_a12ebaaf5e8688ecfc3ea0e9f5b7a1257"><td class="memItemLeft" align="right" valign="top"><a id="a12ebaaf5e8688ecfc3ea0e9f5b7a1257" name="a12ebaaf5e8688ecfc3ea0e9f5b7a1257"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>CloseRead</b> ()</td></tr>
+<tr class="separator:a12ebaaf5e8688ecfc3ea0e9f5b7a1257"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16d1bb59f8b301e3548bfc537aa178b0" id="r_a16d1bb59f8b301e3548bfc537aa178b0"><td class="memItemLeft" align="right" valign="top"><a id="a16d1bb59f8b301e3548bfc537aa178b0" name="a16d1bb59f8b301e3548bfc537aa178b0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>CloseWrite</b> ()</td></tr>
+<tr class="separator:a16d1bb59f8b301e3548bfc537aa178b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae82b6eb3a9f7ea5d3600a34a5d58367" id="r_aae82b6eb3a9f7ea5d3600a34a5d58367"><td class="memItemLeft" align="right" valign="top"><a id="aae82b6eb3a9f7ea5d3600a34a5d58367" name="aae82b6eb3a9f7ea5d3600a34a5d58367"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>CloseErr</b> ()</td></tr>
+<tr class="separator:aae82b6eb3a9f7ea5d3600a34a5d58367"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11cbd56fb31357f48507aebf89d016b2" id="r_a11cbd56fb31357f48507aebf89d016b2"><td class="memItemLeft" align="right" valign="top"><a id="a11cbd56fb31357f48507aebf89d016b2" name="a11cbd56fb31357f48507aebf89d016b2"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>Wait</b> ()</td></tr>
+<tr class="separator:a11cbd56fb31357f48507aebf89d016b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f69b79f29051711717058731bdfafb5" id="r_a2f69b79f29051711717058731bdfafb5"><td class="memItemLeft" align="right" valign="top"><a id="a2f69b79f29051711717058731bdfafb5" name="a2f69b79f29051711717058731bdfafb5"></a>
 <a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; ssize_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ReadSome</b> (void *buffer, size_t size)</td></tr>
 <tr class="separator:a2f69b79f29051711717058731bdfafb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a908bf55861b6e5dac8ff2a855034b66d" id="r_a908bf55861b6e5dac8ff2a855034b66d"><td class="memItemLeft" align="right" valign="top"><a id="a908bf55861b6e5dac8ff2a855034b66d" name="a908bf55861b6e5dac8ff2a855034b66d"></a>
+<a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; ssize_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ReadSomeErr</b> (void *buffer, size_t size)</td></tr>
+<tr class="separator:a908bf55861b6e5dac8ff2a855034b66d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8cb3db2355b78c52238c44886fd2eeb1" id="r_a8cb3db2355b78c52238c44886fd2eeb1"><td class="memItemLeft" align="right" valign="top"><a id="a8cb3db2355b78c52238c44886fd2eeb1" name="a8cb3db2355b78c52238c44886fd2eeb1"></a>
 <a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; ssize_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>WriteSome</b> (const void *buffer, size_t size)</td></tr>
 <tr class="separator:a8cb3db2355b78c52238c44886fd2eeb1"><td class="memSeparator" colspan="2">&#160;</td></tr>

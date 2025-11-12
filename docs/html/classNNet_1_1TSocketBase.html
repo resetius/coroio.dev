@@ -403,7 +403,7 @@ template&lt;typename <a class="el" href="classNNet_1_1TSockOps.html">TSockOps</a
 </div><div class="memdoc">
 
 <p>Asynchronously reads data from the socket into the provided buffer. </p>
-<p>When awaited, this method suspends the current coroutine until the read operation completes and then returns the number of bytes read.</p>
+<p>Semantics: returns bytes read (&gt;0), 0 on closure, and a negative value (retry hint) for transient errors (e.g. EINTR/EAGAIN/EINPROGRESS). Non-retryable errors throw std::system_error.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">buf</td><td>Pointer to the destination buffer. </td></tr>
@@ -452,7 +452,7 @@ template&lt;typename <a class="el" href="classNNet_1_1TSockOps.html">TSockOps</a
 </div><div class="memdoc">
 
 <p>Forces a read operation on the next event loop iteration. </p>
-<p>Similar to <a class="el" href="classNNet_1_1TSocketBase.html#aaf2e0b5cccc278c02ef48bcd253ff4fd">ReadSome()</a>, but this variant ensures that the read is deferred to the next iteration of the event loop.</p>
+<p>Semantics: returns bytes read (&gt;0), 0 on closure, and a negative value (retry hint) for transient errors (e.g. EINTR/EAGAIN/EINPROGRESS). Non-retryable errors throw std::system_error.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">buf</td><td>Pointer to the buffer where data will be stored. </td></tr>
@@ -501,7 +501,7 @@ template&lt;typename <a class="el" href="classNNet_1_1TSockOps.html">TSockOps</a
 </div><div class="memdoc">
 
 <p>Asynchronously writes data from the provided buffer to the socket. </p>
-<p>This method suspends the current coroutine until the data is written, and then returns the number of bytes successfully written.</p>
+<p>Semantics: returns bytes written (&gt;0), 0 if nothing written, and a negative value (retry hint) for transient errors (e.g. EINTR/EAGAIN/EINPROGRESS). Non-retryable errors throw std::system_error.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">buf</td><td>Pointer to the data to be written. </td></tr>
