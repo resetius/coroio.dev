@@ -42,6 +42,13 @@ Explore [COROIO](https://github.com/resetius/coroio) today and enhance your asyn
 
 For source code and implementation details, visit our [GitHub repository](https://github.com/resetius/coroio).
 
+## Projects Using COROIO
+
+Several open-source projects leverage COROIO for asynchronous I/O and actor-based concurrency:
+
+- [miniraft-cpp](https://github.com/resetius/miniraft-cpp) — minimalist Raft implementation in C++
+- [Qumir (online Kumir compiler)](https://qumir.dev) ([GitHub](https://github.com/resetius/qumir), [Website](https://qumir.dev))
+
 ## Dependencies (minimal by design)
 
 The library is intentionally simple and has minimal dependencies:
