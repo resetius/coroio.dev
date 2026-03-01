@@ -38,5 +38,5 @@ echo-server throughput on epoll / kqueue / IOCP / select across Linux, macOS, an
 ## Real-World Usage
 
 - **[miniraft-cpp](https://github.com/resetius/miniraft-cpp)** — Raft consensus algorithm built on COROIO actors
-- **[Distributed SQL](https://www.linkedin.com/posts/alexey-ozeritskiy_its-been-a-while-since-i-last-wrote-about-activity-7278402000516485120-Ibp0)** — distributed SQL database using COROIO for consensus and replication
+- **[Distributed SQL](https://www.linkedin.com/posts/alexey-ozeritskiy_its-been-a-while-since-i-last-wrote-about-activity-7278402000516485120-Ibp0)** — distributed SQL database using COROIO for networking and [miniraft-cpp](https://github.com/resetius/miniraft-cpp) for consensus
 - **[Qumir](https://qumir.dev)** — online compiler for the Kumir language; COROIO as the web server
