@@ -14,7 +14,7 @@ var searchData=
   ['receivetext_11',['ReceiveText',['../classNNet_1_1TWebSocket.html#af34220618cf99f70debf1301dd502acb',1,'NNet::TWebSocket']]],
   ['recipient_12',['recipient',['../classNNet_1_1NActors_1_1TEnvelope.html#a33a9c8c8dc6de99250974746c1fd8eb0',1,'NNet::NActors::TEnvelope::Recipient'],['../structNNet_1_1NActors_1_1THeader.html#a241e7656b295ba718c53eb9ab229104a',1,'NNet::NActors::THeader::Recipient']]],
   ['recv_13',['recv',['../classNNet_1_1TIOCp.html#a26910dfc36a53c209345d6373b0f2302',1,'NNet::TIOCp::Recv()'],['../classNNet_1_1TUring.html#a562cb0b278f30b8152b340e41d0b23f9',1,'NNet::TUring::Recv()']]],
-  ['register_14',['register',['../classNNet_1_1TIOCp.html#a223a9360c9f033de01d8f6adb62b2cd6',1,'NNet::TIOCp::Register()'],['../classNNet_1_1TUring.html#aeba2494bf12d88b94776c3acdff56d14',1,'NNet::TUring::Register()']]],
+  ['register_14',['register',['../classNNet_1_1NActors_1_1TActorSystem.html#ac0e7d87d1c3097fd8d0214196f875525',1,'NNet::NActors::TActorSystem::Register()'],['../classNNet_1_1TIOCp.html#a223a9360c9f033de01d8f6adb62b2cd6',1,'NNet::TIOCp::Register()'],['../classNNet_1_1TUring.html#aeba2494bf12d88b94776c3acdff56d14',1,'NNet::TUring::Register()']]],
   ['remoteaddr_15',['RemoteAddr',['../classNNet_1_1TSocket.html#a2c7be109be0d7d96bb42c918d26883cd',1,'NNet::TSocket']]],
   ['removeevent_16',['removeevent',['../classNNet_1_1TPollerBase.html#aa07a131f7224e0c939e2df9b83982146',1,'NNet::TPollerBase::RemoveEvent(int fd)'],['../classNNet_1_1TPollerBase.html#ab78789b92e7aa174e72c3d569deec1e7',1,'NNet::TPollerBase::RemoveEvent(THandle)']]],
   ['removetimer_17',['RemoveTimer',['../classNNet_1_1TPollerBase.html#a9bbf27b42f97eded40eb715f56340025',1,'NNet::TPollerBase']]],
