@@ -13,7 +13,7 @@ var annotated_dup =
         [ "TActorContext", "classNNet_1_1NActors_1_1TActorContext.html", "classNNet_1_1NActors_1_1TActorContext" ],
         [ "TActorId", "classNNet_1_1NActors_1_1TActorId.html", "classNNet_1_1NActors_1_1TActorId" ],
         [ "TActorInternalState", "structNNet_1_1NActors_1_1TActorInternalState.html", "structNNet_1_1NActors_1_1TActorInternalState" ],
-        [ "TActorSystem", "classNNet_1_1NActors_1_1TActorSystem.html", null ],
+        [ "TActorSystem", "classNNet_1_1NActors_1_1TActorSystem.html", "classNNet_1_1NActors_1_1TActorSystem" ],
         [ "TAsk", "classNNet_1_1NActors_1_1TAsk.html", "classNNet_1_1NActors_1_1TAsk" ],
         [ "TAskState", "classNNet_1_1NActors_1_1TAskState.html", null ],
         [ "TBehavior", "classNNet_1_1NActors_1_1TBehavior.html", "classNNet_1_1NActors_1_1TBehavior" ],

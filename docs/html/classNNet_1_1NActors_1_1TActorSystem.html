@@ -125,58 +125,68 @@ $(document).ready(function(){initNavTree('classNNet_1_1NActors_1_1TActorSystem.h
   <div class="headertitle"><div class="title">NNet::NActors::TActorSystem Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Single-threaded actor runtime.  
+ <a href="classNNet_1_1NActors_1_1TActorSystem.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="actorsystem_8hpp_source.html">actorsystem.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:acad5e4e34cfd4f05fe94f1a50a7778c8" id="r_acad5e4e34cfd4f05fe94f1a50a7778c8"><td class="memItemLeft" align="right" valign="top"><a id="acad5e4e34cfd4f05fe94f1a50a7778c8" name="acad5e4e34cfd4f05fe94f1a50a7778c8"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TActorSystem</b> (<a class="el" href="classNNet_1_1TPollerBase.html">TPollerBase</a> *poller, int nodeId=1)</td></tr>
+<tr class="memitem:acad5e4e34cfd4f05fe94f1a50a7778c8" id="r_acad5e4e34cfd4f05fe94f1a50a7778c8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1TActorSystem.html#acad5e4e34cfd4f05fe94f1a50a7778c8">TActorSystem</a> (<a class="el" href="classNNet_1_1TPollerBase.html">TPollerBase</a> *poller, int nodeId=1)</td></tr>
+<tr class="memdesc:acad5e4e34cfd4f05fe94f1a50a7778c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the actor system.  <br /></td></tr>
 <tr class="separator:acad5e4e34cfd4f05fe94f1a50a7778c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0e7d87d1c3097fd8d0214196f875525" id="r_ac0e7d87d1c3097fd8d0214196f875525"><td class="memItemLeft" align="right" valign="top"><a id="ac0e7d87d1c3097fd8d0214196f875525" name="ac0e7d87d1c3097fd8d0214196f875525"></a>
-<a class="el" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Register</b> (IActor::TPtr actor)</td></tr>
+<tr class="memitem:ac0e7d87d1c3097fd8d0214196f875525" id="r_ac0e7d87d1c3097fd8d0214196f875525"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1TActorSystem.html#ac0e7d87d1c3097fd8d0214196f875525">Register</a> (IActor::TPtr actor)</td></tr>
+<tr class="memdesc:ac0e7d87d1c3097fd8d0214196f875525"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers an actor and returns its system-wide ID.  <br /></td></tr>
 <tr class="separator:ac0e7d87d1c3097fd8d0214196f875525"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf493af41897813da3afb95996403f8a" id="r_aaf493af41897813da3afb95996403f8a"><td class="memItemLeft" align="right" valign="top"><a id="aaf493af41897813da3afb95996403f8a" name="aaf493af41897813da3afb95996403f8a"></a>
 auto&#160;</td><td class="memItemRight" valign="bottom"><b>Sleep</b> (TTime until)</td></tr>
+<tr class="memdesc:aaf493af41897813da3afb95996403f8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Suspends the current coroutine until <code>until</code>. Delegates to the poller. <br /></td></tr>
 <tr class="separator:aaf493af41897813da3afb95996403f8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3afbc98b94ed4a2458d8e95c0c0ef814" id="r_a3afbc98b94ed4a2458d8e95c0c0ef814"><td class="memTemplParams" colspan="2"><a id="a3afbc98b94ed4a2458d8e95c0c0ef814" name="a3afbc98b94ed4a2458d8e95c0c0ef814"></a>
 template&lt;typename Rep , typename Period &gt; </td></tr>
 <tr class="memitem:a3afbc98b94ed4a2458d8e95c0c0ef814"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Sleep</b> (std::chrono::duration&lt; Rep, Period &gt; duration)</td></tr>
+<tr class="memdesc:a3afbc98b94ed4a2458d8e95c0c0ef814"><td class="mdescLeft">&#160;</td><td class="mdescRight">Suspends the current coroutine for <code>duration</code>. Delegates to the poller. <br /></td></tr>
 <tr class="separator:a3afbc98b94ed4a2458d8e95c0c0ef814"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96aafb4f53db873100b574ae5d66c631" id="r_a96aafb4f53db873100b574ae5d66c631"><td class="memItemLeft" align="right" valign="top"><a id="a96aafb4f53db873100b574ae5d66c631" name="a96aafb4f53db873100b574ae5d66c631"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>Send</b> (<a class="el" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a> sender, <a class="el" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a> recipient, TMessageId messageId, <a class="el" href="structNNet_1_1NActors_1_1TBlob.html">TBlob</a> blob)</td></tr>
+<tr class="memdesc:a96aafb4f53db873100b574ae5d66c631"><td class="mdescLeft">&#160;</td><td class="mdescRight">Low-level send with a pre-serialized blob. Prefer the typed <code>Send&lt;T&gt;</code> overload. <br /></td></tr>
 <tr class="separator:a96aafb4f53db873100b574ae5d66c631"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48fe1f6bf0285cc6a8a7965ece7dc583" id="r_a48fe1f6bf0285cc6a8a7965ece7dc583"><td class="memTemplParams" colspan="2"><a id="a48fe1f6bf0285cc6a8a7965ece7dc583" name="a48fe1f6bf0285cc6a8a7965ece7dc583"></a>
-template&lt;typename T , typename... Args&gt; </td></tr>
-<tr class="memitem:a48fe1f6bf0285cc6a8a7965ece7dc583"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Send</b> (<a class="el" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a> sender, <a class="el" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a> recipient, Args &amp;&amp;... args)</td></tr>
+<tr class="memitem:a48fe1f6bf0285cc6a8a7965ece7dc583" id="r_a48fe1f6bf0285cc6a8a7965ece7dc583"><td class="memTemplParams" colspan="2">template&lt;typename T , typename... Args&gt; </td></tr>
+<tr class="memitem:a48fe1f6bf0285cc6a8a7965ece7dc583"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1TActorSystem.html#a48fe1f6bf0285cc6a8a7965ece7dc583">Send</a> (<a class="el" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a> sender, <a class="el" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a> recipient, Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a48fe1f6bf0285cc6a8a7965ece7dc583"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a typed message from <code>sender</code> to <code>recipient</code> (non-blocking).  <br /></td></tr>
 <tr class="separator:a48fe1f6bf0285cc6a8a7965ece7dc583"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d92b1d0bdcf296f479b07344e3ce2cf" id="r_a4d92b1d0bdcf296f479b07344e3ce2cf"><td class="memItemLeft" align="right" valign="top"><a id="a4d92b1d0bdcf296f479b07344e3ce2cf" name="a4d92b1d0bdcf296f479b07344e3ce2cf"></a>
 TEvent&#160;</td><td class="memItemRight" valign="bottom"><b>Schedule</b> (TTime when, <a class="el" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a> sender, <a class="el" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a> recipient, TMessageId messageId, <a class="el" href="structNNet_1_1NActors_1_1TBlob.html">TBlob</a> blob)</td></tr>
+<tr class="memdesc:a4d92b1d0bdcf296f479b07344e3ce2cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Low-level schedule with a pre-serialized blob. Prefer the typed <code>Schedule&lt;T&gt;</code> overload. <br /></td></tr>
 <tr class="separator:a4d92b1d0bdcf296f479b07344e3ce2cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7fa3b4e0150def7d82b4429ba3a15876" id="r_a7fa3b4e0150def7d82b4429ba3a15876"><td class="memTemplParams" colspan="2"><a id="a7fa3b4e0150def7d82b4429ba3a15876" name="a7fa3b4e0150def7d82b4429ba3a15876"></a>
-template&lt;typename T , typename... Args&gt; </td></tr>
-<tr class="memitem:a7fa3b4e0150def7d82b4429ba3a15876"><td class="memTemplItemLeft" align="right" valign="top">TEvent&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Schedule</b> (TTime when, <a class="el" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a> sender, <a class="el" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a> recipient, Args &amp;&amp;... args)</td></tr>
+<tr class="memitem:a7fa3b4e0150def7d82b4429ba3a15876" id="r_a7fa3b4e0150def7d82b4429ba3a15876"><td class="memTemplParams" colspan="2">template&lt;typename T , typename... Args&gt; </td></tr>
+<tr class="memitem:a7fa3b4e0150def7d82b4429ba3a15876"><td class="memTemplItemLeft" align="right" valign="top">TEvent&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1TActorSystem.html#a7fa3b4e0150def7d82b4429ba3a15876">Schedule</a> (TTime when, <a class="el" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a> sender, <a class="el" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a> recipient, Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a7fa3b4e0150def7d82b4429ba3a15876"><td class="mdescLeft">&#160;</td><td class="mdescRight">Schedules a typed message to be delivered at <code>when</code>.  <br /></td></tr>
 <tr class="separator:a7fa3b4e0150def7d82b4429ba3a15876"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f6664231f15063658fc2592d5ce0c49" id="r_a7f6664231f15063658fc2592d5ce0c49"><td class="memItemLeft" align="right" valign="top"><a id="a7f6664231f15063658fc2592d5ce0c49" name="a7f6664231f15063658fc2592d5ce0c49"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Cancel</b> (TEvent event)</td></tr>
+<tr class="memitem:a7f6664231f15063658fc2592d5ce0c49" id="r_a7f6664231f15063658fc2592d5ce0c49"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1TActorSystem.html#a7f6664231f15063658fc2592d5ce0c49">Cancel</a> (TEvent event)</td></tr>
+<tr class="memdesc:a7f6664231f15063658fc2592d5ce0c49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cancels a previously scheduled message.  <br /></td></tr>
 <tr class="separator:a7f6664231f15063658fc2592d5ce0c49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ce669df5ce011bc0a0410feb64eafc4" id="r_a1ce669df5ce011bc0a0410feb64eafc4"><td class="memTemplParams" colspan="2"><a id="a1ce669df5ce011bc0a0410feb64eafc4" name="a1ce669df5ce011bc0a0410feb64eafc4"></a>
-template&lt;typename T , typename TQuestion &gt; </td></tr>
-<tr class="memitem:a1ce669df5ce011bc0a0410feb64eafc4"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Ask</b> (<a class="el" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a> recepient, TQuestion &amp;&amp;message)</td></tr>
+<tr class="memitem:a1ce669df5ce011bc0a0410feb64eafc4" id="r_a1ce669df5ce011bc0a0410feb64eafc4"><td class="memTemplParams" colspan="2">template&lt;typename T , typename TQuestion &gt; </td></tr>
+<tr class="memitem:a1ce669df5ce011bc0a0410feb64eafc4"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1TActorSystem.html#a1ce669df5ce011bc0a0410feb64eafc4">Ask</a> (<a class="el" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a> recepient, TQuestion &amp;&amp;message)</td></tr>
+<tr class="memdesc:a1ce669df5ce011bc0a0410feb64eafc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a request and returns an awaitable for the reply of type <code>T</code>.  <br /></td></tr>
 <tr class="separator:a1ce669df5ce011bc0a0410feb64eafc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a831b4b74319755986cd10895f066a0b1" id="r_a831b4b74319755986cd10895f066a0b1"><td class="memItemLeft" align="right" valign="top"><a id="a831b4b74319755986cd10895f066a0b1" name="a831b4b74319755986cd10895f066a0b1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>YieldNotify</b> ()</td></tr>
+<tr class="memitem:a831b4b74319755986cd10895f066a0b1" id="r_a831b4b74319755986cd10895f066a0b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1TActorSystem.html#a831b4b74319755986cd10895f066a0b1">YieldNotify</a> ()</td></tr>
+<tr class="memdesc:a831b4b74319755986cd10895f066a0b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wakes up the internal scheduler to process newly ready nodes.  <br /></td></tr>
 <tr class="separator:a831b4b74319755986cd10895f066a0b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28d99e0af0266c1daee5ce3b520ed4a4" id="r_a28d99e0af0266c1daee5ce3b520ed4a4"><td class="memItemLeft" align="right" valign="top"><a id="a28d99e0af0266c1daee5ce3b520ed4a4" name="a28d99e0af0266c1daee5ce3b520ed4a4"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><b>ActorsSize</b> () const</td></tr>
+<tr class="memdesc:a28d99e0af0266c1daee5ce3b520ed4a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of currently registered (alive) actors. <br /></td></tr>
 <tr class="separator:a28d99e0af0266c1daee5ce3b520ed4a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afcf8f83d084552f44e4c05c6858fd656" id="r_afcf8f83d084552f44e4c05c6858fd656"><td class="memItemLeft" align="right" valign="top"><a id="afcf8f83d084552f44e4c05c6858fd656" name="afcf8f83d084552f44e4c05c6858fd656"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>AddNode</b> (int id, std::unique_ptr&lt; <a class="el" href="classNNet_1_1NActors_1_1INode.html">INode</a> &gt; node)</td></tr>
+<tr class="memitem:afcf8f83d084552f44e4c05c6858fd656" id="r_afcf8f83d084552f44e4c05c6858fd656"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1TActorSystem.html#afcf8f83d084552f44e4c05c6858fd656">AddNode</a> (int id, std::unique_ptr&lt; <a class="el" href="classNNet_1_1NActors_1_1INode.html">INode</a> &gt; node)</td></tr>
+<tr class="memdesc:afcf8f83d084552f44e4c05c6858fd656"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a remote node for distributed message routing.  <br /></td></tr>
 <tr class="separator:afcf8f83d084552f44e4c05c6858fd656"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a60689c07ce660996490c218c90115b" id="r_a6a60689c07ce660996490c218c90115b"><td class="memItemLeft" align="right" valign="top"><a id="a6a60689c07ce660996490c218c90115b" name="a6a60689c07ce660996490c218c90115b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Serve</b> ()</td></tr>
+<tr class="memitem:a6a60689c07ce660996490c218c90115b" id="r_a6a60689c07ce660996490c218c90115b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1TActorSystem.html#a6a60689c07ce660996490c218c90115b">Serve</a> ()</td></tr>
+<tr class="memdesc:a6a60689c07ce660996490c218c90115b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the actor system event loop for local actors only.  <br /></td></tr>
 <tr class="separator:a6a60689c07ce660996490c218c90115b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3453ab9d518d60f33fd871977b4637cd" id="r_a3453ab9d518d60f33fd871977b4637cd"><td class="memTemplParams" colspan="2"><a id="a3453ab9d518d60f33fd871977b4637cd" name="a3453ab9d518d60f33fd871977b4637cd"></a>
-template&lt;typename <a class="el" href="classNNet_1_1TSocket.html">TSocket</a> , typename <a class="el" href="classNNet_1_1NActors_1_1TEnvelopeReader.html">TEnvelopeReader</a>  = TZeroCopyEnvelopeReader&gt; </td></tr>
-<tr class="memitem:a3453ab9d518d60f33fd871977b4637cd"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Serve</b> (<a class="el" href="classNNet_1_1TSocket.html">TSocket</a> socket)</td></tr>
+<tr class="memitem:a3453ab9d518d60f33fd871977b4637cd" id="r_a3453ab9d518d60f33fd871977b4637cd"><td class="memTemplParams" colspan="2">template&lt;typename <a class="el" href="classNNet_1_1TSocket.html">TSocket</a> , typename <a class="el" href="classNNet_1_1NActors_1_1TEnvelopeReader.html">TEnvelopeReader</a>  = TZeroCopyEnvelopeReader&gt; </td></tr>
+<tr class="memitem:a3453ab9d518d60f33fd871977b4637cd"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1TActorSystem.html#a3453ab9d518d60f33fd871977b4637cd">Serve</a> (<a class="el" href="classNNet_1_1TSocket.html">TSocket</a> socket)</td></tr>
+<tr class="memdesc:a3453ab9d518d60f33fd871977b4637cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the actor system with inbound and outbound network serving.  <br /></td></tr>
 <tr class="separator:a3453ab9d518d60f33fd871977b4637cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
@@ -185,6 +195,424 @@ Friends</h2></td></tr>
 class&#160;</td><td class="memItemRight" valign="bottom"><b>TActorContext</b></td></tr>
 <tr class="separator:a406f48612e8660d6b77e46bdddac43f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Single-threaded actor runtime. </p>
+<p>Manages actor registration, message delivery, timers, and (optionally) distributed communication over TCP. All actors run on the single thread that drives the poller — no locking is required inside handlers.</p>
+<p><b>Local-only setup:</b> </p><div class="fragment"><div class="line"><a class="code hl_class" href="classNNet_1_1TLoop.html">TLoop&lt;TDefaultPoller&gt;</a> loop;</div>
+<div class="line"><a class="code hl_class" href="classNNet_1_1NActors_1_1TActorSystem.html">TActorSystem</a> sys(&amp;loop.<a class="code hl_function" href="classNNet_1_1TLoop.html#a70077ce7da8cc7d14c5b44a8e50a9a0c">Poller</a>(), 1);</div>
+<div class="line"><span class="keyword">auto</span> <span class="keywordtype">id</span> = sys.Register(std::make_unique&lt;MyActor&gt;());</div>
+<div class="line">sys.Send&lt;StartMsg&gt;(id, id);</div>
+<div class="line">sys.Serve();</div>
+<div class="line">loop.<a class="code hl_function" href="classNNet_1_1TLoop.html#af3ab33e9a2fc311254a15935861990dc">Loop</a>();</div>
+<div class="ttc" id="aclassNNet_1_1NActors_1_1TActorSystem_html"><div class="ttname"><a href="classNNet_1_1NActors_1_1TActorSystem.html">NNet::NActors::TActorSystem</a></div><div class="ttdoc">Single-threaded actor runtime.</div><div class="ttdef"><b>Definition</b> actorsystem.hpp:99</div></div>
+<div class="ttc" id="aclassNNet_1_1TLoop_html"><div class="ttname"><a href="classNNet_1_1TLoop.html">NNet::TLoop</a></div><div class="ttdoc">Event loop that drives a poller backend.</div><div class="ttdef"><b>Definition</b> loop.hpp:30</div></div>
+<div class="ttc" id="aclassNNet_1_1TLoop_html_a70077ce7da8cc7d14c5b44a8e50a9a0c"><div class="ttname"><a href="classNNet_1_1TLoop.html#a70077ce7da8cc7d14c5b44a8e50a9a0c">NNet::TLoop::Poller</a></div><div class="ttdeci">TPoller &amp; Poller()</div><div class="ttdoc">Provides access to the underlying poller instance.</div><div class="ttdef"><b>Definition</b> loop.hpp:57</div></div>
+<div class="ttc" id="aclassNNet_1_1TLoop_html_af3ab33e9a2fc311254a15935861990dc"><div class="ttname"><a href="classNNet_1_1TLoop.html#af3ab33e9a2fc311254a15935861990dc">NNet::TLoop::Loop</a></div><div class="ttdeci">void Loop()</div><div class="ttdoc">Runs the main loop until Stop() is called.</div><div class="ttdef"><b>Definition</b> loop.hpp:35</div></div>
+</div><!-- fragment --><p><b>Distributed setup</b> — call <code>AddNode</code> for each peer, then <code>Serve(socket)</code>: </p><div class="fragment"><div class="line"><a class="code hl_class" href="classNNet_1_1NActors_1_1TActorSystem.html">TActorSystem</a> sys(&amp;loop.<a class="code hl_function" href="classNNet_1_1TLoop.html#a70077ce7da8cc7d14c5b44a8e50a9a0c">Poller</a>(), 1);</div>
+<div class="line">sys.AddNode(2, std::make_unique&lt;<a class="code hl_class" href="classNNet_1_1NActors_1_1TNode.html">TNode&lt;TDefaultPoller&gt;</a>&gt;(loop.<a class="code hl_function" href="classNNet_1_1TLoop.html#a70077ce7da8cc7d14c5b44a8e50a9a0c">Poller</a>(), <a class="code hl_class" href="classNNet_1_1TAddress.html">TAddress</a>{<span class="stringliteral">&quot;::&quot;</span>, 9002}));</div>
+<div class="line">sys.Serve(std::move(listeningSocket));  <span class="comment">// inbound + outbound coroutines</span></div>
+<div class="line">loop.<a class="code hl_function" href="classNNet_1_1TLoop.html#af3ab33e9a2fc311254a15935861990dc">Loop</a>();</div>
+<div class="ttc" id="aclassNNet_1_1NActors_1_1TNode_html"><div class="ttname"><a href="classNNet_1_1NActors_1_1TNode.html">NNet::NActors::TNode</a></div><div class="ttdef"><b>Definition</b> node.hpp:32</div></div>
+<div class="ttc" id="aclassNNet_1_1TAddress_html"><div class="ttname"><a href="classNNet_1_1TAddress.html">NNet::TAddress</a></div><div class="ttdoc">A class representing an IPv4 or IPv6 address (with port).</div><div class="ttdef"><b>Definition</b> address.hpp:38</div></div>
+</div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="acad5e4e34cfd4f05fe94f1a50a7778c8" name="acad5e4e34cfd4f05fe94f1a50a7778c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acad5e4e34cfd4f05fe94f1a50a7778c8">&#9670;&#160;</a></span>TActorSystem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">NNet::NActors::TActorSystem::TActorSystem </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNNet_1_1TPollerBase.html">TPollerBase</a> *&#160;</td>
+          <td class="paramname"><em>poller</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nodeId</em> = <code>1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs the actor system. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">poller</td><td>Poller used for timers and I/O. Must outlive this object. </td></tr>
+    <tr><td class="paramname">nodeId</td><td>This node's identifier (default 1). Must be unique across all processes in a distributed cluster. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="afcf8f83d084552f44e4c05c6858fd656" name="afcf8f83d084552f44e4c05c6858fd656"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcf8f83d084552f44e4c05c6858fd656">&#9670;&#160;</a></span>AddNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NNet::NActors::TActorSystem::AddNode </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classNNet_1_1NActors_1_1INode.html">INode</a> &gt;&#160;</td>
+          <td class="paramname"><em>node</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Registers a remote node for distributed message routing. </p>
+<p>Messages sent to an actor whose <code>NodeId()</code> equals <code>id</code> are serialized and forwarded via this node's outbound buffer. Must be called before <code><a class="el" href="classNNet_1_1NActors_1_1TActorSystem.html#a3453ab9d518d60f33fd871977b4637cd" title="Starts the actor system with inbound and outbound network serving.">Serve(TSocket)</a></code>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Node identifier matching the remote process's <code>nodeId</code>. </td></tr>
+    <tr><td class="paramname">node</td><td>Transport handle (e.g. <code><a class="el" href="classNNet_1_1NActors_1_1TNode.html">TNode</a>&lt;TDefaultPoller&gt;</code>). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1ce669df5ce011bc0a0410feb64eafc4" name="a1ce669df5ce011bc0a0410feb64eafc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ce669df5ce011bc0a0410feb64eafc4">&#9670;&#160;</a></span>Ask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename TQuestion &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto NNet::NActors::TActorSystem::Ask </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a>&#160;</td>
+          <td class="paramname"><em>recepient</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TQuestion &amp;&amp;&#160;</td>
+          <td class="paramname"><em>message</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends a request and returns an awaitable for the reply of type <code>T</code>. </p>
+<p>Registers a temporary one-shot actor that captures the reply and self-destructs via <code><a class="el" href="structNNet_1_1NActors_1_1TPoison.html" title="System message that terminates the receiving actor.">TPoison</a></code>. Must be <code>co_await</code>-ed inside <code><a class="el" href="classNNet_1_1NActors_1_1ICoroActor.html#af05a33d9500bef58393b020bb711b62f" title="Asynchronous message handler (override in subclass)">ICoroActor::CoReceive</a></code> or an async <code><a class="el" href="classNNet_1_1NActors_1_1TBehavior.html#a82e7df59dc426a4e923f21b9b42833e8" title="Process incoming message with automatic type dispatch.">TBehavior::Receive</a></code>.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Expected reply message type. </td></tr>
+    <tr><td class="paramname">TQuestion</td><td>Request message type. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">recepient</td><td>Actor to send the question to. </td></tr>
+    <tr><td class="paramname">message</td><td>Request message forwarded to <code>Send</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Awaitable that resolves to <code>T</code> when the reply arrives.</dd></dl>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> reply = <span class="keyword">co_await</span> sys.Ask&lt;Pong&gt;(pingActor, Ping{});</div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="a7f6664231f15063658fc2592d5ce0c49" name="a7f6664231f15063658fc2592d5ce0c49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f6664231f15063658fc2592d5ce0c49">&#9670;&#160;</a></span>Cancel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NNet::NActors::TActorSystem::Cancel </td>
+          <td>(</td>
+          <td class="paramtype">TEvent&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cancels a previously scheduled message. </p>
+<p>Safe to call even if the message has already been delivered. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td>Handle returned by <code><a class="el" href="classNNet_1_1NActors_1_1TActorSystem.html#a4d92b1d0bdcf296f479b07344e3ce2cf" title="Low-level schedule with a pre-serialized blob. Prefer the typed Schedule&lt;T&gt; overload.">Schedule()</a></code>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac0e7d87d1c3097fd8d0214196f875525" name="ac0e7d87d1c3097fd8d0214196f875525"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0e7d87d1c3097fd8d0214196f875525">&#9670;&#160;</a></span>Register()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a> NNet::NActors::TActorSystem::Register </td>
+          <td>(</td>
+          <td class="paramtype">IActor::TPtr&#160;</td>
+          <td class="paramname"><em>actor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Registers an actor and returns its system-wide ID. </p>
+<p>Takes ownership of the actor. The returned <code><a class="el" href="classNNet_1_1NActors_1_1TActorId.html" title="Globally unique identifier for actors across a distributed system.">TActorId</a></code> is valid until <code><a class="el" href="structNNet_1_1NActors_1_1TPoison.html" title="System message that terminates the receiving actor.">TPoison</a></code> is delivered or the system is destroyed. Slots are reused with a bumped cookie to prevent stale delivery.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">actor</td><td>Unique pointer to the actor (ownership transferred). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Globally unique ID for this actor. </dd></dl>
+
+</div>
+</div>
+<a id="a7fa3b4e0150def7d82b4429ba3a15876" name="a7fa3b4e0150def7d82b4429ba3a15876"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fa3b4e0150def7d82b4429ba3a15876">&#9670;&#160;</a></span>Schedule()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEvent NNet::NActors::TActorSystem::Schedule </td>
+          <td>(</td>
+          <td class="paramtype">TTime&#160;</td>
+          <td class="paramname"><em>when</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a>&#160;</td>
+          <td class="paramname"><em>sender</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a>&#160;</td>
+          <td class="paramname"><em>recipient</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Schedules a typed message to be delivered at <code>when</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">when</td><td>Absolute time point for delivery. </td></tr>
+    <tr><td class="paramname">sender</td><td>Actor ID for the scheduled message. </td></tr>
+    <tr><td class="paramname">recipient</td><td>Destination actor ID. </td></tr>
+    <tr><td class="paramname">args</td><td>Constructor arguments forwarded to <code>T</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Event handle — pass to <code><a class="el" href="classNNet_1_1NActors_1_1TActorSystem.html#a7f6664231f15063658fc2592d5ce0c49" title="Cancels a previously scheduled message.">Cancel()</a></code> to abort before delivery. </dd></dl>
+
+</div>
+</div>
+<a id="a48fe1f6bf0285cc6a8a7965ece7dc583" name="a48fe1f6bf0285cc6a8a7965ece7dc583"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48fe1f6bf0285cc6a8a7965ece7dc583">&#9670;&#160;</a></span>Send()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename... Args&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NNet::NActors::TActorSystem::Send </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a>&#160;</td>
+          <td class="paramname"><em>sender</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a>&#160;</td>
+          <td class="paramname"><em>recipient</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args &amp;&amp;...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends a typed message from <code>sender</code> to <code>recipient</code> (non-blocking). </p>
+<p>Routes automatically: local actors receive via their mailbox; remote actors (different <code>NodeId</code>) are serialized and queued to the outbound node buffer. Delivery happens on the next event-loop iteration.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Message type; must have <code>static TMessageId MessageId</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sender</td><td>Actor ID that appears as <code>ctx-&gt;Sender()</code> in the handler. </td></tr>
+    <tr><td class="paramname">recipient</td><td>Destination actor ID. </td></tr>
+    <tr><td class="paramname">args</td><td>Constructor arguments forwarded to <code>T</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6a60689c07ce660996490c218c90115b" name="a6a60689c07ce660996490c218c90115b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a60689c07ce660996490c218c90115b">&#9670;&#160;</a></span>Serve() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NNet::NActors::TActorSystem::Serve </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Starts the actor system event loop for local actors only. </p>
+<p>Schedules background coroutines that call <code>ExecuteSync</code> and <code>GcIterationSync</code> on every poller tick. Use when there are no remote nodes. For distributed setups use <code><a class="el" href="classNNet_1_1NActors_1_1TActorSystem.html#a3453ab9d518d60f33fd871977b4637cd" title="Starts the actor system with inbound and outbound network serving.">Serve(TSocket)</a></code> instead. </p>
+
+</div>
+</div>
+<a id="a3453ab9d518d60f33fd871977b4637cd" name="a3453ab9d518d60f33fd871977b4637cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3453ab9d518d60f33fd871977b4637cd">&#9670;&#160;</a></span>Serve() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="classNNet_1_1TSocket.html">TSocket</a> , typename <a class="el" href="classNNet_1_1NActors_1_1TEnvelopeReader.html">TEnvelopeReader</a>  = TZeroCopyEnvelopeReader&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NNet::NActors::TActorSystem::Serve </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNNet_1_1TSocket.html">TSocket</a>&#160;</td>
+          <td class="paramname"><em>socket</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Starts the actor system with inbound and outbound network serving. </p>
+<p>Calls <code><a class="el" href="classNNet_1_1NActors_1_1TActorSystem.html#a6a60689c07ce660996490c218c90115b" title="Starts the actor system event loop for local actors only.">Serve()</a></code> for local processing, then launches:</p><ul>
+<li>An inbound accept loop on <code>socket</code> for messages from remote nodes.</li>
+<li>One outbound coroutine per node registered via <code><a class="el" href="classNNet_1_1NActors_1_1TActorSystem.html#afcf8f83d084552f44e4c05c6858fd656" title="Registers a remote node for distributed message routing.">AddNode()</a></code> to drain outbound message buffers.</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">socket</td><td>Bound, listening socket for inbound connections. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a831b4b74319755986cd10895f066a0b1" name="a831b4b74319755986cd10895f066a0b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a831b4b74319755986cd10895f066a0b1">&#9670;&#160;</a></span>YieldNotify()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NNet::NActors::TActorSystem::YieldNotify </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wakes up the internal scheduler to process newly ready nodes. </p>
+<p>Called automatically after enqueuing a message to a remote node. Not intended for direct use in application code. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>coroio/actors/<a class="el" href="actorsystem_8hpp_source.html">actorsystem.hpp</a></li>
 <li>coroio/actors/<b>actorsystem.cpp</b></li>

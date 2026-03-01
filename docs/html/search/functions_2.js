@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['cancel_0',['cancel',['../classNNet_1_1TIOCp.html#a3734a2253d11eac9c0ea4c6d9a4ed740',1,'NNet::TIOCp::Cancel()'],['../classNNet_1_1TUring.html#a33a150c8b21a47865c55adf0727c3b9d',1,'NNet::TUring::Cancel(int fd)'],['../classNNet_1_1TUring.html#ad4586fc1400a1a35a00cb8f8031690e4',1,'NNet::TUring::Cancel(std::coroutine_handle&lt;&gt; h)'],['../classNNet_1_1NActors_1_1TActorContext.html#a9365829fc94faed9d5856f41292aefa8',1,'NNet::NActors::TActorContext::Cancel()']]],
+  ['cancel_0',['cancel',['../classNNet_1_1NActors_1_1TActorSystem.html#a7f6664231f15063658fc2592d5ce0c49',1,'NNet::NActors::TActorSystem::Cancel()'],['../classNNet_1_1TIOCp.html#a3734a2253d11eac9c0ea4c6d9a4ed740',1,'NNet::TIOCp::Cancel()'],['../classNNet_1_1TUring.html#a33a150c8b21a47865c55adf0727c3b9d',1,'NNet::TUring::Cancel(int fd)'],['../classNNet_1_1TUring.html#ad4586fc1400a1a35a00cb8f8031690e4',1,'NNet::TUring::Cancel(std::coroutine_handle&lt;&gt; h)'],['../classNNet_1_1NActors_1_1TActorContext.html#a9365829fc94faed9d5856f41292aefa8',1,'NNet::NActors::TActorContext::Cancel()']]],
   ['client_1',['Client',['../structNNet_1_1TSslContext.html#a42e3297c756fe64807214c1de8723ef6',1,'NNet::TSslContext']]],
   ['close_2',['Close',['../classNNet_1_1TSocketBase.html#ac0deb2a1fd4b9b137eb0273a455e38e5',1,'NNet::TSocketBase']]],
   ['closeerr_3',['CloseErr',['../classNNet_1_1TPipe.html#aae82b6eb3a9f7ea5d3600a34a5d58367',1,'NNet::TPipe']]],
