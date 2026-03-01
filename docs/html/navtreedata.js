@@ -34,7 +34,8 @@ var NAVTREE =
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
-        [ "Typedefs", "functions_type.html", null ]
+        [ "Typedefs", "functions_type.html", null ],
+        [ "Enumerations", "functions_enum.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -46,7 +47,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "actor_8hpp.html",
-"classNNet_1_1TSslSocket.html#af6957e17c19e87acf9944fb12e701a35"
+"classNNet_1_1TSocketBase_3_01void_01_4.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

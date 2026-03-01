@@ -124,11 +124,16 @@ $(document).ready(function(){initNavTree('structNNet_1_1NActors_1_1TBlob.html','
   <div class="headertitle"><div class="title">NNet::NActors::TBlob Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Opaque message payload with Near/Far duality.  
+ <a href="structNNet_1_1NActors_1_1TBlob.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="messages_8hpp_source.html">messages.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ac00fc5f82d12a4034d2f71b264b9a825" id="r_ac00fc5f82d12a4034d2f71b264b9a825"><td class="memItemLeft" align="right" valign="top"><a id="ac00fc5f82d12a4034d2f71b264b9a825" name="ac00fc5f82d12a4034d2f71b264b9a825"></a>enum class &#160;</td><td class="memItemRight" valign="bottom"><b>PointerType</b> { <b>Near</b>
-, <b>Far</b>
+<tr class="memitem:ac00fc5f82d12a4034d2f71b264b9a825" id="r_ac00fc5f82d12a4034d2f71b264b9a825"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNNet_1_1NActors_1_1TBlob.html#ac00fc5f82d12a4034d2f71b264b9a825">PointerType</a> { <a class="el" href="structNNet_1_1NActors_1_1TBlob.html#ac00fc5f82d12a4034d2f71b264b9a825aa535711d028372f87fdbce03cd43b25d">Near</a>
+, <a class="el" href="structNNet_1_1NActors_1_1TBlob.html#ac00fc5f82d12a4034d2f71b264b9a825acfcd41f0c1804fb7778f8f01301223f6">Far</a>
  }</td></tr>
 <tr class="separator:ac00fc5f82d12a4034d2f71b264b9a825"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9639fcacc09c020e1a0ac466207c6836" id="r_a9639fcacc09c020e1a0ac466207c6836"><td class="memItemLeft" align="right" valign="top"><a id="a9639fcacc09c020e1a0ac466207c6836" name="a9639fcacc09c020e1a0ac466207c6836"></a>
@@ -139,14 +144,53 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>TRawPtr</b> = std::u
 Public Attributes</h2></td></tr>
 <tr class="memitem:a6963ac124e4153b662ed431680ee3f42" id="r_a6963ac124e4153b662ed431680ee3f42"><td class="memItemLeft" align="right" valign="top"><a id="a6963ac124e4153b662ed431680ee3f42" name="a6963ac124e4153b662ed431680ee3f42"></a>
 TRawPtr&#160;</td><td class="memItemRight" valign="bottom"><b>Data</b> = {}</td></tr>
+<tr class="memdesc:a6963ac124e4153b662ed431680ee3f42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Owned payload (Near: object ptr; Far: byte buffer) <br /></td></tr>
 <tr class="separator:a6963ac124e4153b662ed431680ee3f42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22b4a0f29cf4044e345201e8ae961978" id="r_a22b4a0f29cf4044e345201e8ae961978"><td class="memItemLeft" align="right" valign="top"><a id="a22b4a0f29cf4044e345201e8ae961978" name="a22b4a0f29cf4044e345201e8ae961978"></a>
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>Size</b> = 0</td></tr>
+<tr class="memdesc:a22b4a0f29cf4044e345201e8ae961978"><td class="mdescLeft">&#160;</td><td class="mdescRight">Payload size in bytes (0 for empty/sentinel blobs) <br /></td></tr>
 <tr class="separator:a22b4a0f29cf4044e345201e8ae961978"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4c27fed0eb6242766ba13a719d10f76" id="r_aa4c27fed0eb6242766ba13a719d10f76"><td class="memItemLeft" align="right" valign="top"><a id="aa4c27fed0eb6242766ba13a719d10f76" name="aa4c27fed0eb6242766ba13a719d10f76"></a>
-enum NNet::NActors::TBlob::PointerType&#160;</td><td class="memItemRight" valign="bottom"><b>Type</b></td></tr>
+enum <a class="el" href="structNNet_1_1NActors_1_1TBlob.html#ac00fc5f82d12a4034d2f71b264b9a825">NNet::NActors::TBlob::PointerType</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Type</b></td></tr>
 <tr class="separator:aa4c27fed0eb6242766ba13a719d10f76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Opaque message payload with Near/Far duality. </p>
+<p>Wraps an arbitrary message value for routing through the actor system. Two modes exist depending on whether the message stays in-process or crosses a node boundary:</p>
+<ul>
+<li><b>Near</b> — a live C++ object pointer. Zero-copy for local delivery. POD types use a pool allocator; non-POD types use <code>new</code>.</li>
+<li><b>Far</b> — a flat byte buffer for network transmission. POD: the Near pointer is reused as-is (bytes are already contiguous). Non-POD: produced by <code>SerializeToStream</code> / <code>SerializeFarInplace</code>.</li>
+</ul>
+<p>Move-only; owns the payload via <code>TRawPtr</code>. </p>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="ac00fc5f82d12a4034d2f71b264b9a825" name="ac00fc5f82d12a4034d2f71b264b9a825"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac00fc5f82d12a4034d2f71b264b9a825">&#9670;&#160;</a></span>PointerType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="structNNet_1_1NActors_1_1TBlob.html#ac00fc5f82d12a4034d2f71b264b9a825">NNet::NActors::TBlob::PointerType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ac00fc5f82d12a4034d2f71b264b9a825aa535711d028372f87fdbce03cd43b25d" name="ac00fc5f82d12a4034d2f71b264b9a825aa535711d028372f87fdbce03cd43b25d"></a>Near&#160;</td><td class="fielddoc"><p>Live object pointer — valid only within the same process. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac00fc5f82d12a4034d2f71b264b9a825acfcd41f0c1804fb7778f8f01301223f6" name="ac00fc5f82d12a4034d2f71b264b9a825acfcd41f0c1804fb7778f8f01301223f6"></a>Far&#160;</td><td class="fielddoc"><p>Serialized byte buffer — safe to copy across the network. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>coroio/actors/<a class="el" href="messages_8hpp_source.html">messages.hpp</a></li>
 </ul>

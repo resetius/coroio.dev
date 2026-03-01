@@ -124,14 +124,19 @@ $(document).ready(function(){initNavTree('classNNet_1_1NActors_1_1TNode.html',''
   <div class="headertitle"><div class="title">NNet::NActors::TNode&lt; TPoller &gt; Class Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Concrete <code><a class="el" href="classNNet_1_1NActors_1_1INode.html" title="Interface for a remote node connection in the actor transport layer.">INode</a></code> implementation for a single remote actor-system endpoint.  
+ <a href="classNNet_1_1NActors_1_1TNode.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="node_8hpp_source.html">node.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for NNet::NActors::TNode&lt; TPoller &gt;:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classNNet_1_1NActors_1_1TNode.png" usemap="#NNet::NActors::TNode_3C_20TPoller_20_3E_map" alt=""/>
   <map id="NNet::NActors::TNode_3C_20TPoller_20_3E_map" name="NNet::NActors::TNode_3C_20TPoller_20_3E_map">
-<area href="classNNet_1_1NActors_1_1INode.html" alt="NNet::NActors::INode" shape="rect" coords="0,56,199,80"/>
-<area href="classNNet_1_1NActors_1_1IOutputStream.html" alt="NNet::NActors::IOutputStream" shape="rect" coords="0,0,199,24"/>
+<area href="classNNet_1_1NActors_1_1INode.html" title="Interface for a remote node connection in the actor transport layer." alt="NNet::NActors::INode" shape="rect" coords="0,56,199,80"/>
+<area href="classNNet_1_1NActors_1_1IOutputStream.html" title="Abstract write-buffer interface used by the actor transport layer." alt="NNet::NActors::IOutputStream" shape="rect" coords="0,0,199,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -143,22 +148,108 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>TSocket</b> = typena
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac87a484b145d4c00dd8f85fac622808a" id="r_ac87a484b145d4c00dd8f85fac622808a"><td class="memItemLeft" align="right" valign="top"><a id="ac87a484b145d4c00dd8f85fac622808a" name="ac87a484b145d4c00dd8f85fac622808a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TNode</b> (TPoller &amp;poller, <a class="el" href="classNNet_1_1NActors_1_1TMessagesFactory.html">TMessagesFactory</a> &amp;factory, <a class="el" href="classNNet_1_1TResolver.html">TResolver</a> &amp;resolver, const std::function&lt; TSocket(const <a class="el" href="classNNet_1_1TAddress.html">TAddress</a> &amp;)&gt; &amp;socketFactory, const <a class="el" href="classNNet_1_1THostPort.html">THostPort</a> &amp;hostPort)</td></tr>
+<tr class="memitem:ac87a484b145d4c00dd8f85fac622808a" id="r_ac87a484b145d4c00dd8f85fac622808a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1TNode.html#ac87a484b145d4c00dd8f85fac622808a">TNode</a> (TPoller &amp;poller, <a class="el" href="classNNet_1_1NActors_1_1TMessagesFactory.html">TMessagesFactory</a> &amp;factory, <a class="el" href="classNNet_1_1TResolver.html">TResolver</a> &amp;resolver, const std::function&lt; TSocket(const <a class="el" href="classNNet_1_1TAddress.html">TAddress</a> &amp;)&gt; &amp;socketFactory, const <a class="el" href="classNNet_1_1THostPort.html">THostPort</a> &amp;hostPort)</td></tr>
+<tr class="memdesc:ac87a484b145d4c00dd8f85fac622808a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classNNet_1_1NActors_1_1TNode.html" title="Concrete INode implementation for a single remote actor-system endpoint.">TNode</a> but does not connect immediately.  <br /></td></tr>
 <tr class="separator:ac87a484b145d4c00dd8f85fac622808a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f5739478e7d3070e1419f825227eff3" id="r_a8f5739478e7d3070e1419f825227eff3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1TNode.html#a8f5739478e7d3070e1419f825227eff3">Send</a> (<a class="el" href="classNNet_1_1NActors_1_1TEnvelope.html">TEnvelope</a> &amp;&amp;envelope) override</td></tr>
+<tr class="memdesc:a8f5739478e7d3070e1419f825227eff3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes <code>envelope</code> and appends it to the outbound buffer.  <br /></td></tr>
 <tr class="separator:a8f5739478e7d3070e1419f825227eff3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f005c4a76d32696c9795586670c92f3" id="r_a9f005c4a76d32696c9795586670c92f3"><td class="memItemLeft" align="right" valign="top">std::span&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1TNode.html#a9f005c4a76d32696c9795586670c92f3">Acquire</a> (size_t size) override</td></tr>
+<tr class="memdesc:a9f005c4a76d32696c9795586670c92f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reserves <code>size</code> contiguous bytes in the buffer and returns a span over them.  <br /></td></tr>
 <tr class="separator:a9f005c4a76d32696c9795586670c92f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad42b866d192ddc762becb19eca2030b" id="r_aad42b866d192ddc762becb19eca2030b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1TNode.html#aad42b866d192ddc762becb19eca2030b">Commit</a> (size_t size) override</td></tr>
+<tr class="memdesc:aad42b866d192ddc762becb19eca2030b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marks <code>size</code> previously acquired bytes as ready to send.  <br /></td></tr>
 <tr class="separator:aad42b866d192ddc762becb19eca2030b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53bb72c4da0f2cf18ac3f71efe745e2e" id="r_a53bb72c4da0f2cf18ac3f71efe745e2e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1TNode.html#a53bb72c4da0f2cf18ac3f71efe745e2e">StartConnect</a> () override</td></tr>
+<tr class="memdesc:a53bb72c4da0f2cf18ac3f71efe745e2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initiates an async TCP connection if not already connected or connecting.  <br /></td></tr>
 <tr class="separator:a53bb72c4da0f2cf18ac3f71efe745e2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace1142a9d88ddc5ec84b0bc8e1f85991" id="r_ace1142a9d88ddc5ec84b0bc8e1f85991"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1TNode.html#ace1142a9d88ddc5ec84b0bc8e1f85991">Drain</a> () override</td></tr>
+<tr class="memdesc:ace1142a9d88ddc5ec84b0bc8e1f85991"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls <code><a class="el" href="classNNet_1_1NActors_1_1TNode.html#a53bb72c4da0f2cf18ac3f71efe745e2e" title="Initiates an async TCP connection if not already connected or connecting.">StartConnect()</a></code> then asynchronously writes all buffered bytes to the socket.  <br /></td></tr>
 <tr class="separator:ace1142a9d88ddc5ec84b0bc8e1f85991"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3cba9018d29db253b422fdded12fefd4" id="r_a3cba9018d29db253b422fdded12fefd4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNNet_1_1THostPort.html">THostPort</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1TNode.html#a3cba9018d29db253b422fdded12fefd4">GetHostPort</a> () const override</td></tr>
+<tr class="memdesc:a3cba9018d29db253b422fdded12fefd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the remote host:port this node connects to.  <br /></td></tr>
 <tr class="separator:a3cba9018d29db253b422fdded12fefd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename TPoller&gt;<br />
+class NNet::NActors::TNode&lt; TPoller &gt;</div><p>Concrete <code><a class="el" href="classNNet_1_1NActors_1_1INode.html" title="Interface for a remote node connection in the actor transport layer.">INode</a></code> implementation for a single remote actor-system endpoint. </p>
+<p>Maintains a persistent TCP connection to <code>hostPort</code>, reconnecting with a 1 s back-off on failure. Outbound messages are accumulated in a vector buffer and flushed by <code><a class="el" href="classNNet_1_1NActors_1_1TNode.html#ace1142a9d88ddc5ec84b0bc8e1f85991" title="Calls StartConnect() then asynchronously writes all buffered bytes to the socket.">Drain()</a></code> once the connection is established.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">TPoller</td><td>Poller type (e.g. <code>TDefaultPoller</code>); determines the socket type. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ac87a484b145d4c00dd8f85fac622808a" name="ac87a484b145d4c00dd8f85fac622808a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac87a484b145d4c00dd8f85fac622808a">&#9670;&#160;</a></span>TNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TPoller &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNNet_1_1NActors_1_1TNode.html">NNet::NActors::TNode</a>&lt; TPoller &gt;::TNode </td>
+          <td>(</td>
+          <td class="paramtype">TPoller &amp;&#160;</td>
+          <td class="paramname"><em>poller</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classNNet_1_1NActors_1_1TMessagesFactory.html">TMessagesFactory</a> &amp;&#160;</td>
+          <td class="paramname"><em>factory</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classNNet_1_1TResolver.html">TResolver</a> &amp;&#160;</td>
+          <td class="paramname"><em>resolver</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::function&lt; TSocket(const <a class="el" href="classNNet_1_1TAddress.html">TAddress</a> &amp;)&gt; &amp;&#160;</td>
+          <td class="paramname"><em>socketFactory</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classNNet_1_1THostPort.html">THostPort</a> &amp;&#160;</td>
+          <td class="paramname"><em>hostPort</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs a <a class="el" href="classNNet_1_1NActors_1_1TNode.html" title="Concrete INode implementation for a single remote actor-system endpoint.">TNode</a> but does not connect immediately. </p>
+<p>Call <code><a class="el" href="classNNet_1_1NActors_1_1TNode.html#a53bb72c4da0f2cf18ac3f71efe745e2e" title="Initiates an async TCP connection if not already connected or connecting.">StartConnect()</a></code> or <code><a class="el" href="classNNet_1_1NActors_1_1TNode.html#ace1142a9d88ddc5ec84b0bc8e1f85991" title="Calls StartConnect() then asynchronously writes all buffered bytes to the socket.">Drain()</a></code> to initiate the connection.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">poller</td><td>Poller used for async I/O and sleep. </td></tr>
+    <tr><td class="paramname">factory</td><td>Factory for serializing messages to their Far (wire) form. </td></tr>
+    <tr><td class="paramname">resolver</td><td>DNS resolver for translating <code>hostPort.Host</code> to an IP. </td></tr>
+    <tr><td class="paramname">socketFactory</td><td>Callable that creates a connected socket given a resolved <code><a class="el" href="classNNet_1_1TAddress.html" title="A class representing an IPv4 or IPv6 address (with port).">TAddress</a></code>. </td></tr>
+    <tr><td class="paramname">hostPort</td><td>Remote host and port to connect to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a9f005c4a76d32696c9795586670c92f3" name="a9f005c4a76d32696c9795586670c92f3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9f005c4a76d32696c9795586670c92f3">&#9670;&#160;</a></span>Acquire()</h2>
@@ -186,7 +277,9 @@ template&lt;typename TPoller &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="classNNet_1_1NActors_1_1IOutputStream.html">NNet::NActors::IOutputStream</a>.</p>
+<p>Reserves <code>size</code> contiguous bytes in the buffer and returns a span over them. </p>
+
+<p>Implements <a class="el" href="classNNet_1_1NActors_1_1IOutputStream.html#a854c4a4f5da48de1ff89a4117d77b525">NNet::NActors::IOutputStream</a>.</p>
 
 </div>
 </div>
@@ -216,7 +309,9 @@ template&lt;typename TPoller &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="classNNet_1_1NActors_1_1IOutputStream.html">NNet::NActors::IOutputStream</a>.</p>
+<p>Marks <code>size</code> previously acquired bytes as ready to send. </p>
+
+<p>Implements <a class="el" href="classNNet_1_1NActors_1_1IOutputStream.html#a969a7635e7cb95f04f64a8ea4938833d">NNet::NActors::IOutputStream</a>.</p>
 
 </div>
 </div>
@@ -245,7 +340,9 @@ template&lt;typename TPoller &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="classNNet_1_1NActors_1_1INode.html">NNet::NActors::INode</a>.</p>
+<p>Calls <code><a class="el" href="classNNet_1_1NActors_1_1TNode.html#a53bb72c4da0f2cf18ac3f71efe745e2e" title="Initiates an async TCP connection if not already connected or connecting.">StartConnect()</a></code> then asynchronously writes all buffered bytes to the socket. </p>
+
+<p>Implements <a class="el" href="classNNet_1_1NActors_1_1INode.html#a05cfbd4cc0c13b2d9612da63826badae">NNet::NActors::INode</a>.</p>
 
 </div>
 </div>
@@ -274,7 +371,9 @@ template&lt;typename TPoller &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="classNNet_1_1NActors_1_1INode.html">NNet::NActors::INode</a>.</p>
+<p>Returns the remote host:port this node connects to. </p>
+
+<p>Implements <a class="el" href="classNNet_1_1NActors_1_1INode.html#abc1ae244e8afeb2d7c4daa50813cdaed">NNet::NActors::INode</a>.</p>
 
 </div>
 </div>
@@ -304,7 +403,9 @@ template&lt;typename TPoller &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="classNNet_1_1NActors_1_1INode.html">NNet::NActors::INode</a>.</p>
+<p>Serializes <code>envelope</code> and appends it to the outbound buffer. </p>
+
+<p>Implements <a class="el" href="classNNet_1_1NActors_1_1INode.html#a6310c687fc2ab8ad550ab7800dc32908">NNet::NActors::INode</a>.</p>
 
 </div>
 </div>
@@ -333,7 +434,9 @@ template&lt;typename TPoller &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="classNNet_1_1NActors_1_1INode.html">NNet::NActors::INode</a>.</p>
+<p>Initiates an async TCP connection if not already connected or connecting. </p>
+
+<p>Implements <a class="el" href="classNNet_1_1NActors_1_1INode.html#ae3c9a882b75c96f9c2120937562f1ff8">NNet::NActors::INode</a>.</p>
 
 </div>
 </div>
