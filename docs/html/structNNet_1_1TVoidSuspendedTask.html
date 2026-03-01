@@ -123,6 +123,11 @@ $(document).ready(function(){initNavTree('structNNet_1_1TVoidSuspendedTask.html'
   <div class="headertitle"><div class="title">NNet::TVoidSuspendedTask Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Like <a class="el" href="structNNet_1_1TVoidTask.html" title="Fire-and-forget coroutine handle.">TVoidTask</a> but suspends at final_suspend instead of self-destructing.  
+ <a href="structNNet_1_1TVoidSuspendedTask.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="promises_8hpp_source.html">promises.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for NNet::TVoidSuspendedTask:</div>
 <div class="dyncontent">
@@ -136,7 +141,10 @@ Public Types</h2></td></tr>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>promise_type</b> = <a class="el" href="structNNet_1_1TVoidSuspendedPromise.html">TVoidSuspendedPromise</a></td></tr>
 <tr class="separator:a6ee1f7b697c33afb045d60b3d9ca451f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Like <a class="el" href="structNNet_1_1TVoidTask.html" title="Fire-and-forget coroutine handle.">TVoidTask</a> but suspends at final_suspend instead of self-destructing. </p>
+<p>Used internally where the caller needs to manually destroy the coroutine after it completes. Not for general use — prefer <a class="el" href="structNNet_1_1TVoidTask.html" title="Fire-and-forget coroutine handle.">TVoidTask</a> or <a class="el" href="structNNet_1_1TFuture_3_01void_01_4.html" title="Owned coroutine handle for coroutines that return void.">TFuture&lt;void&gt;</a>. </p>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>coroio/<a class="el" href="promises_8hpp_source.html">promises.hpp</a></li>
 </ul>
 </div><!-- contents -->

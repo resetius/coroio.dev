@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['listen_0',['Listen',['../classNNet_1_1TSocket.html#aed8042050a98c5e5f5e452a1173d0426',1,'NNet::TSocket']]],
-  ['localaddr_1',['LocalAddr',['../classNNet_1_1TSocket.html#a8e033d81fc57c13a0a1a357bbae8bd80',1,'NNet::TSocket']]],
-  ['loop_2',['Loop',['../classNNet_1_1TLoop.html#af3ab33e9a2fc311254a15935861990dc',1,'NNet::TLoop']]]
+  ['ignore_0',['Ignore',['../structNNet_1_1TFuture.html#a8f69eafb8d44b1668d4e276572a60f3b',1,'NNet::TFuture']]],
+  ['isclosed_1',['IsClosed',['../classNNet_1_1TResponse.html#a8a2acada6017ca8f60b0a65b4c4eec68',1,'NNet::TResponse']]]
 ];

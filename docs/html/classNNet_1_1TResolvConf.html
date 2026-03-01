@@ -125,7 +125,7 @@ $(document).ready(function(){initNavTree('classNNet_1_1TResolvConf.html',''); in
 </div><!--header-->
 <div class="contents">
 
-<p>Reads and stores DNS configuration from a file or an input stream.  
+<p>Reads nameserver addresses from a resolv.conf-style file or stream.  
  <a href="classNNet_1_1TResolvConf.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="resolver_8hpp_source.html">resolver.hpp</a>&gt;</code></p>
@@ -133,10 +133,10 @@ $(document).ready(function(){initNavTree('classNNet_1_1TResolvConf.html',''); in
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad5227778517c3517d6a041e576f64316" id="r_ad5227778517c3517d6a041e576f64316"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TResolvConf.html#ad5227778517c3517d6a041e576f64316">TResolvConf</a> (const std::string &amp;fn=&quot;/etc/resolv.conf&quot;)</td></tr>
-<tr class="memdesc:ad5227778517c3517d6a041e576f64316"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classNNet_1_1TResolvConf.html" title="Reads and stores DNS configuration from a file or an input stream.">TResolvConf</a> and loads DNS configuration from a file.  <br /></td></tr>
+<tr class="memdesc:ad5227778517c3517d6a041e576f64316"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classNNet_1_1TResolvConf.html" title="Reads nameserver addresses from a resolv.conf-style file or stream.">TResolvConf</a> and loads DNS configuration from a file.  <br /></td></tr>
 <tr class="separator:ad5227778517c3517d6a041e576f64316"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a780072d84dd9401d940496cf9bef83a6" id="r_a780072d84dd9401d940496cf9bef83a6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TResolvConf.html#a780072d84dd9401d940496cf9bef83a6">TResolvConf</a> (std::istream &amp;input)</td></tr>
-<tr class="memdesc:a780072d84dd9401d940496cf9bef83a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classNNet_1_1TResolvConf.html" title="Reads and stores DNS configuration from a file or an input stream.">TResolvConf</a> from an input stream.  <br /></td></tr>
+<tr class="memdesc:a780072d84dd9401d940496cf9bef83a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classNNet_1_1TResolvConf.html" title="Reads nameserver addresses from a resolv.conf-style file or stream.">TResolvConf</a> from an input stream.  <br /></td></tr>
 <tr class="separator:a780072d84dd9401d940496cf9bef83a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
@@ -146,8 +146,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a2d4f6d8c2b74f4e31c350e4400f7da44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Reads and stores DNS configuration from a file or an input stream. </p>
-<p>This class loads a list of nameservers from a DNS configuration file (by default, <code>/etc/resolv.conf</code>) or from any other input stream. The nameservers are stored as a vector of <code><a class="el" href="classNNet_1_1TAddress.html" title="A class representing an IPv4 or IPv6 address (with port).">TAddress</a></code> objects. </p>
+<div class="textblock"><p>Reads nameserver addresses from a resolv.conf-style file or stream. </p>
+<p>Parses <code>nameserver</code> lines and stores the resulting addresses in <code>Nameservers</code>. Defaults to <code>/etc/resolv.conf</code>. Pass an <code>istream</code> overload for testing or custom configurations. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad5227778517c3517d6a041e576f64316" name="ad5227778517c3517d6a041e576f64316"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad5227778517c3517d6a041e576f64316">&#9670;&#160;</a></span>TResolvConf() <span class="overload">[1/2]</span></h2>
@@ -165,7 +165,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructs a <a class="el" href="classNNet_1_1TResolvConf.html" title="Reads and stores DNS configuration from a file or an input stream.">TResolvConf</a> and loads DNS configuration from a file. </p>
+<p>Constructs a <a class="el" href="classNNet_1_1TResolvConf.html" title="Reads nameserver addresses from a resolv.conf-style file or stream.">TResolvConf</a> and loads DNS configuration from a file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">fn</td><td>Path to the DNS configuration file. Default is "/etc/resolv.conf". </td></tr>
@@ -191,7 +191,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructs a <a class="el" href="classNNet_1_1TResolvConf.html" title="Reads and stores DNS configuration from a file or an input stream.">TResolvConf</a> from an input stream. </p>
+<p>Constructs a <a class="el" href="classNNet_1_1TResolvConf.html" title="Reads nameserver addresses from a resolv.conf-style file or stream.">TResolvConf</a> from an input stream. </p>
 <p>This constructor allows loading the DNS configuration from any standard input stream.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">

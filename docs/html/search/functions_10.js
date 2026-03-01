@@ -1,10 +1,23 @@
 var searchData=
 [
-  ['wait_0',['Wait',['../classNNet_1_1TUring.html#a25e8e35fb66e24e76b22b4a27f4897cd',1,'NNet::TUring']]],
-  ['wakeup_1',['Wakeup',['../classNNet_1_1TPollerBase.html#a402d1b611ee88296e5853f22cb559c0e',1,'NNet::TPollerBase']]],
-  ['wakeupreadyhandles_2',['WakeupReadyHandles',['../classNNet_1_1TPollerBase.html#af6804d6768be5be6254355ec5fb143e9',1,'NNet::TPollerBase']]],
-  ['withport_3',['WithPort',['../classNNet_1_1TAddress.html#ac86c33475caacabe898a2a5f15027a77',1,'NNet::TAddress']]],
-  ['write_4',['write',['../classNNet_1_1TIOCp.html#af172a1aa5a9b70028156dfafbd721cfa',1,'NNet::TIOCp::Write()'],['../classNNet_1_1TUring.html#ac36d140087a033327a9fbcc2a1e715c4',1,'NNet::TUring::Write()'],['../structNNet_1_1TByteWriter.html#acc8363d16f9b540439d7e9c95185ecae',1,'NNet::TByteWriter::Write(const void *data, size_t size)'],['../structNNet_1_1TByteWriter.html#a1f907d3c1d0856578f11af55f1d12360',1,'NNet::TByteWriter::Write(const TLine &amp;line)']]],
-  ['writesome_5',['writesome',['../classNNet_1_1TSocketBase.html#a456c0bd8d8e3e5a949329a963809fd24',1,'NNet::TSocketBase::WriteSome()'],['../classNNet_1_1TPollerDrivenSocket.html#a50602aad84196ad6ecd7c2a3b6eef7a4',1,'NNet::TPollerDrivenSocket::WriteSome()'],['../classNNet_1_1TPollerDrivenFileHandle.html#aaa703074ba9ffb7f79a3d7985d8be5a0',1,'NNet::TPollerDrivenFileHandle::WriteSome()'],['../classNNet_1_1TSslSocket.html#a713f5d1c7eea35f9034b22d1375bb8fd',1,'NNet::TSslSocket::WriteSome()']]],
-  ['writesomeyield_6',['writesomeyield',['../classNNet_1_1TSocketBase.html#a17cff91c44720ae245405fab977746c5',1,'NNet::TSocketBase::WriteSomeYield()'],['../classNNet_1_1TPollerDrivenSocket.html#adb9693ceff9e95687ada5989b5415b60',1,'NNet::TPollerDrivenSocket::WriteSomeYield()'],['../classNNet_1_1TPollerDrivenFileHandle.html#a022cdb6423118ef922525fb4d7675941',1,'NNet::TPollerDrivenFileHandle::WriteSomeYield()']]]
+  ['schedule_0',['schedule',['../classNNet_1_1NActors_1_1TActorContext.html#ad8fbfac24a11a25d559cdae5eb40147b',1,'NNet::NActors::TActorContext::Schedule(TTime when, TActorId sender, TActorId recipient, Args &amp;&amp;... args)'],['../classNNet_1_1NActors_1_1TActorContext.html#af4fa2120f1cd922e8073dad9be6c4c15',1,'NNet::NActors::TActorContext::Schedule(TTime when, TActorId sender, TActorId recipient, TMessageId messageId, TBlob blob)']]],
+  ['self_1',['Self',['../classNNet_1_1NActors_1_1TActorContext.html#a13929b596278666d07d3367fa15773e5',1,'NNet::NActors::TActorContext']]],
+  ['send_2',['send',['../classNNet_1_1NActors_1_1TActorContext.html#a961c6ca833cb5c283292823b0fcf6ec9',1,'NNet::NActors::TActorContext::Send(TActorId to, TMessageId messageId, TBlob blob)'],['../classNNet_1_1NActors_1_1TActorContext.html#a586d0955f018b7839d3190a3e25881d6',1,'NNet::NActors::TActorContext::Send(TActorId to, Args &amp;&amp;... args)'],['../classNNet_1_1TIOCp.html#abeb1ae3908ab2e604088776bd25204e0',1,'NNet::TIOCp::Send()'],['../classNNet_1_1TUring.html#a8892ff7c5e6be22a2406bf10fcfd2738',1,'NNet::TUring::Send()']]],
+  ['sender_3',['Sender',['../classNNet_1_1NActors_1_1TActorContext.html#af9cb222fe5c3c53c6babc945f4354418',1,'NNet::NActors::TActorContext']]],
+  ['sendheaders_4',['SendHeaders',['../classNNet_1_1TResponse.html#a7aa14229338e7cebd3ed818d09653bb1',1,'NNet::TResponse']]],
+  ['sendtext_5',['SendText',['../classNNet_1_1TWebSocket.html#adef36f335a05589611bdbfcdd22286cf',1,'NNet::TWebSocket']]],
+  ['server_6',['Server',['../structNNet_1_1TSslContext.html#a6092d96dfac12df8c03ceced06292d14',1,'NNet::TSslContext']]],
+  ['serverfrommem_7',['ServerFromMem',['../structNNet_1_1TSslContext.html#a0e851c88e66f79ce4c9856a69b387604',1,'NNet::TSslContext']]],
+  ['setheader_8',['SetHeader',['../classNNet_1_1TResponse.html#aa602f13b21c754ed235c5c77269a1ae6',1,'NNet::TResponse']]],
+  ['setmaxduration_9',['SetMaxDuration',['../classNNet_1_1TPollerBase.html#a53a432cfd20b24377c78a25f351dd6ff',1,'NNet::TPollerBase']]],
+  ['setstatus_10',['SetStatus',['../classNNet_1_1TResponse.html#a62381a065a5d753d7ec171eeff956994',1,'NNet::TResponse']]],
+  ['setup_11',['Setup',['../classNNet_1_1TSocketBase_3_01void_01_4.html#a5123a941977e3426269c2d9cd9c70c13',1,'NNet::TSocketBase&lt; void &gt;']]],
+  ['size_12',['Size',['../structNNet_1_1NActors_1_1TUnboundedVectorQueue.html#a378f1b5178b9a4b937006aebe9e0f56e',1,'NNet::NActors::TUnboundedVectorQueue']]],
+  ['sleep_13',['sleep',['../classNNet_1_1NActors_1_1TActorContext.html#a7053b669aaf407ff276c76795fd8fa4c',1,'NNet::NActors::TActorContext::Sleep(TTime until)'],['../classNNet_1_1NActors_1_1TActorContext.html#a2f552d11a54e8866e4892d6d3b70e24f',1,'NNet::NActors::TActorContext::Sleep(std::chrono::duration&lt; Rep, Period &gt; duration)'],['../classNNet_1_1TPollerBase.html#a9550c4ddfa4a29b3723ee00098617dc5',1,'NNet::TPollerBase::Sleep(TTime until)'],['../classNNet_1_1TPollerBase.html#af9264dcf4631dfa5d7a79148f36905d1',1,'NNet::TPollerBase::Sleep(std::chrono::duration&lt; Rep, Period &gt; duration)']]],
+  ['sslsettlsexthostname_14',['SslSetTlsExtHostName',['../classNNet_1_1TSslSocket.html#a03021a7d4cb2eaa79aef72e2796ea755',1,'NNet::TSslSocket']]],
+  ['start_15',['Start',['../classNNet_1_1TWebServer.html#a963c0a11af0386d47551dd32b37f877f',1,'NNet::TWebServer']]],
+  ['startasync_16',['StartAsync',['../classNNet_1_1NActors_1_1TActorContext.html#ad59f29d6bb051f7c3046a531f3322b80',1,'NNet::NActors::TActorContext']]],
+  ['statuscode_17',['StatusCode',['../classNNet_1_1TResponse.html#a6adf1cf0aa43abd97c929b8d00e090aa',1,'NNet::TResponse']]],
+  ['step_18',['Step',['../classNNet_1_1TLoop.html#ad528377d1b81c264334d7271953b6e2b',1,'NNet::TLoop']]],
+  ['stop_19',['Stop',['../classNNet_1_1TLoop.html#a3b3f1469844eaa90ad8d0326d361793b',1,'NNet::TLoop']]]
 ];

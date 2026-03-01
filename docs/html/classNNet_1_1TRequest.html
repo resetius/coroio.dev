@@ -123,6 +123,11 @@ $(document).ready(function(){initNavTree('classNNet_1_1TRequest.html',''); initR
   <div class="headertitle"><div class="title">NNet::TRequest Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Represents an incoming HTTP/1.1 request.  
+ <a href="classNNet_1_1TRequest.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="httpd_8hpp_source.html">httpd.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -131,32 +136,95 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a97b9a2ab83f8f19db66b4063acf8f148"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a710d83c8fcdadcc85f768d92456d1937" id="r_a710d83c8fcdadcc85f768d92456d1937"><td class="memItemLeft" align="right" valign="top"><a id="a710d83c8fcdadcc85f768d92456d1937" name="a710d83c8fcdadcc85f768d92456d1937"></a>
 std::string_view&#160;</td><td class="memItemRight" valign="bottom"><b>Method</b> () const</td></tr>
+<tr class="memdesc:a710d83c8fcdadcc85f768d92456d1937"><td class="mdescLeft">&#160;</td><td class="mdescRight">HTTP method string (e.g. <code>"GET"</code>, <code>"POST"</code>). <br /></td></tr>
 <tr class="separator:a710d83c8fcdadcc85f768d92456d1937"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aecf71621221cbd43021a4586ad8be0cd" id="r_aecf71621221cbd43021a4586ad8be0cd"><td class="memItemLeft" align="right" valign="top"><a id="aecf71621221cbd43021a4586ad8be0cd" name="aecf71621221cbd43021a4586ad8be0cd"></a>
 const <a class="el" href="classNNet_1_1TUri.html">TUri</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>Uri</b> () const</td></tr>
+<tr class="memdesc:aecf71621221cbd43021a4586ad8be0cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parsed request URI. <br /></td></tr>
 <tr class="separator:aecf71621221cbd43021a4586ad8be0cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1649527e8b5d66149657a7f91cac62b1" id="r_a1649527e8b5d66149657a7f91cac62b1"><td class="memItemLeft" align="right" valign="top"><a id="a1649527e8b5d66149657a7f91cac62b1" name="a1649527e8b5d66149657a7f91cac62b1"></a>
 std::string_view&#160;</td><td class="memItemRight" valign="bottom"><b>Version</b> () const</td></tr>
+<tr class="memdesc:a1649527e8b5d66149657a7f91cac62b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">HTTP version string (e.g. <code>"HTTP/1.1"</code>). <br /></td></tr>
 <tr class="separator:a1649527e8b5d66149657a7f91cac62b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e57c4f5aca8a8263bbd46514f1e2079" id="r_a2e57c4f5aca8a8263bbd46514f1e2079"><td class="memItemLeft" align="right" valign="top"><a id="a2e57c4f5aca8a8263bbd46514f1e2079" name="a2e57c4f5aca8a8263bbd46514f1e2079"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>HasBody</b> () const</td></tr>
+<tr class="memdesc:a2e57c4f5aca8a8263bbd46514f1e2079"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <code>true</code> if the request has a body (non-zero Content-Length or chunked). <br /></td></tr>
 <tr class="separator:a2e57c4f5aca8a8263bbd46514f1e2079"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3eea1a630085a888a06818b369a732b8" id="r_a3eea1a630085a888a06818b369a732b8"><td class="memItemLeft" align="right" valign="top"><a id="a3eea1a630085a888a06818b369a732b8" name="a3eea1a630085a888a06818b369a732b8"></a>
-<a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ReadBodyFull</b> ()</td></tr>
+<tr class="memitem:a3eea1a630085a888a06818b369a732b8" id="r_a3eea1a630085a888a06818b369a732b8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TRequest.html#a3eea1a630085a888a06818b369a732b8">ReadBodyFull</a> ()</td></tr>
+<tr class="memdesc:a3eea1a630085a888a06818b369a732b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads and returns the entire request body as a string.  <br /></td></tr>
 <tr class="separator:a3eea1a630085a888a06818b369a732b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa213535cdeac26ecaac569e23a866f3e" id="r_aa213535cdeac26ecaac569e23a866f3e"><td class="memItemLeft" align="right" valign="top"><a id="aa213535cdeac26ecaac569e23a866f3e" name="aa213535cdeac26ecaac569e23a866f3e"></a>
-<a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; ssize_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ReadBodySome</b> (char *buffer, size_t size)</td></tr>
+<tr class="memitem:aa213535cdeac26ecaac569e23a866f3e" id="r_aa213535cdeac26ecaac569e23a866f3e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; ssize_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TRequest.html#aa213535cdeac26ecaac569e23a866f3e">ReadBodySome</a> (char *buffer, size_t size)</td></tr>
+<tr class="memdesc:aa213535cdeac26ecaac569e23a866f3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads up to <code>size</code> bytes of the request body into <code>buffer</code>.  <br /></td></tr>
 <tr class="separator:aa213535cdeac26ecaac569e23a866f3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c9b233acab28360ecf86ab3907cbde2" id="r_a2c9b233acab28360ecf86ab3907cbde2"><td class="memItemLeft" align="right" valign="top"><a id="a2c9b233acab28360ecf86ab3907cbde2" name="a2c9b233acab28360ecf86ab3907cbde2"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>BodyConsumed</b> () const</td></tr>
+<tr class="memdesc:a2c9b233acab28360ecf86ab3907cbde2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <code>true</code> once the full body has been read. <br /></td></tr>
 <tr class="separator:a2c9b233acab28360ecf86ab3907cbde2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a669d5cdf958bc14f5e64f5cf8868af07" id="r_a669d5cdf958bc14f5e64f5cf8868af07"><td class="memItemLeft" align="right" valign="top"><a id="a669d5cdf958bc14f5e64f5cf8868af07" name="a669d5cdf958bc14f5e64f5cf8868af07"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>RequireConnectionClose</b> () const</td></tr>
+<tr class="memdesc:a669d5cdf958bc14f5e64f5cf8868af07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <code>true</code> if the client sent <code>Connection: close</code> or is HTTP/1.0. <br /></td></tr>
 <tr class="separator:a669d5cdf958bc14f5e64f5cf8868af07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36ea8d6680aaef00cb986f5727a1bcef" id="r_a36ea8d6680aaef00cb986f5727a1bcef"><td class="memItemLeft" align="right" valign="top"><a id="a36ea8d6680aaef00cb986f5727a1bcef" name="a36ea8d6680aaef00cb986f5727a1bcef"></a>
 const std::map&lt; std::string_view, std::string_view &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>Headers</b> () const</td></tr>
+<tr class="memdesc:a36ea8d6680aaef00cb986f5727a1bcef"><td class="mdescLeft">&#160;</td><td class="mdescRight">All request headers as a <code>name → value</code> map (views into the header buffer). <br /></td></tr>
 <tr class="separator:a36ea8d6680aaef00cb986f5727a1bcef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Represents an incoming HTTP/1.1 request. </p>
+<p>Constructed by <code><a class="el" href="classNNet_1_1TWebServer.html" title="HTTP/1.1 server that accepts connections and dispatches to a router.">TWebServer</a></code> from the parsed request headers and a body-reader callback. The body is read lazily — call <code><a class="el" href="classNNet_1_1TRequest.html#a3eea1a630085a888a06818b369a732b8" title="Reads and returns the entire request body as a string.">ReadBodyFull()</a></code> or <code><a class="el" href="classNNet_1_1TRequest.html#aa213535cdeac26ecaac569e23a866f3e" title="Reads up to size bytes of the request body into buffer.">ReadBodySome()</a></code> to consume it. Both <code>Content-Length</code> and chunked transfer encoding are supported.</p>
+<p>Header string views (<code><a class="el" href="classNNet_1_1TRequest.html#a710d83c8fcdadcc85f768d92456d1937" title="HTTP method string (e.g. &quot;GET&quot;, &quot;POST&quot;).">Method()</a></code>, <code><a class="el" href="classNNet_1_1TRequest.html#a1649527e8b5d66149657a7f91cac62b1" title="HTTP version string (e.g. &quot;HTTP/1.1&quot;).">Version()</a></code>, values in <code><a class="el" href="classNNet_1_1TRequest.html#a36ea8d6680aaef00cb986f5727a1bcef" title="All request headers as a name → value map (views into the header buffer).">Headers()</a></code>) reference the internal header buffer and are valid for the lifetime of this object. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3eea1a630085a888a06818b369a732b8" name="a3eea1a630085a888a06818b369a732b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3eea1a630085a888a06818b369a732b8">&#9670;&#160;</a></span>ReadBodyFull()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; std::string &gt; NNet::TRequest::ReadBodyFull </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reads and returns the entire request body as a string. </p>
+<p>Buffers all data up to <code>Content-Length</code> or until the final chunk. Throws on connection close before body is complete. </p>
+
+</div>
+</div>
+<a id="aa213535cdeac26ecaac569e23a866f3e" name="aa213535cdeac26ecaac569e23a866f3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa213535cdeac26ecaac569e23a866f3e">&#9670;&#160;</a></span>ReadBodySome()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; ssize_t &gt; NNet::TRequest::ReadBodySome </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reads up to <code>size</code> bytes of the request body into <code>buffer</code>. </p>
+<p>Returns bytes read, <code>0</code> at end-of-body, or a negative retry hint. Respects <code>Content-Length</code> and chunked encoding transparently. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>coroio/http/<a class="el" href="httpd_8hpp_source.html">httpd.hpp</a></li>
 <li>coroio/http/<b>httpd.cpp</b></li>

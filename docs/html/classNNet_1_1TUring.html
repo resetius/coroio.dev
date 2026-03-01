@@ -135,7 +135,7 @@ Inheritance diagram for NNet::TUring:</div>
  <div class="center">
   <img src="classNNet_1_1TUring.png" usemap="#NNet::TUring_map" alt=""/>
   <map id="NNet::TUring_map" name="NNet::TUring_map">
-<area href="classNNet_1_1TPollerBase.html" title="Base class for pollers managing asynchronous I/O events and timers." alt="NNet::TPollerBase" shape="rect" coords="0,0,114,24"/>
+<area href="classNNet_1_1TPollerBase.html" title="Backend-independent base for I/O pollers." alt="NNet::TPollerBase" shape="rect" coords="0,0,114,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -214,10 +214,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a9bbf27b42f97eded40eb715f56340025 inherit pub_methods_classNNet_1_1TPollerBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes or cancels a timer.  <br /></td></tr>
 <tr class="separator:a9bbf27b42f97eded40eb715f56340025 inherit pub_methods_classNNet_1_1TPollerBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6a316e28273f1867347ccf08933f506 inherit pub_methods_classNNet_1_1TPollerBase" id="r_ab6a316e28273f1867347ccf08933f506"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TPollerBase.html#ab6a316e28273f1867347ccf08933f506">AddRead</a> (int fd, THandle h)</td></tr>
-<tr class="memdesc:ab6a316e28273f1867347ccf08933f506 inherit pub_methods_classNNet_1_1TPollerBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a read event on a file descriptor.  <br /></td></tr>
+<tr class="memdesc:ab6a316e28273f1867347ccf08933f506 inherit pub_methods_classNNet_1_1TPollerBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a read interest on a file descriptor.  <br /></td></tr>
 <tr class="separator:ab6a316e28273f1867347ccf08933f506 inherit pub_methods_classNNet_1_1TPollerBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89b328d4fd41f981d576dd48463ab5b2 inherit pub_methods_classNNet_1_1TPollerBase" id="r_a89b328d4fd41f981d576dd48463ab5b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TPollerBase.html#a89b328d4fd41f981d576dd48463ab5b2">AddWrite</a> (int fd, THandle h)</td></tr>
-<tr class="memdesc:a89b328d4fd41f981d576dd48463ab5b2 inherit pub_methods_classNNet_1_1TPollerBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a write event on a file descriptor.  <br /></td></tr>
+<tr class="memdesc:a89b328d4fd41f981d576dd48463ab5b2 inherit pub_methods_classNNet_1_1TPollerBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a write interest on a file descriptor.  <br /></td></tr>
 <tr class="separator:a89b328d4fd41f981d576dd48463ab5b2 inherit pub_methods_classNNet_1_1TPollerBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0572e77df07a824c0c4948fc548a7d4e inherit pub_methods_classNNet_1_1TPollerBase" id="r_a0572e77df07a824c0c4948fc548a7d4e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TPollerBase.html#a0572e77df07a824c0c4948fc548a7d4e">AddRemoteHup</a> (int fd, THandle h)</td></tr>
 <tr class="memdesc:a0572e77df07a824c0c4948fc548a7d4e inherit pub_methods_classNNet_1_1TPollerBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a remote hang-up (RHUP) event.  <br /></td></tr>
@@ -226,7 +226,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa07a131f7224e0c939e2df9b83982146 inherit pub_methods_classNNet_1_1TPollerBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes registered events for a specific file descriptor.  <br /></td></tr>
 <tr class="separator:aa07a131f7224e0c939e2df9b83982146 inherit pub_methods_classNNet_1_1TPollerBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab78789b92e7aa174e72c3d569deec1e7 inherit pub_methods_classNNet_1_1TPollerBase" id="r_ab78789b92e7aa174e72c3d569deec1e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TPollerBase.html#ab78789b92e7aa174e72c3d569deec1e7">RemoveEvent</a> (THandle)</td></tr>
-<tr class="memdesc:ab78789b92e7aa174e72c3d569deec1e7 inherit pub_methods_classNNet_1_1TPollerBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes events associated with a given coroutine handle.  <br /></td></tr>
+<tr class="memdesc:ab78789b92e7aa174e72c3d569deec1e7 inherit pub_methods_classNNet_1_1TPollerBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">No-op placeholder for future cleanup by handle.  <br /></td></tr>
 <tr class="separator:ab78789b92e7aa174e72c3d569deec1e7 inherit pub_methods_classNNet_1_1TPollerBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9550c4ddfa4a29b3723ee00098617dc5 inherit pub_methods_classNNet_1_1TPollerBase" id="r_a9550c4ddfa4a29b3723ee00098617dc5"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TPollerBase.html#a9550c4ddfa4a29b3723ee00098617dc5">Sleep</a> (TTime until)</td></tr>
 <tr class="memdesc:a9550c4ddfa4a29b3723ee00098617dc5 inherit pub_methods_classNNet_1_1TPollerBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Suspends execution until the specified time.  <br /></td></tr>
@@ -236,7 +236,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:af9264dcf4631dfa5d7a79148f36905d1 inherit pub_methods_classNNet_1_1TPollerBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of <a class="el" href="classNNet_1_1TPollerBase.html#a9550c4ddfa4a29b3723ee00098617dc5" title="Suspends execution until the specified time.">Sleep()</a> accepting a duration.  <br /></td></tr>
 <tr class="separator:af9264dcf4631dfa5d7a79148f36905d1 inherit pub_methods_classNNet_1_1TPollerBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea08fab15fd419093ffc18b9a5b5b267 inherit pub_methods_classNNet_1_1TPollerBase" id="r_aea08fab15fd419093ffc18b9a5b5b267"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TPollerBase.html#aea08fab15fd419093ffc18b9a5b5b267">Yield</a> ()</td></tr>
-<tr class="memdesc:aea08fab15fd419093ffc18b9a5b5b267 inherit pub_methods_classNNet_1_1TPollerBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Yields execution to the next event loop iteration.  <br /></td></tr>
+<tr class="memdesc:aea08fab15fd419093ffc18b9a5b5b267 inherit pub_methods_classNNet_1_1TPollerBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Suspends the coroutine until the next event-loop iteration.  <br /></td></tr>
 <tr class="separator:aea08fab15fd419093ffc18b9a5b5b267 inherit pub_methods_classNNet_1_1TPollerBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a402d1b611ee88296e5853f22cb559c0e inherit pub_methods_classNNet_1_1TPollerBase" id="r_a402d1b611ee88296e5853f22cb559c0e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TPollerBase.html#a402d1b611ee88296e5853f22cb559c0e">Wakeup</a> (<a class="el" href="structNNet_1_1TEvent.html">TEvent</a> &amp;&amp;change)</td></tr>
 <tr class="memdesc:a402d1b611ee88296e5853f22cb559c0e inherit pub_methods_classNNet_1_1TPollerBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wakes up a coroutine waiting on an event.  <br /></td></tr>
@@ -309,7 +309,7 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Poller implementation based on io_uring. </p>
-<p><a class="el" href="classNNet_1_1TUring.html" title="Poller implementation based on io_uring.">TUring</a> inherits from <a class="el" href="classNNet_1_1TPollerBase.html" title="Base class for pollers managing asynchronous I/O events and timers.">TPollerBase</a> and implements asynchronous I/O operations using the Linux io_uring API. It provides methods for performing asynchronous read, write, receive, send, accept, and connect operations.</p>
+<p><a class="el" href="classNNet_1_1TUring.html" title="Poller implementation based on io_uring.">TUring</a> inherits from <a class="el" href="classNNet_1_1TPollerBase.html" title="Backend-independent base for I/O pollers.">TPollerBase</a> and implements asynchronous I/O operations using the Linux io_uring API. It provides methods for performing asynchronous read, write, receive, send, accept, and connect operations.</p>
 <p>Key features:</p><ul>
 <li>Uses io_uring to queue and submit asynchronous I/O operations.</li>
 <li>Provides operations such as <a class="el" href="classNNet_1_1TUring.html#a3a9d4260deb310de4a82df125d7b730c">Read()</a>, <a class="el" href="classNNet_1_1TUring.html#ac36d140087a033327a9fbcc2a1e715c4">Write()</a>, <a class="el" href="classNNet_1_1TUring.html#a562cb0b278f30b8152b340e41d0b23f9">Recv()</a>, <a class="el" href="classNNet_1_1TUring.html#a8892ff7c5e6be22a2406bf10fcfd2738">Send()</a>, <a class="el" href="classNNet_1_1TUring.html#add13ee92096b21dfd5b5881173caa321">Accept()</a> and <a class="el" href="classNNet_1_1TUring.html#a93291371201e5e4397940bef822f1f4d">Connect()</a>.</li>

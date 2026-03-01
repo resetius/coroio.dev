@@ -124,7 +124,7 @@ $(document).ready(function(){initNavTree('structNNet_1_1TFuture_3_01void_01_4.ht
 </div><!--header-->
 <div class="contents">
 
-<p>Future specialization for coroutines that return void.  
+<p>Owned coroutine handle for coroutines that return void.  
  <a href="structNNet_1_1TFuture_3_01void_01_4.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="corochain_8hpp_source.html">corochain.hpp</a>&gt;</code></p>
@@ -188,7 +188,8 @@ std::coroutine_handle&lt; <a class="el" href="structNNet_1_1TPromise.html">TProm
 <tr class="separator:a662f866821c4952560dcfe89a60d367c inherit pro_attribs_structNNet_1_1TFutureBase"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Future specialization for coroutines that return void. </p>
+<div class="textblock"><p>Owned coroutine handle for coroutines that return void. </p>
+<p>Same ownership and exception-propagation semantics as <code><a class="el" href="structNNet_1_1TFuture.html" title="Owned coroutine handle that carries a result of type T.">TFuture</a>&lt;T&gt;</code>. <code>co_await future</code> suspends the caller until done, then rethrows any stored exception. Provides <code>Accept(func)</code> to chain a continuation. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a6efebe04d22e6f495cb0ca48dc787f36" name="a6efebe04d22e6f495cb0ca48dc787f36"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6efebe04d22e6f495cb0ca48dc787f36">&#9670;&#160;</a></span>Accept()</h2>
@@ -229,7 +230,7 @@ template&lt;typename Func &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structNNet_1_1TFuture_3_01void_01_4.html" title="Future specialization for coroutines that return void.">TFuture&lt;void&gt;</a> representing the continuation. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structNNet_1_1TFuture_3_01void_01_4.html" title="Owned coroutine handle for coroutines that return void.">TFuture&lt;void&gt;</a> representing the continuation. </dd></dl>
 
 </div>
 </div>

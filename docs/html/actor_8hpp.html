@@ -181,8 +181,8 @@ Simple Actor Example</h2>
 <div class="line">    <span class="keywordtype">void</span> Receive(TMessageId messageId, TBlob blob, TActorContext::TPtr ctx)<span class="keyword"> override </span>{</div>
 <div class="line">        <span class="keywordflow">if</span> (messageId == MyMessage::MessageId) {</div>
 <div class="line">            <span class="keyword">auto</span> message = DeserializeNear&lt;MyMessage&gt;(blob);</div>
-<div class="line">            <span class="comment">// Process message</span></div>
-<div class="line">            ctx-&gt;Send(ctx-&gt;Sender(), ResponseMessage{});</div>
+<div class="line">            <span class="comment">// Process message and reply to the sender</span></div>
+<div class="line">            ctx-&gt;Send&lt;ResponseMessage&gt;(ctx-&gt;Sender(), message.value * 2);</div>
 <div class="line">        }</div>
 <div class="line">    }</div>
 <div class="line">};</div>
@@ -193,15 +193,17 @@ Coroutine Actor Example</h2>
 <div class="line">    TFuture&lt;void&gt; CoReceive(TMessageId messageId, TBlob blob, TActorContext::TPtr ctx)<span class="keyword"> override </span>{</div>
 <div class="line">        <span class="keywordflow">if</span> (messageId == MyMessage::MessageId) {</div>
 <div class="line">            <span class="keyword">auto</span> message = DeserializeNear&lt;MyMessage&gt;(blob);</div>
+<div class="line">            <span class="keyword">auto</span> sender = ctx-&gt;Sender();</div>
 <div class="line"> </div>
-<div class="line">            <span class="comment">// Async operations</span></div>
+<div class="line">            <span class="comment">// Async sleep — mailbox is paused until this handler finishes</span></div>
 <div class="line">            <span class="keyword">co_await</span> ctx-&gt;Sleep(std::chrono::seconds(1));</div>
 <div class="line"> </div>
+<div class="line">            <span class="comment">// Request-reply: blocks this handler, not the event loop</span></div>
 <div class="line">            <span class="keyword">auto</span> response = <span class="keyword">co_await</span> ctx-&gt;Ask&lt;ResponseMessage&gt;(</div>
 <div class="line">                someActor, QueryMessage{}</div>
 <div class="line">            );</div>
 <div class="line"> </div>
-<div class="line">            ctx-&gt;Send(ctx-&gt;Sender(), response);</div>
+<div class="line">            ctx-&gt;Send&lt;ResponseMessage&gt;(sender, std::move(response));</div>
 <div class="line">        }</div>
 <div class="line">    }</div>
 <div class="line">};</div>
@@ -240,11 +242,11 @@ Async Behavior Example</h2>
 <div class="line">    AsyncBehaviorActor() { Become(<span class="keyword">this</span>); }</div>
 <div class="line"> </div>
 <div class="line">    TFuture&lt;void&gt; Receive(ProcessMessage&amp;&amp; msg, TBlob blob, TActorContext::TPtr ctx) {</div>
-<div class="line">        <span class="comment">// This method returns a future, so it will be handled asynchronously</span></div>
+<div class="line">        <span class="comment">// TFuture&lt;void&gt; return type triggers async dispatch automatically</span></div>
 <div class="line">        <span class="keyword">co_await</span> ctx-&gt;Sleep(std::chrono::milliseconds(100));</div>
 <div class="line"> </div>
 <div class="line">        <span class="keyword">auto</span> result = <span class="keyword">co_await</span> processAsync(msg.data);</div>
-<div class="line">        ctx-&gt;Send(ctx-&gt;Sender(), ResultMessage{result});</div>
+<div class="line">        ctx-&gt;Send&lt;ResultMessage&gt;(ctx-&gt;Sender(), std::move(result));</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordtype">void</span> HandleUnknownMessage(TMessageId messageId, TBlob blob, TActorContext::TPtr ctx) {</div>

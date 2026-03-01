@@ -133,78 +133,82 @@ $(document).ready(function(){initNavTree('actorid_8hpp_source.html',''); initRes
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">using </span>TMessageId = uint32_t;</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="foldopen" id="foldopen00026" data-start="{" data-end="};">
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classNNet_1_1NActors_1_1TActorId.html">   26</a></span><span class="keyword">class </span><a class="code hl_class" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a> {</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classNNet_1_1NActors_1_1TActorId.html#a4ea3a785af7d115cef204553f5dfb9cf">   29</a></span>    <a class="code hl_function" href="classNNet_1_1NActors_1_1TActorId.html#a4ea3a785af7d115cef204553f5dfb9cf">TActorId</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="foldopen" id="foldopen00035" data-start="{" data-end="}">
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classNNet_1_1NActors_1_1TActorId.html#a75d2a79a94714fc7ac02090932612dcf">   35</a></span>    <span class="keyword">operator</span> bool()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keywordflow">return</span> !((NodeId_ == 0) &amp; (ActorId_ == 0) &amp; (Cookie_ == 0));</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    }</div>
+<div class="foldopen" id="foldopen00029" data-start="{" data-end="};">
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classNNet_1_1NActors_1_1TActorId.html">   29</a></span><span class="keyword">class </span><a class="code hl_class" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a> {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classNNet_1_1NActors_1_1TActorId.html#a4ea3a785af7d115cef204553f5dfb9cf">   32</a></span>    <a class="code hl_function" href="classNNet_1_1NActors_1_1TActorId.html#a4ea3a785af7d115cef204553f5dfb9cf">TActorId</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="foldopen" id="foldopen00038" data-start="{" data-end="}">
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classNNet_1_1NActors_1_1TActorId.html#a75d2a79a94714fc7ac02090932612dcf">   38</a></span>    <span class="keyword">operator</span> bool()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keywordflow">return</span> !((NodeId_ == 0) &amp; (ActorId_ == 0) &amp; (Cookie_ == 0));</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    }</div>
 </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="foldopen" id="foldopen00040" data-start="{" data-end="}">
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classNNet_1_1NActors_1_1TActorId.html#a13d58ac46a0c1aa19e8f15fec317bb47">   40</a></span>    TNodeId <a class="code hl_function" href="classNNet_1_1NActors_1_1TActorId.html#a13d58ac46a0c1aa19e8f15fec317bb47">NodeId</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keywordflow">return</span> NodeId_;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    }</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="foldopen" id="foldopen00043" data-start="{" data-end="}">
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classNNet_1_1NActors_1_1TActorId.html#a13d58ac46a0c1aa19e8f15fec317bb47">   43</a></span>    TNodeId <a class="code hl_function" href="classNNet_1_1NActors_1_1TActorId.html#a13d58ac46a0c1aa19e8f15fec317bb47">NodeId</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordflow">return</span> NodeId_;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    }</div>
 </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="foldopen" id="foldopen00046" data-start="{" data-end="}">
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classNNet_1_1NActors_1_1TActorId.html#abd85a1083ecc2ca5909c65b4e00407f5">   46</a></span>    TLocalActorId <a class="code hl_function" href="classNNet_1_1NActors_1_1TActorId.html#abd85a1083ecc2ca5909c65b4e00407f5">ActorId</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordflow">return</span> ActorId_;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    }</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="foldopen" id="foldopen00048" data-start="{" data-end="}">
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classNNet_1_1NActors_1_1TActorId.html#abd85a1083ecc2ca5909c65b4e00407f5">   48</a></span>    TLocalActorId <a class="code hl_function" href="classNNet_1_1NActors_1_1TActorId.html#abd85a1083ecc2ca5909c65b4e00407f5">ActorId</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordflow">return</span> ActorId_;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    }</div>
 </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="foldopen" id="foldopen00051" data-start="{" data-end="}">
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classNNet_1_1NActors_1_1TActorId.html#a2e335f35e4021fa98acb33d2f2730ea0">   51</a></span>    TCookie <a class="code hl_function" href="classNNet_1_1NActors_1_1TActorId.html#a2e335f35e4021fa98acb33d2f2730ea0">Cookie</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="keywordflow">return</span> Cookie_;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    }</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="foldopen" id="foldopen00053" data-start="{" data-end="}">
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classNNet_1_1NActors_1_1TActorId.html#a2e335f35e4021fa98acb33d2f2730ea0">   53</a></span>    TCookie <a class="code hl_function" href="classNNet_1_1NActors_1_1TActorId.html#a2e335f35e4021fa98acb33d2f2730ea0">Cookie</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keywordflow">return</span> Cookie_;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    }</div>
 </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="foldopen" id="foldopen00059" data-start="{" data-end="}">
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classNNet_1_1NActors_1_1TActorId.html#a896d784fb55615bda04dd3c01de354ed">   59</a></span>    std::string <a class="code hl_function" href="classNNet_1_1NActors_1_1TActorId.html#a896d784fb55615bda04dd3c01de354ed">ToString</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keywordflow">return</span> <span class="stringliteral">&quot;ActorId:&quot;</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>                + std::to_string(NodeId_) + <span class="stringliteral">&quot;:&quot;</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>                + std::to_string(ActorId_) + <span class="stringliteral">&quot;:&quot;</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>                + std::to_string(Cookie_);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    }</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="foldopen" id="foldopen00061" data-start="{" data-end="}">
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classNNet_1_1NActors_1_1TActorId.html#a896d784fb55615bda04dd3c01de354ed">   61</a></span>    std::string <a class="code hl_function" href="classNNet_1_1NActors_1_1TActorId.html#a896d784fb55615bda04dd3c01de354ed">ToString</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keywordflow">return</span> <span class="stringliteral">&quot;ActorId:&quot;</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>                + std::to_string(NodeId_) + <span class="stringliteral">&quot;:&quot;</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>                + std::to_string(ActorId_) + <span class="stringliteral">&quot;:&quot;</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>                + std::to_string(Cookie_);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    }</div>
 </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="foldopen" id="foldopen00072" data-start="{" data-end="}">
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classNNet_1_1NActors_1_1TActorId.html#a86ba6298d4c837c1b973ba5f2ed5956d">   72</a></span>    <a class="code hl_function" href="classNNet_1_1NActors_1_1TActorId.html#a86ba6298d4c837c1b973ba5f2ed5956d">TActorId</a>(TNodeId nodeId, TLocalActorId actorId, TCookie cookie)</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        : NodeId_(nodeId)</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        , ActorId_(actorId)</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        , Cookie_(cookie)</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    { }</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="foldopen" id="foldopen00074" data-start="{" data-end="}">
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classNNet_1_1NActors_1_1TActorId.html#a86ba6298d4c837c1b973ba5f2ed5956d">   74</a></span>    <a class="code hl_function" href="classNNet_1_1NActors_1_1TActorId.html#a86ba6298d4c837c1b973ba5f2ed5956d">TActorId</a>(TNodeId nodeId, TLocalActorId actorId, TCookie cookie)</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        : NodeId_(nodeId)</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        , ActorId_(actorId)</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        , Cookie_(cookie)</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    { }</div>
 </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    TLocalActorId ActorId_ = 0;  </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    TNodeId NodeId_ = 0;         </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    TCookie Cookie_ = 0;         </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>};</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    TLocalActorId ActorId_ = 0;  </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    TNodeId NodeId_ = 0;         </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    TCookie Cookie_ = 0;         </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>};</div>
 </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
-<div class="foldopen" id="foldopen00088" data-start="{" data-end="};">
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="structNNet_1_1NActors_1_1THeader.html">   88</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structNNet_1_1NActors_1_1THeader.html">THeader</a> {</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <a class="code hl_class" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a> Sender;</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <a class="code hl_class" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a> Recipient;</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    TMessageId MessageId = 0;</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    uint32_t Size = 0;</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>};</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="foldopen" id="foldopen00092" data-start="{" data-end="};">
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="structNNet_1_1NActors_1_1THeader.html">   92</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structNNet_1_1NActors_1_1THeader.html">THeader</a> {</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="structNNet_1_1NActors_1_1THeader.html#adec00ff11702ef1774ac9c1c8c9acae5">   93</a></span>    <a class="code hl_class" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a> <a class="code hl_variable" href="structNNet_1_1NActors_1_1THeader.html#adec00ff11702ef1774ac9c1c8c9acae5">Sender</a>;       </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="structNNet_1_1NActors_1_1THeader.html#a241e7656b295ba718c53eb9ab229104a">   94</a></span>    <a class="code hl_class" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a> <a class="code hl_variable" href="structNNet_1_1NActors_1_1THeader.html#a241e7656b295ba718c53eb9ab229104a">Recipient</a>;    </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="structNNet_1_1NActors_1_1THeader.html#a4e11e2fe0a3a01da68cfb05d125b35bf">   95</a></span>    TMessageId <a class="code hl_variable" href="structNNet_1_1NActors_1_1THeader.html#a4e11e2fe0a3a01da68cfb05d125b35bf">MessageId</a> = 0; </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="structNNet_1_1NActors_1_1THeader.html#a8f96902ad08a45bf9b9ca5b082fff15b">   96</a></span>    uint32_t <a class="code hl_variable" href="structNNet_1_1NActors_1_1THeader.html#a8f96902ad08a45bf9b9ca5b082fff15b">Size</a> = 0;        </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>};</div>
 </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>} <span class="comment">// namespace NActors</span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>} <span class="comment">// namespace NNet</span></div>
-<div class="ttc" id="aclassNNet_1_1NActors_1_1TActorId_html"><div class="ttname"><a href="classNNet_1_1NActors_1_1TActorId.html">NNet::NActors::TActorId</a></div><div class="ttdoc">Unique identifier for actors in the system.</div><div class="ttdef"><b>Definition</b> actorid.hpp:26</div></div>
-<div class="ttc" id="aclassNNet_1_1NActors_1_1TActorId_html_a13d58ac46a0c1aa19e8f15fec317bb47"><div class="ttname"><a href="classNNet_1_1NActors_1_1TActorId.html#a13d58ac46a0c1aa19e8f15fec317bb47">NNet::NActors::TActorId::NodeId</a></div><div class="ttdeci">TNodeId NodeId() const</div><div class="ttdoc">Get the node ID component.</div><div class="ttdef"><b>Definition</b> actorid.hpp:40</div></div>
-<div class="ttc" id="aclassNNet_1_1NActors_1_1TActorId_html_a2e335f35e4021fa98acb33d2f2730ea0"><div class="ttname"><a href="classNNet_1_1NActors_1_1TActorId.html#a2e335f35e4021fa98acb33d2f2730ea0">NNet::NActors::TActorId::Cookie</a></div><div class="ttdeci">TCookie Cookie() const</div><div class="ttdoc">Get the cookie component.</div><div class="ttdef"><b>Definition</b> actorid.hpp:51</div></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>} <span class="comment">// namespace NActors</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>} <span class="comment">// namespace NNet</span></div>
+<div class="ttc" id="aclassNNet_1_1NActors_1_1TActorId_html"><div class="ttname"><a href="classNNet_1_1NActors_1_1TActorId.html">NNet::NActors::TActorId</a></div><div class="ttdoc">Globally unique identifier for actors across a distributed system.</div><div class="ttdef"><b>Definition</b> actorid.hpp:29</div></div>
+<div class="ttc" id="aclassNNet_1_1NActors_1_1TActorId_html_a13d58ac46a0c1aa19e8f15fec317bb47"><div class="ttname"><a href="classNNet_1_1NActors_1_1TActorId.html#a13d58ac46a0c1aa19e8f15fec317bb47">NNet::NActors::TActorId::NodeId</a></div><div class="ttdeci">TNodeId NodeId() const</div><div class="ttdoc">Get the node ID component.</div><div class="ttdef"><b>Definition</b> actorid.hpp:43</div></div>
+<div class="ttc" id="aclassNNet_1_1NActors_1_1TActorId_html_a2e335f35e4021fa98acb33d2f2730ea0"><div class="ttname"><a href="classNNet_1_1NActors_1_1TActorId.html#a2e335f35e4021fa98acb33d2f2730ea0">NNet::NActors::TActorId::Cookie</a></div><div class="ttdeci">TCookie Cookie() const</div><div class="ttdoc">Get the cookie component.</div><div class="ttdef"><b>Definition</b> actorid.hpp:53</div></div>
 <div class="ttc" id="aclassNNet_1_1NActors_1_1TActorId_html_a4ea3a785af7d115cef204553f5dfb9cf"><div class="ttname"><a href="classNNet_1_1NActors_1_1TActorId.html#a4ea3a785af7d115cef204553f5dfb9cf">NNet::NActors::TActorId::TActorId</a></div><div class="ttdeci">TActorId()=default</div><div class="ttdoc">Default constructor creates an invalid actor ID.</div></div>
-<div class="ttc" id="aclassNNet_1_1NActors_1_1TActorId_html_a86ba6298d4c837c1b973ba5f2ed5956d"><div class="ttname"><a href="classNNet_1_1NActors_1_1TActorId.html#a86ba6298d4c837c1b973ba5f2ed5956d">NNet::NActors::TActorId::TActorId</a></div><div class="ttdeci">TActorId(TNodeId nodeId, TLocalActorId actorId, TCookie cookie)</div><div class="ttdoc">Construct actor ID with specific components.</div><div class="ttdef"><b>Definition</b> actorid.hpp:72</div></div>
-<div class="ttc" id="aclassNNet_1_1NActors_1_1TActorId_html_a896d784fb55615bda04dd3c01de354ed"><div class="ttname"><a href="classNNet_1_1NActors_1_1TActorId.html#a896d784fb55615bda04dd3c01de354ed">NNet::NActors::TActorId::ToString</a></div><div class="ttdeci">std::string ToString() const</div><div class="ttdoc">Convert actor ID to string representation.</div><div class="ttdef"><b>Definition</b> actorid.hpp:59</div></div>
-<div class="ttc" id="aclassNNet_1_1NActors_1_1TActorId_html_abd85a1083ecc2ca5909c65b4e00407f5"><div class="ttname"><a href="classNNet_1_1NActors_1_1TActorId.html#abd85a1083ecc2ca5909c65b4e00407f5">NNet::NActors::TActorId::ActorId</a></div><div class="ttdeci">TLocalActorId ActorId() const</div><div class="ttdoc">Get the local actor ID component.</div><div class="ttdef"><b>Definition</b> actorid.hpp:46</div></div>
-<div class="ttc" id="astructNNet_1_1NActors_1_1THeader_html"><div class="ttname"><a href="structNNet_1_1NActors_1_1THeader.html">NNet::NActors::THeader</a></div><div class="ttdoc">Header for messages sent between actors. Used in remote communication and serialization.</div><div class="ttdef"><b>Definition</b> actorid.hpp:88</div></div>
+<div class="ttc" id="aclassNNet_1_1NActors_1_1TActorId_html_a86ba6298d4c837c1b973ba5f2ed5956d"><div class="ttname"><a href="classNNet_1_1NActors_1_1TActorId.html#a86ba6298d4c837c1b973ba5f2ed5956d">NNet::NActors::TActorId::TActorId</a></div><div class="ttdeci">TActorId(TNodeId nodeId, TLocalActorId actorId, TCookie cookie)</div><div class="ttdoc">Construct actor ID with specific components.</div><div class="ttdef"><b>Definition</b> actorid.hpp:74</div></div>
+<div class="ttc" id="aclassNNet_1_1NActors_1_1TActorId_html_a896d784fb55615bda04dd3c01de354ed"><div class="ttname"><a href="classNNet_1_1NActors_1_1TActorId.html#a896d784fb55615bda04dd3c01de354ed">NNet::NActors::TActorId::ToString</a></div><div class="ttdeci">std::string ToString() const</div><div class="ttdoc">Convert actor ID to a human-readable string.</div><div class="ttdef"><b>Definition</b> actorid.hpp:61</div></div>
+<div class="ttc" id="aclassNNet_1_1NActors_1_1TActorId_html_abd85a1083ecc2ca5909c65b4e00407f5"><div class="ttname"><a href="classNNet_1_1NActors_1_1TActorId.html#abd85a1083ecc2ca5909c65b4e00407f5">NNet::NActors::TActorId::ActorId</a></div><div class="ttdeci">TLocalActorId ActorId() const</div><div class="ttdoc">Get the local actor ID component.</div><div class="ttdef"><b>Definition</b> actorid.hpp:48</div></div>
+<div class="ttc" id="astructNNet_1_1NActors_1_1THeader_html"><div class="ttname"><a href="structNNet_1_1NActors_1_1THeader.html">NNet::NActors::THeader</a></div><div class="ttdoc">Wire header prepended to every remote actor message.</div><div class="ttdef"><b>Definition</b> actorid.hpp:92</div></div>
+<div class="ttc" id="astructNNet_1_1NActors_1_1THeader_html_a241e7656b295ba718c53eb9ab229104a"><div class="ttname"><a href="structNNet_1_1NActors_1_1THeader.html#a241e7656b295ba718c53eb9ab229104a">NNet::NActors::THeader::Recipient</a></div><div class="ttdeci">TActorId Recipient</div><div class="ttdoc">Destination actor.</div><div class="ttdef"><b>Definition</b> actorid.hpp:94</div></div>
+<div class="ttc" id="astructNNet_1_1NActors_1_1THeader_html_a4e11e2fe0a3a01da68cfb05d125b35bf"><div class="ttname"><a href="structNNet_1_1NActors_1_1THeader.html#a4e11e2fe0a3a01da68cfb05d125b35bf">NNet::NActors::THeader::MessageId</a></div><div class="ttdeci">TMessageId MessageId</div><div class="ttdoc">Message type discriminator.</div><div class="ttdef"><b>Definition</b> actorid.hpp:95</div></div>
+<div class="ttc" id="astructNNet_1_1NActors_1_1THeader_html_a8f96902ad08a45bf9b9ca5b082fff15b"><div class="ttname"><a href="structNNet_1_1NActors_1_1THeader.html#a8f96902ad08a45bf9b9ca5b082fff15b">NNet::NActors::THeader::Size</a></div><div class="ttdeci">uint32_t Size</div><div class="ttdoc">Payload size in bytes.</div><div class="ttdef"><b>Definition</b> actorid.hpp:96</div></div>
+<div class="ttc" id="astructNNet_1_1NActors_1_1THeader_html_adec00ff11702ef1774ac9c1c8c9acae5"><div class="ttname"><a href="structNNet_1_1NActors_1_1THeader.html#adec00ff11702ef1774ac9c1c8c9acae5">NNet::NActors::THeader::Sender</a></div><div class="ttdeci">TActorId Sender</div><div class="ttdoc">Originating actor.</div><div class="ttdef"><b>Definition</b> actorid.hpp:93</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -124,38 +124,241 @@ $(document).ready(function(){initNavTree('classNNet_1_1TPipe.html',''); initResi
   <div class="headertitle"><div class="title">NNet::TPipe Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Spawns a child process and exposes its stdin/stdout/stderr as async handles.  
+ <a href="classNNet_1_1TPipe.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="pipe_8hpp_source.html">pipe.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a13872a7679c1ac7d875e74f0138de37a" id="r_a13872a7679c1ac7d875e74f0138de37a"><td class="memTemplParams" colspan="2"><a id="a13872a7679c1ac7d875e74f0138de37a" name="a13872a7679c1ac7d875e74f0138de37a"></a>
-template&lt;typename TPoller &gt; </td></tr>
-<tr class="memitem:a13872a7679c1ac7d875e74f0138de37a"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><b>TPipe</b> (TPoller &amp;poller, const std::string &amp;exe, const std::vector&lt; std::string &gt; &amp;args, bool stderrToStdout=false)</td></tr>
+<tr class="memitem:a13872a7679c1ac7d875e74f0138de37a" id="r_a13872a7679c1ac7d875e74f0138de37a"><td class="memTemplParams" colspan="2">template&lt;typename TPoller &gt; </td></tr>
+<tr class="memitem:a13872a7679c1ac7d875e74f0138de37a"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classNNet_1_1TPipe.html#a13872a7679c1ac7d875e74f0138de37a">TPipe</a> (TPoller &amp;poller, const std::string &amp;exe, const std::vector&lt; std::string &gt; &amp;args, bool stderrToStdout=false)</td></tr>
+<tr class="memdesc:a13872a7679c1ac7d875e74f0138de37a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spawns <code>exe</code> with <code>args</code> and wires up async I/O handles.  <br /></td></tr>
 <tr class="separator:a13872a7679c1ac7d875e74f0138de37a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acbb212340f0e313166f37fbf45b7ba2e" id="r_acbb212340f0e313166f37fbf45b7ba2e"><td class="memItemLeft" align="right" valign="top"><a id="acbb212340f0e313166f37fbf45b7ba2e" name="acbb212340f0e313166f37fbf45b7ba2e"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>Pid</b> () const</td></tr>
+<tr class="memdesc:acbb212340f0e313166f37fbf45b7ba2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the child's process ID. <br /></td></tr>
 <tr class="separator:acbb212340f0e313166f37fbf45b7ba2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12ebaaf5e8688ecfc3ea0e9f5b7a1257" id="r_a12ebaaf5e8688ecfc3ea0e9f5b7a1257"><td class="memItemLeft" align="right" valign="top"><a id="a12ebaaf5e8688ecfc3ea0e9f5b7a1257" name="a12ebaaf5e8688ecfc3ea0e9f5b7a1257"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>CloseRead</b> ()</td></tr>
+<tr class="memdesc:a12ebaaf5e8688ecfc3ea0e9f5b7a1257"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the read end of the child's stdout pipe. <br /></td></tr>
 <tr class="separator:a12ebaaf5e8688ecfc3ea0e9f5b7a1257"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16d1bb59f8b301e3548bfc537aa178b0" id="r_a16d1bb59f8b301e3548bfc537aa178b0"><td class="memItemLeft" align="right" valign="top"><a id="a16d1bb59f8b301e3548bfc537aa178b0" name="a16d1bb59f8b301e3548bfc537aa178b0"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>CloseWrite</b> ()</td></tr>
+<tr class="memdesc:a16d1bb59f8b301e3548bfc537aa178b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the write end of the child's stdin pipe, sending EOF to the child. <br /></td></tr>
 <tr class="separator:a16d1bb59f8b301e3548bfc537aa178b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae82b6eb3a9f7ea5d3600a34a5d58367" id="r_aae82b6eb3a9f7ea5d3600a34a5d58367"><td class="memItemLeft" align="right" valign="top"><a id="aae82b6eb3a9f7ea5d3600a34a5d58367" name="aae82b6eb3a9f7ea5d3600a34a5d58367"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>CloseErr</b> ()</td></tr>
+<tr class="memdesc:aae82b6eb3a9f7ea5d3600a34a5d58367"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the read end of the child's stderr pipe. <br /></td></tr>
 <tr class="separator:aae82b6eb3a9f7ea5d3600a34a5d58367"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11cbd56fb31357f48507aebf89d016b2" id="r_a11cbd56fb31357f48507aebf89d016b2"><td class="memItemLeft" align="right" valign="top"><a id="a11cbd56fb31357f48507aebf89d016b2" name="a11cbd56fb31357f48507aebf89d016b2"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>Wait</b> ()</td></tr>
+<tr class="memitem:a11cbd56fb31357f48507aebf89d016b2" id="r_a11cbd56fb31357f48507aebf89d016b2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TPipe.html#a11cbd56fb31357f48507aebf89d016b2">Wait</a> ()</td></tr>
+<tr class="memdesc:a11cbd56fb31357f48507aebf89d016b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for the child process to exit and returns its exit status.  <br /></td></tr>
 <tr class="separator:a11cbd56fb31357f48507aebf89d016b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f69b79f29051711717058731bdfafb5" id="r_a2f69b79f29051711717058731bdfafb5"><td class="memItemLeft" align="right" valign="top"><a id="a2f69b79f29051711717058731bdfafb5" name="a2f69b79f29051711717058731bdfafb5"></a>
-<a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; ssize_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ReadSome</b> (void *buffer, size_t size)</td></tr>
+<tr class="memitem:a2f69b79f29051711717058731bdfafb5" id="r_a2f69b79f29051711717058731bdfafb5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; ssize_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TPipe.html#a2f69b79f29051711717058731bdfafb5">ReadSome</a> (void *buffer, size_t size)</td></tr>
+<tr class="memdesc:a2f69b79f29051711717058731bdfafb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads up to <code>size</code> bytes from the child's stdout.  <br /></td></tr>
 <tr class="separator:a2f69b79f29051711717058731bdfafb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a908bf55861b6e5dac8ff2a855034b66d" id="r_a908bf55861b6e5dac8ff2a855034b66d"><td class="memItemLeft" align="right" valign="top"><a id="a908bf55861b6e5dac8ff2a855034b66d" name="a908bf55861b6e5dac8ff2a855034b66d"></a>
-<a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; ssize_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ReadSomeErr</b> (void *buffer, size_t size)</td></tr>
+<tr class="memitem:a908bf55861b6e5dac8ff2a855034b66d" id="r_a908bf55861b6e5dac8ff2a855034b66d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; ssize_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TPipe.html#a908bf55861b6e5dac8ff2a855034b66d">ReadSomeErr</a> (void *buffer, size_t size)</td></tr>
+<tr class="memdesc:a908bf55861b6e5dac8ff2a855034b66d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads up to <code>size</code> bytes from the child's stderr.  <br /></td></tr>
 <tr class="separator:a908bf55861b6e5dac8ff2a855034b66d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8cb3db2355b78c52238c44886fd2eeb1" id="r_a8cb3db2355b78c52238c44886fd2eeb1"><td class="memItemLeft" align="right" valign="top"><a id="a8cb3db2355b78c52238c44886fd2eeb1" name="a8cb3db2355b78c52238c44886fd2eeb1"></a>
-<a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; ssize_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>WriteSome</b> (const void *buffer, size_t size)</td></tr>
+<tr class="memitem:a8cb3db2355b78c52238c44886fd2eeb1" id="r_a8cb3db2355b78c52238c44886fd2eeb1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; ssize_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TPipe.html#a8cb3db2355b78c52238c44886fd2eeb1">WriteSome</a> (const void *buffer, size_t size)</td></tr>
+<tr class="memdesc:a8cb3db2355b78c52238c44886fd2eeb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes up to <code>size</code> bytes to the child's stdin.  <br /></td></tr>
 <tr class="separator:a8cb3db2355b78c52238c44886fd2eeb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Spawns a child process and exposes its stdin/stdout/stderr as async handles. </p>
+<p>Linux/macOS only (<code>#ifndef _WIN32</code>). The constructor forks immediately; the child runs <code>exe</code> with <code>args</code>. The parent side owns three async file handles:</p><ul>
+<li><code>WriteSome</code> → child's stdin</li>
+<li><code>ReadSome</code> → child's stdout</li>
+<li><code>ReadSomeErr</code> → child's stderr (unless <code>stderrToStdout = true</code>)</li>
+</ul>
+<p>Call <code><a class="el" href="classNNet_1_1TPipe.html#a16d1bb59f8b301e3548bfc537aa178b0" title="Closes the write end of the child&#39;s stdin pipe, sending EOF to the child.">CloseWrite()</a></code> to send EOF to the child, then <code><a class="el" href="classNNet_1_1TPipe.html#a11cbd56fb31357f48507aebf89d016b2" title="Waits for the child process to exit and returns its exit status.">Wait()</a></code> to reap it.</p>
+<div class="fragment"><div class="line"><a class="code hl_class" href="classNNet_1_1TPipe.html">TPipe</a> pipe(poller, <span class="stringliteral">&quot;/bin/cat&quot;</span>, {});</div>
+<div class="line"><span class="keyword">co_await</span> pipe.<a class="code hl_function" href="classNNet_1_1TPipe.html#a8cb3db2355b78c52238c44886fd2eeb1">WriteSome</a>(<span class="stringliteral">&quot;hello\n&quot;</span>, 6);</div>
+<div class="line">pipe.CloseWrite();</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">char</span> buf[64];</div>
+<div class="line">ssize_t n = <span class="keyword">co_await</span> pipe.ReadSome(buf, <span class="keyword">sizeof</span>(buf));</div>
+<div class="line"><span class="keywordtype">int</span> exit_code = pipe.Wait();</div>
+<div class="ttc" id="aclassNNet_1_1TPipe_html"><div class="ttname"><a href="classNNet_1_1TPipe.html">NNet::TPipe</a></div><div class="ttdoc">Spawns a child process and exposes its stdin/stdout/stderr as async handles.</div><div class="ttdef"><b>Definition</b> pipe.hpp:30</div></div>
+<div class="ttc" id="aclassNNet_1_1TPipe_html_a8cb3db2355b78c52238c44886fd2eeb1"><div class="ttname"><a href="classNNet_1_1TPipe.html#a8cb3db2355b78c52238c44886fd2eeb1">NNet::TPipe::WriteSome</a></div><div class="ttdeci">TFuture&lt; ssize_t &gt; WriteSome(const void *buffer, size_t size)</div><div class="ttdoc">Writes up to size bytes to the child's stdin.</div><div class="ttdef"><b>Definition</b> pipe.cpp:183</div></div>
+</div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a13872a7679c1ac7d875e74f0138de37a" name="a13872a7679c1ac7d875e74f0138de37a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13872a7679c1ac7d875e74f0138de37a">&#9670;&#160;</a></span>TPipe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TPoller &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">NNet::TPipe::TPipe </td>
+          <td>(</td>
+          <td class="paramtype">TPoller &amp;&#160;</td>
+          <td class="paramname"><em>poller</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>exe</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>args</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>stderrToStdout</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Spawns <code>exe</code> with <code>args</code> and wires up async I/O handles. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">poller</td><td>Event-loop poller used for async I/O on the pipe fds. </td></tr>
+    <tr><td class="paramname">exe</td><td>Absolute path to the executable. </td></tr>
+    <tr><td class="paramname">args</td><td>Arguments passed to the executable (argv[1..]). </td></tr>
+    <tr><td class="paramname">stderrToStdout</td><td>If <code>true</code>, child stderr is redirected into stdout (<code>ReadSomeErr</code> becomes unavailable). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2f69b79f29051711717058731bdfafb5" name="a2f69b79f29051711717058731bdfafb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f69b79f29051711717058731bdfafb5">&#9670;&#160;</a></span>ReadSome()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; ssize_t &gt; NNet::TPipe::ReadSome </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reads up to <code>size</code> bytes from the child's stdout. </p>
+<p>Returns bytes read (&gt;0), <code>0</code> on EOF (child closed stdout), or a negative retry hint on transient errors. </p>
+
+</div>
+</div>
+<a id="a908bf55861b6e5dac8ff2a855034b66d" name="a908bf55861b6e5dac8ff2a855034b66d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a908bf55861b6e5dac8ff2a855034b66d">&#9670;&#160;</a></span>ReadSomeErr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; ssize_t &gt; NNet::TPipe::ReadSomeErr </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reads up to <code>size</code> bytes from the child's stderr. </p>
+<p>Only valid when <code>stderrToStdout = false</code>. Returns bytes read (&gt;0), <code>0</code> on EOF, or a negative retry hint. </p>
+
+</div>
+</div>
+<a id="a11cbd56fb31357f48507aebf89d016b2" name="a11cbd56fb31357f48507aebf89d016b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11cbd56fb31357f48507aebf89d016b2">&#9670;&#160;</a></span>Wait()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int NNet::TPipe::Wait </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Waits for the child process to exit and returns its exit status. </p>
+<p>Blocks the calling thread (via <code>waitpid</code>). Call after the child has finished or after sending it a signal.</p>
+<dl class="section return"><dt>Returns</dt><dd>The exit status as returned by <code>waitpid</code> (use <code>WEXITSTATUS</code> to extract the code). </dd></dl>
+
+</div>
+</div>
+<a id="a8cb3db2355b78c52238c44886fd2eeb1" name="a8cb3db2355b78c52238c44886fd2eeb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cb3db2355b78c52238c44886fd2eeb1">&#9670;&#160;</a></span>WriteSome()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; ssize_t &gt; NNet::TPipe::WriteSome </td>
+          <td>(</td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Writes up to <code>size</code> bytes to the child's stdin. </p>
+<p>Returns bytes written (&gt;0), <code>0</code> if the child closed stdin, or a negative retry hint on transient errors. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>coroio/pipe/<a class="el" href="pipe_8hpp_source.html">pipe.hpp</a></li>
 <li>coroio/pipe/<b>pipe.cpp</b></li>

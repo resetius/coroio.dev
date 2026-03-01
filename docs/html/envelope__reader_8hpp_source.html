@@ -167,7 +167,7 @@ $(document).ready(function(){initNavTree('envelope__reader_8hpp_source.html','')
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    std::optional&lt;TEnvelope&gt; Pop();</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordtype">size_t</span> Size() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">bool</span> NeedMoreData()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keywordflow">return</span> !HasHeader || Size() &lt; Header.Size;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keywordflow">return</span> !HasHeader || Size() &lt; Header.<a class="code hl_variable" href="structNNet_1_1NActors_1_1THeader.html#a8f96902ad08a45bf9b9ca5b082fff15b">Size</a>;</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    }</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="comment">// for testing purposes</span></div>
@@ -202,7 +202,7 @@ $(document).ready(function(){initNavTree('envelope__reader_8hpp_source.html','')
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keywordflow">return</span> CurrentSize;</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    }</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordtype">bool</span> NeedMoreData()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="keywordflow">return</span> !HasHeader || Size() &lt; Header.Size;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="keywordflow">return</span> !HasHeader || Size() &lt; Header.<a class="code hl_variable" href="structNNet_1_1NActors_1_1THeader.html#a8f96902ad08a45bf9b9ca5b082fff15b">Size</a>;</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    }</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="comment">// for testing purposes</span></div>
@@ -262,7 +262,8 @@ $(document).ready(function(){initNavTree('envelope__reader_8hpp_source.html','')
 <div class="ttc" id="aclassNNet_1_1NActors_1_1TZeroCopyEnvelopeReader_html"><div class="ttname"><a href="classNNet_1_1NActors_1_1TZeroCopyEnvelopeReader.html">NNet::NActors::TZeroCopyEnvelopeReader</a></div><div class="ttdef"><b>Definition</b> envelope_reader.hpp:36</div></div>
 <div class="ttc" id="aqueue_8hpp_html"><div class="ttname"><a href="queue_8hpp.html">queue.hpp</a></div><div class="ttdoc">Memory-efficient unbounded queue implementation for actor message passing.</div></div>
 <div class="ttc" id="astructNNet_1_1NActors_1_1TBlob_html"><div class="ttname"><a href="structNNet_1_1NActors_1_1TBlob.html">NNet::NActors::TBlob</a></div><div class="ttdef"><b>Definition</b> messages.hpp:84</div></div>
-<div class="ttc" id="astructNNet_1_1NActors_1_1THeader_html"><div class="ttname"><a href="structNNet_1_1NActors_1_1THeader.html">NNet::NActors::THeader</a></div><div class="ttdoc">Header for messages sent between actors. Used in remote communication and serialization.</div><div class="ttdef"><b>Definition</b> actorid.hpp:88</div></div>
+<div class="ttc" id="astructNNet_1_1NActors_1_1THeader_html"><div class="ttname"><a href="structNNet_1_1NActors_1_1THeader.html">NNet::NActors::THeader</a></div><div class="ttdoc">Wire header prepended to every remote actor message.</div><div class="ttdef"><b>Definition</b> actorid.hpp:92</div></div>
+<div class="ttc" id="astructNNet_1_1NActors_1_1THeader_html_a8f96902ad08a45bf9b9ca5b082fff15b"><div class="ttname"><a href="structNNet_1_1NActors_1_1THeader.html#a8f96902ad08a45bf9b9ca5b082fff15b">NNet::NActors::THeader::Size</a></div><div class="ttdeci">uint32_t Size</div><div class="ttdoc">Payload size in bytes.</div><div class="ttdef"><b>Definition</b> actorid.hpp:96</div></div>
 <div class="ttc" id="astructNNet_1_1NActors_1_1TIntrusiveListNode_html"><div class="ttname"><a href="structNNet_1_1NActors_1_1TIntrusiveListNode.html">NNet::NActors::TIntrusiveListNode</a></div><div class="ttdef"><b>Definition</b> intrusive_list.hpp:9</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

@@ -141,7 +141,7 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T, typename <a class="el" href="classNNet_1_1TSocket.html">TSocket</a>&gt;<br />
 class NNet::TStructReader&lt; T, TSocket &gt;</div><p>A utility for reading a fixed-size structure of type <code>T</code> from a socket-like object. </p>
-<p>This class expects the socket to provide a method <code>TValueTask&lt;ssize_t&gt; ReadSome(void* buffer, size_t size)</code>, which returns:</p><ul>
+<p>This class expects the socket to provide a method <code>TFuture&lt;ssize_t&gt; ReadSome(void* buffer, size_t size)</code>, which returns:</p><ul>
 <li>0 if the connection is closed,</li>
 <li>a positive number for the count of bytes successfully read,</li>
 <li>a negative number to indicate a recoverable read error (in which case a retry may be attempted).</li>
@@ -153,7 +153,7 @@ class NNet::TStructReader&lt; T, TSocket &gt;</div><p>A utility for reading a fi
   </table>
   </dd>
 </dl>
-<h3><a class="anchor" id="autotoc_md6"></a>
+<h3><a class="anchor" id="autotoc_md3"></a>
 Example Usage</h3>
 <div class="fragment"><div class="line"><span class="comment">// A simple struct to demonstrate reading a fixed-size block of data:</span></div>
 <div class="line"><span class="keyword">struct </span>MyData {</div>
@@ -161,7 +161,7 @@ Example Usage</h3>
 <div class="line">    <span class="keywordtype">float</span> Value;</div>
 <div class="line">};</div>
 <div class="line"> </div>
-<div class="line">TValueTask&lt;void&gt; ExampleFunction(<a class="code hl_class" href="classNNet_1_1TSocket.html">TSocket</a>&amp; socket) {</div>
+<div class="line"><a class="code hl_struct" href="structNNet_1_1TFuture.html">TFuture&lt;void&gt;</a> ExampleFunction(<a class="code hl_class" href="classNNet_1_1TSocket.html">TSocket</a>&amp; socket) {</div>
 <div class="line">    <span class="comment">// Create a reader for MyData structures</span></div>
 <div class="line">    <a class="code hl_class" href="structNNet_1_1TStructReader.html">TStructReader&lt;MyData, TSocket&gt;</a> reader(socket);</div>
 <div class="line"> </div>
@@ -174,7 +174,8 @@ Example Usage</h3>
 <div class="line">    <span class="keyword">co_return</span>;</div>
 <div class="line">}</div>
 <div class="ttc" id="aclassNNet_1_1TSocket_html"><div class="ttname"><a href="classNNet_1_1TSocket.html">NNet::TSocket</a></div><div class="ttdoc">High-level asynchronous socket for network communication.</div><div class="ttdef"><b>Definition</b> socket.hpp:367</div></div>
-<div class="ttc" id="astructNNet_1_1TStructReader_html"><div class="ttname"><a href="structNNet_1_1TStructReader.html">NNet::TStructReader</a></div><div class="ttdoc">A utility for reading a fixed-size structure of type T from a socket-like object.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:325</div></div>
+<div class="ttc" id="astructNNet_1_1TFuture_html"><div class="ttname"><a href="structNNet_1_1TFuture.html">NNet::TFuture</a></div><div class="ttdoc">Owned coroutine handle that carries a result of type T.</div><div class="ttdef"><b>Definition</b> corochain.hpp:185</div></div>
+<div class="ttc" id="astructNNet_1_1TStructReader_html"><div class="ttname"><a href="structNNet_1_1TStructReader.html">NNet::TStructReader</a></div><div class="ttdoc">A utility for reading a fixed-size structure of type T from a socket-like object.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:337</div></div>
 </div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a01aed1fb8dc52c06e5177b13b02c0f3a" name="a01aed1fb8dc52c06e5177b13b02c0f3a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a01aed1fb8dc52c06e5177b13b02c0f3a">&#9670;&#160;</a></span>TStructReader()</h2>
@@ -245,7 +246,7 @@ template&lt;typename T , typename <a class="el" href="classNNet_1_1TSocket.html"
 <li>Throws a <code>std::runtime_error</code> if the socket closes (returns 0) before the structure is fully read.</li>
 <li>Retries if <code>ReadSome()</code> returns a negative number (indicating a recoverable read error).</li>
 </ul>
-<dl class="section return"><dt>Returns</dt><dd>A TValueTask&lt;T&gt; that completes once the entire structure is read.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A TFuture&lt;T&gt; that completes once the entire structure is read.</dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::runtime_error</td><td>If the connection is closed before the structure is fully read. </td></tr>

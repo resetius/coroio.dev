@@ -123,17 +123,24 @@ $(document).ready(function(){initNavTree('classNNet_1_1THostPort.html',''); init
   <div class="headertitle"><div class="title">NNet::THostPort Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A <code>host:port</code> pair that resolves to a <code><a class="el" href="classNNet_1_1TAddress.html" title="A class representing an IPv4 or IPv6 address (with port).">TAddress</a></code>.  
+ <a href="classNNet_1_1THostPort.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="resolver_8hpp_source.html">resolver.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6b549e6d3fef29e7c7461599bd6f42d0" id="r_a6b549e6d3fef29e7c7461599bd6f42d0"><td class="memItemLeft" align="right" valign="top"><a id="a6b549e6d3fef29e7c7461599bd6f42d0" name="a6b549e6d3fef29e7c7461599bd6f42d0"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>THostPort</b> (const std::string &amp;hostPort)</td></tr>
+<tr class="memdesc:a6b549e6d3fef29e7c7461599bd6f42d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a <code>"host:port"</code> string. <br /></td></tr>
 <tr class="separator:a6b549e6d3fef29e7c7461599bd6f42d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab079162384fedc8037d1778ddf3f289b" id="r_ab079162384fedc8037d1778ddf3f289b"><td class="memItemLeft" align="right" valign="top"><a id="ab079162384fedc8037d1778ddf3f289b" name="ab079162384fedc8037d1778ddf3f289b"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>THostPort</b> (const std::string &amp;host, int port)</td></tr>
+<tr class="memdesc:ab079162384fedc8037d1778ddf3f289b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs from separate host and port values. <br /></td></tr>
 <tr class="separator:ab079162384fedc8037d1778ddf3f289b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b73f1d9161d288fe093b88a004695ed" id="r_a4b73f1d9161d288fe093b88a004695ed"><td class="memItemLeft" align="right" valign="top"><a id="a4b73f1d9161d288fe093b88a004695ed" name="a4b73f1d9161d288fe093b88a004695ed"></a>
-<a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; <a class="el" href="classNNet_1_1TAddress.html">TAddress</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Resolve</b> (<a class="el" href="classNNet_1_1TResolver.html">TResolver</a> &amp;resolver)</td></tr>
+<tr class="memitem:a4b73f1d9161d288fe093b88a004695ed" id="r_a4b73f1d9161d288fe093b88a004695ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; <a class="el" href="classNNet_1_1TAddress.html">TAddress</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1THostPort.html#a4b73f1d9161d288fe093b88a004695ed">Resolve</a> (<a class="el" href="classNNet_1_1TResolver.html">TResolver</a> &amp;resolver)</td></tr>
+<tr class="memdesc:a4b73f1d9161d288fe093b88a004695ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resolves the host to a <code><a class="el" href="classNNet_1_1TAddress.html" title="A class representing an IPv4 or IPv6 address (with port).">TAddress</a></code> using the given resolver.  <br /></td></tr>
 <tr class="separator:a4b73f1d9161d288fe093b88a004695ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa34220da1ffefeeca90c2d1e1bd9169d" id="r_aa34220da1ffefeeca90c2d1e1bd9169d"><td class="memItemLeft" align="right" valign="top"><a id="aa34220da1ffefeeca90c2d1e1bd9169d" name="aa34220da1ffefeeca90c2d1e1bd9169d"></a>
 const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>ToString</b> () const</td></tr>
@@ -145,6 +152,44 @@ const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>Ge
 int&#160;</td><td class="memItemRight" valign="bottom"><b>GetPort</b> () const</td></tr>
 <tr class="separator:ad48edb52fdc06c0c0474c367223b8ef7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A <code>host:port</code> pair that resolves to a <code><a class="el" href="classNNet_1_1TAddress.html" title="A class representing an IPv4 or IPv6 address (with port).">TAddress</a></code>. </p>
+<p>If <code>host</code> is a literal IPv4 or IPv6 address, <code><a class="el" href="classNNet_1_1THostPort.html#a4b73f1d9161d288fe093b88a004695ed" title="Resolves the host to a TAddress using the given resolver.">Resolve()</a></code> returns immediately without querying DNS. Otherwise it delegates to <code><a class="el" href="classNNet_1_1TResolver.html#a7c4639cf1885147b4f3bfdf7324258c7" title="Resolves a hostname to a list of IP addresses.">TResolver::Resolve()</a></code>.</p>
+<div class="fragment"><div class="line"><a class="code hl_class" href="classNNet_1_1TAddress.html">TAddress</a> addr = <span class="keyword">co_await</span> <a class="code hl_class" href="classNNet_1_1THostPort.html">THostPort</a>(<span class="stringliteral">&quot;example.com&quot;</span>, 443).<a class="code hl_function" href="classNNet_1_1THostPort.html#a4b73f1d9161d288fe093b88a004695ed">Resolve</a>(resolver);</div>
+<div class="line"><a class="code hl_class" href="classNNet_1_1TAddress.html">TAddress</a> ip   = <span class="keyword">co_await</span> <a class="code hl_class" href="classNNet_1_1THostPort.html">THostPort</a>(<span class="stringliteral">&quot;127.0.0.1&quot;</span>, 8080).<a class="code hl_function" href="classNNet_1_1THostPort.html#a4b73f1d9161d288fe093b88a004695ed">Resolve</a>(resolver); <span class="comment">// no DNS</span></div>
+<div class="ttc" id="aclassNNet_1_1TAddress_html"><div class="ttname"><a href="classNNet_1_1TAddress.html">NNet::TAddress</a></div><div class="ttdoc">A class representing an IPv4 or IPv6 address (with port).</div><div class="ttdef"><b>Definition</b> address.hpp:38</div></div>
+<div class="ttc" id="aclassNNet_1_1THostPort_html"><div class="ttname"><a href="classNNet_1_1THostPort.html">NNet::THostPort</a></div><div class="ttdoc">A host:port pair that resolves to a TAddress.</div><div class="ttdef"><b>Definition</b> resolver.hpp:261</div></div>
+<div class="ttc" id="aclassNNet_1_1THostPort_html_a4b73f1d9161d288fe093b88a004695ed"><div class="ttname"><a href="classNNet_1_1THostPort.html#a4b73f1d9161d288fe093b88a004695ed">NNet::THostPort::Resolve</a></div><div class="ttdeci">TFuture&lt; TAddress &gt; Resolve(TResolver &amp;resolver)</div><div class="ttdoc">Resolves the host to a TAddress using the given resolver.</div><div class="ttdef"><b>Definition</b> resolver.hpp:274</div></div>
+</div><!-- fragment --> </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4b73f1d9161d288fe093b88a004695ed" name="a4b73f1d9161d288fe093b88a004695ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b73f1d9161d288fe093b88a004695ed">&#9670;&#160;</a></span>Resolve()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; <a class="el" href="classNNet_1_1TAddress.html">TAddress</a> &gt; NNet::THostPort::Resolve </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNNet_1_1TResolver.html">TResolver</a> &amp;&#160;</td>
+          <td class="paramname"><em>resolver</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Resolves the host to a <code><a class="el" href="classNNet_1_1TAddress.html" title="A class representing an IPv4 or IPv6 address (with port).">TAddress</a></code> using the given resolver. </p>
+<p>Skips DNS if <code>host</code> is already a literal IP. Throws <code>std::runtime_error</code> if DNS returns no addresses. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>coroio/dns/<a class="el" href="resolver_8hpp_source.html">resolver.hpp</a></li>
 <li>coroio/dns/<b>resolver.cpp</b></li>

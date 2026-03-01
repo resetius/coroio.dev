@@ -137,289 +137,291 @@ $(document).ready(function(){initNavTree('sockutils_8hpp_source.html',''); initR
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">namespace </span>NNet {</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="structNNet_1_1TLine.html">   18</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structNNet_1_1TLine.html">TLine</a> {</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    std::string_view Part1;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    std::string_view Part2;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">size_t</span> Size()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <span class="keywordflow">return</span> Part1.size() + Part2.size();</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    }</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">operator</span> bool()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keywordflow">return</span> !Part1.empty();</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    }</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>};</div>
+<div class="foldopen" id="foldopen00030" data-start="{" data-end="};">
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="structNNet_1_1TLine.html">   30</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structNNet_1_1TLine.html">TLine</a> {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="structNNet_1_1TLine.html#abe4a845138593508c25f19b966dacd07">   31</a></span>    std::string_view <a class="code hl_variable" href="structNNet_1_1TLine.html#abe4a845138593508c25f19b966dacd07">Part1</a>; </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="structNNet_1_1TLine.html#a8a6aa885b5adc4b058e91976776764a6">   32</a></span>    std::string_view <a class="code hl_variable" href="structNNet_1_1TLine.html#a8a6aa885b5adc4b058e91976776764a6">Part2</a>; </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">size_t</span> Size()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="structNNet_1_1TLine.html#abe4a845138593508c25f19b966dacd07">Part1</a>.size() + <a class="code hl_variable" href="structNNet_1_1TLine.html#a8a6aa885b5adc4b058e91976776764a6">Part2</a>.size();</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    }</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keyword">operator</span> bool()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keywordflow">return</span> !<a class="code hl_variable" href="structNNet_1_1TLine.html#abe4a845138593508c25f19b966dacd07">Part1</a>.empty();</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    }</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>};</div>
 </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> TSocket&gt;</div>
-<div class="foldopen" id="foldopen00064" data-start="{" data-end="};">
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="structNNet_1_1TByteReader.html">   64</a></span><span class="keyword">struct </span><a class="code hl_class" href="structNNet_1_1TByteReader.html">TByteReader</a> {</div>
-<div class="foldopen" id="foldopen00069" data-start="{" data-end="}">
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="structNNet_1_1TByteReader.html#a88f26215dec26ee31a0fd327b503ff19">   69</a></span>    <a class="code hl_function" href="structNNet_1_1TByteReader.html#a88f26215dec26ee31a0fd327b503ff19">TByteReader</a>(<a class="code hl_class" href="classNNet_1_1TSocket.html">TSocket</a>&amp; socket)</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        : Socket(socket)</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    { }</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> TSocket&gt;</div>
+<div class="foldopen" id="foldopen00076" data-start="{" data-end="};">
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="structNNet_1_1TByteReader.html">   76</a></span><span class="keyword">struct </span><a class="code hl_class" href="structNNet_1_1TByteReader.html">TByteReader</a> {</div>
+<div class="foldopen" id="foldopen00081" data-start="{" data-end="}">
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="structNNet_1_1TByteReader.html#a88f26215dec26ee31a0fd327b503ff19">   81</a></span>    <a class="code hl_function" href="structNNet_1_1TByteReader.html#a88f26215dec26ee31a0fd327b503ff19">TByteReader</a>(<a class="code hl_class" href="classNNet_1_1TSocket.html">TSocket</a>&amp; socket)</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        : Socket(socket)</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    { }</div>
 </div>
-<div class="foldopen" id="foldopen00089" data-start="{" data-end="}">
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="structNNet_1_1TByteReader.html#a06eec1258239223532bf1ef4d8e24eab">   89</a></span>    <a class="code hl_struct" href="structNNet_1_1TFuture.html">TFuture&lt;void&gt;</a> <a class="code hl_function" href="structNNet_1_1TByteReader.html#a06eec1258239223532bf1ef4d8e24eab">Read</a>(<span class="keywordtype">void</span>* data, <span class="keywordtype">size_t</span> size) {</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="keywordtype">char</span>* p = <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(data);</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <span class="keywordflow">if</span> (!Buffer.empty()) {</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>            <span class="keywordtype">size_t</span> toCopy = std::min(size, Buffer.size());</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            std::copy(Buffer.begin(), Buffer.begin() + toCopy, p);</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            p += toCopy;</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            size -= toCopy;</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            Buffer.erase(Buffer.begin(), Buffer.begin() + toCopy);</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        }</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <span class="keywordflow">while</span> (size != 0) {</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            <span class="keyword">auto</span> readSize = <span class="keyword">co_await</span> Socket.<a class="code hl_function" href="classNNet_1_1TSocketBase.html#aaf2e0b5cccc278c02ef48bcd253ff4fd">ReadSome</a>(p, size);</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            <span class="keywordflow">if</span> (readSize == 0) {</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>                <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Connection closed&quot;</span>);</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            }</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            <span class="keywordflow">if</span> (readSize &lt; 0) {</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>                <span class="keywordflow">continue</span>; <span class="comment">// retry</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            }</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            p += readSize;</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>            size -= readSize;</div>
+<div class="foldopen" id="foldopen00101" data-start="{" data-end="}">
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="structNNet_1_1TByteReader.html#a06eec1258239223532bf1ef4d8e24eab">  101</a></span>    <a class="code hl_struct" href="structNNet_1_1TFuture.html">TFuture&lt;void&gt;</a> <a class="code hl_function" href="structNNet_1_1TByteReader.html#a06eec1258239223532bf1ef4d8e24eab">Read</a>(<span class="keywordtype">void</span>* data, <span class="keywordtype">size_t</span> size) {</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <span class="keywordtype">char</span>* p = <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(data);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        <span class="keywordflow">if</span> (!Buffer.empty()) {</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            <span class="keywordtype">size_t</span> toCopy = std::min(size, Buffer.size());</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            std::copy(Buffer.begin(), Buffer.begin() + toCopy, p);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            p += toCopy;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            size -= toCopy;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>            Buffer.erase(Buffer.begin(), Buffer.begin() + toCopy);</div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        }</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        <span class="keyword">co_return</span>;</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    }</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <span class="keywordflow">while</span> (size != 0) {</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>            <span class="keyword">auto</span> readSize = <span class="keyword">co_await</span> Socket.<a class="code hl_function" href="classNNet_1_1TSocketBase.html#aaf2e0b5cccc278c02ef48bcd253ff4fd">ReadSome</a>(p, size);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            <span class="keywordflow">if</span> (readSize == 0) {</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>                <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Connection closed&quot;</span>);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            }</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            <span class="keywordflow">if</span> (readSize &lt; 0) {</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>                <span class="keywordflow">continue</span>; <span class="comment">// retry</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            }</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            p += readSize;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            size -= readSize;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        }</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <span class="keyword">co_return</span>;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    }</div>
 </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <a class="code hl_struct" href="structNNet_1_1TFuture.html">TFuture&lt;ssize_t&gt;</a> ReadSome(<span class="keywordtype">void</span>* data, <span class="keywordtype">size_t</span> size) {</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <span class="keywordtype">char</span> tempBuffer[1024];</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="comment">// read by chunks, copy to user up-to size bytes</span></div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <span class="keywordflow">if</span> (!Buffer.empty()) {</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            <span class="keywordtype">size_t</span> toCopy = std::min(size, Buffer.size());</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            std::copy(Buffer.begin(), Buffer.begin() + toCopy, <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(data));</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            Buffer.erase(Buffer.begin(), Buffer.begin() + toCopy);</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>            <span class="keyword">co_return</span> toCopy;</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        }</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <span class="keyword">auto</span> readSize = <span class="keyword">co_await</span> Socket.<a class="code hl_function" href="classNNet_1_1TSocketBase.html#aaf2e0b5cccc278c02ef48bcd253ff4fd">ReadSome</a>(tempBuffer, <span class="keyword">sizeof</span>(tempBuffer));</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        <span class="keywordflow">if</span> (readSize == 0) {</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>            <span class="keyword">co_return</span> 0;</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        }</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        <span class="keywordflow">if</span> (readSize &lt; 0) {</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            <span class="keyword">co_return</span> -1; <span class="comment">// retry</span></div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        }</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <span class="keywordtype">size_t</span> toCopy = std::min(<span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(readSize), size);</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        std::copy(tempBuffer, tempBuffer + toCopy, <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(data));</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        <span class="keywordflow">if</span> (<span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(readSize) &gt; toCopy) {</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>            Buffer.insert(Buffer.end(), tempBuffer + toCopy, tempBuffer + readSize);</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        }</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        <span class="keyword">co_return</span> toCopy;</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    }</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
-<div class="foldopen" id="foldopen00158" data-start="{" data-end="}">
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno"><a class="line" href="structNNet_1_1TByteReader.html#a0fba0689cf0fc26d154189697742d286">  158</a></span>    <a class="code hl_struct" href="structNNet_1_1TFuture.html">TFuture&lt;std::string&gt;</a> <a class="code hl_function" href="structNNet_1_1TByteReader.html#a0fba0689cf0fc26d154189697742d286">ReadUntil</a>(<span class="keyword">const</span> std::string&amp; delimiter)</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    {</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        std::string result;</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        <span class="keywordtype">char</span> tempBuffer[1024];</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>            <span class="keyword">auto</span> pos = std::search(Buffer.begin(), Buffer.end(), delimiter.begin(), delimiter.end());</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>            <span class="keywordflow">if</span> (pos != Buffer.end()) {</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>                <span class="keywordtype">size_t</span> delimiterOffset = std::distance(Buffer.begin(), pos);</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>                result.insert(result.end(), Buffer.begin(), Buffer.begin() + delimiterOffset + delimiter.size());</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>                Buffer.erase(Buffer.begin(), Buffer.begin() + delimiterOffset + delimiter.size());</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>                <span class="keyword">co_return</span> result;</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>            }</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>            result.insert(result.end(), Buffer.begin(), Buffer.end());</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>            Buffer.clear();</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <a class="code hl_struct" href="structNNet_1_1TFuture.html">TFuture&lt;ssize_t&gt;</a> ReadSome(<span class="keywordtype">void</span>* data, <span class="keywordtype">size_t</span> size) {</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        <span class="keywordtype">char</span> tempBuffer[1024];</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <span class="comment">// read by chunks, copy to user up-to size bytes</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        <span class="keywordflow">if</span> (!Buffer.empty()) {</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>            <span class="keywordtype">size_t</span> toCopy = std::min(size, Buffer.size());</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>            std::copy(Buffer.begin(), Buffer.begin() + toCopy, <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(data));</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>            Buffer.erase(Buffer.begin(), Buffer.begin() + toCopy);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>            <span class="keyword">co_return</span> toCopy;</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        }</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <span class="keyword">auto</span> readSize = <span class="keyword">co_await</span> Socket.<a class="code hl_function" href="classNNet_1_1TSocketBase.html#aaf2e0b5cccc278c02ef48bcd253ff4fd">ReadSome</a>(tempBuffer, <span class="keyword">sizeof</span>(tempBuffer));</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        <span class="keywordflow">if</span> (readSize == 0) {</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>            <span class="keyword">co_return</span> 0;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        }</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        <span class="keywordflow">if</span> (readSize &lt; 0) {</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            <span class="keyword">co_return</span> -1; <span class="comment">// retry</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        }</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        <span class="keywordtype">size_t</span> toCopy = std::min(<span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(readSize), size);</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        std::copy(tempBuffer, tempBuffer + toCopy, <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(data));</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        <span class="keywordflow">if</span> (<span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(readSize) &gt; toCopy) {</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>            Buffer.insert(Buffer.end(), tempBuffer + toCopy, tempBuffer + readSize);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        }</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        <span class="keyword">co_return</span> toCopy;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    }</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="foldopen" id="foldopen00170" data-start="{" data-end="}">
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno"><a class="line" href="structNNet_1_1TByteReader.html#a0fba0689cf0fc26d154189697742d286">  170</a></span>    <a class="code hl_struct" href="structNNet_1_1TFuture.html">TFuture&lt;std::string&gt;</a> <a class="code hl_function" href="structNNet_1_1TByteReader.html#a0fba0689cf0fc26d154189697742d286">ReadUntil</a>(<span class="keyword">const</span> std::string&amp; delimiter)</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    {</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        std::string result;</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        <span class="keywordtype">char</span> tempBuffer[1024];</div>
 <div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>            <span class="keyword">auto</span> readSize = <span class="keyword">co_await</span> Socket.<a class="code hl_function" href="classNNet_1_1TSocketBase.html#aaf2e0b5cccc278c02ef48bcd253ff4fd">ReadSome</a>(tempBuffer, <span class="keyword">sizeof</span>(tempBuffer));</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>            <span class="keywordflow">if</span> (readSize == 0) {</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>                <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Connection closed&quot;</span>);</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>            }</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>            <span class="keywordflow">if</span> (readSize &lt; 0) {</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>                <span class="keywordflow">continue</span>; <span class="comment">// retry</span></div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>            }</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>            Buffer.insert(Buffer.end(), tempBuffer, tempBuffer + readSize);</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        }</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        <span class="keyword">co_return</span> result;</div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    }</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>            <span class="keyword">auto</span> pos = std::search(Buffer.begin(), Buffer.end(), delimiter.begin(), delimiter.end());</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>            <span class="keywordflow">if</span> (pos != Buffer.end()) {</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>                <span class="keywordtype">size_t</span> delimiterOffset = std::distance(Buffer.begin(), pos);</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>                result.insert(result.end(), Buffer.begin(), Buffer.begin() + delimiterOffset + delimiter.size());</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>                Buffer.erase(Buffer.begin(), Buffer.begin() + delimiterOffset + delimiter.size());</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>                <span class="keyword">co_return</span> result;</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>            }</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>            result.insert(result.end(), Buffer.begin(), Buffer.end());</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>            Buffer.clear();</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>            <span class="keyword">auto</span> readSize = <span class="keyword">co_await</span> Socket.<a class="code hl_function" href="classNNet_1_1TSocketBase.html#aaf2e0b5cccc278c02ef48bcd253ff4fd">ReadSome</a>(tempBuffer, <span class="keyword">sizeof</span>(tempBuffer));</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>            <span class="keywordflow">if</span> (readSize == 0) {</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>                <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Connection closed&quot;</span>);</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>            }</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>            <span class="keywordflow">if</span> (readSize &lt; 0) {</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>                <span class="keywordflow">continue</span>; <span class="comment">// retry</span></div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>            }</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>            Buffer.insert(Buffer.end(), tempBuffer, tempBuffer + readSize);</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        }</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>        <span class="keyword">co_return</span> result;</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    }</div>
 </div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    <a class="code hl_class" href="classNNet_1_1TSocket.html">TSocket</a>&amp; Socket;</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    std::deque&lt;char&gt; Buffer;</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>};</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    <a class="code hl_class" href="classNNet_1_1TSocket.html">TSocket</a>&amp; Socket;</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    std::deque&lt;char&gt; Buffer;</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>};</div>
 </div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> TSocket&gt;</div>
-<div class="foldopen" id="foldopen00227" data-start="{" data-end="};">
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno"><a class="line" href="structNNet_1_1TByteWriter.html">  227</a></span><span class="keyword">struct </span><a class="code hl_class" href="structNNet_1_1TByteWriter.html">TByteWriter</a> {</div>
-<div class="foldopen" id="foldopen00232" data-start="{" data-end="}">
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno"><a class="line" href="structNNet_1_1TByteWriter.html#a5d0ccd2ed16ef6c4d0fa5bccbb8b113e">  232</a></span>    <a class="code hl_function" href="structNNet_1_1TByteWriter.html#a5d0ccd2ed16ef6c4d0fa5bccbb8b113e">TByteWriter</a>(<a class="code hl_class" href="classNNet_1_1TSocket.html">TSocket</a>&amp; socket)</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>        : Socket(socket)</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    { }</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> TSocket&gt;</div>
+<div class="foldopen" id="foldopen00239" data-start="{" data-end="};">
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno"><a class="line" href="structNNet_1_1TByteWriter.html">  239</a></span><span class="keyword">struct </span><a class="code hl_class" href="structNNet_1_1TByteWriter.html">TByteWriter</a> {</div>
+<div class="foldopen" id="foldopen00244" data-start="{" data-end="}">
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno"><a class="line" href="structNNet_1_1TByteWriter.html#a5d0ccd2ed16ef6c4d0fa5bccbb8b113e">  244</a></span>    <a class="code hl_function" href="structNNet_1_1TByteWriter.html#a5d0ccd2ed16ef6c4d0fa5bccbb8b113e">TByteWriter</a>(<a class="code hl_class" href="classNNet_1_1TSocket.html">TSocket</a>&amp; socket)</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        : Socket(socket)</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    { }</div>
 </div>
-<div class="foldopen" id="foldopen00250" data-start="{" data-end="}">
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno"><a class="line" href="structNNet_1_1TByteWriter.html#acc8363d16f9b540439d7e9c95185ecae">  250</a></span>    <a class="code hl_struct" href="structNNet_1_1TFuture.html">TFuture&lt;void&gt;</a> <a class="code hl_function" href="structNNet_1_1TByteWriter.html#acc8363d16f9b540439d7e9c95185ecae">Write</a>(<span class="keyword">const</span> <span class="keywordtype">void</span>* data, <span class="keywordtype">size_t</span> size) {</div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>        <span class="keyword">const</span> <span class="keywordtype">char</span>* p = <span class="keyword">static_cast&lt;</span><span class="keyword">const </span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(data);</div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>        <span class="keywordflow">while</span> (size != 0) {</div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>            <span class="keyword">auto</span> readSize = <span class="keyword">co_await</span> Socket.<a class="code hl_function" href="classNNet_1_1TSocketBase.html#a456c0bd8d8e3e5a949329a963809fd24">WriteSome</a>(p, size);</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>            <span class="keywordflow">if</span> (readSize == 0) {</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>                <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Connection closed&quot;</span>);</div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>            }</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>            <span class="keywordflow">if</span> (readSize &lt; 0) {</div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>                <span class="keywordflow">continue</span>; <span class="comment">// retry</span></div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>            }</div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>            p += readSize;</div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>            size -= readSize;</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>        }</div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>        <span class="keyword">co_return</span>;</div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>    }</div>
+<div class="foldopen" id="foldopen00262" data-start="{" data-end="}">
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno"><a class="line" href="structNNet_1_1TByteWriter.html#acc8363d16f9b540439d7e9c95185ecae">  262</a></span>    <a class="code hl_struct" href="structNNet_1_1TFuture.html">TFuture&lt;void&gt;</a> <a class="code hl_function" href="structNNet_1_1TByteWriter.html#acc8363d16f9b540439d7e9c95185ecae">Write</a>(<span class="keyword">const</span> <span class="keywordtype">void</span>* data, <span class="keywordtype">size_t</span> size) {</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>        <span class="keyword">const</span> <span class="keywordtype">char</span>* p = <span class="keyword">static_cast&lt;</span><span class="keyword">const </span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(data);</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>        <span class="keywordflow">while</span> (size != 0) {</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>            <span class="keyword">auto</span> readSize = <span class="keyword">co_await</span> Socket.<a class="code hl_function" href="classNNet_1_1TSocketBase.html#a456c0bd8d8e3e5a949329a963809fd24">WriteSome</a>(p, size);</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>            <span class="keywordflow">if</span> (readSize == 0) {</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>                <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Connection closed&quot;</span>);</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>            }</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>            <span class="keywordflow">if</span> (readSize &lt; 0) {</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>                <span class="keywordflow">continue</span>; <span class="comment">// retry</span></div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>            }</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>            p += readSize;</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>            size -= readSize;</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>        }</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>        <span class="keyword">co_return</span>;</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>    }</div>
 </div>
-<div class="foldopen" id="foldopen00277" data-start="{" data-end="}">
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno"><a class="line" href="structNNet_1_1TByteWriter.html#a1f907d3c1d0856578f11af55f1d12360">  277</a></span>    <a class="code hl_struct" href="structNNet_1_1TFuture.html">TFuture&lt;void&gt;</a> <a class="code hl_function" href="structNNet_1_1TByteWriter.html#a1f907d3c1d0856578f11af55f1d12360">Write</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structNNet_1_1TLine.html">TLine</a>&amp; line) {</div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>        <span class="keyword">co_await</span> <a class="code hl_function" href="structNNet_1_1TByteWriter.html#acc8363d16f9b540439d7e9c95185ecae">Write</a>(line.Part1.data(), line.Part1.size());</div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>        <span class="keyword">co_await</span> <a class="code hl_function" href="structNNet_1_1TByteWriter.html#acc8363d16f9b540439d7e9c95185ecae">Write</a>(line.Part2.data(), line.Part2.size());</div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>        <span class="keyword">co_return</span>;</div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>    }</div>
+<div class="foldopen" id="foldopen00289" data-start="{" data-end="}">
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno"><a class="line" href="structNNet_1_1TByteWriter.html#a1f907d3c1d0856578f11af55f1d12360">  289</a></span>    <a class="code hl_struct" href="structNNet_1_1TFuture.html">TFuture&lt;void&gt;</a> <a class="code hl_function" href="structNNet_1_1TByteWriter.html#a1f907d3c1d0856578f11af55f1d12360">Write</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structNNet_1_1TLine.html">TLine</a>&amp; line) {</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>        <span class="keyword">co_await</span> <a class="code hl_function" href="structNNet_1_1TByteWriter.html#acc8363d16f9b540439d7e9c95185ecae">Write</a>(line.<a class="code hl_variable" href="structNNet_1_1TLine.html#abe4a845138593508c25f19b966dacd07">Part1</a>.data(), line.<a class="code hl_variable" href="structNNet_1_1TLine.html#abe4a845138593508c25f19b966dacd07">Part1</a>.size());</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>        <span class="keyword">co_await</span> <a class="code hl_function" href="structNNet_1_1TByteWriter.html#acc8363d16f9b540439d7e9c95185ecae">Write</a>(line.<a class="code hl_variable" href="structNNet_1_1TLine.html#a8a6aa885b5adc4b058e91976776764a6">Part2</a>.data(), line.<a class="code hl_variable" href="structNNet_1_1TLine.html#a8a6aa885b5adc4b058e91976776764a6">Part2</a>.size());</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>        <span class="keyword">co_return</span>;</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>    }</div>
 </div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span> </div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>    <a class="code hl_class" href="classNNet_1_1TSocket.html">TSocket</a>&amp; Socket;</div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>};</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span> </div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>    <a class="code hl_class" href="classNNet_1_1TSocket.html">TSocket</a>&amp; Socket;</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>};</div>
 </div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span> </div>
-<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> TSocket&gt;</div>
-<div class="foldopen" id="foldopen00325" data-start="{" data-end="};">
-<div class="line"><a id="l00325" name="l00325"></a><span class="lineno"><a class="line" href="structNNet_1_1TStructReader.html">  325</a></span><span class="keyword">struct </span><a class="code hl_class" href="structNNet_1_1TStructReader.html">TStructReader</a> {</div>
-<div class="foldopen" id="foldopen00330" data-start="{" data-end="}">
-<div class="line"><a id="l00330" name="l00330"></a><span class="lineno"><a class="line" href="structNNet_1_1TStructReader.html#a01aed1fb8dc52c06e5177b13b02c0f3a">  330</a></span>    <a class="code hl_function" href="structNNet_1_1TStructReader.html#a01aed1fb8dc52c06e5177b13b02c0f3a">TStructReader</a>(<a class="code hl_class" href="classNNet_1_1TSocket.html">TSocket</a>&amp; socket)</div>
-<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>        : Socket(socket)</div>
-<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>    { }</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span> </div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> TSocket&gt;</div>
+<div class="foldopen" id="foldopen00337" data-start="{" data-end="};">
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno"><a class="line" href="structNNet_1_1TStructReader.html">  337</a></span><span class="keyword">struct </span><a class="code hl_class" href="structNNet_1_1TStructReader.html">TStructReader</a> {</div>
+<div class="foldopen" id="foldopen00342" data-start="{" data-end="}">
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno"><a class="line" href="structNNet_1_1TStructReader.html#a01aed1fb8dc52c06e5177b13b02c0f3a">  342</a></span>    <a class="code hl_function" href="structNNet_1_1TStructReader.html#a01aed1fb8dc52c06e5177b13b02c0f3a">TStructReader</a>(<a class="code hl_class" href="classNNet_1_1TSocket.html">TSocket</a>&amp; socket)</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>        : Socket(socket)</div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>    { }</div>
 </div>
-<div class="foldopen" id="foldopen00348" data-start="{" data-end="}">
-<div class="line"><a id="l00348" name="l00348"></a><span class="lineno"><a class="line" href="structNNet_1_1TStructReader.html#ab01ad1a8c37cc594376b468201382ef0">  348</a></span>    <a class="code hl_struct" href="structNNet_1_1TFuture.html">TFuture&lt;T&gt;</a> <a class="code hl_function" href="structNNet_1_1TStructReader.html#ab01ad1a8c37cc594376b468201382ef0">Read</a>() {</div>
-<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>        T res;</div>
-<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>        <span class="keywordtype">size_t</span> size = <span class="keyword">sizeof</span>(T);</div>
-<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>        <span class="keywordtype">char</span>* p = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(&amp;res);</div>
-<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>        <span class="keywordflow">while</span> (size != 0) {</div>
-<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>            <span class="keyword">auto</span> readSize = <span class="keyword">co_await</span> Socket.<a class="code hl_function" href="classNNet_1_1TSocketBase.html#aaf2e0b5cccc278c02ef48bcd253ff4fd">ReadSome</a>(p, size);</div>
-<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>            <span class="keywordflow">if</span> (readSize == 0) {</div>
-<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>                <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Connection closed&quot;</span>);</div>
-<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>            }</div>
-<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>            <span class="keywordflow">if</span> (readSize &lt; 0) {</div>
-<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>                <span class="keywordflow">continue</span>; <span class="comment">// retry</span></div>
-<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>            }</div>
-<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>            p += readSize;</div>
-<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>            size -= readSize;</div>
-<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>        }</div>
-<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>        <span class="keyword">co_return</span> res;</div>
-<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>    }</div>
+<div class="foldopen" id="foldopen00360" data-start="{" data-end="}">
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno"><a class="line" href="structNNet_1_1TStructReader.html#ab01ad1a8c37cc594376b468201382ef0">  360</a></span>    <a class="code hl_struct" href="structNNet_1_1TFuture.html">TFuture&lt;T&gt;</a> <a class="code hl_function" href="structNNet_1_1TStructReader.html#ab01ad1a8c37cc594376b468201382ef0">Read</a>() {</div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>        T res;</div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>        <span class="keywordtype">size_t</span> size = <span class="keyword">sizeof</span>(T);</div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>        <span class="keywordtype">char</span>* p = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(&amp;res);</div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>        <span class="keywordflow">while</span> (size != 0) {</div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>            <span class="keyword">auto</span> readSize = <span class="keyword">co_await</span> Socket.<a class="code hl_function" href="classNNet_1_1TSocketBase.html#aaf2e0b5cccc278c02ef48bcd253ff4fd">ReadSome</a>(p, size);</div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>            <span class="keywordflow">if</span> (readSize == 0) {</div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>                <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Connection closed&quot;</span>);</div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>            }</div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>            <span class="keywordflow">if</span> (readSize &lt; 0) {</div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>                <span class="keywordflow">continue</span>; <span class="comment">// retry</span></div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>            }</div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>            p += readSize;</div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>            size -= readSize;</div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>        }</div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>        <span class="keyword">co_return</span> res;</div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>    }</div>
 </div>
-<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span> </div>
-<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>    <a class="code hl_class" href="classNNet_1_1TSocket.html">TSocket</a>&amp; Socket;</div>
-<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>};</div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span> </div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>    <a class="code hl_class" href="classNNet_1_1TSocket.html">TSocket</a>&amp; Socket;</div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>};</div>
 </div>
-<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span> </div>
-<div class="foldopen" id="foldopen00414" data-start="{" data-end="};">
-<div class="line"><a id="l00414" name="l00414"></a><span class="lineno"><a class="line" href="structNNet_1_1TLineSplitter.html">  414</a></span><span class="keyword">struct </span><a class="code hl_class" href="structNNet_1_1TLineSplitter.html">TLineSplitter</a> {</div>
-<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>    <a class="code hl_class" href="structNNet_1_1TLineSplitter.html">TLineSplitter</a>(<span class="keywordtype">int</span> maxLen);</div>
-<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span>    <a class="code hl_struct" href="structNNet_1_1TLine.html">TLine</a> <a class="code hl_function" href="structNNet_1_1TLineSplitter.html#af1ce0b2638579861c43b8bde322aa468">Pop</a>();</div>
-<div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="structNNet_1_1TLineSplitter.html#a3147a073f1421daec77a92512cbb0132">Push</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* buf, <span class="keywordtype">size_t</span> size);</div>
-<div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span> </div>
-<div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00449" name="l00449"></a><span class="lineno">  449</span>    <span class="keywordtype">size_t</span> WPos;</div>
-<div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span>    <span class="keywordtype">size_t</span> RPos;</div>
-<div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span>    <span class="keywordtype">size_t</span> Size;</div>
-<div class="line"><a id="l00452" name="l00452"></a><span class="lineno">  452</span>    <span class="keywordtype">size_t</span> Cap;</div>
-<div class="line"><a id="l00453" name="l00453"></a><span class="lineno">  453</span>    std::string Data;</div>
-<div class="line"><a id="l00454" name="l00454"></a><span class="lineno">  454</span>    std::string_view View;</div>
-<div class="line"><a id="l00455" name="l00455"></a><span class="lineno">  455</span>};</div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span> </div>
+<div class="foldopen" id="foldopen00426" data-start="{" data-end="};">
+<div class="line"><a id="l00426" name="l00426"></a><span class="lineno"><a class="line" href="structNNet_1_1TLineSplitter.html">  426</a></span><span class="keyword">struct </span><a class="code hl_class" href="structNNet_1_1TLineSplitter.html">TLineSplitter</a> {</div>
+<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span>    <a class="code hl_class" href="structNNet_1_1TLineSplitter.html">TLineSplitter</a>(<span class="keywordtype">int</span> maxLen);</div>
+<div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span>    <a class="code hl_struct" href="structNNet_1_1TLine.html">TLine</a> <a class="code hl_function" href="structNNet_1_1TLineSplitter.html#af1ce0b2638579861c43b8bde322aa468">Pop</a>();</div>
+<div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="structNNet_1_1TLineSplitter.html#a3147a073f1421daec77a92512cbb0132">Push</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* buf, <span class="keywordtype">size_t</span> size);</div>
+<div class="line"><a id="l00459" name="l00459"></a><span class="lineno">  459</span> </div>
+<div class="line"><a id="l00460" name="l00460"></a><span class="lineno">  460</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00461" name="l00461"></a><span class="lineno">  461</span>    <span class="keywordtype">size_t</span> WPos;</div>
+<div class="line"><a id="l00462" name="l00462"></a><span class="lineno">  462</span>    <span class="keywordtype">size_t</span> RPos;</div>
+<div class="line"><a id="l00463" name="l00463"></a><span class="lineno">  463</span>    <span class="keywordtype">size_t</span> Size;</div>
+<div class="line"><a id="l00464" name="l00464"></a><span class="lineno">  464</span>    <span class="keywordtype">size_t</span> Cap;</div>
+<div class="line"><a id="l00465" name="l00465"></a><span class="lineno">  465</span>    std::string Data;</div>
+<div class="line"><a id="l00466" name="l00466"></a><span class="lineno">  466</span>    std::string_view View;</div>
+<div class="line"><a id="l00467" name="l00467"></a><span class="lineno">  467</span>};</div>
 </div>
-<div class="line"><a id="l00456" name="l00456"></a><span class="lineno">  456</span> </div>
-<div class="foldopen" id="foldopen00506" data-start="{" data-end="};">
-<div class="line"><a id="l00506" name="l00506"></a><span class="lineno"><a class="line" href="structNNet_1_1TZeroCopyLineSplitter.html">  506</a></span><span class="keyword">struct </span><a class="code hl_class" href="structNNet_1_1TZeroCopyLineSplitter.html">TZeroCopyLineSplitter</a> {</div>
-<div class="line"><a id="l00507" name="l00507"></a><span class="lineno">  507</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00512" name="l00512"></a><span class="lineno">  512</span>    <a class="code hl_class" href="structNNet_1_1TZeroCopyLineSplitter.html">TZeroCopyLineSplitter</a>(<span class="keywordtype">int</span> maxLen);</div>
-<div class="line"><a id="l00529" name="l00529"></a><span class="lineno">  529</span>    <a class="code hl_struct" href="structNNet_1_1TLine.html">TLine</a> <a class="code hl_function" href="structNNet_1_1TZeroCopyLineSplitter.html#a1e1578720d20f66e7a1d6a05cbab7d73">Pop</a>();</div>
-<div class="line"><a id="l00546" name="l00546"></a><span class="lineno">  546</span>    std::span&lt;char&gt; <a class="code hl_function" href="structNNet_1_1TZeroCopyLineSplitter.html#ae046dcda237bb388211cc3227dfe1465">Acquire</a>(<span class="keywordtype">size_t</span> size);</div>
-<div class="line"><a id="l00555" name="l00555"></a><span class="lineno">  555</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="structNNet_1_1TZeroCopyLineSplitter.html#abb13941bdde48ab6559a79149ac66353">Commit</a>(<span class="keywordtype">size_t</span> size);</div>
-<div class="line"><a id="l00567" name="l00567"></a><span class="lineno">  567</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="structNNet_1_1TZeroCopyLineSplitter.html#a4f342c7968fc6559a7103db01503b248">Push</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* p, <span class="keywordtype">size_t</span> len);</div>
-<div class="line"><a id="l00568" name="l00568"></a><span class="lineno">  568</span> </div>
-<div class="line"><a id="l00569" name="l00569"></a><span class="lineno">  569</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00570" name="l00570"></a><span class="lineno">  570</span>    <span class="keywordtype">size_t</span> WPos;</div>
-<div class="line"><a id="l00571" name="l00571"></a><span class="lineno">  571</span>    <span class="keywordtype">size_t</span> RPos;</div>
-<div class="line"><a id="l00572" name="l00572"></a><span class="lineno">  572</span>    <span class="keywordtype">size_t</span> Size;</div>
-<div class="line"><a id="l00573" name="l00573"></a><span class="lineno">  573</span>    <span class="keywordtype">size_t</span> Cap;</div>
-<div class="line"><a id="l00574" name="l00574"></a><span class="lineno">  574</span>    std::string Data;</div>
-<div class="line"><a id="l00575" name="l00575"></a><span class="lineno">  575</span>    std::string_view View;</div>
-<div class="line"><a id="l00576" name="l00576"></a><span class="lineno">  576</span>};</div>
+<div class="line"><a id="l00468" name="l00468"></a><span class="lineno">  468</span> </div>
+<div class="foldopen" id="foldopen00518" data-start="{" data-end="};">
+<div class="line"><a id="l00518" name="l00518"></a><span class="lineno"><a class="line" href="structNNet_1_1TZeroCopyLineSplitter.html">  518</a></span><span class="keyword">struct </span><a class="code hl_class" href="structNNet_1_1TZeroCopyLineSplitter.html">TZeroCopyLineSplitter</a> {</div>
+<div class="line"><a id="l00519" name="l00519"></a><span class="lineno">  519</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00524" name="l00524"></a><span class="lineno">  524</span>    <a class="code hl_class" href="structNNet_1_1TZeroCopyLineSplitter.html">TZeroCopyLineSplitter</a>(<span class="keywordtype">int</span> maxLen);</div>
+<div class="line"><a id="l00541" name="l00541"></a><span class="lineno">  541</span>    <a class="code hl_struct" href="structNNet_1_1TLine.html">TLine</a> <a class="code hl_function" href="structNNet_1_1TZeroCopyLineSplitter.html#a1e1578720d20f66e7a1d6a05cbab7d73">Pop</a>();</div>
+<div class="line"><a id="l00558" name="l00558"></a><span class="lineno">  558</span>    std::span&lt;char&gt; <a class="code hl_function" href="structNNet_1_1TZeroCopyLineSplitter.html#ae046dcda237bb388211cc3227dfe1465">Acquire</a>(<span class="keywordtype">size_t</span> size);</div>
+<div class="line"><a id="l00567" name="l00567"></a><span class="lineno">  567</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="structNNet_1_1TZeroCopyLineSplitter.html#abb13941bdde48ab6559a79149ac66353">Commit</a>(<span class="keywordtype">size_t</span> size);</div>
+<div class="line"><a id="l00579" name="l00579"></a><span class="lineno">  579</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="structNNet_1_1TZeroCopyLineSplitter.html#a4f342c7968fc6559a7103db01503b248">Push</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* p, <span class="keywordtype">size_t</span> len);</div>
+<div class="line"><a id="l00580" name="l00580"></a><span class="lineno">  580</span> </div>
+<div class="line"><a id="l00581" name="l00581"></a><span class="lineno">  581</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00582" name="l00582"></a><span class="lineno">  582</span>    <span class="keywordtype">size_t</span> WPos;</div>
+<div class="line"><a id="l00583" name="l00583"></a><span class="lineno">  583</span>    <span class="keywordtype">size_t</span> RPos;</div>
+<div class="line"><a id="l00584" name="l00584"></a><span class="lineno">  584</span>    <span class="keywordtype">size_t</span> Size;</div>
+<div class="line"><a id="l00585" name="l00585"></a><span class="lineno">  585</span>    <span class="keywordtype">size_t</span> Cap;</div>
+<div class="line"><a id="l00586" name="l00586"></a><span class="lineno">  586</span>    std::string Data;</div>
+<div class="line"><a id="l00587" name="l00587"></a><span class="lineno">  587</span>    std::string_view View;</div>
+<div class="line"><a id="l00588" name="l00588"></a><span class="lineno">  588</span>};</div>
 </div>
-<div class="line"><a id="l00613" name="l00613"></a><span class="lineno">  613</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> TSocket&gt;</div>
-<div class="foldopen" id="foldopen00614" data-start="{" data-end="};">
-<div class="line"><a id="l00614" name="l00614"></a><span class="lineno"><a class="line" href="structNNet_1_1TLineReader.html">  614</a></span><span class="keyword">struct </span><a class="code hl_class" href="structNNet_1_1TLineReader.html">TLineReader</a> {</div>
-<div class="foldopen" id="foldopen00624" data-start="{" data-end="}">
-<div class="line"><a id="l00624" name="l00624"></a><span class="lineno"><a class="line" href="structNNet_1_1TLineReader.html#a42714161f82dbc80770f6a1a0be610ea">  624</a></span>    <a class="code hl_function" href="structNNet_1_1TLineReader.html#a42714161f82dbc80770f6a1a0be610ea">TLineReader</a>(<a class="code hl_class" href="classNNet_1_1TSocket.html">TSocket</a>&amp; socket, <span class="keywordtype">int</span> maxLineSize = 4096)</div>
-<div class="line"><a id="l00625" name="l00625"></a><span class="lineno">  625</span>        : Socket(socket)</div>
-<div class="line"><a id="l00626" name="l00626"></a><span class="lineno">  626</span>        , Splitter(maxLineSize)</div>
-<div class="line"><a id="l00627" name="l00627"></a><span class="lineno">  627</span>        , ChunkSize(maxLineSize / 2)</div>
-<div class="line"><a id="l00628" name="l00628"></a><span class="lineno">  628</span>    { }</div>
+<div class="line"><a id="l00625" name="l00625"></a><span class="lineno">  625</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> TSocket&gt;</div>
+<div class="foldopen" id="foldopen00626" data-start="{" data-end="};">
+<div class="line"><a id="l00626" name="l00626"></a><span class="lineno"><a class="line" href="structNNet_1_1TLineReader.html">  626</a></span><span class="keyword">struct </span><a class="code hl_class" href="structNNet_1_1TLineReader.html">TLineReader</a> {</div>
+<div class="foldopen" id="foldopen00636" data-start="{" data-end="}">
+<div class="line"><a id="l00636" name="l00636"></a><span class="lineno"><a class="line" href="structNNet_1_1TLineReader.html#a42714161f82dbc80770f6a1a0be610ea">  636</a></span>    <a class="code hl_function" href="structNNet_1_1TLineReader.html#a42714161f82dbc80770f6a1a0be610ea">TLineReader</a>(<a class="code hl_class" href="classNNet_1_1TSocket.html">TSocket</a>&amp; socket, <span class="keywordtype">int</span> maxLineSize = 4096)</div>
+<div class="line"><a id="l00637" name="l00637"></a><span class="lineno">  637</span>        : Socket(socket)</div>
+<div class="line"><a id="l00638" name="l00638"></a><span class="lineno">  638</span>        , Splitter(maxLineSize)</div>
+<div class="line"><a id="l00639" name="l00639"></a><span class="lineno">  639</span>        , ChunkSize(maxLineSize / 2)</div>
+<div class="line"><a id="l00640" name="l00640"></a><span class="lineno">  640</span>    { }</div>
 </div>
-<div class="foldopen" id="foldopen00640" data-start="{" data-end="}">
-<div class="line"><a id="l00640" name="l00640"></a><span class="lineno"><a class="line" href="structNNet_1_1TLineReader.html#ab67aad2e1bd4efa504ab0c4a3f7a4bec">  640</a></span>    <a class="code hl_struct" href="structNNet_1_1TFuture.html">TFuture&lt;TLine&gt;</a> <a class="code hl_function" href="structNNet_1_1TLineReader.html#ab67aad2e1bd4efa504ab0c4a3f7a4bec">Read</a>() {</div>
-<div class="line"><a id="l00641" name="l00641"></a><span class="lineno">  641</span>        <span class="keyword">auto</span> line = Splitter.<a class="code hl_function" href="structNNet_1_1TZeroCopyLineSplitter.html#a1e1578720d20f66e7a1d6a05cbab7d73">Pop</a>();</div>
-<div class="line"><a id="l00642" name="l00642"></a><span class="lineno">  642</span>        <span class="keywordflow">while</span> (!line) {</div>
-<div class="line"><a id="l00643" name="l00643"></a><span class="lineno">  643</span>            <span class="keyword">auto</span> buf = Splitter.<a class="code hl_function" href="structNNet_1_1TZeroCopyLineSplitter.html#ae046dcda237bb388211cc3227dfe1465">Acquire</a>(ChunkSize);</div>
-<div class="line"><a id="l00644" name="l00644"></a><span class="lineno">  644</span>            <span class="keyword">auto</span> size = <span class="keyword">co_await</span> Socket.<a class="code hl_function" href="classNNet_1_1TSocketBase.html#aaf2e0b5cccc278c02ef48bcd253ff4fd">ReadSome</a>(buf.data(), buf.size());</div>
-<div class="line"><a id="l00645" name="l00645"></a><span class="lineno">  645</span>            <span class="keywordflow">if</span> (size &lt; 0) {</div>
-<div class="line"><a id="l00646" name="l00646"></a><span class="lineno">  646</span>                <span class="keywordflow">continue</span>;</div>
-<div class="line"><a id="l00647" name="l00647"></a><span class="lineno">  647</span>            }</div>
-<div class="line"><a id="l00648" name="l00648"></a><span class="lineno">  648</span>            <span class="keywordflow">if</span> (size == 0) {</div>
-<div class="line"><a id="l00649" name="l00649"></a><span class="lineno">  649</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00650" name="l00650"></a><span class="lineno">  650</span>            }</div>
-<div class="line"><a id="l00651" name="l00651"></a><span class="lineno">  651</span>            Splitter.<a class="code hl_function" href="structNNet_1_1TZeroCopyLineSplitter.html#abb13941bdde48ab6559a79149ac66353">Commit</a>(size);</div>
-<div class="line"><a id="l00652" name="l00652"></a><span class="lineno">  652</span>            line = Splitter.<a class="code hl_function" href="structNNet_1_1TZeroCopyLineSplitter.html#a1e1578720d20f66e7a1d6a05cbab7d73">Pop</a>();</div>
-<div class="line"><a id="l00653" name="l00653"></a><span class="lineno">  653</span>        }</div>
-<div class="line"><a id="l00654" name="l00654"></a><span class="lineno">  654</span>        <span class="keyword">co_return</span> line;</div>
-<div class="line"><a id="l00655" name="l00655"></a><span class="lineno">  655</span>    }</div>
+<div class="foldopen" id="foldopen00652" data-start="{" data-end="}">
+<div class="line"><a id="l00652" name="l00652"></a><span class="lineno"><a class="line" href="structNNet_1_1TLineReader.html#ab67aad2e1bd4efa504ab0c4a3f7a4bec">  652</a></span>    <a class="code hl_struct" href="structNNet_1_1TFuture.html">TFuture&lt;TLine&gt;</a> <a class="code hl_function" href="structNNet_1_1TLineReader.html#ab67aad2e1bd4efa504ab0c4a3f7a4bec">Read</a>() {</div>
+<div class="line"><a id="l00653" name="l00653"></a><span class="lineno">  653</span>        <span class="keyword">auto</span> line = Splitter.<a class="code hl_function" href="structNNet_1_1TZeroCopyLineSplitter.html#a1e1578720d20f66e7a1d6a05cbab7d73">Pop</a>();</div>
+<div class="line"><a id="l00654" name="l00654"></a><span class="lineno">  654</span>        <span class="keywordflow">while</span> (!line) {</div>
+<div class="line"><a id="l00655" name="l00655"></a><span class="lineno">  655</span>            <span class="keyword">auto</span> buf = Splitter.<a class="code hl_function" href="structNNet_1_1TZeroCopyLineSplitter.html#ae046dcda237bb388211cc3227dfe1465">Acquire</a>(ChunkSize);</div>
+<div class="line"><a id="l00656" name="l00656"></a><span class="lineno">  656</span>            <span class="keyword">auto</span> size = <span class="keyword">co_await</span> Socket.<a class="code hl_function" href="classNNet_1_1TSocketBase.html#aaf2e0b5cccc278c02ef48bcd253ff4fd">ReadSome</a>(buf.data(), buf.size());</div>
+<div class="line"><a id="l00657" name="l00657"></a><span class="lineno">  657</span>            <span class="keywordflow">if</span> (size &lt; 0) {</div>
+<div class="line"><a id="l00658" name="l00658"></a><span class="lineno">  658</span>                <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00659" name="l00659"></a><span class="lineno">  659</span>            }</div>
+<div class="line"><a id="l00660" name="l00660"></a><span class="lineno">  660</span>            <span class="keywordflow">if</span> (size == 0) {</div>
+<div class="line"><a id="l00661" name="l00661"></a><span class="lineno">  661</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00662" name="l00662"></a><span class="lineno">  662</span>            }</div>
+<div class="line"><a id="l00663" name="l00663"></a><span class="lineno">  663</span>            Splitter.<a class="code hl_function" href="structNNet_1_1TZeroCopyLineSplitter.html#abb13941bdde48ab6559a79149ac66353">Commit</a>(size);</div>
+<div class="line"><a id="l00664" name="l00664"></a><span class="lineno">  664</span>            line = Splitter.<a class="code hl_function" href="structNNet_1_1TZeroCopyLineSplitter.html#a1e1578720d20f66e7a1d6a05cbab7d73">Pop</a>();</div>
+<div class="line"><a id="l00665" name="l00665"></a><span class="lineno">  665</span>        }</div>
+<div class="line"><a id="l00666" name="l00666"></a><span class="lineno">  666</span>        <span class="keyword">co_return</span> line;</div>
+<div class="line"><a id="l00667" name="l00667"></a><span class="lineno">  667</span>    }</div>
 </div>
-<div class="line"><a id="l00656" name="l00656"></a><span class="lineno">  656</span> </div>
-<div class="line"><a id="l00657" name="l00657"></a><span class="lineno">  657</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00658" name="l00658"></a><span class="lineno">  658</span>    <a class="code hl_class" href="classNNet_1_1TSocket.html">TSocket</a>&amp; Socket;</div>
-<div class="line"><a id="l00659" name="l00659"></a><span class="lineno">  659</span>    <a class="code hl_class" href="structNNet_1_1TZeroCopyLineSplitter.html">TZeroCopyLineSplitter</a> Splitter;</div>
-<div class="line"><a id="l00660" name="l00660"></a><span class="lineno">  660</span>    <span class="keywordtype">int</span> ChunkSize;</div>
-<div class="line"><a id="l00661" name="l00661"></a><span class="lineno">  661</span>};</div>
+<div class="line"><a id="l00668" name="l00668"></a><span class="lineno">  668</span> </div>
+<div class="line"><a id="l00669" name="l00669"></a><span class="lineno">  669</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00670" name="l00670"></a><span class="lineno">  670</span>    <a class="code hl_class" href="classNNet_1_1TSocket.html">TSocket</a>&amp; Socket;</div>
+<div class="line"><a id="l00671" name="l00671"></a><span class="lineno">  671</span>    <a class="code hl_class" href="structNNet_1_1TZeroCopyLineSplitter.html">TZeroCopyLineSplitter</a> Splitter;</div>
+<div class="line"><a id="l00672" name="l00672"></a><span class="lineno">  672</span>    <span class="keywordtype">int</span> ChunkSize;</div>
+<div class="line"><a id="l00673" name="l00673"></a><span class="lineno">  673</span>};</div>
 </div>
-<div class="line"><a id="l00662" name="l00662"></a><span class="lineno">  662</span> </div>
-<div class="line"><a id="l00663" name="l00663"></a><span class="lineno">  663</span>} <span class="comment">// namespace NNet {</span></div>
+<div class="line"><a id="l00674" name="l00674"></a><span class="lineno">  674</span> </div>
+<div class="line"><a id="l00675" name="l00675"></a><span class="lineno">  675</span>} <span class="comment">// namespace NNet {</span></div>
 <div class="ttc" id="aclassNNet_1_1TSocketBase_html_a456c0bd8d8e3e5a949329a963809fd24"><div class="ttname"><a href="classNNet_1_1TSocketBase.html#a456c0bd8d8e3e5a949329a963809fd24">NNet::TSocketBase::WriteSome</a></div><div class="ttdeci">auto WriteSome(const void *buf, size_t size)</div><div class="ttdoc">Asynchronously writes data from the provided buffer to the socket.</div><div class="ttdef"><b>Definition</b> socket.hpp:189</div></div>
 <div class="ttc" id="aclassNNet_1_1TSocketBase_html_aaf2e0b5cccc278c02ef48bcd253ff4fd"><div class="ttname"><a href="classNNet_1_1TSocketBase.html#aaf2e0b5cccc278c02ef48bcd253ff4fd">NNet::TSocketBase::ReadSome</a></div><div class="ttdeci">auto ReadSome(void *buf, size_t size)</div><div class="ttdoc">Asynchronously reads data from the socket into the provided buffer.</div><div class="ttdef"><b>Definition</b> socket.hpp:139</div></div>
 <div class="ttc" id="aclassNNet_1_1TSocket_html"><div class="ttname"><a href="classNNet_1_1TSocket.html">NNet::TSocket</a></div><div class="ttdoc">High-level asynchronous socket for network communication.</div><div class="ttdef"><b>Definition</b> socket.hpp:367</div></div>
 <div class="ttc" id="acorochain_8hpp_html"><div class="ttname"><a href="corochain_8hpp.html">corochain.hpp</a></div><div class="ttdoc">Implementation of a promise/future system for coroutines.</div></div>
-<div class="ttc" id="astructNNet_1_1TByteReader_html"><div class="ttname"><a href="structNNet_1_1TByteReader.html">NNet::TByteReader</a></div><div class="ttdoc">A utility for reading data from a socket-like object, either a fixed number of bytes or until a speci...</div><div class="ttdef"><b>Definition</b> sockutils.hpp:64</div></div>
-<div class="ttc" id="astructNNet_1_1TByteReader_html_a06eec1258239223532bf1ef4d8e24eab"><div class="ttname"><a href="structNNet_1_1TByteReader.html#a06eec1258239223532bf1ef4d8e24eab">NNet::TByteReader::Read</a></div><div class="ttdeci">TFuture&lt; void &gt; Read(void *data, size_t size)</div><div class="ttdoc">Reads exactly size bytes and stores them into data.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:89</div></div>
-<div class="ttc" id="astructNNet_1_1TByteReader_html_a0fba0689cf0fc26d154189697742d286"><div class="ttname"><a href="structNNet_1_1TByteReader.html#a0fba0689cf0fc26d154189697742d286">NNet::TByteReader::ReadUntil</a></div><div class="ttdeci">TFuture&lt; std::string &gt; ReadUntil(const std::string &amp;delimiter)</div><div class="ttdoc">Reads data until the given delimiter is encountered.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:158</div></div>
-<div class="ttc" id="astructNNet_1_1TByteReader_html_a88f26215dec26ee31a0fd327b503ff19"><div class="ttname"><a href="structNNet_1_1TByteReader.html#a88f26215dec26ee31a0fd327b503ff19">NNet::TByteReader::TByteReader</a></div><div class="ttdeci">TByteReader(TSocket &amp;socket)</div><div class="ttdoc">Constructs a reader for the given socket.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:69</div></div>
-<div class="ttc" id="astructNNet_1_1TByteWriter_html"><div class="ttname"><a href="structNNet_1_1TByteWriter.html">NNet::TByteWriter</a></div><div class="ttdoc">A utility for writing data to a socket-like object.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:227</div></div>
-<div class="ttc" id="astructNNet_1_1TByteWriter_html_a1f907d3c1d0856578f11af55f1d12360"><div class="ttname"><a href="structNNet_1_1TByteWriter.html#a1f907d3c1d0856578f11af55f1d12360">NNet::TByteWriter::Write</a></div><div class="ttdeci">TFuture&lt; void &gt; Write(const TLine &amp;line)</div><div class="ttdoc">Writes a TLine object by sequentially writing its parts.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:277</div></div>
-<div class="ttc" id="astructNNet_1_1TByteWriter_html_a5d0ccd2ed16ef6c4d0fa5bccbb8b113e"><div class="ttname"><a href="structNNet_1_1TByteWriter.html#a5d0ccd2ed16ef6c4d0fa5bccbb8b113e">NNet::TByteWriter::TByteWriter</a></div><div class="ttdeci">TByteWriter(TSocket &amp;socket)</div><div class="ttdoc">Constructs a writer for the given socket.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:232</div></div>
-<div class="ttc" id="astructNNet_1_1TByteWriter_html_acc8363d16f9b540439d7e9c95185ecae"><div class="ttname"><a href="structNNet_1_1TByteWriter.html#acc8363d16f9b540439d7e9c95185ecae">NNet::TByteWriter::Write</a></div><div class="ttdeci">TFuture&lt; void &gt; Write(const void *data, size_t size)</div><div class="ttdoc">Writes exactly size bytes from data to the socket.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:250</div></div>
-<div class="ttc" id="astructNNet_1_1TFuture_html"><div class="ttname"><a href="structNNet_1_1TFuture.html">NNet::TFuture</a></div><div class="ttdoc">Future type for coroutines returning a value of type T.</div><div class="ttdef"><b>Definition</b> corochain.hpp:182</div></div>
-<div class="ttc" id="astructNNet_1_1TLineReader_html"><div class="ttname"><a href="structNNet_1_1TLineReader.html">NNet::TLineReader</a></div><div class="ttdoc">Reads a complete line from a socket using a zero-copy line splitter.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:614</div></div>
-<div class="ttc" id="astructNNet_1_1TLineReader_html_a42714161f82dbc80770f6a1a0be610ea"><div class="ttname"><a href="structNNet_1_1TLineReader.html#a42714161f82dbc80770f6a1a0be610ea">NNet::TLineReader::TLineReader</a></div><div class="ttdeci">TLineReader(TSocket &amp;socket, int maxLineSize=4096)</div><div class="ttdoc">Constructs a line reader with the given socket and maximum line size.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:624</div></div>
-<div class="ttc" id="astructNNet_1_1TLineReader_html_ab67aad2e1bd4efa504ab0c4a3f7a4bec"><div class="ttname"><a href="structNNet_1_1TLineReader.html#ab67aad2e1bd4efa504ab0c4a3f7a4bec">NNet::TLineReader::Read</a></div><div class="ttdeci">TFuture&lt; TLine &gt; Read()</div><div class="ttdoc">Reads and returns the next complete line from the socket.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:640</div></div>
-<div class="ttc" id="astructNNet_1_1TLineSplitter_html"><div class="ttname"><a href="structNNet_1_1TLineSplitter.html">NNet::TLineSplitter</a></div><div class="ttdoc">Splits incoming data into lines using a circular buffer of fixed capacity.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:414</div></div>
+<div class="ttc" id="astructNNet_1_1TByteReader_html"><div class="ttname"><a href="structNNet_1_1TByteReader.html">NNet::TByteReader</a></div><div class="ttdoc">A utility for reading data from a socket-like object, either a fixed number of bytes or until a speci...</div><div class="ttdef"><b>Definition</b> sockutils.hpp:76</div></div>
+<div class="ttc" id="astructNNet_1_1TByteReader_html_a06eec1258239223532bf1ef4d8e24eab"><div class="ttname"><a href="structNNet_1_1TByteReader.html#a06eec1258239223532bf1ef4d8e24eab">NNet::TByteReader::Read</a></div><div class="ttdeci">TFuture&lt; void &gt; Read(void *data, size_t size)</div><div class="ttdoc">Reads exactly size bytes and stores them into data.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:101</div></div>
+<div class="ttc" id="astructNNet_1_1TByteReader_html_a0fba0689cf0fc26d154189697742d286"><div class="ttname"><a href="structNNet_1_1TByteReader.html#a0fba0689cf0fc26d154189697742d286">NNet::TByteReader::ReadUntil</a></div><div class="ttdeci">TFuture&lt; std::string &gt; ReadUntil(const std::string &amp;delimiter)</div><div class="ttdoc">Reads data until the given delimiter is encountered.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:170</div></div>
+<div class="ttc" id="astructNNet_1_1TByteReader_html_a88f26215dec26ee31a0fd327b503ff19"><div class="ttname"><a href="structNNet_1_1TByteReader.html#a88f26215dec26ee31a0fd327b503ff19">NNet::TByteReader::TByteReader</a></div><div class="ttdeci">TByteReader(TSocket &amp;socket)</div><div class="ttdoc">Constructs a reader for the given socket.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:81</div></div>
+<div class="ttc" id="astructNNet_1_1TByteWriter_html"><div class="ttname"><a href="structNNet_1_1TByteWriter.html">NNet::TByteWriter</a></div><div class="ttdoc">A utility for writing data to a socket-like object.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:239</div></div>
+<div class="ttc" id="astructNNet_1_1TByteWriter_html_a1f907d3c1d0856578f11af55f1d12360"><div class="ttname"><a href="structNNet_1_1TByteWriter.html#a1f907d3c1d0856578f11af55f1d12360">NNet::TByteWriter::Write</a></div><div class="ttdeci">TFuture&lt; void &gt; Write(const TLine &amp;line)</div><div class="ttdoc">Writes a TLine object by sequentially writing its parts.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:289</div></div>
+<div class="ttc" id="astructNNet_1_1TByteWriter_html_a5d0ccd2ed16ef6c4d0fa5bccbb8b113e"><div class="ttname"><a href="structNNet_1_1TByteWriter.html#a5d0ccd2ed16ef6c4d0fa5bccbb8b113e">NNet::TByteWriter::TByteWriter</a></div><div class="ttdeci">TByteWriter(TSocket &amp;socket)</div><div class="ttdoc">Constructs a writer for the given socket.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:244</div></div>
+<div class="ttc" id="astructNNet_1_1TByteWriter_html_acc8363d16f9b540439d7e9c95185ecae"><div class="ttname"><a href="structNNet_1_1TByteWriter.html#acc8363d16f9b540439d7e9c95185ecae">NNet::TByteWriter::Write</a></div><div class="ttdeci">TFuture&lt; void &gt; Write(const void *data, size_t size)</div><div class="ttdoc">Writes exactly size bytes from data to the socket.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:262</div></div>
+<div class="ttc" id="astructNNet_1_1TFuture_html"><div class="ttname"><a href="structNNet_1_1TFuture.html">NNet::TFuture</a></div><div class="ttdoc">Owned coroutine handle that carries a result of type T.</div><div class="ttdef"><b>Definition</b> corochain.hpp:185</div></div>
+<div class="ttc" id="astructNNet_1_1TLineReader_html"><div class="ttname"><a href="structNNet_1_1TLineReader.html">NNet::TLineReader</a></div><div class="ttdoc">Reads a complete line from a socket using a zero-copy line splitter.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:626</div></div>
+<div class="ttc" id="astructNNet_1_1TLineReader_html_a42714161f82dbc80770f6a1a0be610ea"><div class="ttname"><a href="structNNet_1_1TLineReader.html#a42714161f82dbc80770f6a1a0be610ea">NNet::TLineReader::TLineReader</a></div><div class="ttdeci">TLineReader(TSocket &amp;socket, int maxLineSize=4096)</div><div class="ttdoc">Constructs a line reader with the given socket and maximum line size.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:636</div></div>
+<div class="ttc" id="astructNNet_1_1TLineReader_html_ab67aad2e1bd4efa504ab0c4a3f7a4bec"><div class="ttname"><a href="structNNet_1_1TLineReader.html#ab67aad2e1bd4efa504ab0c4a3f7a4bec">NNet::TLineReader::Read</a></div><div class="ttdeci">TFuture&lt; TLine &gt; Read()</div><div class="ttdoc">Reads and returns the next complete line from the socket.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:652</div></div>
+<div class="ttc" id="astructNNet_1_1TLineSplitter_html"><div class="ttname"><a href="structNNet_1_1TLineSplitter.html">NNet::TLineSplitter</a></div><div class="ttdoc">Splits incoming data into lines using a circular buffer of fixed capacity.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:426</div></div>
 <div class="ttc" id="astructNNet_1_1TLineSplitter_html_a3147a073f1421daec77a92512cbb0132"><div class="ttname"><a href="structNNet_1_1TLineSplitter.html#a3147a073f1421daec77a92512cbb0132">NNet::TLineSplitter::Push</a></div><div class="ttdeci">void Push(const char *buf, size_t size)</div><div class="ttdoc">Appends new data to the circular buffer.</div><div class="ttdef"><b>Definition</b> sockutils.cpp:37</div></div>
 <div class="ttc" id="astructNNet_1_1TLineSplitter_html_af1ce0b2638579861c43b8bde322aa468"><div class="ttname"><a href="structNNet_1_1TLineSplitter.html#af1ce0b2638579861c43b8bde322aa468">NNet::TLineSplitter::Pop</a></div><div class="ttdeci">TLine Pop()</div><div class="ttdoc">Retrieves and removes the next complete line from the buffer.</div><div class="ttdef"><b>Definition</b> sockutils.cpp:16</div></div>
-<div class="ttc" id="astructNNet_1_1TLine_html"><div class="ttname"><a href="structNNet_1_1TLine.html">NNet::TLine</a></div><div class="ttdef"><b>Definition</b> sockutils.hpp:18</div></div>
-<div class="ttc" id="astructNNet_1_1TStructReader_html"><div class="ttname"><a href="structNNet_1_1TStructReader.html">NNet::TStructReader</a></div><div class="ttdoc">A utility for reading a fixed-size structure of type T from a socket-like object.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:325</div></div>
-<div class="ttc" id="astructNNet_1_1TStructReader_html_a01aed1fb8dc52c06e5177b13b02c0f3a"><div class="ttname"><a href="structNNet_1_1TStructReader.html#a01aed1fb8dc52c06e5177b13b02c0f3a">NNet::TStructReader::TStructReader</a></div><div class="ttdeci">TStructReader(TSocket &amp;socket)</div><div class="ttdoc">Constructs a reader with a reference to the given socket.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:330</div></div>
-<div class="ttc" id="astructNNet_1_1TStructReader_html_ab01ad1a8c37cc594376b468201382ef0"><div class="ttname"><a href="structNNet_1_1TStructReader.html#ab01ad1a8c37cc594376b468201382ef0">NNet::TStructReader::Read</a></div><div class="ttdeci">TFuture&lt; T &gt; Read()</div><div class="ttdoc">Reads a single instance of type T from the socket.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:348</div></div>
-<div class="ttc" id="astructNNet_1_1TZeroCopyLineSplitter_html"><div class="ttname"><a href="structNNet_1_1TZeroCopyLineSplitter.html">NNet::TZeroCopyLineSplitter</a></div><div class="ttdoc">Splits incoming data into lines using a fixed-size circular buffer, enabling zero-copy writes via Acq...</div><div class="ttdef"><b>Definition</b> sockutils.hpp:506</div></div>
+<div class="ttc" id="astructNNet_1_1TLine_html"><div class="ttname"><a href="structNNet_1_1TLine.html">NNet::TLine</a></div><div class="ttdoc">A line extracted from a circular read buffer, represented in up to two parts.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:30</div></div>
+<div class="ttc" id="astructNNet_1_1TLine_html_a8a6aa885b5adc4b058e91976776764a6"><div class="ttname"><a href="structNNet_1_1TLine.html#a8a6aa885b5adc4b058e91976776764a6">NNet::TLine::Part2</a></div><div class="ttdeci">std::string_view Part2</div><div class="ttdoc">Continuation segment if the line wraps; empty otherwise.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:32</div></div>
+<div class="ttc" id="astructNNet_1_1TLine_html_abe4a845138593508c25f19b966dacd07"><div class="ttname"><a href="structNNet_1_1TLine.html#abe4a845138593508c25f19b966dacd07">NNet::TLine::Part1</a></div><div class="ttdeci">std::string_view Part1</div><div class="ttdoc">First (or only) segment of the line.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:31</div></div>
+<div class="ttc" id="astructNNet_1_1TStructReader_html"><div class="ttname"><a href="structNNet_1_1TStructReader.html">NNet::TStructReader</a></div><div class="ttdoc">A utility for reading a fixed-size structure of type T from a socket-like object.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:337</div></div>
+<div class="ttc" id="astructNNet_1_1TStructReader_html_a01aed1fb8dc52c06e5177b13b02c0f3a"><div class="ttname"><a href="structNNet_1_1TStructReader.html#a01aed1fb8dc52c06e5177b13b02c0f3a">NNet::TStructReader::TStructReader</a></div><div class="ttdeci">TStructReader(TSocket &amp;socket)</div><div class="ttdoc">Constructs a reader with a reference to the given socket.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:342</div></div>
+<div class="ttc" id="astructNNet_1_1TStructReader_html_ab01ad1a8c37cc594376b468201382ef0"><div class="ttname"><a href="structNNet_1_1TStructReader.html#ab01ad1a8c37cc594376b468201382ef0">NNet::TStructReader::Read</a></div><div class="ttdeci">TFuture&lt; T &gt; Read()</div><div class="ttdoc">Reads a single instance of type T from the socket.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:360</div></div>
+<div class="ttc" id="astructNNet_1_1TZeroCopyLineSplitter_html"><div class="ttname"><a href="structNNet_1_1TZeroCopyLineSplitter.html">NNet::TZeroCopyLineSplitter</a></div><div class="ttdoc">Splits incoming data into lines using a fixed-size circular buffer, enabling zero-copy writes via Acq...</div><div class="ttdef"><b>Definition</b> sockutils.hpp:518</div></div>
 <div class="ttc" id="astructNNet_1_1TZeroCopyLineSplitter_html_a1e1578720d20f66e7a1d6a05cbab7d73"><div class="ttname"><a href="structNNet_1_1TZeroCopyLineSplitter.html#a1e1578720d20f66e7a1d6a05cbab7d73">NNet::TZeroCopyLineSplitter::Pop</a></div><div class="ttdeci">TLine Pop()</div><div class="ttdoc">Extracts and removes the next complete line from the buffer, if available.</div><div class="ttdef"><b>Definition</b> sockutils.cpp:58</div></div>
 <div class="ttc" id="astructNNet_1_1TZeroCopyLineSplitter_html_a4f342c7968fc6559a7103db01503b248"><div class="ttname"><a href="structNNet_1_1TZeroCopyLineSplitter.html#a4f342c7968fc6559a7103db01503b248">NNet::TZeroCopyLineSplitter::Push</a></div><div class="ttdeci">void Push(const char *p, size_t len)</div><div class="ttdoc">(Optional) Copies data from an external buffer into the circular buffer.</div><div class="ttdef"><b>Definition</b> sockutils.cpp:97</div></div>
 <div class="ttc" id="astructNNet_1_1TZeroCopyLineSplitter_html_abb13941bdde48ab6559a79149ac66353"><div class="ttname"><a href="structNNet_1_1TZeroCopyLineSplitter.html#abb13941bdde48ab6559a79149ac66353">NNet::TZeroCopyLineSplitter::Commit</a></div><div class="ttdeci">void Commit(size_t size)</div><div class="ttdoc">Finalizes the amount of data written into the span returned by Acquire().</div><div class="ttdef"><b>Definition</b> sockutils.cpp:92</div></div>
