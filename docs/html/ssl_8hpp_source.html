@@ -141,82 +141,84 @@ $(document).ready(function(){initNavTree('ssl_8hpp_source.html',''); initResizab
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">namespace </span>NNet {</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="foldopen" id="foldopen00038" data-start="{" data-end="};">
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="structNNet_1_1TSslContext.html">   38</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structNNet_1_1TSslContext.html">TSslContext</a> {</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="structNNet_1_1TSslContext.html#ae4fd7317426394cc600259188930c9ed">   39</a></span>    SSL_CTX* <a class="code hl_variable" href="structNNet_1_1TSslContext.html#ae4fd7317426394cc600259188930c9ed">Ctx</a>; </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="structNNet_1_1TSslContext.html#acbd9b034b17ff3eefbe1517d8e5ad75f">   40</a></span>    std::function&lt;void(<span class="keyword">const</span> <span class="keywordtype">char</span>*)&gt; <a class="code hl_variable" href="structNNet_1_1TSslContext.html#acbd9b034b17ff3eefbe1517d8e5ad75f">LogFunc</a> = {}; </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_struct" href="structNNet_1_1TSslContext.html">TSslContext</a>(<a class="code hl_struct" href="structNNet_1_1TSslContext.html">TSslContext</a>&amp;&amp; other)</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        : <a class="code hl_variable" href="structNNet_1_1TSslContext.html#ae4fd7317426394cc600259188930c9ed">Ctx</a>(other.<a class="code hl_variable" href="structNNet_1_1TSslContext.html#ae4fd7317426394cc600259188930c9ed">Ctx</a>)</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        , <a class="code hl_variable" href="structNNet_1_1TSslContext.html#acbd9b034b17ff3eefbe1517d8e5ad75f">LogFunc</a>(other.<a class="code hl_variable" href="structNNet_1_1TSslContext.html#acbd9b034b17ff3eefbe1517d8e5ad75f">LogFunc</a>)</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    {</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        other.Ctx = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    }</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    ~TSslContext();</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="foldopen" id="foldopen00039" data-start="{" data-end="};">
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="structNNet_1_1TSslContext.html">   39</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structNNet_1_1TSslContext.html">TSslContext</a> {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="structNNet_1_1TSslContext.html#ae4fd7317426394cc600259188930c9ed">   40</a></span>    SSL_CTX* <a class="code hl_variable" href="structNNet_1_1TSslContext.html#ae4fd7317426394cc600259188930c9ed">Ctx</a>; </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="structNNet_1_1TSslContext.html#acbd9b034b17ff3eefbe1517d8e5ad75f">   41</a></span>    std::function&lt;void(<span class="keyword">const</span> <span class="keywordtype">char</span>*)&gt; <a class="code hl_variable" href="structNNet_1_1TSslContext.html#acbd9b034b17ff3eefbe1517d8e5ad75f">LogFunc</a> = {}; </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_struct" href="structNNet_1_1TSslContext.html">TSslContext</a>(<a class="code hl_struct" href="structNNet_1_1TSslContext.html">TSslContext</a>&amp;&amp; other)</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        : <a class="code hl_variable" href="structNNet_1_1TSslContext.html#ae4fd7317426394cc600259188930c9ed">Ctx</a>(other.<a class="code hl_variable" href="structNNet_1_1TSslContext.html#ae4fd7317426394cc600259188930c9ed">Ctx</a>)</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        , <a class="code hl_variable" href="structNNet_1_1TSslContext.html#acbd9b034b17ff3eefbe1517d8e5ad75f">LogFunc</a>(other.<a class="code hl_variable" href="structNNet_1_1TSslContext.html#acbd9b034b17ff3eefbe1517d8e5ad75f">LogFunc</a>)</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        other.Ctx = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    }</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    ~TSslContext();</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keyword">static</span> TSslContext <a class="code hl_function" href="structNNet_1_1TSslContext.html#a42e3297c756fe64807214c1de8723ef6">Client</a>(<span class="keyword">const</span> std::function&lt;<span class="keywordtype">void</span>(<span class="keyword">const</span> <span class="keywordtype">char</span>*)&gt;&amp; logFunc = {});</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keyword">static</span> TSslContext <a class="code hl_function" href="structNNet_1_1TSslContext.html#a6092d96dfac12df8c03ceced06292d14">Server</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* certfile, <span class="keyword">const</span> <span class="keywordtype">char</span>* keyfile, <span class="keyword">const</span> std::function&lt;<span class="keywordtype">void</span>(<span class="keyword">const</span> <span class="keywordtype">char</span>*)&gt;&amp; logFunc = {});</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keyword">static</span> TSslContext <a class="code hl_function" href="structNNet_1_1TSslContext.html#a0e851c88e66f79ce4c9856a69b387604">ServerFromMem</a>(<span class="keyword">const</span> <span class="keywordtype">void</span>* certfile, <span class="keyword">const</span> <span class="keywordtype">void</span>* keyfile, <span class="keyword">const</span> std::function&lt;<span class="keywordtype">void</span>(<span class="keyword">const</span> <span class="keywordtype">char</span>*)&gt;&amp; logFunc = {});</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    TSslContext();</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>};</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keyword">static</span> TSslContext <a class="code hl_function" href="structNNet_1_1TSslContext.html#a0e851c88e66f79ce4c9856a69b387604">ServerFromMem</a>(<span class="keyword">const</span> <span class="keywordtype">void</span>* certfile, <span class="keyword">const</span> <span class="keywordtype">void</span>* keyfile, <span class="keyword">const</span> std::function&lt;<span class="keywordtype">void</span>(<span class="keyword">const</span> <span class="keywordtype">char</span>*)&gt;&amp; logFunc = {});</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    TSslContext();</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>};</div>
 </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> TSocket&gt;</div>
-<div class="foldopen" id="foldopen00102" data-start="{" data-end="};">
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="classNNet_1_1TSslSocket.html">  102</a></span><span class="keyword">class </span><a class="code hl_class" href="classNNet_1_1TSslSocket.html">TSslSocket</a> {</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keyword">using </span>TPoller = <span class="keyword">typename</span> <a class="code hl_class" href="classNNet_1_1TPollerBase.html">TSocket::TPoller</a>;</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="foldopen" id="foldopen00115" data-start="{" data-end="}">
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="classNNet_1_1TSslSocket.html#ae54568141ee336140cbfb90f40b64e9b">  115</a></span>    <a class="code hl_function" href="classNNet_1_1TSslSocket.html#ae54568141ee336140cbfb90f40b64e9b">TSslSocket</a>(<a class="code hl_class" href="classNNet_1_1TSocket.html">TSocket</a>&amp;&amp; socket, <a class="code hl_struct" href="structNNet_1_1TSslContext.html">TSslContext</a>&amp; ctx)</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        : Socket(std::move(socket))</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        , Ctx(&amp;ctx)</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        , Ssl(SSL_new(Ctx-&gt;Ctx))</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        , Rbio(BIO_new(BIO_s_mem()))</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        , Wbio(BIO_new(BIO_s_mem()))</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    {</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        SSL_set_bio(Ssl, Rbio, Wbio);</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        SSL_set_mode(Ssl, SSL_MODE_ENABLE_PARTIAL_WRITE);</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        SSL_set_mode(Ssl, SSL_MODE_ACCEPT_MOVING_WRITE_BUFFER);</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    }</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> TSocket&gt;</div>
+<div class="foldopen" id="foldopen00108" data-start="{" data-end="};">
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="classNNet_1_1TSslSocket.html">  108</a></span><span class="keyword">class </span><a class="code hl_class" href="classNNet_1_1TSslSocket.html">TSslSocket</a> {</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keyword">using </span>TPoller = <span class="keyword">typename</span> <a class="code hl_class" href="classNNet_1_1TPollerBase.html">TSocket::TPoller</a>;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="foldopen" id="foldopen00118" data-start="{" data-end="}">
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="classNNet_1_1TSslSocket.html#ae54568141ee336140cbfb90f40b64e9b">  118</a></span>    <a class="code hl_function" href="classNNet_1_1TSslSocket.html#ae54568141ee336140cbfb90f40b64e9b">TSslSocket</a>(<a class="code hl_class" href="classNNet_1_1TSocket.html">TSocket</a>&amp;&amp; socket, <a class="code hl_struct" href="structNNet_1_1TSslContext.html">TSslContext</a>&amp; ctx)</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        : Socket(std::move(socket))</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        , Ctx(&amp;ctx)</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        , Ssl(SSL_new(Ctx-&gt;Ctx))</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        , Rbio(BIO_new(BIO_s_mem()))</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        , Wbio(BIO_new(BIO_s_mem()))</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    {</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        SSL_set_bio(Ssl, Rbio, Wbio);</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        SSL_set_mode(Ssl, SSL_MODE_ENABLE_PARTIAL_WRITE);</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        SSL_set_mode(Ssl, SSL_MODE_ACCEPT_MOVING_WRITE_BUFFER);</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    }</div>
 </div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <a class="code hl_class" href="classNNet_1_1TSslSocket.html">TSslSocket</a>(<a class="code hl_class" href="classNNet_1_1TSslSocket.html">TSslSocket</a>&amp;&amp; other)</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    {</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        *<span class="keyword">this</span> = std::move(other);</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    }</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    TSslSocket&amp; operator=(TSslSocket&amp;&amp; other) {</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;other) {</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>            Socket = std::move(other.Socket);</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>            Ctx = other.Ctx;</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>            Ssl = other.Ssl;</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>            Rbio = other.Rbio;</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>            Wbio = other.Wbio;</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>            Handshake = other.Handshake;</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>            other.Ssl = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>            other.Rbio = other.Wbio = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            other.Handshake = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        }</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    }</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <a class="code hl_function" href="classNNet_1_1TSslSocket.html#ae54568141ee336140cbfb90f40b64e9b">TSslSocket</a>(<span class="keyword">const</span> TSslSocket&amp; ) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <a class="code hl_function" href="classNNet_1_1TSslSocket.html#ae54568141ee336140cbfb90f40b64e9b">TSslSocket</a>&amp; operator=(<span class="keyword">const</span> TSslSocket&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <a class="code hl_class" href="classNNet_1_1TSslSocket.html">TSslSocket</a>(<a class="code hl_class" href="classNNet_1_1TSslSocket.html">TSslSocket</a>&amp;&amp; other)</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    {</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        *<span class="keyword">this</span> = std::move(other);</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    }</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    TSslSocket&amp; operator=(TSslSocket&amp;&amp; other) {</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;other) {</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>            Socket = std::move(other.Socket);</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>            Ctx = other.Ctx;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>            Ssl = other.Ssl;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>            Rbio = other.Rbio;</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>            Wbio = other.Wbio;</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            Handshake = other.Handshake;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>            other.Ssl = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>            other.Rbio = other.Wbio = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>            other.Handshake = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        }</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    }</div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <a class="code hl_function" href="classNNet_1_1TSslSocket.html#ae54568141ee336140cbfb90f40b64e9b">TSslSocket</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
-<div class="foldopen" id="foldopen00157" data-start="{" data-end="}">
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno"><a class="line" href="classNNet_1_1TSslSocket.html#acb50fd49633dd0cad697be1755e4e5d7">  157</a></span>    <a class="code hl_function" href="classNNet_1_1TSslSocket.html#acb50fd49633dd0cad697be1755e4e5d7">~TSslSocket</a>()</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    {</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        <span class="keywordflow">if</span> (Ssl) { SSL_free(Ssl); }</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        <span class="keywordflow">if</span> (Handshake) { Handshake.destroy(); }</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    }</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <a class="code hl_function" href="classNNet_1_1TSslSocket.html#ae54568141ee336140cbfb90f40b64e9b">TSslSocket</a>(<span class="keyword">const</span> TSslSocket&amp; ) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <a class="code hl_function" href="classNNet_1_1TSslSocket.html#ae54568141ee336140cbfb90f40b64e9b">TSslSocket</a>&amp; operator=(<span class="keyword">const</span> TSslSocket&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <a class="code hl_function" href="classNNet_1_1TSslSocket.html#ae54568141ee336140cbfb90f40b64e9b">TSslSocket</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="foldopen" id="foldopen00156" data-start="{" data-end="}">
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno"><a class="line" href="classNNet_1_1TSslSocket.html#acb50fd49633dd0cad697be1755e4e5d7">  156</a></span>    <a class="code hl_function" href="classNNet_1_1TSslSocket.html#acb50fd49633dd0cad697be1755e4e5d7">~TSslSocket</a>()</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    {</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        <span class="keywordflow">if</span> (Ssl) { SSL_free(Ssl); }</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        <span class="keywordflow">if</span> (Handshake) { Handshake.destroy(); }</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    }</div>
 </div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
 <div class="foldopen" id="foldopen00170" data-start="{" data-end="}">
 <div class="line"><a id="l00170" name="l00170"></a><span class="lineno"><a class="line" href="classNNet_1_1TSslSocket.html#a03021a7d4cb2eaa79aef72e2796ea755">  170</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classNNet_1_1TSslSocket.html#a03021a7d4cb2eaa79aef72e2796ea755">SslSetTlsExtHostName</a>(<span class="keyword">const</span> std::string&amp; host) {</div>
 <div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        SSL_set_tlsext_host_name(Ssl, host.c_str());</div>
@@ -232,14 +234,14 @@ $(document).ready(function(){initNavTree('ssl_8hpp_source.html',''); initResizab
 <div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    }</div>
 </div>
 <div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
-<div class="foldopen" id="foldopen00196" data-start="{" data-end="}">
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno"><a class="line" href="classNNet_1_1TSslSocket.html#af68106743408b767267c90a41c74fcc6">  196</a></span>    <a class="code hl_struct" href="structNNet_1_1TFuture.html">TFuture&lt;void&gt;</a> <a class="code hl_function" href="classNNet_1_1TSslSocket.html#af68106743408b767267c90a41c74fcc6">AcceptHandshake</a>() {</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        assert(!Handshake);</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>        SSL_set_accept_state(Ssl);</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        <span class="keyword">co_return</span> <span class="keyword">co_await</span> DoHandshake();</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    }</div>
+<div class="foldopen" id="foldopen00195" data-start="{" data-end="}">
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno"><a class="line" href="classNNet_1_1TSslSocket.html#af68106743408b767267c90a41c74fcc6">  195</a></span>    <a class="code hl_struct" href="structNNet_1_1TFuture.html">TFuture&lt;void&gt;</a> <a class="code hl_function" href="classNNet_1_1TSslSocket.html#af68106743408b767267c90a41c74fcc6">AcceptHandshake</a>() {</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        assert(!Handshake);</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        SSL_set_accept_state(Ssl);</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>        <span class="keyword">co_return</span> <span class="keyword">co_await</span> DoHandshake();</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    }</div>
 </div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
 <div class="foldopen" id="foldopen00211" data-start="{" data-end="}">
 <div class="line"><a id="l00211" name="l00211"></a><span class="lineno"><a class="line" href="classNNet_1_1TSslSocket.html#ac17187d587d6085cb64321c5b0aed494">  211</a></span>    <a class="code hl_struct" href="structNNet_1_1TFuture.html">TFuture&lt;void&gt;</a> <a class="code hl_function" href="classNNet_1_1TSslSocket.html#ac17187d587d6085cb64321c5b0aed494">Connect</a>(<span class="keyword">const</span> <a class="code hl_class" href="classNNet_1_1TAddress.html">TAddress</a>&amp; address, TTime deadline = TTime::max()) {</div>
 <div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>        assert(!Handshake);</div>
@@ -249,208 +251,208 @@ $(document).ready(function(){initNavTree('ssl_8hpp_source.html',''); initResizab
 <div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    }</div>
 </div>
 <div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
-<div class="foldopen" id="foldopen00227" data-start="{" data-end="}">
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno"><a class="line" href="classNNet_1_1TSslSocket.html#ae3d2ecd5a19e4d743a5fa3b672dc2e39">  227</a></span>    <a class="code hl_struct" href="structNNet_1_1TFuture.html">TFuture&lt;ssize_t&gt;</a> <a class="code hl_function" href="classNNet_1_1TSslSocket.html#ae3d2ecd5a19e4d743a5fa3b672dc2e39">ReadSome</a>(<span class="keywordtype">void</span>* data, <span class="keywordtype">size_t</span> size) {</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        <span class="keyword">co_await</span> WaitHandshake();</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span> </div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        <span class="keywordtype">int</span> n = SSL_read(Ssl, data, size);</div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>        <span class="keywordtype">int</span> status;</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        <span class="keywordflow">if</span> (n &gt; 0) {</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>            <span class="keyword">co_return</span> n;</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>        }</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        <span class="keywordflow">do</span> {</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>            <span class="keyword">co_await</span> DoIO();</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>            n = SSL_read(Ssl, data, size);</div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>            status = SSL_get_error(Ssl, n);</div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>        } <span class="keywordflow">while</span> (n &lt; 0 &amp;&amp; (status == SSL_ERROR_WANT_READ || status == SSL_ERROR_WANT_WRITE));</div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>        <span class="keyword">co_return</span> n;</div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    }</div>
+<div class="foldopen" id="foldopen00225" data-start="{" data-end="}">
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno"><a class="line" href="classNNet_1_1TSslSocket.html#ae3d2ecd5a19e4d743a5fa3b672dc2e39">  225</a></span>    <a class="code hl_struct" href="structNNet_1_1TFuture.html">TFuture&lt;ssize_t&gt;</a> <a class="code hl_function" href="classNNet_1_1TSslSocket.html#ae3d2ecd5a19e4d743a5fa3b672dc2e39">ReadSome</a>(<span class="keywordtype">void</span>* data, <span class="keywordtype">size_t</span> size) {</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        <span class="keyword">co_await</span> WaitHandshake();</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span> </div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        <span class="keywordtype">int</span> n = SSL_read(Ssl, data, size);</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>        <span class="keywordtype">int</span> status;</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        <span class="keywordflow">if</span> (n &gt; 0) {</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>            <span class="keyword">co_return</span> n;</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        }</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span> </div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>        <span class="keywordflow">do</span> {</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>            <span class="keyword">co_await</span> DoIO();</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>            n = SSL_read(Ssl, data, size);</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>            status = SSL_get_error(Ssl, n);</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        } <span class="keywordflow">while</span> (n &lt; 0 &amp;&amp; (status == SSL_ERROR_WANT_READ || status == SSL_ERROR_WANT_WRITE));</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>        <span class="keyword">co_return</span> n;</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    }</div>
 </div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
-<div class="foldopen" id="foldopen00254" data-start="{" data-end="}">
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno"><a class="line" href="classNNet_1_1TSslSocket.html#a713f5d1c7eea35f9034b22d1375bb8fd">  254</a></span>    <a class="code hl_struct" href="structNNet_1_1TFuture.html">TFuture&lt;ssize_t&gt;</a> <a class="code hl_function" href="classNNet_1_1TSslSocket.html#a713f5d1c7eea35f9034b22d1375bb8fd">WriteSome</a>(<span class="keyword">const</span> <span class="keywordtype">void</span>* data, <span class="keywordtype">size_t</span> size) {</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>        <span class="keyword">co_await</span> WaitHandshake();</div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span> </div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>        <span class="keyword">auto</span> r = size;</div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>        <span class="keyword">const</span> <span class="keywordtype">char</span>* p = (<span class="keyword">const</span> <span class="keywordtype">char</span>*)data;</div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>        <span class="keywordflow">while</span> (size != 0) {</div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>            <span class="keyword">auto</span> n = SSL_write(Ssl, p, size);</div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>            <span class="keyword">auto</span> status = SSL_get_error(Ssl, n);</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>            <span class="keywordflow">if</span> (!(status == SSL_ERROR_WANT_READ || status == SSL_ERROR_WANT_WRITE || status == SSL_ERROR_NONE)) {</div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>                <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;SSL error: &quot;</span> + std::to_string(status));</div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>            }</div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>            <span class="keywordflow">if</span> (n &lt;= 0) {</div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>                <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;SSL error: &quot;</span> + std::to_string(status));</div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>            }</div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> </div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>            <span class="keyword">co_await</span> DoIO();</div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span> </div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>            size -= n;</div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>            p += n;</div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>        }</div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>        <span class="keyword">co_return</span> r;</div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>    }</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
+<div class="foldopen" id="foldopen00250" data-start="{" data-end="}">
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno"><a class="line" href="classNNet_1_1TSslSocket.html#a713f5d1c7eea35f9034b22d1375bb8fd">  250</a></span>    <a class="code hl_struct" href="structNNet_1_1TFuture.html">TFuture&lt;ssize_t&gt;</a> <a class="code hl_function" href="classNNet_1_1TSslSocket.html#a713f5d1c7eea35f9034b22d1375bb8fd">WriteSome</a>(<span class="keyword">const</span> <span class="keywordtype">void</span>* data, <span class="keywordtype">size_t</span> size) {</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>        <span class="keyword">co_await</span> WaitHandshake();</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>        <span class="keyword">auto</span> r = size;</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>        <span class="keyword">const</span> <span class="keywordtype">char</span>* p = (<span class="keyword">const</span> <span class="keywordtype">char</span>*)data;</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>        <span class="keywordflow">while</span> (size != 0) {</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>            <span class="keyword">auto</span> n = SSL_write(Ssl, p, size);</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>            <span class="keyword">auto</span> status = SSL_get_error(Ssl, n);</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>            <span class="keywordflow">if</span> (!(status == SSL_ERROR_WANT_READ || status == SSL_ERROR_WANT_WRITE || status == SSL_ERROR_NONE)) {</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>                <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;SSL error: &quot;</span> + std::to_string(status));</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>            }</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>            <span class="keywordflow">if</span> (n &lt;= 0) {</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>                <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;SSL error: &quot;</span> + std::to_string(status));</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>            }</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span> </div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>            <span class="keyword">co_await</span> DoIO();</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span> </div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>            size -= n;</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>            p += n;</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>        }</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>        <span class="keyword">co_return</span> r;</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>    }</div>
 </div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span> </div>
-<div class="foldopen" id="foldopen00282" data-start="{" data-end="}">
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno"><a class="line" href="classNNet_1_1TSslSocket.html#a0dbb1cf18f69fee4f15363723390e786">  282</a></span>    <span class="keyword">auto</span> <a class="code hl_function" href="classNNet_1_1TSslSocket.html#a0dbb1cf18f69fee4f15363723390e786">Poller</a>() {</div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>        <span class="keywordflow">return</span> Socket.Poller();</div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>    }</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span> </div>
+<div class="foldopen" id="foldopen00274" data-start="{" data-end="}">
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno"><a class="line" href="classNNet_1_1TSslSocket.html#a0dbb1cf18f69fee4f15363723390e786">  274</a></span>    <span class="keyword">auto</span> <a class="code hl_function" href="classNNet_1_1TSslSocket.html#a0dbb1cf18f69fee4f15363723390e786">Poller</a>() {</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>        <span class="keywordflow">return</span> Socket.Poller();</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>    }</div>
 </div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span> </div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    <a class="code hl_struct" href="structNNet_1_1TFuture.html">TFuture&lt;void&gt;</a> DoIO() {</div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>        <span class="keywordtype">char</span> buf[1024];</div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>        <span class="keywordtype">int</span> n;</div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>        <span class="keywordflow">while</span> ((n = BIO_read(Wbio, buf, <span class="keyword">sizeof</span>(buf))) &gt; 0) {</div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>            <span class="keyword">co_await</span> <a class="code hl_class" href="structNNet_1_1TByteWriter.html">TByteWriter</a>(Socket).<a class="code hl_function" href="structNNet_1_1TByteWriter.html#acc8363d16f9b540439d7e9c95185ecae">Write</a>(buf, n);</div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>        }</div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>        <span class="keywordflow">if</span> (n &lt; 0 &amp;&amp; !BIO_should_retry(Wbio)) {</div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>            <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Cannot read Wbio&quot;</span>);</div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>        }</div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span> </div>
-<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>        <span class="keywordflow">if</span> (SSL_get_error(Ssl, n) == SSL_ERROR_WANT_READ) {</div>
-<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>            <span class="keyword">auto</span> size = <span class="keyword">co_await</span> Socket.<a class="code hl_function" href="classNNet_1_1TSocketBase.html#aaf2e0b5cccc278c02ef48bcd253ff4fd">ReadSome</a>(buf, <span class="keyword">sizeof</span>(buf));</div>
-<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>            <span class="keywordflow">if</span> (size == 0) {</div>
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>                <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Connection closed&quot;</span>);</div>
-<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>            }</div>
-<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>            <span class="keyword">const</span> <span class="keywordtype">char</span>* p = buf;</div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>            <span class="keywordflow">while</span> (size != 0) {</div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>                <span class="keyword">auto</span> n = BIO_write(Rbio, p, size);</div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>                <span class="keywordflow">if</span> (n &lt;= 0) {</div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>                    <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Cannot write Rbio&quot;</span>);</div>
-<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>                }</div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>                size -= n;</div>
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>                p += n;</div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>            }</div>
-<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>        }</div>
-<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span> </div>
-<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>        <span class="keyword">co_return</span>;</div>
-<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>    }</div>
-<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span> </div>
-<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>    TFuture&lt;void&gt; DoHandshake() {</div>
-<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>        <span class="keywordtype">int</span> r;</div>
-<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>        LogState();</div>
-<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>        <span class="keywordflow">while</span> ((r = SSL_do_handshake(Ssl)) != 1) {</div>
-<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>            LogState();</div>
-<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>            <span class="keywordtype">int</span> status = SSL_get_error(Ssl, r);</div>
-<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>            <span class="keywordflow">if</span> (status == SSL_ERROR_WANT_READ || status == SSL_ERROR_WANT_WRITE) {</div>
-<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>                <span class="keyword">co_await</span> DoIO();</div>
-<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>            } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>                <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;SSL error: &quot;</span> + std::to_string(r));</div>
-<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>            }</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span> </div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    <a class="code hl_struct" href="structNNet_1_1TFuture.html">TFuture&lt;void&gt;</a> DoIO() {</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>        <span class="keywordtype">char</span> buf[1024];</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>        <span class="keywordtype">int</span> n;</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>        <span class="keywordflow">while</span> ((n = BIO_read(Wbio, buf, <span class="keyword">sizeof</span>(buf))) &gt; 0) {</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>            <span class="keyword">co_await</span> <a class="code hl_class" href="structNNet_1_1TByteWriter.html">TByteWriter</a>(Socket).<a class="code hl_function" href="structNNet_1_1TByteWriter.html#acc8363d16f9b540439d7e9c95185ecae">Write</a>(buf, n);</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>        }</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>        <span class="keywordflow">if</span> (n &lt; 0 &amp;&amp; !BIO_should_retry(Wbio)) {</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>            <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Cannot read Wbio&quot;</span>);</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>        }</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span> </div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>        <span class="keywordflow">if</span> (SSL_get_error(Ssl, n) == SSL_ERROR_WANT_READ) {</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>            <span class="keyword">auto</span> size = <span class="keyword">co_await</span> Socket.<a class="code hl_function" href="classNNet_1_1TSocketBase.html#aaf2e0b5cccc278c02ef48bcd253ff4fd">ReadSome</a>(buf, <span class="keyword">sizeof</span>(buf));</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>            <span class="keywordflow">if</span> (size == 0) {</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>                <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Connection closed&quot;</span>);</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>            }</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>            <span class="keyword">const</span> <span class="keywordtype">char</span>* p = buf;</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>            <span class="keywordflow">while</span> (size != 0) {</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>                <span class="keyword">auto</span> n = BIO_write(Rbio, p, size);</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>                <span class="keywordflow">if</span> (n &lt;= 0) {</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>                    <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Cannot write Rbio&quot;</span>);</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>                }</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>                size -= n;</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>                p += n;</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>            }</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>        }</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span> </div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>        <span class="keyword">co_return</span>;</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>    }</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span> </div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>    TFuture&lt;void&gt; DoHandshake() {</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>        <span class="keywordtype">int</span> r;</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>        LogState();</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>        <span class="keywordflow">while</span> ((r = SSL_do_handshake(Ssl)) != 1) {</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>            LogState();</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>            <span class="keywordtype">int</span> status = SSL_get_error(Ssl, r);</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>            <span class="keywordflow">if</span> (status == SSL_ERROR_WANT_READ || status == SSL_ERROR_WANT_WRITE) {</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>                <span class="keyword">co_await</span> DoIO();</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>            } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>                <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;SSL error: &quot;</span> + std::to_string(r));</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>            }</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>        }</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span> </div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>        LogState();</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span> </div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>        <span class="keyword">co_await</span> DoIO();</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span> </div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>        <span class="keywordflow">if</span> (Ctx-&gt;LogFunc) {</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>            Ctx-&gt;LogFunc(<span class="stringliteral">&quot;SSL Handshake established\n&quot;</span>);</div>
 <div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>        }</div>
 <div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span> </div>
-<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>        LogState();</div>
-<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span> </div>
-<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>        <span class="keyword">co_await</span> DoIO();</div>
-<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span> </div>
-<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>        <span class="keywordflow">if</span> (Ctx-&gt;LogFunc) {</div>
-<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>            Ctx-&gt;LogFunc(<span class="stringliteral">&quot;SSL Handshake established\n&quot;</span>);</div>
-<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>        }</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> w : Waiters) {</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>            w.resume();</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>        }</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>        Waiters.clear();</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span> </div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>        <span class="keyword">co_return</span>;</div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>    }</div>
 <div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span> </div>
-<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> w : Waiters) {</div>
-<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>            w.resume();</div>
-<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>        }</div>
-<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>        Waiters.clear();</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>    <span class="keywordtype">void</span> StartHandshake() {</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>        assert(!Handshake);</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>        Handshake = RunHandshake();</div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>    }</div>
 <div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span> </div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>        <span class="keyword">co_return</span>;</div>
-<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>    }</div>
-<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span> </div>
-<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>    <span class="keywordtype">void</span> StartHandshake() {</div>
-<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>        assert(!Handshake);</div>
-<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>        Handshake = RunHandshake();</div>
-<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>    }</div>
-<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span> </div>
-<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>    TVoidSuspendedTask RunHandshake() {</div>
-<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>        <span class="comment">// TODO: catch exception</span></div>
-<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>        <span class="keyword">co_await</span> DoHandshake();</div>
-<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>        <span class="keyword">co_return</span>;</div>
-<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>    }</div>
-<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span> </div>
-<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>    <span class="keyword">auto</span> WaitHandshake() {</div>
-<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>        <span class="keywordflow">if</span> (!SSL_is_init_finished(Ssl) &amp;&amp; !Handshake) {</div>
-<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>            StartHandshake();</div>
-<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>        }</div>
-<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>        <span class="keyword">struct </span>TAwaitable {</div>
-<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>            <span class="keywordtype">bool</span> await_ready() {</div>
-<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>                <span class="keywordflow">return</span> !handshake || handshake.done();</div>
-<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>            }</div>
-<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span> </div>
-<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>            <span class="keywordtype">void</span> await_suspend(std::coroutine_handle&lt;&gt; h) {</div>
-<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>                waiters-&gt;push_back(h);</div>
-<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>            }</div>
-<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span> </div>
-<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>            <span class="keywordtype">void</span> await_resume() { }</div>
-<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span> </div>
-<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>            std::coroutine_handle&lt;&gt; handshake;</div>
-<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>            std::vector&lt;std::coroutine_handle&lt;&gt;&gt;* waiters;</div>
-<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>        };</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>    TVoidSuspendedTask RunHandshake() {</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>        <span class="comment">// TODO: catch exception</span></div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>        <span class="keyword">co_await</span> DoHandshake();</div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>        <span class="keyword">co_return</span>;</div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>    }</div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span> </div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>    <span class="keyword">auto</span> WaitHandshake() {</div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>        <span class="keywordflow">if</span> (!SSL_is_init_finished(Ssl) &amp;&amp; !Handshake) {</div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>            StartHandshake();</div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>        }</div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>        <span class="keyword">struct </span>TAwaitable {</div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>            <span class="keywordtype">bool</span> await_ready() {</div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>                <span class="keywordflow">return</span> !handshake || handshake.done();</div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>            }</div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span> </div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>            <span class="keywordtype">void</span> await_suspend(std::coroutine_handle&lt;&gt; h) {</div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>                waiters-&gt;push_back(h);</div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>            }</div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span> </div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>            <span class="keywordtype">void</span> await_resume() { }</div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span> </div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>            std::coroutine_handle&lt;&gt; handshake;</div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>            std::vector&lt;std::coroutine_handle&lt;&gt;&gt;* waiters;</div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>        };</div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span> </div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>        <span class="keywordflow">return</span> TAwaitable { Handshake, &amp;Waiters };</div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>    };</div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span> </div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>    <span class="keywordtype">void</span> LogState() {</div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>        <span class="keywordflow">if</span> (!Ctx-&gt;LogFunc) <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span> </div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>        <span class="keywordtype">char</span> buf[1024];</div>
 <div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span> </div>
-<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>        <span class="keywordflow">return</span> TAwaitable { Handshake, &amp;Waiters };</div>
-<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>    };</div>
-<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span> </div>
-<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>    <span class="keywordtype">void</span> LogState() {</div>
-<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>        <span class="keywordflow">if</span> (!Ctx-&gt;LogFunc) <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span> </div>
-<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>        <span class="keywordtype">char</span> buf[1024];</div>
-<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span> </div>
-<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span>        <span class="keyword">const</span> <span class="keywordtype">char</span> * state = SSL_state_string_long(Ssl);</div>
-<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span>        <span class="keywordflow">if</span> (state != LastState) {</div>
-<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>            <span class="keywordflow">if</span> (state) {</div>
-<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>                snprintf(buf, <span class="keyword">sizeof</span>(buf), <span class="stringliteral">&quot;SSL-STATE: %s&quot;</span>, state);</div>
-<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>                Ctx-&gt;LogFunc(buf);</div>
-<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>            }</div>
-<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>            LastState = state;</div>
-<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>        }</div>
-<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>    }</div>
-<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span> </div>
-<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>    TSocket Socket;</div>
-<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>    TSslContext* Ctx = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span> </div>
-<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>    SSL* Ssl = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>    BIO* Rbio = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>    BIO* Wbio = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span> </div>
-<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>    <span class="keyword">const</span> <span class="keywordtype">char</span>* LastState = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span> </div>
-<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>    std::coroutine_handle&lt;&gt; Handshake;</div>
-<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>    std::vector&lt;std::coroutine_handle&lt;&gt;&gt; Waiters;</div>
-<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>};</div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>        <span class="keyword">const</span> <span class="keywordtype">char</span> * state = SSL_state_string_long(Ssl);</div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>        <span class="keywordflow">if</span> (state != LastState) {</div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>            <span class="keywordflow">if</span> (state) {</div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>                snprintf(buf, <span class="keyword">sizeof</span>(buf), <span class="stringliteral">&quot;SSL-STATE: %s&quot;</span>, state);</div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>                Ctx-&gt;LogFunc(buf);</div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>            }</div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>            LastState = state;</div>
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span>        }</div>
+<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span>    }</div>
+<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span> </div>
+<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>    TSocket Socket;</div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>    TSslContext* Ctx = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span> </div>
+<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>    SSL* Ssl = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>    BIO* Rbio = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>    BIO* Wbio = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span> </div>
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>    <span class="keyword">const</span> <span class="keywordtype">char</span>* LastState = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span> </div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>    std::coroutine_handle&lt;&gt; Handshake;</div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>    std::vector&lt;std::coroutine_handle&lt;&gt;&gt; Waiters;</div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>};</div>
 </div>
-<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span> </div>
-<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>} <span class="comment">// namespace NNet</span></div>
-<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span> </div>
-<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span> </div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span> </div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>} <span class="comment">// namespace NNet</span></div>
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span> </div>
+<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span> </div>
 <div class="ttc" id="aclassNNet_1_1TAddress_html"><div class="ttname"><a href="classNNet_1_1TAddress.html">NNet::TAddress</a></div><div class="ttdoc">A class representing an IPv4 or IPv6 address (with port).</div><div class="ttdef"><b>Definition</b> address.hpp:38</div></div>
-<div class="ttc" id="aclassNNet_1_1TPollerBase_html"><div class="ttname"><a href="classNNet_1_1TPollerBase.html">NNet::TPollerBase</a></div><div class="ttdoc">Base class for pollers managing asynchronous I/O events and timers.</div><div class="ttdef"><b>Definition</b> poller.hpp:52</div></div>
+<div class="ttc" id="aclassNNet_1_1TPollerBase_html"><div class="ttname"><a href="classNNet_1_1TPollerBase.html">NNet::TPollerBase</a></div><div class="ttdoc">Backend-independent base for I/O pollers.</div><div class="ttdef"><b>Definition</b> poller.hpp:38</div></div>
 <div class="ttc" id="aclassNNet_1_1TSocketBase_html_aaf2e0b5cccc278c02ef48bcd253ff4fd"><div class="ttname"><a href="classNNet_1_1TSocketBase.html#aaf2e0b5cccc278c02ef48bcd253ff4fd">NNet::TSocketBase::ReadSome</a></div><div class="ttdeci">auto ReadSome(void *buf, size_t size)</div><div class="ttdoc">Asynchronously reads data from the socket into the provided buffer.</div><div class="ttdef"><b>Definition</b> socket.hpp:139</div></div>
 <div class="ttc" id="aclassNNet_1_1TSocket_html"><div class="ttname"><a href="classNNet_1_1TSocket.html">NNet::TSocket</a></div><div class="ttdoc">High-level asynchronous socket for network communication.</div><div class="ttdef"><b>Definition</b> socket.hpp:367</div></div>
 <div class="ttc" id="aclassNNet_1_1TSocket_html_a31bab995eb6f74be32a5762358386998"><div class="ttname"><a href="classNNet_1_1TSocket.html#a31bab995eb6f74be32a5762358386998">NNet::TSocket::Connect</a></div><div class="ttdeci">auto Connect(const TAddress &amp;addr, TTime deadline=TTime::max())</div><div class="ttdoc">Asynchronously connects to the specified address.</div><div class="ttdef"><b>Definition</b> socket.hpp:405</div></div>
 <div class="ttc" id="aclassNNet_1_1TSocket_html_a7d57a7f85d0d3ba7222f24224137b494"><div class="ttname"><a href="classNNet_1_1TSocket.html#a7d57a7f85d0d3ba7222f24224137b494">NNet::TSocket::Accept</a></div><div class="ttdeci">auto Accept()</div><div class="ttdoc">Asynchronously accepts an incoming connection.</div><div class="ttdef"><b>Definition</b> socket.hpp:456</div></div>
-<div class="ttc" id="aclassNNet_1_1TSslSocket_html"><div class="ttname"><a href="classNNet_1_1TSslSocket.html">NNet::TSslSocket</a></div><div class="ttdoc">Implements an SSL/TLS layer on top of an underlying connection.</div><div class="ttdef"><b>Definition</b> ssl.hpp:102</div></div>
-<div class="ttc" id="aclassNNet_1_1TSslSocket_html_a03021a7d4cb2eaa79aef72e2796ea755"><div class="ttname"><a href="classNNet_1_1TSslSocket.html#a03021a7d4cb2eaa79aef72e2796ea755">NNet::TSslSocket::SslSetTlsExtHostName</a></div><div class="ttdeci">void SslSetTlsExtHostName(const std::string &amp;host)</div><div class="ttdoc">Sets the TLS SNI (Server Name Indication) extension host name.</div><div class="ttdef"><b>Definition</b> ssl.hpp:170</div></div>
-<div class="ttc" id="aclassNNet_1_1TSslSocket_html_a0dbb1cf18f69fee4f15363723390e786"><div class="ttname"><a href="classNNet_1_1TSslSocket.html#a0dbb1cf18f69fee4f15363723390e786">NNet::TSslSocket::Poller</a></div><div class="ttdeci">auto Poller()</div><div class="ttdoc">Returns the underlying poller.</div><div class="ttdef"><b>Definition</b> ssl.hpp:282</div></div>
-<div class="ttc" id="aclassNNet_1_1TSslSocket_html_a713f5d1c7eea35f9034b22d1375bb8fd"><div class="ttname"><a href="classNNet_1_1TSslSocket.html#a713f5d1c7eea35f9034b22d1375bb8fd">NNet::TSslSocket::WriteSome</a></div><div class="ttdeci">TFuture&lt; ssize_t &gt; WriteSome(const void *data, size_t size)</div><div class="ttdoc">Asynchronously writes data to the SSL connection.</div><div class="ttdef"><b>Definition</b> ssl.hpp:254</div></div>
-<div class="ttc" id="aclassNNet_1_1TSslSocket_html_ac17187d587d6085cb64321c5b0aed494"><div class="ttname"><a href="classNNet_1_1TSslSocket.html#ac17187d587d6085cb64321c5b0aed494">NNet::TSslSocket::Connect</a></div><div class="ttdeci">TFuture&lt; void &gt; Connect(const TAddress &amp;address, TTime deadline=TTime::max())</div><div class="ttdoc">Initiates the client-side SSL handshake.</div><div class="ttdef"><b>Definition</b> ssl.hpp:211</div></div>
-<div class="ttc" id="aclassNNet_1_1TSslSocket_html_acb50fd49633dd0cad697be1755e4e5d7"><div class="ttname"><a href="classNNet_1_1TSslSocket.html#acb50fd49633dd0cad697be1755e4e5d7">NNet::TSslSocket::~TSslSocket</a></div><div class="ttdeci">~TSslSocket()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition</b> ssl.hpp:157</div></div>
-<div class="ttc" id="aclassNNet_1_1TSslSocket_html_ae3d2ecd5a19e4d743a5fa3b672dc2e39"><div class="ttname"><a href="classNNet_1_1TSslSocket.html#ae3d2ecd5a19e4d743a5fa3b672dc2e39">NNet::TSslSocket::ReadSome</a></div><div class="ttdeci">TFuture&lt; ssize_t &gt; ReadSome(void *data, size_t size)</div><div class="ttdoc">Asynchronously reads data from the SSL connection.</div><div class="ttdef"><b>Definition</b> ssl.hpp:227</div></div>
-<div class="ttc" id="aclassNNet_1_1TSslSocket_html_ae54568141ee336140cbfb90f40b64e9b"><div class="ttname"><a href="classNNet_1_1TSslSocket.html#ae54568141ee336140cbfb90f40b64e9b">NNet::TSslSocket::TSslSocket</a></div><div class="ttdeci">TSslSocket(TSocket &amp;&amp;socket, TSslContext &amp;ctx)</div><div class="ttdoc">Constructs a TSslSocket from an underlying socket and an SSL context.</div><div class="ttdef"><b>Definition</b> ssl.hpp:115</div></div>
-<div class="ttc" id="aclassNNet_1_1TSslSocket_html_af68106743408b767267c90a41c74fcc6"><div class="ttname"><a href="classNNet_1_1TSslSocket.html#af68106743408b767267c90a41c74fcc6">NNet::TSslSocket::AcceptHandshake</a></div><div class="ttdeci">TFuture&lt; void &gt; AcceptHandshake()</div><div class="ttdoc">Performs the server-side SSL handshake.</div><div class="ttdef"><b>Definition</b> ssl.hpp:196</div></div>
-<div class="ttc" id="aclassNNet_1_1TSslSocket_html_af6957e17c19e87acf9944fb12e701a35"><div class="ttname"><a href="classNNet_1_1TSslSocket.html#af6957e17c19e87acf9944fb12e701a35">NNet::TSslSocket::Accept</a></div><div class="ttdeci">TFuture&lt; TSslSocket&lt; TSocket &gt; &gt; Accept()</div><div class="ttdoc">Asynchronously accepts an incoming SSL connection.</div><div class="ttdef"><b>Definition</b> ssl.hpp:182</div></div>
+<div class="ttc" id="aclassNNet_1_1TSslSocket_html"><div class="ttname"><a href="classNNet_1_1TSslSocket.html">NNet::TSslSocket</a></div><div class="ttdoc">TLS layer over any connected socket, exposing the same ReadSome/WriteSome interface.</div><div class="ttdef"><b>Definition</b> ssl.hpp:108</div></div>
+<div class="ttc" id="aclassNNet_1_1TSslSocket_html_a03021a7d4cb2eaa79aef72e2796ea755"><div class="ttname"><a href="classNNet_1_1TSslSocket.html#a03021a7d4cb2eaa79aef72e2796ea755">NNet::TSslSocket::SslSetTlsExtHostName</a></div><div class="ttdeci">void SslSetTlsExtHostName(const std::string &amp;host)</div><div class="ttdoc">Sets the TLS SNI host name sent in the ClientHello.</div><div class="ttdef"><b>Definition</b> ssl.hpp:170</div></div>
+<div class="ttc" id="aclassNNet_1_1TSslSocket_html_a0dbb1cf18f69fee4f15363723390e786"><div class="ttname"><a href="classNNet_1_1TSslSocket.html#a0dbb1cf18f69fee4f15363723390e786">NNet::TSslSocket::Poller</a></div><div class="ttdeci">auto Poller()</div><div class="ttdoc">Returns the poller associated with the underlying socket.</div><div class="ttdef"><b>Definition</b> ssl.hpp:274</div></div>
+<div class="ttc" id="aclassNNet_1_1TSslSocket_html_a713f5d1c7eea35f9034b22d1375bb8fd"><div class="ttname"><a href="classNNet_1_1TSslSocket.html#a713f5d1c7eea35f9034b22d1375bb8fd">NNet::TSslSocket::WriteSome</a></div><div class="ttdeci">TFuture&lt; ssize_t &gt; WriteSome(const void *data, size_t size)</div><div class="ttdoc">Encrypts and sends all size bytes from data.</div><div class="ttdef"><b>Definition</b> ssl.hpp:250</div></div>
+<div class="ttc" id="aclassNNet_1_1TSslSocket_html_ac17187d587d6085cb64321c5b0aed494"><div class="ttname"><a href="classNNet_1_1TSslSocket.html#ac17187d587d6085cb64321c5b0aed494">NNet::TSslSocket::Connect</a></div><div class="ttdeci">TFuture&lt; void &gt; Connect(const TAddress &amp;address, TTime deadline=TTime::max())</div><div class="ttdoc">TCP-connects to address and performs the client-side TLS handshake.</div><div class="ttdef"><b>Definition</b> ssl.hpp:211</div></div>
+<div class="ttc" id="aclassNNet_1_1TSslSocket_html_acb50fd49633dd0cad697be1755e4e5d7"><div class="ttname"><a href="classNNet_1_1TSslSocket.html#acb50fd49633dd0cad697be1755e4e5d7">NNet::TSslSocket::~TSslSocket</a></div><div class="ttdeci">~TSslSocket()</div><div class="ttdoc">Frees the SSL instance, associated BIOs, and any in-progress handshake coroutine.</div><div class="ttdef"><b>Definition</b> ssl.hpp:156</div></div>
+<div class="ttc" id="aclassNNet_1_1TSslSocket_html_ae3d2ecd5a19e4d743a5fa3b672dc2e39"><div class="ttname"><a href="classNNet_1_1TSslSocket.html#ae3d2ecd5a19e4d743a5fa3b672dc2e39">NNet::TSslSocket::ReadSome</a></div><div class="ttdeci">TFuture&lt; ssize_t &gt; ReadSome(void *data, size_t size)</div><div class="ttdoc">Reads up to size decrypted bytes into data.</div><div class="ttdef"><b>Definition</b> ssl.hpp:225</div></div>
+<div class="ttc" id="aclassNNet_1_1TSslSocket_html_ae54568141ee336140cbfb90f40b64e9b"><div class="ttname"><a href="classNNet_1_1TSslSocket.html#ae54568141ee336140cbfb90f40b64e9b">NNet::TSslSocket::TSslSocket</a></div><div class="ttdeci">TSslSocket(TSocket &amp;&amp;socket, TSslContext &amp;ctx)</div><div class="ttdoc">Constructs a TSslSocket, taking ownership of the underlying socket.</div><div class="ttdef"><b>Definition</b> ssl.hpp:118</div></div>
+<div class="ttc" id="aclassNNet_1_1TSslSocket_html_af68106743408b767267c90a41c74fcc6"><div class="ttname"><a href="classNNet_1_1TSslSocket.html#af68106743408b767267c90a41c74fcc6">NNet::TSslSocket::AcceptHandshake</a></div><div class="ttdeci">TFuture&lt; void &gt; AcceptHandshake()</div><div class="ttdoc">Performs the server-side TLS handshake on an already-accepted TCP socket.</div><div class="ttdef"><b>Definition</b> ssl.hpp:195</div></div>
+<div class="ttc" id="aclassNNet_1_1TSslSocket_html_af6957e17c19e87acf9944fb12e701a35"><div class="ttname"><a href="classNNet_1_1TSslSocket.html#af6957e17c19e87acf9944fb12e701a35">NNet::TSslSocket::Accept</a></div><div class="ttdeci">TFuture&lt; TSslSocket&lt; TSocket &gt; &gt; Accept()</div><div class="ttdoc">Accepts a TCP connection and performs the server-side TLS handshake.</div><div class="ttdef"><b>Definition</b> ssl.hpp:182</div></div>
 <div class="ttc" id="acorochain_8hpp_html"><div class="ttname"><a href="corochain_8hpp.html">corochain.hpp</a></div><div class="ttdoc">Implementation of a promise/future system for coroutines.</div></div>
-<div class="ttc" id="astructNNet_1_1TByteWriter_html"><div class="ttname"><a href="structNNet_1_1TByteWriter.html">NNet::TByteWriter</a></div><div class="ttdoc">A utility for writing data to a socket-like object.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:227</div></div>
-<div class="ttc" id="astructNNet_1_1TByteWriter_html_acc8363d16f9b540439d7e9c95185ecae"><div class="ttname"><a href="structNNet_1_1TByteWriter.html#acc8363d16f9b540439d7e9c95185ecae">NNet::TByteWriter::Write</a></div><div class="ttdeci">TFuture&lt; void &gt; Write(const void *data, size_t size)</div><div class="ttdoc">Writes exactly size bytes from data to the socket.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:250</div></div>
-<div class="ttc" id="astructNNet_1_1TFuture_html"><div class="ttname"><a href="structNNet_1_1TFuture.html">NNet::TFuture</a></div><div class="ttdoc">Future type for coroutines returning a value of type T.</div><div class="ttdef"><b>Definition</b> corochain.hpp:182</div></div>
-<div class="ttc" id="astructNNet_1_1TSslContext_html"><div class="ttname"><a href="structNNet_1_1TSslContext.html">NNet::TSslContext</a></div><div class="ttdoc">Encapsulates an OpenSSL context (SSL_CTX) with optional logging.</div><div class="ttdef"><b>Definition</b> ssl.hpp:38</div></div>
-<div class="ttc" id="astructNNet_1_1TSslContext_html_a0e851c88e66f79ce4c9856a69b387604"><div class="ttname"><a href="structNNet_1_1TSslContext.html#a0e851c88e66f79ce4c9856a69b387604">NNet::TSslContext::ServerFromMem</a></div><div class="ttdeci">static TSslContext ServerFromMem(const void *certfile, const void *keyfile, const std::function&lt; void(const char *)&gt; &amp;logFunc={})</div><div class="ttdoc">Creates a server SSL context from in-memory certificate and key data.</div><div class="ttdef"><b>Definition</b> ssl.cpp:53</div></div>
-<div class="ttc" id="astructNNet_1_1TSslContext_html_a42e3297c756fe64807214c1de8723ef6"><div class="ttname"><a href="structNNet_1_1TSslContext.html#a42e3297c756fe64807214c1de8723ef6">NNet::TSslContext::Client</a></div><div class="ttdeci">static TSslContext Client(const std::function&lt; void(const char *)&gt; &amp;logFunc={})</div><div class="ttdoc">Creates a client SSL context.</div><div class="ttdef"><b>Definition</b> ssl.cpp:24</div></div>
-<div class="ttc" id="astructNNet_1_1TSslContext_html_a6092d96dfac12df8c03ceced06292d14"><div class="ttname"><a href="structNNet_1_1TSslContext.html#a6092d96dfac12df8c03ceced06292d14">NNet::TSslContext::Server</a></div><div class="ttdeci">static TSslContext Server(const char *certfile, const char *keyfile, const std::function&lt; void(const char *)&gt; &amp;logFunc={})</div><div class="ttdoc">Creates a server SSL context using certificate and key files.</div><div class="ttdef"><b>Definition</b> ssl.cpp:32</div></div>
-<div class="ttc" id="astructNNet_1_1TSslContext_html_acbd9b034b17ff3eefbe1517d8e5ad75f"><div class="ttname"><a href="structNNet_1_1TSslContext.html#acbd9b034b17ff3eefbe1517d8e5ad75f">NNet::TSslContext::LogFunc</a></div><div class="ttdeci">std::function&lt; void(const char *)&gt; LogFunc</div><div class="ttdoc">Optional logging callback.</div><div class="ttdef"><b>Definition</b> ssl.hpp:40</div></div>
-<div class="ttc" id="astructNNet_1_1TSslContext_html_ae4fd7317426394cc600259188930c9ed"><div class="ttname"><a href="structNNet_1_1TSslContext.html#ae4fd7317426394cc600259188930c9ed">NNet::TSslContext::Ctx</a></div><div class="ttdeci">SSL_CTX * Ctx</div><div class="ttdoc">The underlying OpenSSL context.</div><div class="ttdef"><b>Definition</b> ssl.hpp:39</div></div>
+<div class="ttc" id="astructNNet_1_1TByteWriter_html"><div class="ttname"><a href="structNNet_1_1TByteWriter.html">NNet::TByteWriter</a></div><div class="ttdoc">A utility for writing data to a socket-like object.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:239</div></div>
+<div class="ttc" id="astructNNet_1_1TByteWriter_html_acc8363d16f9b540439d7e9c95185ecae"><div class="ttname"><a href="structNNet_1_1TByteWriter.html#acc8363d16f9b540439d7e9c95185ecae">NNet::TByteWriter::Write</a></div><div class="ttdeci">TFuture&lt; void &gt; Write(const void *data, size_t size)</div><div class="ttdoc">Writes exactly size bytes from data to the socket.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:262</div></div>
+<div class="ttc" id="astructNNet_1_1TFuture_html"><div class="ttname"><a href="structNNet_1_1TFuture.html">NNet::TFuture</a></div><div class="ttdoc">Owned coroutine handle that carries a result of type T.</div><div class="ttdef"><b>Definition</b> corochain.hpp:185</div></div>
+<div class="ttc" id="astructNNet_1_1TSslContext_html"><div class="ttname"><a href="structNNet_1_1TSslContext.html">NNet::TSslContext</a></div><div class="ttdoc">Owns an OpenSSL SSL_CTX and optional log callback.</div><div class="ttdef"><b>Definition</b> ssl.hpp:39</div></div>
+<div class="ttc" id="astructNNet_1_1TSslContext_html_a0e851c88e66f79ce4c9856a69b387604"><div class="ttname"><a href="structNNet_1_1TSslContext.html#a0e851c88e66f79ce4c9856a69b387604">NNet::TSslContext::ServerFromMem</a></div><div class="ttdeci">static TSslContext ServerFromMem(const void *certfile, const void *keyfile, const std::function&lt; void(const char *)&gt; &amp;logFunc={})</div><div class="ttdoc">Creates a TLS server context from PEM data already in memory.</div><div class="ttdef"><b>Definition</b> ssl.cpp:53</div></div>
+<div class="ttc" id="astructNNet_1_1TSslContext_html_a42e3297c756fe64807214c1de8723ef6"><div class="ttname"><a href="structNNet_1_1TSslContext.html#a42e3297c756fe64807214c1de8723ef6">NNet::TSslContext::Client</a></div><div class="ttdeci">static TSslContext Client(const std::function&lt; void(const char *)&gt; &amp;logFunc={})</div><div class="ttdoc">Creates a TLS client context (no certificate required).</div><div class="ttdef"><b>Definition</b> ssl.cpp:24</div></div>
+<div class="ttc" id="astructNNet_1_1TSslContext_html_a6092d96dfac12df8c03ceced06292d14"><div class="ttname"><a href="structNNet_1_1TSslContext.html#a6092d96dfac12df8c03ceced06292d14">NNet::TSslContext::Server</a></div><div class="ttdeci">static TSslContext Server(const char *certfile, const char *keyfile, const std::function&lt; void(const char *)&gt; &amp;logFunc={})</div><div class="ttdoc">Creates a TLS server context from PEM files on disk.</div><div class="ttdef"><b>Definition</b> ssl.cpp:32</div></div>
+<div class="ttc" id="astructNNet_1_1TSslContext_html_acbd9b034b17ff3eefbe1517d8e5ad75f"><div class="ttname"><a href="structNNet_1_1TSslContext.html#acbd9b034b17ff3eefbe1517d8e5ad75f">NNet::TSslContext::LogFunc</a></div><div class="ttdeci">std::function&lt; void(const char *)&gt; LogFunc</div><div class="ttdoc">Optional logging callback.</div><div class="ttdef"><b>Definition</b> ssl.hpp:41</div></div>
+<div class="ttc" id="astructNNet_1_1TSslContext_html_ae4fd7317426394cc600259188930c9ed"><div class="ttname"><a href="structNNet_1_1TSslContext.html#ae4fd7317426394cc600259188930c9ed">NNet::TSslContext::Ctx</a></div><div class="ttdeci">SSL_CTX * Ctx</div><div class="ttdoc">The underlying OpenSSL context.</div><div class="ttdef"><b>Definition</b> ssl.hpp:40</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

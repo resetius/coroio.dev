@@ -127,7 +127,7 @@ $(document).ready(function(){initNavTree('classNNet_1_1TPollerBase.html',''); in
 </div><!--header-->
 <div class="contents">
 
-<p>Base class for pollers managing asynchronous I/O events and timers.  
+<p>Backend-independent base for I/O pollers.  
  <a href="classNNet_1_1TPollerBase.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="poller_8hpp_source.html">poller.hpp</a>&gt;</code></p>
@@ -166,10 +166,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a9bbf27b42f97eded40eb715f56340025"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes or cancels a timer.  <br /></td></tr>
 <tr class="separator:a9bbf27b42f97eded40eb715f56340025"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6a316e28273f1867347ccf08933f506" id="r_ab6a316e28273f1867347ccf08933f506"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TPollerBase.html#ab6a316e28273f1867347ccf08933f506">AddRead</a> (int fd, THandle h)</td></tr>
-<tr class="memdesc:ab6a316e28273f1867347ccf08933f506"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a read event on a file descriptor.  <br /></td></tr>
+<tr class="memdesc:ab6a316e28273f1867347ccf08933f506"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a read interest on a file descriptor.  <br /></td></tr>
 <tr class="separator:ab6a316e28273f1867347ccf08933f506"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89b328d4fd41f981d576dd48463ab5b2" id="r_a89b328d4fd41f981d576dd48463ab5b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TPollerBase.html#a89b328d4fd41f981d576dd48463ab5b2">AddWrite</a> (int fd, THandle h)</td></tr>
-<tr class="memdesc:a89b328d4fd41f981d576dd48463ab5b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a write event on a file descriptor.  <br /></td></tr>
+<tr class="memdesc:a89b328d4fd41f981d576dd48463ab5b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a write interest on a file descriptor.  <br /></td></tr>
 <tr class="separator:a89b328d4fd41f981d576dd48463ab5b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0572e77df07a824c0c4948fc548a7d4e" id="r_a0572e77df07a824c0c4948fc548a7d4e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TPollerBase.html#a0572e77df07a824c0c4948fc548a7d4e">AddRemoteHup</a> (int fd, THandle h)</td></tr>
 <tr class="memdesc:a0572e77df07a824c0c4948fc548a7d4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a remote hang-up (RHUP) event.  <br /></td></tr>
@@ -178,7 +178,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa07a131f7224e0c939e2df9b83982146"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes registered events for a specific file descriptor.  <br /></td></tr>
 <tr class="separator:aa07a131f7224e0c939e2df9b83982146"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab78789b92e7aa174e72c3d569deec1e7" id="r_ab78789b92e7aa174e72c3d569deec1e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TPollerBase.html#ab78789b92e7aa174e72c3d569deec1e7">RemoveEvent</a> (THandle)</td></tr>
-<tr class="memdesc:ab78789b92e7aa174e72c3d569deec1e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes events associated with a given coroutine handle.  <br /></td></tr>
+<tr class="memdesc:ab78789b92e7aa174e72c3d569deec1e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">No-op placeholder for future cleanup by handle.  <br /></td></tr>
 <tr class="separator:ab78789b92e7aa174e72c3d569deec1e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9550c4ddfa4a29b3723ee00098617dc5" id="r_a9550c4ddfa4a29b3723ee00098617dc5"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TPollerBase.html#a9550c4ddfa4a29b3723ee00098617dc5">Sleep</a> (TTime until)</td></tr>
 <tr class="memdesc:a9550c4ddfa4a29b3723ee00098617dc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Suspends execution until the specified time.  <br /></td></tr>
@@ -188,7 +188,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:af9264dcf4631dfa5d7a79148f36905d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of <a class="el" href="classNNet_1_1TPollerBase.html#a9550c4ddfa4a29b3723ee00098617dc5" title="Suspends execution until the specified time.">Sleep()</a> accepting a duration.  <br /></td></tr>
 <tr class="separator:af9264dcf4631dfa5d7a79148f36905d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea08fab15fd419093ffc18b9a5b5b267" id="r_aea08fab15fd419093ffc18b9a5b5b267"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TPollerBase.html#aea08fab15fd419093ffc18b9a5b5b267">Yield</a> ()</td></tr>
-<tr class="memdesc:aea08fab15fd419093ffc18b9a5b5b267"><td class="mdescLeft">&#160;</td><td class="mdescRight">Yields execution to the next event loop iteration.  <br /></td></tr>
+<tr class="memdesc:aea08fab15fd419093ffc18b9a5b5b267"><td class="mdescLeft">&#160;</td><td class="mdescRight">Suspends the coroutine until the next event-loop iteration.  <br /></td></tr>
 <tr class="separator:aea08fab15fd419093ffc18b9a5b5b267"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a402d1b611ee88296e5853f22cb559c0e" id="r_a402d1b611ee88296e5853f22cb559c0e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TPollerBase.html#a402d1b611ee88296e5853f22cb559c0e">Wakeup</a> (<a class="el" href="structNNet_1_1TEvent.html">TEvent</a> &amp;&amp;change)</td></tr>
 <tr class="memdesc:a402d1b611ee88296e5853f22cb559c0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wakes up a coroutine waiting on an event.  <br /></td></tr>
@@ -263,19 +263,13 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
 <tr class="separator:a98e530e56732cf5bd44cee9bcb560e1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Base class for pollers managing asynchronous I/O events and timers. </p>
-<p><a class="el" href="classNNet_1_1TPollerBase.html" title="Base class for pollers managing asynchronous I/O events and timers.">TPollerBase</a> provides the common interface and functionality for pollers that drive asynchronous operations. It allows scheduling timers, registering I/O events (read, write, remote hang-up) on file descriptors, and waking up waiting coroutines. It also offers convenience methods such as <a class="el" href="classNNet_1_1TPollerBase.html#a9550c4ddfa4a29b3723ee00098617dc5">Sleep()</a> (and its overload accepting a std::chrono::duration) and <a class="el" href="classNNet_1_1TPollerBase.html#aea08fab15fd419093ffc18b9a5b5b267">Yield()</a>.</p>
-<p>The class maintains internal collections for pending changes (events), ready events, and timers. It also keeps track of the maximum file descriptor, which is used in system-level polling calls.</p>
-<p>Key methods include:</p><ul>
-<li><a class="el" href="classNNet_1_1TPollerBase.html#a66e728fd17de36c493a0e915115d417e">AddTimer()</a> to schedule a timer.</li>
-<li><a class="el" href="classNNet_1_1TPollerBase.html#a9bbf27b42f97eded40eb715f56340025">RemoveTimer()</a> to cancel a timer.</li>
-<li><a class="el" href="classNNet_1_1TPollerBase.html#ab6a316e28273f1867347ccf08933f506">AddRead()</a>, <a class="el" href="classNNet_1_1TPollerBase.html#a89b328d4fd41f981d576dd48463ab5b2">AddWrite()</a>, <a class="el" href="classNNet_1_1TPollerBase.html#a0572e77df07a824c0c4948fc548a7d4e">AddRemoteHup()</a> to register I/O events.</li>
-<li><a class="el" href="classNNet_1_1TPollerBase.html#aa07a131f7224e0c939e2df9b83982146">RemoveEvent()</a> to deregister events.</li>
-<li><a class="el" href="classNNet_1_1TPollerBase.html#a9550c4ddfa4a29b3723ee00098617dc5">Sleep()</a> and <a class="el" href="classNNet_1_1TPollerBase.html#aea08fab15fd419093ffc18b9a5b5b267">Yield()</a> to suspend execution until a specified time or until the next polling round.</li>
-<li><a class="el" href="classNNet_1_1TPollerBase.html#a402d1b611ee88296e5853f22cb559c0e">Wakeup()</a> and <a class="el" href="classNNet_1_1TPollerBase.html#af6804d6768be5be6254355ec5fb143e9">WakeupReadyHandles()</a> to resume waiting coroutines when events occur.</li>
+<div class="textblock"><p>Backend-independent base for I/O pollers. </p>
+<p>Manages three concerns shared by all poller backends:</p><ul>
+<li><b>Timers</b> — <code>AddTimer</code> / <code>RemoveTimer</code> / <code>ProcessTimers</code></li>
+<li><b>I/O event registration</b> — <code>AddRead</code>, <code>AddWrite</code>, <code>AddRemoteHup</code>, <code>RemoveEvent</code></li>
+<li><b>Coroutine scheduling</b> — <code>Sleep</code>, <code>Yield</code>, <code>Wakeup</code>, <code>WakeupReadyHandles</code></li>
 </ul>
-<p>The class also provides helper methods for computing timeout values (via <a class="el" href="classNNet_1_1TPollerBase.html#a0008a394cf1744e9369e60bcf75cdfc5">GetTimeout()</a>).</p>
-<p>The detailed comment inside <a class="el" href="classNNet_1_1TPollerBase.html#a402d1b611ee88296e5853f22cb559c0e">Wakeup()</a> describes how a waiting coroutine is resumed and how new event registrations are matched. </p>
+<p>Concrete backends (<a class="el" href="classNNet_1_1TEPoll.html" title="Linux-specific poller implementation using epoll.">TEPoll</a>, <a class="el" href="classNNet_1_1TKqueue.html" title="Poller implementation using kqueue (for macOS and FreeBSD).">TKqueue</a>, …) inherit from this class and implement <code>Poll()</code> to fill <code>ReadyEvents_</code> using the OS-specific mechanism, then call <code><a class="el" href="classNNet_1_1TPollerBase.html#af6804d6768be5be6254355ec5fb143e9" title="Wakes up all coroutines waiting on ready events.">WakeupReadyHandles()</a></code> (provided here) to resume waiting coroutines. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ab6a316e28273f1867347ccf08933f506" name="ab6a316e28273f1867347ccf08933f506"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab6a316e28273f1867347ccf08933f506">&#9670;&#160;</a></span>AddRead()</h2>
@@ -311,11 +305,12 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
 </table>
 </div><div class="memdoc">
 
-<p>Registers a read event on a file descriptor. </p>
+<p>Registers a read interest on a file descriptor. </p>
+<p><code>h</code> will be resumed by <code><a class="el" href="classNNet_1_1TPollerBase.html#af6804d6768be5be6254355ec5fb143e9" title="Wakes up all coroutines waiting on ready events.">WakeupReadyHandles()</a></code> on the next loop iteration after the fd becomes readable.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fd</td><td>The file descriptor. </td></tr>
-    <tr><td class="paramname">h</td><td>The coroutine handle to resume when data is available. </td></tr>
+    <tr><td class="paramname">fd</td><td>File descriptor to watch. </td></tr>
+    <tr><td class="paramname">h</td><td>Coroutine to resume when data is available. </td></tr>
   </table>
   </dd>
 </dl>
@@ -448,11 +443,12 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
 </table>
 </div><div class="memdoc">
 
-<p>Registers a write event on a file descriptor. </p>
+<p>Registers a write interest on a file descriptor. </p>
+<p><code>h</code> will be resumed by <code><a class="el" href="classNNet_1_1TPollerBase.html#af6804d6768be5be6254355ec5fb143e9" title="Wakes up all coroutines waiting on ready events.">WakeupReadyHandles()</a></code> on the next loop iteration after the fd becomes writable.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fd</td><td>The file descriptor. </td></tr>
-    <tr><td class="paramname">h</td><td>The coroutine handle to resume when ready for writing. </td></tr>
+    <tr><td class="paramname">fd</td><td>File descriptor to watch. </td></tr>
+    <tr><td class="paramname">h</td><td>Coroutine to resume when ready for writing. </td></tr>
   </table>
   </dd>
 </dl>
@@ -609,11 +605,11 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
 </table>
 </div><div class="memdoc">
 
-<p>Removes events associated with a given coroutine handle. </p>
-<p>This overload will be called by destructors of unfinished futures. Unimplemented.</p>
+<p>No-op placeholder for future cleanup by handle. </p>
+<p>Intended to be called by destructors of unfinished futures so that pending waits can be unregistered. Currently unimplemented.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">h</td><td>The coroutine handle. </td></tr>
+    <tr><td class="paramname">h</td><td>The coroutine handle (unused). </td></tr>
   </table>
   </dd>
 </dl>
@@ -870,9 +866,9 @@ template&lt;typename Rep , typename Period &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Yields execution to the next event loop iteration. </p>
-<p>Equivalent to calling <a class="el" href="classNNet_1_1TPollerBase.html#a9550c4ddfa4a29b3723ee00098617dc5" title="Suspends execution until the specified time.">Sleep()</a> with a default zero time.</p>
-<dl class="section return"><dt>Returns</dt><dd>An awaitable object for yielding execution. </dd></dl>
+<p>Suspends the coroutine until the next event-loop iteration. </p>
+<p>Equivalent to <code>Sleep(TTime{})</code>, which fires immediately on the next <code><a class="el" href="classNNet_1_1TPollerBase.html#a5552a86441c63d811e6a0d6039d391bd" title="Processes scheduled timers.">ProcessTimers()</a></code> call. Use when you want to give other coroutines a chance to run before continuing.</p>
+<dl class="section return"><dt>Returns</dt><dd>An awaitable that resumes on the next loop tick. </dd></dl>
 
 </div>
 </div>

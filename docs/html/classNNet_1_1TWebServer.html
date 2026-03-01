@@ -123,16 +123,128 @@ $(document).ready(function(){initNavTree('classNNet_1_1TWebServer.html',''); ini
   <div class="headertitle"><div class="title">NNet::TWebServer&lt; TSocket &gt; Class Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>HTTP/1.1 server that accepts connections and dispatches to a router.  
+ <a href="classNNet_1_1TWebServer.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="httpd_8hpp_source.html">httpd.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0977d1651e2072eefb3697a154fdb6b9" id="r_a0977d1651e2072eefb3697a154fdb6b9"><td class="memItemLeft" align="right" valign="top"><a id="a0977d1651e2072eefb3697a154fdb6b9" name="a0977d1651e2072eefb3697a154fdb6b9"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TWebServer</b> (<a class="el" href="classNNet_1_1TSocket.html">TSocket</a> &amp;&amp;serverSocket, <a class="el" href="structNNet_1_1IRouter.html">IRouter</a> &amp;router, std::function&lt; void(const std::string &amp;)&gt; logger={})</td></tr>
+<tr class="memitem:a0977d1651e2072eefb3697a154fdb6b9" id="r_a0977d1651e2072eefb3697a154fdb6b9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TWebServer.html#a0977d1651e2072eefb3697a154fdb6b9">TWebServer</a> (<a class="el" href="classNNet_1_1TSocket.html">TSocket</a> &amp;&amp;serverSocket, <a class="el" href="structNNet_1_1IRouter.html">IRouter</a> &amp;router, std::function&lt; void(const std::string &amp;)&gt; logger={})</td></tr>
+<tr class="memdesc:a0977d1651e2072eefb3697a154fdb6b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the server.  <br /></td></tr>
 <tr class="separator:a0977d1651e2072eefb3697a154fdb6b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a963c0a11af0386d47551dd32b37f877f" id="r_a963c0a11af0386d47551dd32b37f877f"><td class="memItemLeft" align="right" valign="top"><a id="a963c0a11af0386d47551dd32b37f877f" name="a963c0a11af0386d47551dd32b37f877f"></a>
-<a class="el" href="structNNet_1_1TVoidTask.html">TVoidTask</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Start</b> ()</td></tr>
+<tr class="memitem:a963c0a11af0386d47551dd32b37f877f" id="r_a963c0a11af0386d47551dd32b37f877f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNNet_1_1TVoidTask.html">TVoidTask</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TWebServer.html#a963c0a11af0386d47551dd32b37f877f">Start</a> ()</td></tr>
+<tr class="memdesc:a963c0a11af0386d47551dd32b37f877f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the accept loop as a detached <code><a class="el" href="structNNet_1_1TVoidTask.html" title="Fire-and-forget coroutine handle.">TVoidTask</a></code>.  <br /></td></tr>
 <tr class="separator:a963c0a11af0386d47551dd32b37f877f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename <a class="el" href="classNNet_1_1TSocket.html">TSocket</a>&gt;<br />
+class NNet::TWebServer&lt; TSocket &gt;</div><p>HTTP/1.1 server that accepts connections and dispatches to a router. </p>
+<p>Takes ownership of a bound, listening socket. Call <code><a class="el" href="classNNet_1_1TWebServer.html#a963c0a11af0386d47551dd32b37f877f" title="Starts the accept loop as a detached TVoidTask.">Start()</a></code> to launch the accept loop as a detached <code><a class="el" href="structNNet_1_1TVoidTask.html" title="Fire-and-forget coroutine handle.">TVoidTask</a></code>.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname"><a class="el" href="classNNet_1_1TSocket.html" title="High-level asynchronous socket for network communication.">TSocket</a></td><td>A bound+listening socket type (e.g. <code><a class="el" href="classNNet_1_1TPoll.html#a48865341622e5479f250d62e0c8c6e78" title="Alias for the socket type.">TDefaultPoller::TSocket</a></code>).</td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><span class="keyword">using </span><a class="code hl_class" href="classNNet_1_1TSocket.html">TSocket</a> = <a class="code hl_typedef" href="classNNet_1_1TPoll.html#a48865341622e5479f250d62e0c8c6e78">TDefaultPoller::TSocket</a>;</div>
+<div class="line"><a class="code hl_class" href="classNNet_1_1TSocket.html">TSocket</a> sock(loop.Poller(), addr.Domain());</div>
+<div class="line">sock.Bind(addr); sock.Listen();</div>
+<div class="line"> </div>
+<div class="line">MyRouter router;</div>
+<div class="line"><a class="code hl_class" href="classNNet_1_1TWebServer.html">TWebServer&lt;TSocket&gt;</a> server(std::move(sock), router);</div>
+<div class="line">server.Start();</div>
+<div class="line">loop.Loop();</div>
+<div class="ttc" id="aclassNNet_1_1TPoll_html_a48865341622e5479f250d62e0c8c6e78"><div class="ttname"><a href="classNNet_1_1TPoll.html#a48865341622e5479f250d62e0c8c6e78">NNet::TPoll::TSocket</a></div><div class="ttdeci">NNet::TSocket TSocket</div><div class="ttdoc">Alias for the socket type.</div><div class="ttdef"><b>Definition</b> poll.hpp:42</div></div>
+<div class="ttc" id="aclassNNet_1_1TSocket_html"><div class="ttname"><a href="classNNet_1_1TSocket.html">NNet::TSocket</a></div><div class="ttdoc">High-level asynchronous socket for network communication.</div><div class="ttdef"><b>Definition</b> socket.hpp:367</div></div>
+<div class="ttc" id="aclassNNet_1_1TWebServer_html"><div class="ttname"><a href="classNNet_1_1TWebServer.html">NNet::TWebServer</a></div><div class="ttdoc">HTTP/1.1 server that accepts connections and dispatches to a router.</div><div class="ttdef"><b>Definition</b> httpd.hpp:237</div></div>
+</div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a0977d1651e2072eefb3697a154fdb6b9" name="a0977d1651e2072eefb3697a154fdb6b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0977d1651e2072eefb3697a154fdb6b9">&#9670;&#160;</a></span>TWebServer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="classNNet_1_1TSocket.html">TSocket</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNNet_1_1TWebServer.html">NNet::TWebServer</a>&lt; <a class="el" href="classNNet_1_1TSocket.html">TSocket</a> &gt;::TWebServer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNNet_1_1TSocket.html">TSocket</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>serverSocket</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structNNet_1_1IRouter.html">IRouter</a> &amp;&#160;</td>
+          <td class="paramname"><em>router</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(const std::string &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>logger</em> = <code>{}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs the server. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">serverSocket</td><td>Bound, listening socket (moved in; owned by the server). </td></tr>
+    <tr><td class="paramname">router</td><td>Request handler; must outlive this server. </td></tr>
+    <tr><td class="paramname">logger</td><td>Optional nginx-style access-log callback. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a963c0a11af0386d47551dd32b37f877f" name="a963c0a11af0386d47551dd32b37f877f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a963c0a11af0386d47551dd32b37f877f">&#9670;&#160;</a></span>Start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="classNNet_1_1TSocket.html">TSocket</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structNNet_1_1TVoidTask.html">TVoidTask</a> <a class="el" href="classNNet_1_1TWebServer.html">NNet::TWebServer</a>&lt; <a class="el" href="classNNet_1_1TSocket.html">TSocket</a> &gt;::Start </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Starts the accept loop as a detached <code><a class="el" href="structNNet_1_1TVoidTask.html" title="Fire-and-forget coroutine handle.">TVoidTask</a></code>. </p>
+<p>Runs forever, accepting connections and spawning a per-connection handler coroutine for each. Returns immediately (the loop is detached). </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>coroio/http/<a class="el" href="httpd_8hpp_source.html">httpd.hpp</a></li>
 </ul>

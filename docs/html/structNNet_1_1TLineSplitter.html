@@ -143,14 +143,14 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Splits incoming data into lines using a circular buffer of fixed capacity. </p>
-<p>This class maintains a ring buffer of maximum length (<code>maxLen</code>), allowing you to push new data in and then pop complete lines without additional copying. When a line wraps around the circular boundary, it is represented in two segments. A corresponding <code><a class="el" href="structNNet_1_1TLine.html">TLine</a></code> object holds these segments as string views (<code>Part1</code> and <code>Part2</code>).</p>
-<h3><a class="anchor" id="autotoc_md7"></a>
+<p>This class maintains a ring buffer of maximum length (<code>maxLen</code>), allowing you to push new data in and then pop complete lines without additional copying. When a line wraps around the circular boundary, it is represented in two segments. A corresponding <code><a class="el" href="structNNet_1_1TLine.html" title="A line extracted from a circular read buffer, represented in up to two parts.">TLine</a></code> object holds these segments as string views (<code>Part1</code> and <code>Part2</code>).</p>
+<h3><a class="anchor" id="autotoc_md4"></a>
 Important Notes</h3>
 <ul>
 <li>The maximum capacity of the buffer is given by <code>maxLen</code>. Pushing more data than the available space may cause old data to be overwritten or an implementation-defined behavior.</li>
-<li>The returned <code><a class="el" href="structNNet_1_1TLine.html">TLine</a></code> references the internal buffer via string views. Any subsequent push operations (or further pops) may invalidate these views.</li>
+<li>The returned <code><a class="el" href="structNNet_1_1TLine.html" title="A line extracted from a circular read buffer, represented in up to two parts.">TLine</a></code> references the internal buffer via string views. Any subsequent push operations (or further pops) may invalidate these views.</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md8"></a>
+<h3><a class="anchor" id="autotoc_md5"></a>
 Example Usage</h3>
 <div class="fragment"><div class="line"><span class="comment">// Suppose TLine is defined as:</span></div>
 <div class="line"><span class="comment">// struct TLine {</span></div>
@@ -177,8 +177,8 @@ Example Usage</h3>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="astructNNet_1_1TLineSplitter_html"><div class="ttname"><a href="structNNet_1_1TLineSplitter.html">NNet::TLineSplitter</a></div><div class="ttdoc">Splits incoming data into lines using a circular buffer of fixed capacity.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:414</div></div>
-<div class="ttc" id="astructNNet_1_1TLine_html"><div class="ttname"><a href="structNNet_1_1TLine.html">NNet::TLine</a></div><div class="ttdef"><b>Definition</b> sockutils.hpp:18</div></div>
+<div class="ttc" id="astructNNet_1_1TLineSplitter_html"><div class="ttname"><a href="structNNet_1_1TLineSplitter.html">NNet::TLineSplitter</a></div><div class="ttdoc">Splits incoming data into lines using a circular buffer of fixed capacity.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:426</div></div>
+<div class="ttc" id="astructNNet_1_1TLine_html"><div class="ttname"><a href="structNNet_1_1TLine.html">NNet::TLine</a></div><div class="ttdoc">A line extracted from a circular read buffer, represented in up to two parts.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:30</div></div>
 </div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae268d7739985d5dec43907da825579c1" name="ae268d7739985d5dec43907da825579c1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae268d7739985d5dec43907da825579c1">&#9670;&#160;</a></span>TLineSplitter()</h2>
@@ -223,12 +223,12 @@ Example Usage</h3>
 </div><div class="memdoc">
 
 <p>Retrieves and removes the next complete line from the buffer. </p>
-<p>A line is typically delimited by a newline character (implementation-specific). If the line crosses the circular boundary, <code><a class="el" href="structNNet_1_1TLine.html">TLine</a></code> will contain two parts:</p><ul>
+<p>A line is typically delimited by a newline character (implementation-specific). If the line crosses the circular boundary, <code><a class="el" href="structNNet_1_1TLine.html" title="A line extracted from a circular read buffer, represented in up to two parts.">TLine</a></code> will contain two parts:</p><ul>
 <li><code>Part1</code> referencing the tail end of the buffer,</li>
 <li><code>Part2</code> referencing the beginning portion.</li>
 </ul>
-<dl class="section return"><dt>Returns</dt><dd>A <code><a class="el" href="structNNet_1_1TLine.html">TLine</a></code> object with string views that reference the extracted line. If there is no complete line available, behavior may be undefined or implementation-dependent (e.g., returns an empty line or throws).</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>The returned <code><a class="el" href="structNNet_1_1TLine.html">TLine</a>'s</code> string views are valid only until the next call to <a class="el" href="structNNet_1_1TLineSplitter.html#a3147a073f1421daec77a92512cbb0132">Push()</a> or further modifications to the buffer. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A <code><a class="el" href="structNNet_1_1TLine.html" title="A line extracted from a circular read buffer, represented in up to two parts.">TLine</a></code> object with string views that reference the extracted line. If there is no complete line available, behavior may be undefined or implementation-dependent (e.g., returns an empty line or throws).</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>The returned <code><a class="el" href="structNNet_1_1TLine.html" title="A line extracted from a circular read buffer, represented in up to two parts.">TLine</a>'s</code> string views are valid only until the next call to <a class="el" href="structNNet_1_1TLineSplitter.html#a3147a073f1421daec77a92512cbb0132">Push()</a> or further modifications to the buffer. </dd></dl>
 
 </div>
 </div>

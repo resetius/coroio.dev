@@ -124,7 +124,7 @@ $(document).ready(function(){initNavTree('classNNet_1_1TWebSocket.html',''); ini
 </div><!--header-->
 <div class="contents">
 
-<p>Implements a WebSocket protocol layer on top of a given socket.  
+<p>Client-side WebSocket framing layer over an already-connected socket.  
  <a href="classNNet_1_1TWebSocket.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="ws_8hpp_source.html">ws.hpp</a>&gt;</code></p>
@@ -132,57 +132,44 @@ $(document).ready(function(){initNavTree('classNNet_1_1TWebSocket.html',''); ini
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a36745522f809720a9bfa223de97f5514" id="r_a36745522f809720a9bfa223de97f5514"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TWebSocket.html#a36745522f809720a9bfa223de97f5514">TWebSocket</a> (<a class="el" href="classNNet_1_1TSocket.html">TSocket</a> &amp;socket)</td></tr>
-<tr class="memdesc:a36745522f809720a9bfa223de97f5514"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a WebSocket instance wrapping the provided socket.  <br /></td></tr>
+<tr class="memdesc:a36745522f809720a9bfa223de97f5514"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wraps an already-connected socket with WebSocket framing.  <br /></td></tr>
 <tr class="separator:a36745522f809720a9bfa223de97f5514"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5028ec836b4e9c74cd9d1862b8450e10" id="r_a5028ec836b4e9c74cd9d1862b8450e10"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TWebSocket.html#a5028ec836b4e9c74cd9d1862b8450e10">Connect</a> (const std::string &amp;host, const std::string &amp;path)</td></tr>
-<tr class="memdesc:a5028ec836b4e9c74cd9d1862b8450e10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initiates the WebSocket handshake.  <br /></td></tr>
+<tr class="memdesc:a5028ec836b4e9c74cd9d1862b8450e10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs the HTTP → WebSocket upgrade handshake.  <br /></td></tr>
 <tr class="separator:a5028ec836b4e9c74cd9d1862b8450e10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adef36f335a05589611bdbfcdd22286cf" id="r_adef36f335a05589611bdbfcdd22286cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TWebSocket.html#adef36f335a05589611bdbfcdd22286cf">SendText</a> (std::string_view message)</td></tr>
-<tr class="memdesc:adef36f335a05589611bdbfcdd22286cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a text message as a WebSocket frame.  <br /></td></tr>
+<tr class="memdesc:adef36f335a05589611bdbfcdd22286cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends <code>message</code> as a masked WebSocket text frame (opcode 0x1).  <br /></td></tr>
 <tr class="separator:adef36f335a05589611bdbfcdd22286cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af34220618cf99f70debf1301dd502acb" id="r_af34220618cf99f70debf1301dd502acb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; std::string_view &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TWebSocket.html#af34220618cf99f70debf1301dd502acb">ReceiveText</a> ()</td></tr>
-<tr class="memdesc:af34220618cf99f70debf1301dd502acb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives a text message from the WebSocket.  <br /></td></tr>
+<tr class="memdesc:af34220618cf99f70debf1301dd502acb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives the next WebSocket text frame.  <br /></td></tr>
 <tr class="separator:af34220618cf99f70debf1301dd502acb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename <a class="el" href="classNNet_1_1TSocket.html">TSocket</a>&gt;<br />
-class NNet::TWebSocket&lt; TSocket &gt;</div><p>Implements a WebSocket protocol layer on top of a given socket. </p>
-<p>The <a class="el" href="classNNet_1_1TWebSocket.html" title="Implements a WebSocket protocol layer on top of a given socket.">TWebSocket</a> class wraps an underlying socket (of type <code><a class="el" href="classNNet_1_1TSocket.html" title="High-level asynchronous socket for network communication.">TSocket</a></code>) to implement the WebSocket handshake, sending, and receiving of text frames. It uses asynchronous operations (via <a class="el" href="structNNet_1_1TFuture.html" title="Future type for coroutines returning a value of type T.">TFuture</a>) for I/O, and it internally maintains a reader and writer.</p>
-<h3><a class="anchor" id="autotoc_md11"></a>
-Overview</h3>
-<ul>
-<li><a class="el" href="classNNet_1_1TWebSocket.html#a5028ec836b4e9c74cd9d1862b8450e10">Connect()</a> initiates the WebSocket handshake.</li>
-<li><a class="el" href="classNNet_1_1TWebSocket.html#adef36f335a05589611bdbfcdd22286cf">SendText()</a> sends a text frame.</li>
-<li><a class="el" href="classNNet_1_1TWebSocket.html#af34220618cf99f70debf1301dd502acb">ReceiveText()</a> receives a text frame.</li>
-</ul>
+class NNet::TWebSocket&lt; TSocket &gt;</div><p>Client-side WebSocket framing layer over an already-connected socket. </p>
+<p>Wraps <code><a class="el" href="classNNet_1_1TSocket.html" title="High-level asynchronous socket for network communication.">TSocket</a></code> with RFC 6455 framing. The underlying socket must be TCP-connected before calling <code><a class="el" href="classNNet_1_1TWebSocket.html#a5028ec836b4e9c74cd9d1862b8450e10" title="Performs the HTTP → WebSocket upgrade handshake.">Connect()</a></code>. <code><a class="el" href="classNNet_1_1TWebSocket.html" title="Client-side WebSocket framing layer over an already-connected socket.">TWebSocket</a></code> holds a <b>reference</b> to the socket — the socket must outlive the <code><a class="el" href="classNNet_1_1TWebSocket.html" title="Client-side WebSocket framing layer over an already-connected socket.">TWebSocket</a></code> instance.</p>
+<p>Only text frames are exposed. Outgoing frames are client-masked as required by RFC 6455. Server-side upgrade is not included.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname"><a class="el" href="classNNet_1_1TSocket.html" title="High-level asynchronous socket for network communication.">TSocket</a></td><td>The underlying socket type used for network communication.</td></tr>
+    <tr><td class="paramname"><a class="el" href="classNNet_1_1TSocket.html" title="High-level asynchronous socket for network communication.">TSocket</a></td><td>Connected socket type providing <code>ReadSome</code> / <code>WriteSome</code>.</td></tr>
   </table>
   </dd>
 </dl>
-<h3><a class="anchor" id="autotoc_md12"></a>
-Example: Minimal WebSocket Client</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;coroio/ws.hpp&gt;</span></div>
+<div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> TPoller&gt;</div>
+<div class="line"><a class="code hl_struct" href="structNNet_1_1TFuture.html">TFuture&lt;void&gt;</a> chat(TPoller&amp; poller, <a class="code hl_class" href="classNNet_1_1TAddress.html">TAddress</a> addr) {</div>
+<div class="line">    <span class="keyword">typename</span> TPoller::TSocket sock(poller, addr.<a class="code hl_function" href="classNNet_1_1TAddress.html#a23d57a7dc6ae5d181fcfd67a58ee6a5d">Domain</a>());</div>
+<div class="line">    <span class="keyword">co_await</span> sock.Connect(addr);</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> TSocket&gt;</div>
-<div class="line"><a class="code hl_struct" href="structNNet_1_1TFuture.html">TFuture&lt;void&gt;</a> WebSocketClientExample(<a class="code hl_class" href="classNNet_1_1TSocket.html">TSocket</a>&amp; socket) {</div>
-<div class="line">    <a class="code hl_class" href="classNNet_1_1TWebSocket.html">TWebSocket&lt;TSocket&gt;</a> ws(socket);</div>
+<div class="line">    <a class="code hl_class" href="classNNet_1_1TWebSocket.html">TWebSocket</a> ws(sock);</div>
+<div class="line">    <span class="keyword">co_await</span> ws.Connect(<span class="stringliteral">&quot;example.com&quot;</span>, <span class="stringliteral">&quot;/chat&quot;</span>);   <span class="comment">// HTTP upgrade</span></div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">co_await</span> ws.Connect(<span class="stringliteral">&quot;echo.websocket.org&quot;</span>, <span class="stringliteral">&quot;/.ws&quot;</span>);</div>
-<div class="line"> </div>
-<div class="line">    std::string message = <span class="stringliteral">&quot;Hello, WebSocket!&quot;</span>;</div>
-<div class="line">    <span class="keyword">co_await</span> ws.SendText(message);</div>
-<div class="line"> </div>
-<div class="line">    std::string_view reply = <span class="keyword">co_await</span> ws.ReceiveText();</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Received: &quot;</span> &lt;&lt; reply &lt;&lt; std::endl;</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">co_return</span>;</div>
+<div class="line">    <span class="keyword">co_await</span> ws.SendText(<span class="stringliteral">&quot;hello&quot;</span>);</div>
+<div class="line">    std::string_view msg = <span class="keyword">co_await</span> ws.ReceiveText(); <span class="comment">// valid until next ReceiveText()</span></div>
 <div class="line">}</div>
-<div class="ttc" id="aclassNNet_1_1TSocket_html"><div class="ttname"><a href="classNNet_1_1TSocket.html">NNet::TSocket</a></div><div class="ttdoc">High-level asynchronous socket for network communication.</div><div class="ttdef"><b>Definition</b> socket.hpp:367</div></div>
-<div class="ttc" id="aclassNNet_1_1TWebSocket_html"><div class="ttname"><a href="classNNet_1_1TWebSocket.html">NNet::TWebSocket</a></div><div class="ttdoc">Implements a WebSocket protocol layer on top of a given socket.</div><div class="ttdef"><b>Definition</b> ws.hpp:89</div></div>
-<div class="ttc" id="astructNNet_1_1TFuture_html"><div class="ttname"><a href="structNNet_1_1TFuture.html">NNet::TFuture</a></div><div class="ttdoc">Future type for coroutines returning a value of type T.</div><div class="ttdef"><b>Definition</b> corochain.hpp:182</div></div>
+<div class="ttc" id="aclassNNet_1_1TAddress_html"><div class="ttname"><a href="classNNet_1_1TAddress.html">NNet::TAddress</a></div><div class="ttdoc">A class representing an IPv4 or IPv6 address (with port).</div><div class="ttdef"><b>Definition</b> address.hpp:38</div></div>
+<div class="ttc" id="aclassNNet_1_1TAddress_html_a23d57a7dc6ae5d181fcfd67a58ee6a5d"><div class="ttname"><a href="classNNet_1_1TAddress.html#a23d57a7dc6ae5d181fcfd67a58ee6a5d">NNet::TAddress::Domain</a></div><div class="ttdeci">int Domain() const</div><div class="ttdoc">Gets the domain (address family) of the stored address.</div><div class="ttdef"><b>Definition</b> address.cpp:45</div></div>
+<div class="ttc" id="aclassNNet_1_1TWebSocket_html"><div class="ttname"><a href="classNNet_1_1TWebSocket.html">NNet::TWebSocket</a></div><div class="ttdoc">Client-side WebSocket framing layer over an already-connected socket.</div><div class="ttdef"><b>Definition</b> ws.hpp:79</div></div>
+<div class="ttc" id="astructNNet_1_1TFuture_html"><div class="ttname"><a href="structNNet_1_1TFuture.html">NNet::TFuture</a></div><div class="ttdoc">Owned coroutine handle that carries a result of type T.</div><div class="ttdef"><b>Definition</b> corochain.hpp:185</div></div>
 </div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a36745522f809720a9bfa223de97f5514" name="a36745522f809720a9bfa223de97f5514"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a36745522f809720a9bfa223de97f5514">&#9670;&#160;</a></span>TWebSocket()</h2>
@@ -210,10 +197,10 @@ template&lt;typename <a class="el" href="classNNet_1_1TSocket.html">TSocket</a> 
 </table>
 </div><div class="memdoc">
 
-<p>Constructs a WebSocket instance wrapping the provided socket. </p>
+<p>Wraps an already-connected socket with WebSocket framing. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">socket</td><td>The underlying socket that will be used for the WebSocket connection. </td></tr>
+    <tr><td class="paramname">socket</td><td>Reference to the connected socket. Must outlive this object. </td></tr>
   </table>
   </dd>
 </dl>
@@ -257,19 +244,18 @@ template&lt;typename <a class="el" href="classNNet_1_1TSocket.html">TSocket</a> 
 </table>
 </div><div class="memdoc">
 
-<p>Initiates the WebSocket handshake. </p>
-<p>Constructs and sends an HTTP GET request with the proper headers including a generated WebSocket key, then waits for the server's response. The response is verified to contain the "101 Switching Protocols" status and a valid Sec-WebSocket-Accept header.</p>
+<p>Performs the HTTP → WebSocket upgrade handshake. </p>
+<p>Sends an HTTP/1.1 GET request with <code>Upgrade: websocket</code> headers, then reads and validates the server's <code>101 Switching Protocols</code> response including the <code>Sec-WebSocket-Accept</code> header. Must be called once before <code>SendText</code> / <code>ReceiveText</code>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">host</td><td>The target host name. </td></tr>
-    <tr><td class="paramname">path</td><td>The resource path. </td></tr>
+    <tr><td class="paramname">host</td><td>Sent in the <code>Host:</code> header (e.g. <code>"example.com"</code>). </td></tr>
+    <tr><td class="paramname">path</td><td>Request path (e.g. <code>"/chat"</code>). </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="structNNet_1_1TFuture.html" title="Future type for coroutines returning a value of type T.">TFuture</a> that completes when the handshake is successful. </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">std::runtime_error</td><td>if the handshake fails. </td></tr>
+    <tr><td class="paramname">std::runtime_error</td><td>if the server rejects the upgrade or the accept key does not match. </td></tr>
   </table>
   </dd>
 </dl>
@@ -301,12 +287,12 @@ template&lt;typename <a class="el" href="classNNet_1_1TSocket.html">TSocket</a> 
 </table>
 </div><div class="memdoc">
 
-<p>Receives a text message from the WebSocket. </p>
-<p>Waits for an incoming frame, validates that it is a text frame, and returns its payload.</p>
-<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="structNNet_1_1TFuture.html" title="Future type for coroutines returning a value of type T.">TFuture</a> that yields a string_view containing the text message. </dd></dl>
+<p>Receives the next WebSocket text frame. </p>
+<p>Suspends until a complete frame arrives. The returned <code>string_view</code> points into an internal buffer and is <b>valid only until the next call to <code><a class="el" href="classNNet_1_1TWebSocket.html#af34220618cf99f70debf1301dd502acb" title="Receives the next WebSocket text frame.">ReceiveText()</a></code></b>. Copy the contents if you need to keep them longer.</p>
+<dl class="section return"><dt>Returns</dt><dd><code>string_view</code> over the frame payload. </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">std::runtime_error</td><td>if a non-text frame is received. </td></tr>
+    <tr><td class="paramname">std::runtime_error</td><td>if a non-text frame (opcode ≠ 0x1) is received. </td></tr>
   </table>
   </dd>
 </dl>
@@ -339,14 +325,13 @@ template&lt;typename <a class="el" href="classNNet_1_1TSocket.html">TSocket</a> 
 </table>
 </div><div class="memdoc">
 
-<p>Sends a text message as a WebSocket frame. </p>
+<p>Sends <code>message</code> as a masked WebSocket text frame (opcode 0x1). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">message</td><td>The text message to send. </td></tr>
+    <tr><td class="paramname">message</td><td>UTF-8 text to send. The caller retains ownership. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="structNNet_1_1TFuture.html" title="Future type for coroutines returning a value of type T.">TFuture</a> that completes when the message has been sent. </dd></dl>
 
 </div>
 </div>

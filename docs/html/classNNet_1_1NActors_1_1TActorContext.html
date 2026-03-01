@@ -172,11 +172,11 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5a828d85863f59055a082f811a428e6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a586d0955f018b7839d3190a3e25881d6" id="r_a586d0955f018b7839d3190a3e25881d6"><td class="memTemplParams" colspan="2">template&lt;typename T , typename... Args&gt; </td></tr>
 <tr class="memitem:a586d0955f018b7839d3190a3e25881d6"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1TActorContext.html#a586d0955f018b7839d3190a3e25881d6">Send</a> (<a class="el" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a> to, Args &amp;&amp;... args)</td></tr>
-<tr class="memdesc:a586d0955f018b7839d3190a3e25881d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a typed message to another actor.  <br /></td></tr>
+<tr class="memdesc:a586d0955f018b7839d3190a3e25881d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a typed message to another actor (non-blocking)  <br /></td></tr>
 <tr class="separator:a586d0955f018b7839d3190a3e25881d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa6edfad4bd4de8246fa1bb86d9aaed4" id="r_aaa6edfad4bd4de8246fa1bb86d9aaed4"><td class="memTemplParams" colspan="2">template&lt;typename T , typename... Args&gt; </td></tr>
 <tr class="memitem:aaa6edfad4bd4de8246fa1bb86d9aaed4"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1TActorContext.html#aaa6edfad4bd4de8246fa1bb86d9aaed4">Forward</a> (<a class="el" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a> to, Args &amp;&amp;... args)</td></tr>
-<tr class="memdesc:aaa6edfad4bd4de8246fa1bb86d9aaed4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forward a typed message to another actor.  <br /></td></tr>
+<tr class="memdesc:aaa6edfad4bd4de8246fa1bb86d9aaed4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forward a typed message to another actor, preserving the original sender.  <br /></td></tr>
 <tr class="separator:aaa6edfad4bd4de8246fa1bb86d9aaed4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4fa2120f1cd922e8073dad9be6c4c15" id="r_af4fa2120f1cd922e8073dad9be6c4c15"><td class="memItemLeft" align="right" valign="top">TEvent&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1TActorContext.html#af4fa2120f1cd922e8073dad9be6c4c15">Schedule</a> (TTime when, <a class="el" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a> sender, <a class="el" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a> recipient, TMessageId messageId, <a class="el" href="structNNet_1_1NActors_1_1TBlob.html">TBlob</a> blob)</td></tr>
 <tr class="memdesc:af4fa2120f1cd922e8073dad9be6c4c15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Schedule a message to be delivered at a specific time.  <br /></td></tr>
@@ -189,15 +189,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a9365829fc94faed9d5856f41292aefa8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cancel a previously scheduled message.  <br /></td></tr>
 <tr class="separator:a9365829fc94faed9d5856f41292aefa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7053b669aaf407ff276c76795fd8fa4c" id="r_a7053b669aaf407ff276c76795fd8fa4c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1TActorContext.html#a7053b669aaf407ff276c76795fd8fa4c">Sleep</a> (TTime until)</td></tr>
-<tr class="memdesc:a7053b669aaf407ff276c76795fd8fa4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sleep until a specific time.  <br /></td></tr>
+<tr class="memdesc:a7053b669aaf407ff276c76795fd8fa4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Suspend the current handler until a specific time.  <br /></td></tr>
 <tr class="separator:a7053b669aaf407ff276c76795fd8fa4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f552d11a54e8866e4892d6d3b70e24f" id="r_a2f552d11a54e8866e4892d6d3b70e24f"><td class="memTemplParams" colspan="2">template&lt;typename Rep , typename Period &gt; </td></tr>
 <tr class="memitem:a2f552d11a54e8866e4892d6d3b70e24f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; void &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1TActorContext.html#a2f552d11a54e8866e4892d6d3b70e24f">Sleep</a> (std::chrono::duration&lt; Rep, Period &gt; duration)</td></tr>
-<tr class="memdesc:a2f552d11a54e8866e4892d6d3b70e24f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sleep for a specific duration.  <br /></td></tr>
+<tr class="memdesc:a2f552d11a54e8866e4892d6d3b70e24f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Suspend the current handler for a duration.  <br /></td></tr>
 <tr class="separator:a2f552d11a54e8866e4892d6d3b70e24f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a822f9ac25826a245b80061acfd81d36c" id="r_a822f9ac25826a245b80061acfd81d36c"><td class="memTemplParams" colspan="2">template&lt;typename T , typename TQuestion &gt; </td></tr>
 <tr class="memitem:a822f9ac25826a245b80061acfd81d36c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1TActorContext.html#a822f9ac25826a245b80061acfd81d36c">Ask</a> (<a class="el" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a> recipient, TQuestion &amp;&amp;question)</td></tr>
-<tr class="memdesc:a822f9ac25826a245b80061acfd81d36c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a message and wait for a response.  <br /></td></tr>
+<tr class="memdesc:a822f9ac25826a245b80061acfd81d36c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a request and suspend until a reply of type <code>T</code> arrives.  <br /></td></tr>
 <tr class="separator:a822f9ac25826a245b80061acfd81d36c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad59f29d6bb051f7c3046a531f3322b80" id="r_ad59f29d6bb051f7c3046a531f3322b80"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNNet_1_1NActors_1_1TActorContext_1_1TAsync.html">TAsync</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1TActorContext.html#ad59f29d6bb051f7c3046a531f3322b80">StartAsync</a> ()</td></tr>
 <tr class="memdesc:ad59f29d6bb051f7c3046a531f3322b80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start an asynchronous operation context.  <br /></td></tr>
@@ -223,8 +223,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>TMockActorContext</b
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Context object providing actor communication and scheduling capabilities. </p>
-<p><a class="el" href="classNNet_1_1NActors_1_1TActorContext.html" title="Context object providing actor communication and scheduling capabilities.">TActorContext</a> is passed to actors when they receive messages. It provides methods for sending messages, scheduling future messages, sleeping, and performing request-response patterns.</p>
-<p>The context contains information about the current message sender and the actor's own ID. It also manages asynchronous operations through the actor system. </p>
+<p><a class="el" href="classNNet_1_1NActors_1_1TActorContext.html" title="Context object providing actor communication and scheduling capabilities.">TActorContext</a> is passed to actors during message dispatch. It provides methods for sending messages, scheduling future messages, sleeping, and performing request-response patterns.</p>
+<p>The context is valid only for the duration of the <code>Receive</code> / <code>CoReceive</code> call chain. Capture <code>ctx-&gt;<a class="el" href="classNNet_1_1NActors_1_1TActorContext.html#af9cb222fe5c3c53c6babc945f4354418" title="Get the sender of the current message.">Sender()</a></code> / <code>ctx-&gt;<a class="el" href="classNNet_1_1NActors_1_1TActorContext.html#a13929b596278666d07d3367fa15773e5" title="Get this actor&#39;s ID.">Self()</a></code> by value if you need them after the first <code>co_await</code>.</p>
+<dl class="section note"><dt>Note</dt><dd><code>Sleep</code>, <code>Ask</code>, and any coroutine-based methods require <code>co_await</code> and are only meaningful inside <code><a class="el" href="classNNet_1_1NActors_1_1ICoroActor.html#af05a33d9500bef58393b020bb711b62f" title="Asynchronous message handler (override in subclass)">ICoroActor::CoReceive</a></code> or an async <code><a class="el" href="classNNet_1_1NActors_1_1TBehavior.html#a82e7df59dc426a4e923f21b9b42833e8" title="Process incoming message with automatic type dispatch.">TBehavior::Receive</a></code> (one returning <code><a class="el" href="structNNet_1_1TFuture.html" title="Owned coroutine handle that carries a result of type T.">TFuture</a>&lt;void&gt;</code>). </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a822f9ac25826a245b80061acfd81d36c" name="a822f9ac25826a245b80061acfd81d36c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a822f9ac25826a245b80061acfd81d36c">&#9670;&#160;</a></span>Ask()</h2>
@@ -262,8 +263,10 @@ template&lt;typename T , typename TQuestion &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Send a message and wait for a response. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
+<p>Send a request and suspend until a reply of type <code>T</code> arrives. </p>
+<p>Sends <code>question</code> to <code>recipient</code> and returns a future that resolves to the first reply of type <code>T</code> sent back to this actor. Must be <code>co_await</code>-ed inside <code><a class="el" href="classNNet_1_1NActors_1_1ICoroActor.html#af05a33d9500bef58393b020bb711b62f" title="Asynchronous message handler (override in subclass)">ICoroActor::CoReceive</a></code> or an async <code><a class="el" href="classNNet_1_1NActors_1_1TBehavior.html#a82e7df59dc426a4e923f21b9b42833e8" title="Process incoming message with automatic type dispatch.">TBehavior::Receive</a></code>.</p>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> reply = <span class="keyword">co_await</span> ctx-&gt;Ask&lt;Pong&gt;(pingActor, Ping{});</div>
+</div><!-- fragment --><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>Expected response message type </td></tr>
     <tr><td class="paramname">TQuestion</td><td>Question message type </td></tr>
@@ -273,11 +276,11 @@ template&lt;typename T , typename TQuestion &gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">recipient</td><td>Actor to send the question to </td></tr>
-    <tr><td class="paramname">question</td><td>Question message to send </td></tr>
+    <tr><td class="paramname">question</td><td>Message forwarded to the recipient </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Future containing the response message </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Awaitable future resolving to <code>T</code> when the reply arrives </dd></dl>
 
 </div>
 </div>
@@ -343,17 +346,18 @@ template&lt;typename T , typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Forward a typed message to another actor. </p>
+<p>Forward a typed message to another actor, preserving the original sender. </p>
+<p>Like <code>Send&lt;T&gt;</code>, but the recipient sees <code>ctx-&gt;<a class="el" href="classNNet_1_1NActors_1_1TActorContext.html#af9cb222fe5c3c53c6babc945f4354418" title="Get the sender of the current message.">Sender()</a></code> equal to the sender of the <em>current</em> message rather than this actor's ID. Useful for routing/proxy actors that should not appear in the reply chain.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T</td><td>Message type that has MessageId static member </td></tr>
+    <tr><td class="paramname">T</td><td>Message type; must have a <code>static TMessageId MessageId</code> member </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">to</td><td>Recipient actor ID </td></tr>
-    <tr><td class="paramname">args</td><td>passed to Message constructor </td></tr>
+    <tr><td class="paramname">args</td><td>Constructor arguments forwarded to <code>T</code> </td></tr>
   </table>
   </dd>
 </dl>
@@ -567,21 +571,23 @@ template&lt;typename T , typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Send a typed message to another actor. </p>
+<p>Send a typed message to another actor (non-blocking) </p>
+<p>Constructs a <code>T</code> in-place from <code>args</code> and enqueues it to the recipient. Returns immediately; delivery is deferred to the next event-loop iteration.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T</td><td>Message type that has MessageId static member </td></tr>
+    <tr><td class="paramname">T</td><td>Message type; must have a <code>static TMessageId MessageId</code> member </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">to</td><td>Recipient actor ID </td></tr>
-    <tr><td class="paramname">args</td><td>passed to Message constructor </td></tr>
+    <tr><td class="paramname">args</td><td>Constructor arguments forwarded to <code>T</code></td></tr>
   </table>
   </dd>
 </dl>
-
+<div class="fragment"><div class="line">ctx-&gt;Send&lt;Pong&gt;(ctx-&gt;Sender(), 42);   <span class="comment">// Pong{42} delivered to sender</span></div>
+</div><!-- fragment --> 
 </div>
 </div>
 <a id="a961c6ca833cb5c283292823b0fcf6ec9" name="a961c6ca833cb5c283292823b0fcf6ec9"></a>
@@ -654,8 +660,10 @@ template&lt;typename Rep , typename Period &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Sleep for a specific duration. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
+<p>Suspend the current handler for a duration. </p>
+<p>Convenience overload for relative delays. Must be <code>co_await</code>-ed.</p>
+<div class="fragment"><div class="line"><span class="keyword">co_await</span> ctx-&gt;Sleep(std::chrono::seconds(5));</div>
+</div><!-- fragment --><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Rep</td><td>Duration representation type </td></tr>
     <tr><td class="paramname">Period</td><td>Duration period type </td></tr>
@@ -668,7 +676,7 @@ template&lt;typename Rep , typename Period &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Future that completes when the sleep duration has elapsed </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Awaitable future that resumes after <code>duration</code> </dd></dl>
 
 </div>
 </div>
@@ -696,14 +704,15 @@ template&lt;typename Rep , typename Period &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Sleep until a specific time. </p>
+<p>Suspend the current handler until a specific time. </p>
+<p>Must be <code>co_await</code>-ed inside <code><a class="el" href="classNNet_1_1NActors_1_1ICoroActor.html#af05a33d9500bef58393b020bb711b62f" title="Asynchronous message handler (override in subclass)">ICoroActor::CoReceive</a></code> or an async <code><a class="el" href="classNNet_1_1NActors_1_1TBehavior.html#a82e7df59dc426a4e923f21b9b42833e8" title="Process incoming message with automatic type dispatch.">TBehavior::Receive</a></code>. The actor system continues processing other actors while this handler is suspended.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">until</td><td>Time to sleep until </td></tr>
+    <tr><td class="paramname">until</td><td>Absolute time point to wake up at </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Future that completes when the sleep time is reached </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Awaitable future that resumes at <code>until</code> </dd></dl>
 
 </div>
 </div>

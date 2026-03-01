@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['nodeid_0',['NodeId',['../classNNet_1_1NActors_1_1TActorId.html#a13d58ac46a0c1aa19e8f15fec317bb47',1,'NNet::NActors::TActorId']]]
+  ['method_0',['Method',['../classNNet_1_1TRequest.html#a710d83c8fcdadcc85f768d92456d1937',1,'NNet::TRequest']]],
+  ['monitor_1',['Monitor',['../classNNet_1_1TSocketBase.html#a1039bddf2bcba3f1277319ab90a5d63e',1,'NNet::TSocketBase']]]
 ];

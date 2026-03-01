@@ -123,23 +123,35 @@ $(document).ready(function(){initNavTree('classNNet_1_1TUri.html',''); initResiz
   <div class="headertitle"><div class="title">NNet::TUri Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Parsed HTTP request URI: <code>/path?key=value&amp;...#fragment</code>.  
+ <a href="classNNet_1_1TUri.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="httpd_8hpp_source.html">httpd.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a311d32d482c9ed74d8e7d51941bbbd97" id="r_a311d32d482c9ed74d8e7d51941bbbd97"><td class="memItemLeft" align="right" valign="top"><a id="a311d32d482c9ed74d8e7d51941bbbd97" name="a311d32d482c9ed74d8e7d51941bbbd97"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>TUri</b> (const std::string &amp;uriStr)</td></tr>
+<tr class="memdesc:a311d32d482c9ed74d8e7d51941bbbd97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses <code>uriStr</code> into path, query parameters, and fragment. <br /></td></tr>
 <tr class="separator:a311d32d482c9ed74d8e7d51941bbbd97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e29ed00e326dfba9e746bfe266a7009" id="r_a9e29ed00e326dfba9e746bfe266a7009"><td class="memItemLeft" align="right" valign="top"><a id="a9e29ed00e326dfba9e746bfe266a7009" name="a9e29ed00e326dfba9e746bfe266a7009"></a>
 const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>Path</b> () const</td></tr>
+<tr class="memdesc:a9e29ed00e326dfba9e746bfe266a7009"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the decoded path component (e.g. <code>"/api/v1/users"</code>). <br /></td></tr>
 <tr class="separator:a9e29ed00e326dfba9e746bfe266a7009"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a643f763efed9c9271c5419a7ecc02706" id="r_a643f763efed9c9271c5419a7ecc02706"><td class="memItemLeft" align="right" valign="top"><a id="a643f763efed9c9271c5419a7ecc02706" name="a643f763efed9c9271c5419a7ecc02706"></a>
 const std::map&lt; std::string, std::string &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>QueryParameters</b> () const</td></tr>
+<tr class="memdesc:a643f763efed9c9271c5419a7ecc02706"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns query parameters as a key→value map (e.g. <code>{"page": "2"}</code>). <br /></td></tr>
 <tr class="separator:a643f763efed9c9271c5419a7ecc02706"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b29a5a203c7e8bc56e73e0fc3064cba" id="r_a4b29a5a203c7e8bc56e73e0fc3064cba"><td class="memItemLeft" align="right" valign="top"><a id="a4b29a5a203c7e8bc56e73e0fc3064cba" name="a4b29a5a203c7e8bc56e73e0fc3064cba"></a>
 const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>Fragment</b> () const</td></tr>
+<tr class="memdesc:a4b29a5a203c7e8bc56e73e0fc3064cba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the fragment (the part after <code>#</code>), or empty string if absent. <br /></td></tr>
 <tr class="separator:a4b29a5a203c7e8bc56e73e0fc3064cba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Parsed HTTP request URI: <code>/path?key=value&amp;...#fragment</code>. </p>
+<p>Constructed from the raw URI string found in the request line. Provides typed access to the path, query parameters, and fragment. </p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>coroio/http/<a class="el" href="httpd_8hpp_source.html">httpd.hpp</a></li>
 <li>coroio/http/<b>httpd.cpp</b></li>
 </ul>

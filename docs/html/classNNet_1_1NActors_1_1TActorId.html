@@ -124,7 +124,7 @@ $(document).ready(function(){initNavTree('classNNet_1_1NActors_1_1TActorId.html'
 </div><!--header-->
 <div class="contents">
 
-<p>Unique identifier for actors in the system.  
+<p>Globally unique identifier for actors across a distributed system.  
  <a href="classNNet_1_1NActors_1_1TActorId.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="actorid_8hpp_source.html">actorid.hpp</a>&gt;</code></p>
@@ -142,23 +142,25 @@ Public Member Functions</h2></td></tr>
 TNodeId&#160;</td><td class="memItemRight" valign="bottom"><b>NodeId</b> () const</td></tr>
 <tr class="memdesc:a13d58ac46a0c1aa19e8f15fec317bb47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the node ID component. <br /></td></tr>
 <tr class="separator:a13d58ac46a0c1aa19e8f15fec317bb47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd85a1083ecc2ca5909c65b4e00407f5" id="r_abd85a1083ecc2ca5909c65b4e00407f5"><td class="memItemLeft" align="right" valign="top">TLocalActorId&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1TActorId.html#abd85a1083ecc2ca5909c65b4e00407f5">ActorId</a> () const</td></tr>
-<tr class="memdesc:abd85a1083ecc2ca5909c65b4e00407f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the local actor ID component.  <br /></td></tr>
+<tr class="memitem:abd85a1083ecc2ca5909c65b4e00407f5" id="r_abd85a1083ecc2ca5909c65b4e00407f5"><td class="memItemLeft" align="right" valign="top"><a id="abd85a1083ecc2ca5909c65b4e00407f5" name="abd85a1083ecc2ca5909c65b4e00407f5"></a>
+TLocalActorId&#160;</td><td class="memItemRight" valign="bottom"><b>ActorId</b> () const</td></tr>
+<tr class="memdesc:abd85a1083ecc2ca5909c65b4e00407f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the local actor ID component. <br /></td></tr>
 <tr class="separator:abd85a1083ecc2ca5909c65b4e00407f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e335f35e4021fa98acb33d2f2730ea0" id="r_a2e335f35e4021fa98acb33d2f2730ea0"><td class="memItemLeft" align="right" valign="top"><a id="a2e335f35e4021fa98acb33d2f2730ea0" name="a2e335f35e4021fa98acb33d2f2730ea0"></a>
 TCookie&#160;</td><td class="memItemRight" valign="bottom"><b>Cookie</b> () const</td></tr>
 <tr class="memdesc:a2e335f35e4021fa98acb33d2f2730ea0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the cookie component. <br /></td></tr>
 <tr class="separator:a2e335f35e4021fa98acb33d2f2730ea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a896d784fb55615bda04dd3c01de354ed" id="r_a896d784fb55615bda04dd3c01de354ed"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1TActorId.html#a896d784fb55615bda04dd3c01de354ed">ToString</a> () const</td></tr>
-<tr class="memdesc:a896d784fb55615bda04dd3c01de354ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert actor ID to string representation.  <br /></td></tr>
+<tr class="memdesc:a896d784fb55615bda04dd3c01de354ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert actor ID to a human-readable string.  <br /></td></tr>
 <tr class="separator:a896d784fb55615bda04dd3c01de354ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86ba6298d4c837c1b973ba5f2ed5956d" id="r_a86ba6298d4c837c1b973ba5f2ed5956d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1TActorId.html#a86ba6298d4c837c1b973ba5f2ed5956d">TActorId</a> (TNodeId nodeId, TLocalActorId actorId, TCookie cookie)</td></tr>
 <tr class="memdesc:a86ba6298d4c837c1b973ba5f2ed5956d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct actor ID with specific components.  <br /></td></tr>
 <tr class="separator:a86ba6298d4c837c1b973ba5f2ed5956d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Unique identifier for actors in the system. </p>
-<p><a class="el" href="classNNet_1_1NActors_1_1TActorId.html" title="Unique identifier for actors in the system.">TActorId</a> combines node ID, local actor ID, and cookie to create a globally unique identifier for actors. The cookie helps with actor lifecycle management and prevents message delivery to reused actor IDs. </p>
+<div class="textblock"><p>Globally unique identifier for actors across a distributed system. </p>
+<p>Combines a 16-bit <code>NodeId</code>, a 32-bit local <code>ActorId</code>, and a 16-bit <code>Cookie</code> into a compact, copyable handle. The cookie increments each time a slot is reused, preventing stale messages from reaching a newly spawned actor that occupies the same local slot as a terminated one.</p>
+<p>A default-constructed <code><a class="el" href="classNNet_1_1NActors_1_1TActorId.html" title="Globally unique identifier for actors across a distributed system.">TActorId</a></code> (all zeros) is invalid; <code>operator bool()</code> returns <code>false</code> for it. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a86ba6298d4c837c1b973ba5f2ed5956d" name="a86ba6298d4c837c1b973ba5f2ed5956d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a86ba6298d4c837c1b973ba5f2ed5956d">&#9670;&#160;</a></span>TActorId()</h2>
@@ -213,34 +215,6 @@ TCookie&#160;</td><td class="memItemRight" valign="bottom"><b>Cookie</b> () cons
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="abd85a1083ecc2ca5909c65b4e00407f5" name="abd85a1083ecc2ca5909c65b4e00407f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abd85a1083ecc2ca5909c65b4e00407f5">&#9670;&#160;</a></span>ActorId()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">TLocalActorId NNet::NActors::TActorId::ActorId </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get the local actor ID component. </p>
-<p>Get the local actor ID component </p>
-
-</div>
-</div>
 <a id="a75d2a79a94714fc7ac02090932612dcf" name="a75d2a79a94714fc7ac02090932612dcf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a75d2a79a94714fc7ac02090932612dcf">&#9670;&#160;</a></span>operator bool()</h2>
 
@@ -292,8 +266,8 @@ TCookie&#160;</td><td class="memItemRight" valign="bottom"><b>Cookie</b> () cons
 </table>
 </div><div class="memdoc">
 
-<p>Convert actor ID to string representation. </p>
-<dl class="section return"><dt>Returns</dt><dd>String in format "ActorId:NodeId:LocalActorId:Cookie" </dd></dl>
+<p>Convert actor ID to a human-readable string. </p>
+<dl class="section return"><dt>Returns</dt><dd>String in format <code>"ActorId:&lt;NodeId&gt;:&lt;LocalActorId&gt;:&lt;Cookie&gt;"</code> </dd></dl>
 
 </div>
 </div>

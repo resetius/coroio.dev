@@ -124,6 +124,11 @@ $(document).ready(function(){initNavTree('structNNet_1_1TLine.html',''); initRes
   <div class="headertitle"><div class="title">NNet::TLine Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A line extracted from a circular read buffer, represented in up to two parts.  
+ <a href="structNNet_1_1TLine.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="sockutils_8hpp_source.html">sockutils.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -138,12 +143,19 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>Size</b> () const</
 Public Attributes</h2></td></tr>
 <tr class="memitem:abe4a845138593508c25f19b966dacd07" id="r_abe4a845138593508c25f19b966dacd07"><td class="memItemLeft" align="right" valign="top"><a id="abe4a845138593508c25f19b966dacd07" name="abe4a845138593508c25f19b966dacd07"></a>
 std::string_view&#160;</td><td class="memItemRight" valign="bottom"><b>Part1</b></td></tr>
+<tr class="memdesc:abe4a845138593508c25f19b966dacd07"><td class="mdescLeft">&#160;</td><td class="mdescRight">First (or only) segment of the line. <br /></td></tr>
 <tr class="separator:abe4a845138593508c25f19b966dacd07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a6aa885b5adc4b058e91976776764a6" id="r_a8a6aa885b5adc4b058e91976776764a6"><td class="memItemLeft" align="right" valign="top"><a id="a8a6aa885b5adc4b058e91976776764a6" name="a8a6aa885b5adc4b058e91976776764a6"></a>
 std::string_view&#160;</td><td class="memItemRight" valign="bottom"><b>Part2</b></td></tr>
+<tr class="memdesc:a8a6aa885b5adc4b058e91976776764a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Continuation segment if the line wraps; empty otherwise. <br /></td></tr>
 <tr class="separator:a8a6aa885b5adc4b058e91976776764a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A line extracted from a circular read buffer, represented in up to two parts. </p>
+<p>Because the underlying buffer is circular, a single logical line may wrap around the buffer boundary. <code>Part1</code> is the first segment, <code>Part2</code> (possibly empty) is the continuation from the start of the buffer. <code>Size()</code> returns the total byte count.</p>
+<p><code>operator bool()</code> returns <code>false</code> when <code>Part1</code> is empty (no complete line yet).</p>
+<p>The string views are valid only until the next <code>Push</code>/<code>Acquire</code>/<code>Commit</code> call on the owning <code><a class="el" href="structNNet_1_1TLineSplitter.html" title="Splits incoming data into lines using a circular buffer of fixed capacity.">TLineSplitter</a></code> or <code><a class="el" href="structNNet_1_1TZeroCopyLineSplitter.html" title="Splits incoming data into lines using a fixed-size circular buffer, enabling zero-copy writes via Acq...">TZeroCopyLineSplitter</a></code>. </p>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>coroio/<a class="el" href="sockutils_8hpp_source.html">sockutils.hpp</a></li>
 </ul>
 </div><!-- contents -->

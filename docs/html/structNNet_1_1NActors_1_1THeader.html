@@ -124,7 +124,7 @@ $(document).ready(function(){initNavTree('structNNet_1_1NActors_1_1THeader.html'
 </div><!--header-->
 <div class="contents">
 
-<p>Header for messages sent between actors. Used in remote communication and serialization.  
+<p>Wire header prepended to every remote actor message.  
  <a href="structNNet_1_1NActors_1_1THeader.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="actorid_8hpp_source.html">actorid.hpp</a>&gt;</code></p>
@@ -133,19 +133,24 @@ $(document).ready(function(){initNavTree('structNNet_1_1NActors_1_1THeader.html'
 Public Attributes</h2></td></tr>
 <tr class="memitem:adec00ff11702ef1774ac9c1c8c9acae5" id="r_adec00ff11702ef1774ac9c1c8c9acae5"><td class="memItemLeft" align="right" valign="top"><a id="adec00ff11702ef1774ac9c1c8c9acae5" name="adec00ff11702ef1774ac9c1c8c9acae5"></a>
 <a class="el" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Sender</b></td></tr>
+<tr class="memdesc:adec00ff11702ef1774ac9c1c8c9acae5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Originating actor. <br /></td></tr>
 <tr class="separator:adec00ff11702ef1774ac9c1c8c9acae5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a241e7656b295ba718c53eb9ab229104a" id="r_a241e7656b295ba718c53eb9ab229104a"><td class="memItemLeft" align="right" valign="top"><a id="a241e7656b295ba718c53eb9ab229104a" name="a241e7656b295ba718c53eb9ab229104a"></a>
 <a class="el" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Recipient</b></td></tr>
+<tr class="memdesc:a241e7656b295ba718c53eb9ab229104a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destination actor. <br /></td></tr>
 <tr class="separator:a241e7656b295ba718c53eb9ab229104a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e11e2fe0a3a01da68cfb05d125b35bf" id="r_a4e11e2fe0a3a01da68cfb05d125b35bf"><td class="memItemLeft" align="right" valign="top"><a id="a4e11e2fe0a3a01da68cfb05d125b35bf" name="a4e11e2fe0a3a01da68cfb05d125b35bf"></a>
 TMessageId&#160;</td><td class="memItemRight" valign="bottom"><b>MessageId</b> = 0</td></tr>
+<tr class="memdesc:a4e11e2fe0a3a01da68cfb05d125b35bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Message type discriminator. <br /></td></tr>
 <tr class="separator:a4e11e2fe0a3a01da68cfb05d125b35bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f96902ad08a45bf9b9ca5b082fff15b" id="r_a8f96902ad08a45bf9b9ca5b082fff15b"><td class="memItemLeft" align="right" valign="top"><a id="a8f96902ad08a45bf9b9ca5b082fff15b" name="a8f96902ad08a45bf9b9ca5b082fff15b"></a>
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>Size</b> = 0</td></tr>
+<tr class="memdesc:a8f96902ad08a45bf9b9ca5b082fff15b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Payload size in bytes. <br /></td></tr>
 <tr class="separator:a8f96902ad08a45bf9b9ca5b082fff15b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header for messages sent between actors. Used in remote communication and serialization. </p>
+<div class="textblock"><p>Wire header prepended to every remote actor message. </p>
+<p>Written as a fixed-size prefix before the serialized payload. <code>Size</code> is the byte length of the payload that follows. </p>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>coroio/actors/<a class="el" href="actorid_8hpp_source.html">actorid.hpp</a></li>
 </ul>
