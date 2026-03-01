@@ -15,7 +15,10 @@ exclude:
   - .gitignore
 
 header_pages:
+  - _pages/getting-started.md
   - _pages/scenarios.md
+  - _pages/actors.md
+  - _pages/networking.md
   - _pages/benchmarks.md
   - _pages/source.md
   - _pages/docs.md
