@@ -2,7 +2,7 @@ var searchData=
 [
   ['accept_0',['accept',['../classNNet_1_1TUring.html#add13ee92096b21dfd5b5881173caa321',1,'NNet::TUring::Accept()'],['../structNNet_1_1TFuture_3_01void_01_4.html#a6efebe04d22e6f495cb0ca48dc787f36',1,'NNet::TFuture&lt; void &gt;::Accept()'],['../classNNet_1_1TSocket.html#a7d57a7f85d0d3ba7222f24224137b494',1,'NNet::TSocket::Accept()'],['../classNNet_1_1TPollerDrivenSocket.html#a7b224fc2c2f5f410170c31c551e4c02b',1,'NNet::TPollerDrivenSocket::Accept()'],['../classNNet_1_1TSslSocket.html#af6957e17c19e87acf9944fb12e701a35',1,'NNet::TSslSocket::Accept()'],['../classNNet_1_1TIOCp.html#a6990182213db70b9d6b1923654362d93',1,'NNet::TIOCp::Accept()']]],
   ['accepthandshake_1',['AcceptHandshake',['../classNNet_1_1TSslSocket.html#af68106743408b767267c90a41c74fcc6',1,'NNet::TSslSocket']]],
-  ['acquire_2',['Acquire',['../structNNet_1_1TZeroCopyLineSplitter.html#ae046dcda237bb388211cc3227dfe1465',1,'NNet::TZeroCopyLineSplitter']]],
+  ['acquire_2',['acquire',['../classNNet_1_1NActors_1_1IOutputStream.html#a854c4a4f5da48de1ff89a4117d77b525',1,'NNet::NActors::IOutputStream::Acquire()'],['../classNNet_1_1NActors_1_1TNode.html#a9f005c4a76d32696c9795586670c92f3',1,'NNet::NActors::TNode::Acquire()'],['../structNNet_1_1TZeroCopyLineSplitter.html#ae046dcda237bb388211cc3227dfe1465',1,'NNet::TZeroCopyLineSplitter::Acquire()']]],
   ['actorid_3',['ActorId',['../classNNet_1_1NActors_1_1TActorId.html#abd85a1083ecc2ca5909c65b4e00407f5',1,'NNet::NActors::TActorId']]],
   ['actorssize_4',['ActorsSize',['../classNNet_1_1NActors_1_1TActorSystem.html#a28d99e0af0266c1daee5ce3b520ed4a4',1,'NNet::NActors::TActorSystem']]],
   ['addnode_5',['AddNode',['../classNNet_1_1NActors_1_1TActorSystem.html#afcf8f83d084552f44e4c05c6858fd656',1,'NNet::NActors::TActorSystem']]],

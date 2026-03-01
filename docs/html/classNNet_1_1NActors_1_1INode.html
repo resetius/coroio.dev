@@ -123,39 +123,165 @@ $(document).ready(function(){initNavTree('classNNet_1_1NActors_1_1INode.html',''
   <div class="headertitle"><div class="title">NNet::NActors::INode Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Interface for a remote node connection in the actor transport layer.  
+ <a href="classNNet_1_1NActors_1_1INode.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="node_8hpp_source.html">node.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for NNet::NActors::INode:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="classNNet_1_1NActors_1_1INode.png" usemap="#NNet::NActors::INode_map" alt=""/>
   <map id="NNet::NActors::INode_map" name="NNet::NActors::INode_map">
-<area href="classNNet_1_1NActors_1_1IOutputStream.html" alt="NNet::NActors::IOutputStream" shape="rect" coords="0,0,199,24"/>
-<area href="classNNet_1_1NActors_1_1TNode.html" alt="NNet::NActors::TNode&lt; TPoller &gt;" shape="rect" coords="0,112,199,136"/>
+<area href="classNNet_1_1NActors_1_1IOutputStream.html" title="Abstract write-buffer interface used by the actor transport layer." alt="NNet::NActors::IOutputStream" shape="rect" coords="0,0,199,24"/>
+<area href="classNNet_1_1NActors_1_1TNode.html" title="Concrete INode implementation for a single remote actor-system endpoint." alt="NNet::NActors::TNode&lt; TPoller &gt;" shape="rect" coords="0,112,199,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6310c687fc2ab8ad550ab7800dc32908" id="r_a6310c687fc2ab8ad550ab7800dc32908"><td class="memItemLeft" align="right" valign="top"><a id="a6310c687fc2ab8ad550ab7800dc32908" name="a6310c687fc2ab8ad550ab7800dc32908"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Send</b> (<a class="el" href="classNNet_1_1NActors_1_1TEnvelope.html">TEnvelope</a> &amp;&amp;envelope)=0</td></tr>
+<tr class="memitem:a6310c687fc2ab8ad550ab7800dc32908" id="r_a6310c687fc2ab8ad550ab7800dc32908"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1INode.html#a6310c687fc2ab8ad550ab7800dc32908">Send</a> (<a class="el" href="classNNet_1_1NActors_1_1TEnvelope.html">TEnvelope</a> &amp;&amp;envelope)=0</td></tr>
+<tr class="memdesc:a6310c687fc2ab8ad550ab7800dc32908"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes <code>envelope</code> and appends it to the outbound buffer.  <br /></td></tr>
 <tr class="separator:a6310c687fc2ab8ad550ab7800dc32908"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3c9a882b75c96f9c2120937562f1ff8" id="r_ae3c9a882b75c96f9c2120937562f1ff8"><td class="memItemLeft" align="right" valign="top"><a id="ae3c9a882b75c96f9c2120937562f1ff8" name="ae3c9a882b75c96f9c2120937562f1ff8"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>StartConnect</b> ()=0</td></tr>
+<tr class="memitem:ae3c9a882b75c96f9c2120937562f1ff8" id="r_ae3c9a882b75c96f9c2120937562f1ff8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1INode.html#ae3c9a882b75c96f9c2120937562f1ff8">StartConnect</a> ()=0</td></tr>
+<tr class="memdesc:ae3c9a882b75c96f9c2120937562f1ff8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initiates an async TCP connection if not already connected or connecting.  <br /></td></tr>
 <tr class="separator:ae3c9a882b75c96f9c2120937562f1ff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05cfbd4cc0c13b2d9612da63826badae" id="r_a05cfbd4cc0c13b2d9612da63826badae"><td class="memItemLeft" align="right" valign="top"><a id="a05cfbd4cc0c13b2d9612da63826badae" name="a05cfbd4cc0c13b2d9612da63826badae"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Drain</b> ()=0</td></tr>
+<tr class="memitem:a05cfbd4cc0c13b2d9612da63826badae" id="r_a05cfbd4cc0c13b2d9612da63826badae"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1INode.html#a05cfbd4cc0c13b2d9612da63826badae">Drain</a> ()=0</td></tr>
+<tr class="memdesc:a05cfbd4cc0c13b2d9612da63826badae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls <code><a class="el" href="classNNet_1_1NActors_1_1INode.html#ae3c9a882b75c96f9c2120937562f1ff8" title="Initiates an async TCP connection if not already connected or connecting.">StartConnect()</a></code> then asynchronously writes all buffered bytes to the socket.  <br /></td></tr>
 <tr class="separator:a05cfbd4cc0c13b2d9612da63826badae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc1ae244e8afeb2d7c4daa50813cdaed" id="r_abc1ae244e8afeb2d7c4daa50813cdaed"><td class="memItemLeft" align="right" valign="top"><a id="abc1ae244e8afeb2d7c4daa50813cdaed" name="abc1ae244e8afeb2d7c4daa50813cdaed"></a>
-virtual <a class="el" href="classNNet_1_1THostPort.html">THostPort</a>&#160;</td><td class="memItemRight" valign="bottom"><b>GetHostPort</b> () const =0</td></tr>
+<tr class="memitem:abc1ae244e8afeb2d7c4daa50813cdaed" id="r_abc1ae244e8afeb2d7c4daa50813cdaed"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classNNet_1_1THostPort.html">THostPort</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1INode.html#abc1ae244e8afeb2d7c4daa50813cdaed">GetHostPort</a> () const =0</td></tr>
+<tr class="memdesc:abc1ae244e8afeb2d7c4daa50813cdaed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the remote host:port this node connects to.  <br /></td></tr>
 <tr class="separator:abc1ae244e8afeb2d7c4daa50813cdaed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classNNet_1_1NActors_1_1IOutputStream"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classNNet_1_1NActors_1_1IOutputStream')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classNNet_1_1NActors_1_1IOutputStream.html">NNet::NActors::IOutputStream</a></td></tr>
-<tr class="memitem:a854c4a4f5da48de1ff89a4117d77b525 inherit pub_methods_classNNet_1_1NActors_1_1IOutputStream" id="r_a854c4a4f5da48de1ff89a4117d77b525"><td class="memItemLeft" align="right" valign="top">
-virtual std::span&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Acquire</b> (size_t size)=0</td></tr>
+<tr class="memitem:a854c4a4f5da48de1ff89a4117d77b525 inherit pub_methods_classNNet_1_1NActors_1_1IOutputStream" id="r_a854c4a4f5da48de1ff89a4117d77b525"><td class="memItemLeft" align="right" valign="top">virtual std::span&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1IOutputStream.html#a854c4a4f5da48de1ff89a4117d77b525">Acquire</a> (size_t size)=0</td></tr>
+<tr class="memdesc:a854c4a4f5da48de1ff89a4117d77b525 inherit pub_methods_classNNet_1_1NActors_1_1IOutputStream"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reserves <code>size</code> contiguous bytes in the buffer and returns a span over them.  <br /></td></tr>
 <tr class="separator:a854c4a4f5da48de1ff89a4117d77b525 inherit pub_methods_classNNet_1_1NActors_1_1IOutputStream"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a969a7635e7cb95f04f64a8ea4938833d inherit pub_methods_classNNet_1_1NActors_1_1IOutputStream" id="r_a969a7635e7cb95f04f64a8ea4938833d"><td class="memItemLeft" align="right" valign="top">
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Commit</b> (size_t size)=0</td></tr>
+<tr class="memitem:a969a7635e7cb95f04f64a8ea4938833d inherit pub_methods_classNNet_1_1NActors_1_1IOutputStream" id="r_a969a7635e7cb95f04f64a8ea4938833d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1IOutputStream.html#a969a7635e7cb95f04f64a8ea4938833d">Commit</a> (size_t size)=0</td></tr>
+<tr class="memdesc:a969a7635e7cb95f04f64a8ea4938833d inherit pub_methods_classNNet_1_1NActors_1_1IOutputStream"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marks <code>size</code> previously acquired bytes as ready to send.  <br /></td></tr>
 <tr class="separator:a969a7635e7cb95f04f64a8ea4938833d inherit pub_methods_classNNet_1_1NActors_1_1IOutputStream"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Interface for a remote node connection in the actor transport layer. </p>
+<p>Extends <code><a class="el" href="classNNet_1_1NActors_1_1IOutputStream.html" title="Abstract write-buffer interface used by the actor transport layer.">IOutputStream</a></code> with the ability to enqueue serialized messages, initiate/maintain a TCP connection, and flush the outbound buffer. <code><a class="el" href="classNNet_1_1NActors_1_1TActorSystem.html" title="Single-threaded actor runtime.">TActorSystem</a></code> holds one <code><a class="el" href="classNNet_1_1NActors_1_1INode.html" title="Interface for a remote node connection in the actor transport layer.">INode</a></code> per remote host:port pair. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a05cfbd4cc0c13b2d9612da63826badae" name="a05cfbd4cc0c13b2d9612da63826badae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05cfbd4cc0c13b2d9612da63826badae">&#9670;&#160;</a></span>Drain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void NNet::NActors::INode::Drain </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calls <code><a class="el" href="classNNet_1_1NActors_1_1INode.html#ae3c9a882b75c96f9c2120937562f1ff8" title="Initiates an async TCP connection if not already connected or connecting.">StartConnect()</a></code> then asynchronously writes all buffered bytes to the socket. </p>
+
+<p>Implemented in <a class="el" href="classNNet_1_1NActors_1_1TNode.html#ace1142a9d88ddc5ec84b0bc8e1f85991">NNet::NActors::TNode&lt; TPoller &gt;</a>.</p>
+
+</div>
+</div>
+<a id="abc1ae244e8afeb2d7c4daa50813cdaed" name="abc1ae244e8afeb2d7c4daa50813cdaed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc1ae244e8afeb2d7c4daa50813cdaed">&#9670;&#160;</a></span>GetHostPort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classNNet_1_1THostPort.html">THostPort</a> NNet::NActors::INode::GetHostPort </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the remote host:port this node connects to. </p>
+
+<p>Implemented in <a class="el" href="classNNet_1_1NActors_1_1TNode.html#a3cba9018d29db253b422fdded12fefd4">NNet::NActors::TNode&lt; TPoller &gt;</a>.</p>
+
+</div>
+</div>
+<a id="a6310c687fc2ab8ad550ab7800dc32908" name="a6310c687fc2ab8ad550ab7800dc32908"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6310c687fc2ab8ad550ab7800dc32908">&#9670;&#160;</a></span>Send()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void NNet::NActors::INode::Send </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNNet_1_1NActors_1_1TEnvelope.html">TEnvelope</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>envelope</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Serializes <code>envelope</code> and appends it to the outbound buffer. </p>
+
+<p>Implemented in <a class="el" href="classNNet_1_1NActors_1_1TNode.html#a8f5739478e7d3070e1419f825227eff3">NNet::NActors::TNode&lt; TPoller &gt;</a>.</p>
+
+</div>
+</div>
+<a id="ae3c9a882b75c96f9c2120937562f1ff8" name="ae3c9a882b75c96f9c2120937562f1ff8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3c9a882b75c96f9c2120937562f1ff8">&#9670;&#160;</a></span>StartConnect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void NNet::NActors::INode::StartConnect </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initiates an async TCP connection if not already connected or connecting. </p>
+
+<p>Implemented in <a class="el" href="classNNet_1_1NActors_1_1TNode.html#a53bb72c4da0f2cf18ac3f71efe745e2e">NNet::NActors::TNode&lt; TPoller &gt;</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>coroio/actors/<a class="el" href="node_8hpp_source.html">node.hpp</a></li>
 </ul>
