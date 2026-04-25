@@ -139,7 +139,7 @@ static constexpr TMessageId&#160;</td><td class="memItemRight" valign="bottom"><
 <div class="textblock"><p>System message that terminates the receiving actor. </p>
 <p>Sending <code><a class="el" href="structNNet_1_1NActors_1_1TPoison.html" title="System message that terminates the receiving actor.">TPoison</a></code> to any actor removes it from the system. Its destructor is called on the next GC cycle. The actor slot is then recycled with a bumped cookie so stale messages cannot reach its successor.</p>
 <div class="fragment"><div class="line">ctx-&gt;Send&lt;<a class="code hl_struct" href="structNNet_1_1NActors_1_1TPoison.html">TPoison</a>&gt;(actorToKill);</div>
-<div class="ttc" id="astructNNet_1_1NActors_1_1TPoison_html"><div class="ttname"><a href="structNNet_1_1NActors_1_1TPoison.html">NNet::NActors::TPoison</a></div><div class="ttdoc">System message that terminates the receiving actor.</div><div class="ttdef"><b>Definition</b> actorsystem.hpp:35</div></div>
+<div class="ttc" id="astructNNet_1_1NActors_1_1TPoison_html"><div class="ttname"><a href="structNNet_1_1NActors_1_1TPoison.html">NNet::NActors::TPoison</a></div><div class="ttdoc">System message that terminates the receiving actor.</div><div class="ttdef"><b>Definition</b> actorsystem.hpp:36</div></div>
 </div><!-- fragment --> </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>coroio/actors/<a class="el" href="actorsystem_8hpp_source.html">actorsystem.hpp</a></li>
 </ul>
