@@ -48,7 +48,6 @@ var annotated_dup =
       [ "TFuture< void >", "structNNet_1_1TFuture_3_01void_01_4.html", "structNNet_1_1TFuture_3_01void_01_4" ],
       [ "TFutureBase", "structNNet_1_1TFutureBase.html", null ],
       [ "THandlePair", "structNNet_1_1THandlePair.html", null ],
-      [ "THelloWorldRouter", "classNNet_1_1THelloWorldRouter.html", null ],
       [ "THostPort", "classNNet_1_1THostPort.html", "classNNet_1_1THostPort" ],
       [ "TInitializer", "classNNet_1_1TInitializer.html", null ],
       [ "TIOCp", "classNNet_1_1TIOCp.html", "classNNet_1_1TIOCp" ],
