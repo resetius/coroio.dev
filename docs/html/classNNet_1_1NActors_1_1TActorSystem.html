@@ -133,9 +133,9 @@ $(document).ready(function(){initNavTree('classNNet_1_1NActors_1_1TActorSystem.h
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:acad5e4e34cfd4f05fe94f1a50a7778c8" id="r_acad5e4e34cfd4f05fe94f1a50a7778c8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1TActorSystem.html#acad5e4e34cfd4f05fe94f1a50a7778c8">TActorSystem</a> (<a class="el" href="classNNet_1_1TPollerBase.html">TPollerBase</a> *poller, int nodeId=1)</td></tr>
-<tr class="memdesc:acad5e4e34cfd4f05fe94f1a50a7778c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the actor system.  <br /></td></tr>
-<tr class="separator:acad5e4e34cfd4f05fe94f1a50a7778c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33b5a29b5e42ff11a8b58adcc9ed0870" id="r_a33b5a29b5e42ff11a8b58adcc9ed0870"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1TActorSystem.html#a33b5a29b5e42ff11a8b58adcc9ed0870">TActorSystem</a> (<a class="el" href="classNNet_1_1TPollerBase.html">TPollerBase</a> *poller, TNodeId nodeId=1, std::function&lt; void(const std::string &amp;)&gt; logger={})</td></tr>
+<tr class="memdesc:a33b5a29b5e42ff11a8b58adcc9ed0870"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the actor system.  <br /></td></tr>
+<tr class="separator:a33b5a29b5e42ff11a8b58adcc9ed0870"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0e7d87d1c3097fd8d0214196f875525" id="r_ac0e7d87d1c3097fd8d0214196f875525"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNNet_1_1NActors_1_1TActorId.html">TActorId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1TActorSystem.html#ac0e7d87d1c3097fd8d0214196f875525">Register</a> (IActor::TPtr actor)</td></tr>
 <tr class="memdesc:ac0e7d87d1c3097fd8d0214196f875525"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers an actor and returns its system-wide ID.  <br /></td></tr>
 <tr class="separator:ac0e7d87d1c3097fd8d0214196f875525"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -204,7 +204,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>TActorContext</b></t
 <div class="line">sys.Send&lt;StartMsg&gt;(id, id);</div>
 <div class="line">sys.Serve();</div>
 <div class="line">loop.<a class="code hl_function" href="classNNet_1_1TLoop.html#af3ab33e9a2fc311254a15935861990dc">Loop</a>();</div>
-<div class="ttc" id="aclassNNet_1_1NActors_1_1TActorSystem_html"><div class="ttname"><a href="classNNet_1_1NActors_1_1TActorSystem.html">NNet::NActors::TActorSystem</a></div><div class="ttdoc">Single-threaded actor runtime.</div><div class="ttdef"><b>Definition</b> actorsystem.hpp:99</div></div>
+<div class="ttc" id="aclassNNet_1_1NActors_1_1TActorSystem_html"><div class="ttname"><a href="classNNet_1_1NActors_1_1TActorSystem.html">NNet::NActors::TActorSystem</a></div><div class="ttdoc">Single-threaded actor runtime.</div><div class="ttdef"><b>Definition</b> actorsystem.hpp:100</div></div>
 <div class="ttc" id="aclassNNet_1_1TLoop_html"><div class="ttname"><a href="classNNet_1_1TLoop.html">NNet::TLoop</a></div><div class="ttdoc">Event loop that drives a poller backend.</div><div class="ttdef"><b>Definition</b> loop.hpp:30</div></div>
 <div class="ttc" id="aclassNNet_1_1TLoop_html_a70077ce7da8cc7d14c5b44a8e50a9a0c"><div class="ttname"><a href="classNNet_1_1TLoop.html#a70077ce7da8cc7d14c5b44a8e50a9a0c">NNet::TLoop::Poller</a></div><div class="ttdeci">TPoller &amp; Poller()</div><div class="ttdoc">Provides access to the underlying poller instance.</div><div class="ttdef"><b>Definition</b> loop.hpp:57</div></div>
 <div class="ttc" id="aclassNNet_1_1TLoop_html_af3ab33e9a2fc311254a15935861990dc"><div class="ttname"><a href="classNNet_1_1TLoop.html#af3ab33e9a2fc311254a15935861990dc">NNet::TLoop::Loop</a></div><div class="ttdeci">void Loop()</div><div class="ttdoc">Runs the main loop until Stop() is called.</div><div class="ttdef"><b>Definition</b> loop.hpp:35</div></div>
@@ -215,8 +215,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>TActorContext</b></t
 <div class="ttc" id="aclassNNet_1_1NActors_1_1TNode_html"><div class="ttname"><a href="classNNet_1_1NActors_1_1TNode.html">NNet::NActors::TNode</a></div><div class="ttdoc">Concrete INode implementation for a single remote actor-system endpoint.</div><div class="ttdef"><b>Definition</b> node.hpp:61</div></div>
 <div class="ttc" id="aclassNNet_1_1TAddress_html"><div class="ttname"><a href="classNNet_1_1TAddress.html">NNet::TAddress</a></div><div class="ttdoc">A class representing an IPv4 or IPv6 address (with port).</div><div class="ttdef"><b>Definition</b> address.hpp:38</div></div>
 </div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="acad5e4e34cfd4f05fe94f1a50a7778c8" name="acad5e4e34cfd4f05fe94f1a50a7778c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acad5e4e34cfd4f05fe94f1a50a7778c8">&#9670;&#160;</a></span>TActorSystem()</h2>
+<a id="a33b5a29b5e42ff11a8b58adcc9ed0870" name="a33b5a29b5e42ff11a8b58adcc9ed0870"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33b5a29b5e42ff11a8b58adcc9ed0870">&#9670;&#160;</a></span>TActorSystem()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -233,8 +233,14 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>TActorContext</b></t
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>nodeId</em> = <code>1</code>&#160;</td>
+          <td class="paramtype">TNodeId&#160;</td>
+          <td class="paramname"><em>nodeId</em> = <code>1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; void(const std::string &amp;)&gt;&#160;</td>
+          <td class="paramname"><em>logger</em> = <code>{}</code>&#160;</td>
         </tr>
         <tr>
           <td></td>

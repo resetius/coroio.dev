@@ -20,9 +20,7 @@ var hierarchy =
         [ "NNet::NActors::TNode< TPoller >", "classNNet_1_1NActors_1_1TNode.html", null ]
       ] ]
     ] ],
-    [ "NNet::IRouter", "structNNet_1_1IRouter.html", [
-      [ "NNet::THelloWorldRouter", "classNNet_1_1THelloWorldRouter.html", null ]
-    ] ],
+    [ "NNet::IRouter", "structNNet_1_1IRouter.html", null ],
     [ "NNet::NActors::TActorContext", "classNNet_1_1NActors_1_1TActorContext.html", [
       [ "NNet::NActors::TMockActorContext", "classNNet_1_1NActors_1_1TMockActorContext.html", null ]
     ] ],

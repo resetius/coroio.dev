@@ -128,15 +128,6 @@ $(document).ready(function(){initNavTree('structNNet_1_1IRouter.html',''); initR
  <a href="structNNet_1_1IRouter.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="httpd_8hpp_source.html">httpd.hpp</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for NNet::IRouter:</div>
-<div class="dyncontent">
- <div class="center">
-  <img src="structNNet_1_1IRouter.png" usemap="#NNet::IRouter_map" alt=""/>
-  <map id="NNet::IRouter_map" name="NNet::IRouter_map">
-<area href="classNNet_1_1THelloWorldRouter.html" alt="NNet::THelloWorldRouter" shape="rect" coords="0,56,152,80"/>
-  </map>
-</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -155,13 +146,13 @@ virtual <a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; void &gt
 <div class="line">        <span class="keyword">co_await</span> res.<a class="code hl_function" href="classNNet_1_1TResponse.html#a67156beb4d672e8f0d5f1f0bba182f32">WriteBodyFull</a>(<span class="stringliteral">&quot;hello&quot;</span>);</div>
 <div class="line">    }</div>
 <div class="line">};</div>
-<div class="ttc" id="aclassNNet_1_1TRequest_html"><div class="ttname"><a href="classNNet_1_1TRequest.html">NNet::TRequest</a></div><div class="ttdoc">Represents an incoming HTTP/1.1 request.</div><div class="ttdef"><b>Definition</b> httpd.hpp:53</div></div>
-<div class="ttc" id="aclassNNet_1_1TResponse_html"><div class="ttname"><a href="classNNet_1_1TResponse.html">NNet::TResponse</a></div><div class="ttdoc">Builds and sends an HTTP/1.1 response.</div><div class="ttdef"><b>Definition</b> httpd.hpp:126</div></div>
-<div class="ttc" id="aclassNNet_1_1TResponse_html_a62381a065a5d753d7ec171eeff956994"><div class="ttname"><a href="classNNet_1_1TResponse.html#a62381a065a5d753d7ec171eeff956994">NNet::TResponse::SetStatus</a></div><div class="ttdeci">void SetStatus(int statusCode)</div><div class="ttdoc">Sets the HTTP status code (default is 200). Must be called before SendHeaders.</div><div class="ttdef"><b>Definition</b> httpd.cpp:283</div></div>
-<div class="ttc" id="aclassNNet_1_1TResponse_html_a67156beb4d672e8f0d5f1f0bba182f32"><div class="ttname"><a href="classNNet_1_1TResponse.html#a67156beb4d672e8f0d5f1f0bba182f32">NNet::TResponse::WriteBodyFull</a></div><div class="ttdeci">TFuture&lt; void &gt; WriteBodyFull(const std::string &amp;data)</div><div class="ttdoc">Sends headers (with Content-Length) and the full body in one call.</div><div class="ttdef"><b>Definition</b> httpd.cpp:356</div></div>
-<div class="ttc" id="aclassNNet_1_1TResponse_html_a7aa14229338e7cebd3ed818d09653bb1"><div class="ttname"><a href="classNNet_1_1TResponse.html#a7aa14229338e7cebd3ed818d09653bb1">NNet::TResponse::SendHeaders</a></div><div class="ttdeci">TFuture&lt; void &gt; SendHeaders()</div><div class="ttdoc">Sends the status line and all accumulated headers to the client.</div><div class="ttdef"><b>Definition</b> httpd.cpp:305</div></div>
-<div class="ttc" id="aclassNNet_1_1TResponse_html_aa602f13b21c754ed235c5c77269a1ae6"><div class="ttname"><a href="classNNet_1_1TResponse.html#aa602f13b21c754ed235c5c77269a1ae6">NNet::TResponse::SetHeader</a></div><div class="ttdeci">void SetHeader(const std::string &amp;name, const std::string &amp;value)</div><div class="ttdoc">Adds or replaces a response header. Must be called before SendHeaders.</div><div class="ttdef"><b>Definition</b> httpd.cpp:287</div></div>
-<div class="ttc" id="astructNNet_1_1IRouter_html"><div class="ttname"><a href="structNNet_1_1IRouter.html">NNet::IRouter</a></div><div class="ttdoc">Interface for HTTP request handlers.</div><div class="ttdef"><b>Definition</b> httpd.hpp:194</div></div>
+<div class="ttc" id="aclassNNet_1_1TRequest_html"><div class="ttname"><a href="classNNet_1_1TRequest.html">NNet::TRequest</a></div><div class="ttdoc">Represents an incoming HTTP/1.1 request.</div><div class="ttdef"><b>Definition</b> httpd.hpp:55</div></div>
+<div class="ttc" id="aclassNNet_1_1TResponse_html"><div class="ttname"><a href="classNNet_1_1TResponse.html">NNet::TResponse</a></div><div class="ttdoc">Builds and sends an HTTP/1.1 response.</div><div class="ttdef"><b>Definition</b> httpd.hpp:128</div></div>
+<div class="ttc" id="aclassNNet_1_1TResponse_html_a62381a065a5d753d7ec171eeff956994"><div class="ttname"><a href="classNNet_1_1TResponse.html#a62381a065a5d753d7ec171eeff956994">NNet::TResponse::SetStatus</a></div><div class="ttdeci">void SetStatus(int statusCode)</div><div class="ttdoc">Sets the HTTP status code (default is 200). Must be called before SendHeaders.</div><div class="ttdef"><b>Definition</b> httpd.cpp:294</div></div>
+<div class="ttc" id="aclassNNet_1_1TResponse_html_a67156beb4d672e8f0d5f1f0bba182f32"><div class="ttname"><a href="classNNet_1_1TResponse.html#a67156beb4d672e8f0d5f1f0bba182f32">NNet::TResponse::WriteBodyFull</a></div><div class="ttdeci">TFuture&lt; void &gt; WriteBodyFull(const std::string &amp;data)</div><div class="ttdoc">Sends headers (with Content-Length) and the full body in one call.</div><div class="ttdef"><b>Definition</b> httpd.cpp:368</div></div>
+<div class="ttc" id="aclassNNet_1_1TResponse_html_a7aa14229338e7cebd3ed818d09653bb1"><div class="ttname"><a href="classNNet_1_1TResponse.html#a7aa14229338e7cebd3ed818d09653bb1">NNet::TResponse::SendHeaders</a></div><div class="ttdeci">TFuture&lt; void &gt; SendHeaders()</div><div class="ttdoc">Sends the status line and all accumulated headers to the client.</div><div class="ttdef"><b>Definition</b> httpd.cpp:316</div></div>
+<div class="ttc" id="aclassNNet_1_1TResponse_html_aa602f13b21c754ed235c5c77269a1ae6"><div class="ttname"><a href="classNNet_1_1TResponse.html#aa602f13b21c754ed235c5c77269a1ae6">NNet::TResponse::SetHeader</a></div><div class="ttdeci">void SetHeader(const std::string &amp;name, const std::string &amp;value)</div><div class="ttdoc">Adds or replaces a response header. Must be called before SendHeaders.</div><div class="ttdef"><b>Definition</b> httpd.cpp:298</div></div>
+<div class="ttc" id="astructNNet_1_1IRouter_html"><div class="ttname"><a href="structNNet_1_1IRouter.html">NNet::IRouter</a></div><div class="ttdoc">Interface for HTTP request handlers.</div><div class="ttdef"><b>Definition</b> httpd.hpp:196</div></div>
 <div class="ttc" id="astructNNet_1_1TFuture_html"><div class="ttname"><a href="structNNet_1_1TFuture.html">NNet::TFuture</a></div><div class="ttdoc">Owned coroutine handle that carries a result of type T.</div><div class="ttdef"><b>Definition</b> corochain.hpp:185</div></div>
 </div><!-- fragment --> </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>coroio/http/<a class="el" href="httpd_8hpp_source.html">httpd.hpp</a></li>
