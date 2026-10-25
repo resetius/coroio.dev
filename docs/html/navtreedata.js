@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "COROIO", "index.html", [
-    [ "Asynchronous I/O & Networking Library", "index.html", "index" ],
+    [ "Asynchronous I/O &amp; Networking Library", "index.html", "index" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -47,8 +47,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "actor_8hpp.html",
-"classNNet_1_1TSocketBase_3_01void_01_4.html"
+"classNNet_1_1TSocketBase.html#a456c0bd8d8e3e5a949329a963809fd24"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronisation';
-var SYNCOFFMSG = 'click to enable panel synchronisation';
+var SYNCONMSG = 'click to disable panel synchronization';
+var SYNCOFFMSG = 'click to enable panel synchronization';
+var LISTOFALLMEMBERS = 'List of all members';
