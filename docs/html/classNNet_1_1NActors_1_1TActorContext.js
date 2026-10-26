@@ -5,6 +5,7 @@ var classNNet_1_1NActors_1_1TActorContext =
     [ "Cancel", "classNNet_1_1NActors_1_1TActorContext.html#a9365829fc94faed9d5856f41292aefa8", null ],
     [ "Forward", "classNNet_1_1NActors_1_1TActorContext.html#aaa6edfad4bd4de8246fa1bb86d9aaed4", null ],
     [ "Forward", "classNNet_1_1NActors_1_1TActorContext.html#a5a828d85863f59055a082f811a428e6d", null ],
+    [ "Register", "classNNet_1_1NActors_1_1TActorContext.html#a7b8dd16644f3d2cc7027eb498ce3db21", null ],
     [ "Schedule", "classNNet_1_1NActors_1_1TActorContext.html#ad8fbfac24a11a25d559cdae5eb40147b", null ],
     [ "Schedule", "classNNet_1_1NActors_1_1TActorContext.html#af4fa2120f1cd922e8073dad9be6c4c15", null ],
     [ "Self", "classNNet_1_1NActors_1_1TActorContext.html#a13929b596278666d07d3367fa15773e5", null ],

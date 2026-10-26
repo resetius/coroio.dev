@@ -7,6 +7,6 @@ var actor_8hpp =
     [ "NNet::NActors::IActor", "classNNet_1_1NActors_1_1IActor.html", "classNNet_1_1NActors_1_1IActor" ],
     [ "NNet::NActors::ICoroActor", "classNNet_1_1NActors_1_1ICoroActor.html", "classNNet_1_1NActors_1_1ICoroActor" ],
     [ "NNet::NActors::IBehavior", "classNNet_1_1NActors_1_1IBehavior.html", "classNNet_1_1NActors_1_1IBehavior" ],
-    [ "NNet::NActors::TBehavior< TBaseBehavior, TMessages >", "classNNet_1_1NActors_1_1TBehavior.html", "classNNet_1_1NActors_1_1TBehavior" ],
+    [ "NNet::NActors::TBehavior&lt; TBaseBehavior, TMessages &gt;", "classNNet_1_1NActors_1_1TBehavior.html", "classNNet_1_1NActors_1_1TBehavior" ],
     [ "NNet::NActors::IBehaviorActor", "classNNet_1_1NActors_1_1IBehaviorActor.html", "classNNet_1_1NActors_1_1IBehaviorActor" ]
 ];
