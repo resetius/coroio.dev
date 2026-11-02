@@ -127,4 +127,5 @@ Actor ring topology — i5-11400F · Ubuntu 25.04 · 100 actors · batch 1024:
 ## Projects Using COROIO
 
 - [miniraft-cpp](https://github.com/resetius/miniraft-cpp) — minimalist Raft consensus in C++
-- [Qumir](https://qumir.dev) — online compiler for the Kumir language ([GitHub](https://github.com/resetius/qumir))
+- [Qumir](https://qumir.dev) — online compiler for the Kumir language ([GitHub](https://github.com/QumirLabs/qumir))
+- [QumirDB](https://github.com/QumirLabs/qumirdb) — analytical SQL engine for Parquet; uses COROIO for the Playground web server and interprocess communication
