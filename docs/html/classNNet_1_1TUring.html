@@ -136,6 +136,8 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>TSocket</b> = <a cla
 <tr class="memitem:a13d245616c0ed46b14b5869694277d80" id="r_a13d245616c0ed46b14b5869694277d80"><td class="memItemLeft" align="right" valign="top"><a id="a13d245616c0ed46b14b5869694277d80" name="a13d245616c0ed46b14b5869694277d80"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>TFileHandle</b> = <a class="el" href="classNNet_1_1TPollerDrivenFileHandle.html">NNet::TPollerDrivenFileHandle</a>&lt;<a class="el" href="#ad2d00c2a8d1187e79c81fb6cf49ff684">TUring</a>&gt;</td></tr>
 <tr class="memdesc:a13d245616c0ed46b14b5869694277d80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for the poller-driven file handle type. <br /></td></tr>
+<tr class="memitem:a045d191925a131b8bff55006138c5b5f" id="r_a045d191925a131b8bff55006138c5b5f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a045d191925a131b8bff55006138c5b5f">TOperation</a> = <a class="el" href="structNNet_1_1NDetail_1_1TOperationState.html">NDetail::TOperationState</a></td></tr>
+<tr class="memdesc:a045d191925a131b8bff55006138c5b5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">State of one operation, kept by the caller.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -144,30 +146,28 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5fbf892e891e377d39544065069f9ebf" id="r_a5fbf892e891e377d39544065069f9ebf"><td class="memItemLeft" align="right" valign="top"><a id="a5fbf892e891e377d39544065069f9ebf" name="a5fbf892e891e377d39544065069f9ebf"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>~TUring</b> ()</td></tr>
 <tr class="memdesc:a5fbf892e891e377d39544065069f9ebf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor cleans up the io_uring and related resources. <br /></td></tr>
-<tr class="memitem:a3a9d4260deb310de4a82df125d7b730c" id="r_a3a9d4260deb310de4a82df125d7b730c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3a9d4260deb310de4a82df125d7b730c">Read</a> (int fd, void *buf, int size, std::coroutine_handle&lt;&gt; handle)</td></tr>
-<tr class="memdesc:a3a9d4260deb310de4a82df125d7b730c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Posts an asynchronous read operation.  <br /></td></tr>
-<tr class="memitem:ac36d140087a033327a9fbcc2a1e715c4" id="r_ac36d140087a033327a9fbcc2a1e715c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac36d140087a033327a9fbcc2a1e715c4">Write</a> (int fd, const void *buf, int size, std::coroutine_handle&lt;&gt; handle)</td></tr>
-<tr class="memdesc:ac36d140087a033327a9fbcc2a1e715c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Posts an asynchronous write operation.  <br /></td></tr>
-<tr class="memitem:a562cb0b278f30b8152b340e41d0b23f9" id="r_a562cb0b278f30b8152b340e41d0b23f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a562cb0b278f30b8152b340e41d0b23f9">Recv</a> (int fd, void *buf, int size, std::coroutine_handle&lt;&gt; handle)</td></tr>
-<tr class="memdesc:a562cb0b278f30b8152b340e41d0b23f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Posts an asynchronous receive operation.  <br /></td></tr>
-<tr class="memitem:a8892ff7c5e6be22a2406bf10fcfd2738" id="r_a8892ff7c5e6be22a2406bf10fcfd2738"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8892ff7c5e6be22a2406bf10fcfd2738">Send</a> (int fd, const void *buf, int size, std::coroutine_handle&lt;&gt; handle)</td></tr>
-<tr class="memdesc:a8892ff7c5e6be22a2406bf10fcfd2738"><td class="mdescLeft">&#160;</td><td class="mdescRight">Posts an asynchronous send operation.  <br /></td></tr>
-<tr class="memitem:add13ee92096b21dfd5b5881173caa321" id="r_add13ee92096b21dfd5b5881173caa321"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add13ee92096b21dfd5b5881173caa321">Accept</a> (int fd, struct sockaddr *addr, socklen_t *len, std::coroutine_handle&lt;&gt; handle)</td></tr>
-<tr class="memdesc:add13ee92096b21dfd5b5881173caa321"><td class="mdescLeft">&#160;</td><td class="mdescRight">Posts an asynchronous accept operation.  <br /></td></tr>
-<tr class="memitem:a93291371201e5e4397940bef822f1f4d" id="r_a93291371201e5e4397940bef822f1f4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a93291371201e5e4397940bef822f1f4d">Connect</a> (int fd, const sockaddr *addr, socklen_t len, std::coroutine_handle&lt;&gt; handle)</td></tr>
-<tr class="memdesc:a93291371201e5e4397940bef822f1f4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Posts an asynchronous connect operation.  <br /></td></tr>
+<tr class="memitem:aa041b8c63f258962a07bf46d04385c21" id="r_aa041b8c63f258962a07bf46d04385c21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa041b8c63f258962a07bf46d04385c21">Read</a> (int fd, void *buf, int size, <a class="el" href="#a045d191925a131b8bff55006138c5b5f">TOperation</a> &amp;op)</td></tr>
+<tr class="memdesc:aa041b8c63f258962a07bf46d04385c21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Posts an asynchronous read operation.  <br /></td></tr>
+<tr class="memitem:a54892f293f1ea096367b8b33f53bfe17" id="r_a54892f293f1ea096367b8b33f53bfe17"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a54892f293f1ea096367b8b33f53bfe17">Write</a> (int fd, const void *buf, int size, <a class="el" href="#a045d191925a131b8bff55006138c5b5f">TOperation</a> &amp;op)</td></tr>
+<tr class="memdesc:a54892f293f1ea096367b8b33f53bfe17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Posts an asynchronous write operation.  <br /></td></tr>
+<tr class="memitem:a98b2b341fe050661994d556bf1b3d832" id="r_a98b2b341fe050661994d556bf1b3d832"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a98b2b341fe050661994d556bf1b3d832">Recv</a> (int fd, void *buf, int size, <a class="el" href="#a045d191925a131b8bff55006138c5b5f">TOperation</a> &amp;op)</td></tr>
+<tr class="memdesc:a98b2b341fe050661994d556bf1b3d832"><td class="mdescLeft">&#160;</td><td class="mdescRight">Posts an asynchronous receive operation.  <br /></td></tr>
+<tr class="memitem:a98b599a20e38663fb4d6dcef3d2676e9" id="r_a98b599a20e38663fb4d6dcef3d2676e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a98b599a20e38663fb4d6dcef3d2676e9">Send</a> (int fd, const void *buf, int size, <a class="el" href="#a045d191925a131b8bff55006138c5b5f">TOperation</a> &amp;op)</td></tr>
+<tr class="memdesc:a98b599a20e38663fb4d6dcef3d2676e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Posts an asynchronous send operation.  <br /></td></tr>
+<tr class="memitem:a52bc882efa7c5a60799b7980ecd64912" id="r_a52bc882efa7c5a60799b7980ecd64912"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52bc882efa7c5a60799b7980ecd64912">Accept</a> (int fd, struct sockaddr *addr, socklen_t *len, <a class="el" href="#a045d191925a131b8bff55006138c5b5f">TOperation</a> &amp;op)</td></tr>
+<tr class="memdesc:a52bc882efa7c5a60799b7980ecd64912"><td class="mdescLeft">&#160;</td><td class="mdescRight">Posts an asynchronous accept operation.  <br /></td></tr>
+<tr class="memitem:a6cb1a2853c6df69bcdd00c5e50bee09c" id="r_a6cb1a2853c6df69bcdd00c5e50bee09c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6cb1a2853c6df69bcdd00c5e50bee09c">Connect</a> (int fd, const sockaddr *addr, socklen_t len, <a class="el" href="#a045d191925a131b8bff55006138c5b5f">TOperation</a> &amp;op)</td></tr>
+<tr class="memdesc:a6cb1a2853c6df69bcdd00c5e50bee09c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Posts an asynchronous connect operation.  <br /></td></tr>
 <tr class="memitem:a33a150c8b21a47865c55adf0727c3b9d" id="r_a33a150c8b21a47865c55adf0727c3b9d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a33a150c8b21a47865c55adf0727c3b9d">Cancel</a> (int fd)</td></tr>
 <tr class="memdesc:a33a150c8b21a47865c55adf0727c3b9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cancels pending operations on the specified file descriptor.  <br /></td></tr>
-<tr class="memitem:a9da6bea06c07dfd510c20a9f5b7bbe7f" id="r_a9da6bea06c07dfd510c20a9f5b7bbe7f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9da6bea06c07dfd510c20a9f5b7bbe7f">Cancel</a> (std::coroutine_handle&lt;&gt; h)</td></tr>
-<tr class="memdesc:a9da6bea06c07dfd510c20a9f5b7bbe7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cancels the pending operation posted with a coroutine handle.  <br /></td></tr>
+<tr class="memitem:a9f94fac2e4c13d35b6c50bcab3c2e0a1" id="r_a9f94fac2e4c13d35b6c50bcab3c2e0a1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f94fac2e4c13d35b6c50bcab3c2e0a1">Cancel</a> (<a class="el" href="#a045d191925a131b8bff55006138c5b5f">TOperation</a> &amp;op)</td></tr>
+<tr class="memdesc:a9f94fac2e4c13d35b6c50bcab3c2e0a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cancels a pending operation.  <br /></td></tr>
 <tr class="memitem:aeba2494bf12d88b94776c3acdff56d14" id="r_aeba2494bf12d88b94776c3acdff56d14"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeba2494bf12d88b94776c3acdff56d14">Register</a> (int fd)</td></tr>
 <tr class="memdesc:aeba2494bf12d88b94776c3acdff56d14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a file descriptor with the IO_uring poller.  <br /></td></tr>
 <tr class="memitem:a25e8e35fb66e24e76b22b4a27f4897cd" id="r_a25e8e35fb66e24e76b22b4a27f4897cd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a25e8e35fb66e24e76b22b4a27f4897cd">Wait</a> (timespec ts={10, 0})</td></tr>
 <tr class="memdesc:a25e8e35fb66e24e76b22b4a27f4897cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for I/O completions.  <br /></td></tr>
 <tr class="memitem:a61da7363c55c0e07c4a3ee59b0cf85c4" id="r_a61da7363c55c0e07c4a3ee59b0cf85c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a61da7363c55c0e07c4a3ee59b0cf85c4">Poll</a> ()</td></tr>
 <tr class="memdesc:a61da7363c55c0e07c4a3ee59b0cf85c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Polls for I/O completions.  <br /></td></tr>
-<tr class="memitem:a1790f432d65c1891c3f093f29c07a82c" id="r_a1790f432d65c1891c3f093f29c07a82c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1790f432d65c1891c3f093f29c07a82c">Result</a> ()</td></tr>
-<tr class="memdesc:a1790f432d65c1891c3f093f29c07a82c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the result of the last completed I/O completion.  <br /></td></tr>
 <tr class="memitem:acfafdb5359cf6d811ffa1ec87a2c7ea3" id="r_acfafdb5359cf6d811ffa1ec87a2c7ea3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acfafdb5359cf6d811ffa1ec87a2c7ea3">WakeupReadyHandles</a> ()</td></tr>
 <tr class="memdesc:acfafdb5359cf6d811ffa1ec87a2c7ea3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resumes the coroutines whose operations completed.  <br /></td></tr>
 <tr class="inherit_header pub_methods_classNNet_1_1TPollerBase"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classNNet_1_1TPollerBase')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="classNNet_1_1TPollerBase.html">NNet::TPollerBase</a></td></tr>
@@ -179,6 +179,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a236d38889ae16fecc1774a5db08f231d inherit pub_methods_classNNet_1_1TPollerBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is disabled. <br /></td></tr>
 <tr class="memitem:ab382c207c85dce19bf43e172da5a3174 inherit pub_methods_classNNet_1_1TPollerBase" id="r_ab382c207c85dce19bf43e172da5a3174"><td class="memItemLeft" align="right" valign="top">
 <a class="el" href="classNNet_1_1TPollerBase.html#a0bf870f24ff1b7dedeb0f132dcfa9f05">TPollerBase</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classNNet_1_1TPollerBase.html#a0bf870f24ff1b7dedeb0f132dcfa9f05">TPollerBase</a> &amp;)=delete</td></tr>
+<tr class="memitem:ace9abee8d6a5da52df5b349d68be5539 inherit pub_methods_classNNet_1_1TPollerBase" id="r_ace9abee8d6a5da52df5b349d68be5539"><td class="memItemLeft" align="right" valign="top">
+&#160;</td><td class="memItemRight" valign="bottom"><b>~TPollerBase</b> ()</td></tr>
+<tr class="memdesc:ace9abee8d6a5da52df5b349d68be5539 inherit pub_methods_classNNet_1_1TPollerBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes what <a class="el" href="classNNet_1_1TPollerBase.html#a5f60d802102817f75ecc588abacf8f9c" title="Closes fd in the next poll iteration.">Close()</a> queued and no Poll() applied. <br /></td></tr>
 <tr class="memitem:a66e728fd17de36c493a0e915115d417e inherit pub_methods_classNNet_1_1TPollerBase" id="r_a66e728fd17de36c493a0e915115d417e"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TPollerBase.html#a66e728fd17de36c493a0e915115d417e">AddTimer</a> (TTime deadline, THandle h)</td></tr>
 <tr class="memdesc:a66e728fd17de36c493a0e915115d417e inherit pub_methods_classNNet_1_1TPollerBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Schedules a timer.  <br /></td></tr>
 <tr class="memitem:a9bbf27b42f97eded40eb715f56340025 inherit pub_methods_classNNet_1_1TPollerBase" id="r_a9bbf27b42f97eded40eb715f56340025"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TPollerBase.html#a9bbf27b42f97eded40eb715f56340025">RemoveTimer</a> (unsigned timerId, TTime deadline)</td></tr>
@@ -193,6 +196,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a837929433daf37451b00c6c6afe98c0e inherit pub_methods_classNNet_1_1TPollerBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the backend reports remote hang-ups.  <br /></td></tr>
 <tr class="memitem:aa07a131f7224e0c939e2df9b83982146 inherit pub_methods_classNNet_1_1TPollerBase" id="r_aa07a131f7224e0c939e2df9b83982146"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TPollerBase.html#aa07a131f7224e0c939e2df9b83982146">RemoveEvent</a> (int fd)</td></tr>
 <tr class="memdesc:aa07a131f7224e0c939e2df9b83982146 inherit pub_methods_classNNet_1_1TPollerBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes registered events for a specific file descriptor.  <br /></td></tr>
+<tr class="memitem:a5f60d802102817f75ecc588abacf8f9c inherit pub_methods_classNNet_1_1TPollerBase" id="r_a5f60d802102817f75ecc588abacf8f9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TPollerBase.html#a5f60d802102817f75ecc588abacf8f9c">Close</a> (int fd, int type)</td></tr>
+<tr class="memdesc:a5f60d802102817f75ecc588abacf8f9c inherit pub_methods_classNNet_1_1TPollerBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes <code class="param">fd</code> in the next poll iteration.  <br /></td></tr>
 <tr class="memitem:ad38b3fc6cd909f6390ca946d01dad4c5 inherit pub_methods_classNNet_1_1TPollerBase" id="r_ad38b3fc6cd909f6390ca946d01dad4c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TPollerBase.html#ad38b3fc6cd909f6390ca946d01dad4c5">RemoveEvent</a> (int fd, THandle h)</td></tr>
 <tr class="memdesc:ad38b3fc6cd909f6390ca946d01dad4c5 inherit pub_methods_classNNet_1_1TPollerBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cancels the wait of a coroutine destroyed while suspended on <code class="param">fd</code>.  <br /></td></tr>
 <tr class="memitem:ab78789b92e7aa174e72c3d569deec1e7 inherit pub_methods_classNNet_1_1TPollerBase" id="r_ab78789b92e7aa174e72c3d569deec1e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TPollerBase.html#ab78789b92e7aa174e72c3d569deec1e7">RemoveEvent</a> (THandle)</td></tr>
@@ -219,6 +224,8 @@ Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_methods_classNNet_1_1TPollerBase"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_classNNet_1_1TPollerBase')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Member Functions inherited from <a class="el" href="classNNet_1_1TPollerBase.html">NNet::TPollerBase</a></td></tr>
 <tr class="memitem:a0008a394cf1744e9369e60bcf75cdfc5 inherit pro_methods_classNNet_1_1TPollerBase" id="r_a0008a394cf1744e9369e60bcf75cdfc5"><td class="memItemLeft" align="right" valign="top">timespec&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TPollerBase.html#a0008a394cf1744e9369e60bcf75cdfc5">GetTimeout</a> () const</td></tr>
 <tr class="memdesc:a0008a394cf1744e9369e60bcf75cdfc5 inherit pro_methods_classNNet_1_1TPollerBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the poll timeout based on scheduled timers.  <br /></td></tr>
+<tr class="memitem:ac423ea54d55740a4f901f0140cbfc47d inherit pro_methods_classNNet_1_1TPollerBase" id="r_ac423ea54d55740a4f901f0140cbfc47d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNNet_1_1TEvent.html">TEvent</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TPollerBase.html#ac423ea54d55740a4f901f0140cbfc47d">Resolve</a> (const <a class="el" href="structNNet_1_1TEvent.html">TEvent</a> &amp;change, const <a class="el" href="structNNet_1_1THandlePair.html">THandlePair</a> &amp;ev) const</td></tr>
+<tr class="memdesc:ac423ea54d55740a4f901f0140cbfc47d inherit pro_methods_classNNet_1_1TPollerBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resolves an element of Changes_ before the backend applies it.  <br /></td></tr>
 <tr class="memitem:a4b9dbb4524e688ab7fbb2139a2cf39cb inherit pro_methods_classNNet_1_1TPollerBase" id="r_a4b9dbb4524e688ab7fbb2139a2cf39cb"><td class="memItemLeft" align="right" valign="top">
 void&#160;</td><td class="memItemRight" valign="bottom"><b>Reset</b> ()</td></tr>
 <tr class="memdesc:a4b9dbb4524e688ab7fbb2139a2cf39cb inherit pro_methods_classNNet_1_1TPollerBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the lists of ready events and pending changes. <br /></td></tr>
@@ -227,8 +234,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Reset</b> ()</td></tr
 <tr class="inherit_header pro_static_methods_classNNet_1_1TPollerBase"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_static_methods_classNNet_1_1TPollerBase')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Static Protected Member Functions inherited from <a class="el" href="classNNet_1_1TPollerBase.html">NNet::TPollerBase</a></td></tr>
 <tr class="memitem:ad9dd7feb761339f5c7aa0614ed4a6d35 inherit pro_static_methods_classNNet_1_1TPollerBase" id="r_ad9dd7feb761339f5c7aa0614ed4a6d35"><td class="memItemLeft" align="right" valign="top">static constexpr timespec&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TPollerBase.html#ad9dd7feb761339f5c7aa0614ed4a6d35">GetMaxDuration</a> (std::chrono::milliseconds duration)</td></tr>
 <tr class="memdesc:ad9dd7feb761339f5c7aa0614ed4a6d35 inherit pro_static_methods_classNNet_1_1TPollerBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes a timespec from a duration.  <br /></td></tr>
-<tr class="memitem:a7223bc427d5d20caf201c551d9aa2270 inherit pro_static_methods_classNNet_1_1TPollerBase" id="r_a7223bc427d5d20caf201c551d9aa2270"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structNNet_1_1TEvent.html">TEvent</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TPollerBase.html#a7223bc427d5d20caf201c551d9aa2270">ResolveCancel</a> (const <a class="el" href="structNNet_1_1TEvent.html">TEvent</a> &amp;change, const <a class="el" href="structNNet_1_1THandlePair.html">THandlePair</a> &amp;ev)</td></tr>
-<tr class="memdesc:a7223bc427d5d20caf201c551d9aa2270 inherit pro_static_methods_classNNet_1_1TPollerBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns a cancellation queued by <a class="el" href="classNNet_1_1TPollerBase.html#ad38b3fc6cd909f6390ca946d01dad4c5" title="Cancels the wait of a coroutine destroyed while suspended on fd.">RemoveEvent(int, THandle)</a> into a removal.  <br /></td></tr>
+<tr class="memitem:ad8fd548dc929821d975a8c0dc114ca5f inherit pro_static_methods_classNNet_1_1TPollerBase" id="r_ad8fd548dc929821d975a8c0dc114ca5f"><td class="memItemLeft" align="right" valign="top">
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>CloseDescriptor</b> (<a class="el" href="structNNet_1_1TEvent.html">TEvent</a> &amp;change)</td></tr>
+<tr class="memdesc:ad8fd548dc929821d975a8c0dc114ca5f inherit pro_static_methods_classNNet_1_1TPollerBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the descriptor of a close change and clears the close, so a Poll() that throws and runs again closes it once. <br /></td></tr>
 <tr class="inherit_header pro_attribs_classNNet_1_1TPollerBase"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_classNNet_1_1TPollerBase')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Attributes inherited from <a class="el" href="classNNet_1_1TPollerBase.html">NNet::TPollerBase</a></td></tr>
 <tr class="memitem:a89d1a51b43037fd32359536167119b95 inherit pro_attribs_classNNet_1_1TPollerBase" id="r_a89d1a51b43037fd32359536167119b95"><td class="memItemLeft" align="right" valign="top">
 int&#160;</td><td class="memItemRight" valign="bottom"><b>MaxFd_</b> = 0</td></tr>
@@ -266,7 +274,7 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
 <p><a class="el" href="classNNet_1_1TUring.html" title="Poller implementation based on io_uring.">TUring</a> inherits from <a class="el" href="classNNet_1_1TPollerBase.html" title="Backend-independent base for I/O pollers.">TPollerBase</a> and implements asynchronous I/O operations using the Linux io_uring API. It provides methods for performing asynchronous read, write, receive, send, accept, and connect operations.</p>
 <p>Key features:</p><ul>
 <li>Uses io_uring to queue and submit asynchronous I/O operations.</li>
-<li>Provides operations such as <a class="el" href="#a3a9d4260deb310de4a82df125d7b730c">Read()</a>, <a class="el" href="#ac36d140087a033327a9fbcc2a1e715c4">Write()</a>, <a class="el" href="#a562cb0b278f30b8152b340e41d0b23f9">Recv()</a>, <a class="el" href="#a8892ff7c5e6be22a2406bf10fcfd2738">Send()</a>, <a class="el" href="#add13ee92096b21dfd5b5881173caa321">Accept()</a> and <a class="el" href="#a93291371201e5e4397940bef822f1f4d">Connect()</a>.</li>
+<li>Provides operations such as <a class="el" href="#aa041b8c63f258962a07bf46d04385c21">Read()</a>, <a class="el" href="#a54892f293f1ea096367b8b33f53bfe17">Write()</a>, <a class="el" href="#a98b2b341fe050661994d556bf1b3d832">Recv()</a>, <a class="el" href="#a98b599a20e38663fb4d6dcef3d2676e9">Send()</a>, <a class="el" href="#a52bc882efa7c5a60799b7980ecd64912">Accept()</a> and <a class="el" href="#a6cb1a2853c6df69bcdd00c5e50bee09c">Connect()</a>.</li>
 <li>Offers additional methods for cancelling pending operations, registering file descriptors, waiting for completions, and submitting queued requests.</li>
 </ul>
 <p>Type aliases:</p><ul>
@@ -279,16 +287,38 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
 <div class="line"><span class="comment">// Register a socket or file descriptor.</span></div>
 <div class="line">uringPoller.Register(socketFd);</div>
 <div class="line"> </div>
-<div class="line"><span class="comment">// Post an asynchronous read.</span></div>
-<div class="line">uringPoller.Read(socketFd, buffer, bufferSize, coroutineHandle);</div>
+<div class="line"><span class="comment">// Post an asynchronous read. op must stay in place until it is delivered or cancelled.</span></div>
+<div class="line"><a class="code hl_typedef" href="#a045d191925a131b8bff55006138c5b5f">TUring::TOperation</a> op;</div>
+<div class="line">op.<a class="code hl_variable" href="structNNet_1_1NDetail_1_1TOperationState.html#a50dffc919836b2df78e25df23154c0e2">Handle</a> = coroutineHandle;</div>
+<div class="line">uringPoller.Read(socketFd, buffer, bufferSize, op);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Poll for I/O completions.</span></div>
 <div class="line"><span class="keywordtype">int</span> ret = uringPoller.Wait();</div>
 <div class="line"> </div>
-<div class="line"><span class="comment">// Process the result of the completed operations.</span></div>
-<div class="line"><span class="keywordtype">int</span> result = uringPoller.Result();</div>
+<div class="line"><span class="comment">// Resume the coroutines of the completed operations. The read&#39;s result is in op.Result.</span></div>
+<div class="line">uringPoller.WakeupReadyHandles();</div>
+<div class="ttc" id="aclassNNet_1_1TUring_html_a045d191925a131b8bff55006138c5b5f"><div class="ttname"><a href="#a045d191925a131b8bff55006138c5b5f">NNet::TUring::TOperation</a></div><div class="ttdeci">NDetail::TOperationState TOperation</div><div class="ttdoc">State of one operation, kept by the caller.</div><div class="ttdef"><b>Definition</b> uring.hpp:78</div></div>
 <div class="ttc" id="aclassNNet_1_1TUring_html_ad2d00c2a8d1187e79c81fb6cf49ff684"><div class="ttname"><a href="#ad2d00c2a8d1187e79c81fb6cf49ff684">NNet::TUring::TUring</a></div><div class="ttdeci">TUring(int queueSize=256)</div><div class="ttdoc">Constructs a TUring instance.</div></div>
-</div><!-- fragment --> </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<div class="ttc" id="astructNNet_1_1NDetail_1_1TOperationState_html_a50dffc919836b2df78e25df23154c0e2"><div class="ttname"><a href="structNNet_1_1NDetail_1_1TOperationState.html#a50dffc919836b2df78e25df23154c0e2">NNet::NDetail::TOperationState::Handle</a></div><div class="ttdeci">THandle Handle</div><div class="ttdoc">Coroutine to resume, set by the caller before posting. Cleared when posting fails,...</div><div class="ttdef"><b>Definition</b> completions.hpp:26</div></div>
+</div><!-- fragment --> </div><a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a id="a045d191925a131b8bff55006138c5b5f" name="a045d191925a131b8bff55006138c5b5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a045d191925a131b8bff55006138c5b5f">&#9670;&#160;</a></span>TOperation</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a045d191925a131b8bff55006138c5b5f">NNet::TUring::TOperation</a> = <a class="el" href="structNNet_1_1NDetail_1_1TOperationState.html">NDetail::TOperationState</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>State of one operation, kept by the caller. </p>
+<p>Set <a class="el" href="structNNet_1_1NDetail_1_1TOperationState.html#a50dffc919836b2df78e25df23154c0e2" title="Coroutine to resume, set by the caller before posting. Cleared when posting fails,...">TOperation::Handle</a> to the coroutine to resume before posting the operation; if posting throws, it is reset. The address of the state is the operation's user_data, so it must stay in place until <a class="el" href="#acfafdb5359cf6d811ffa1ec87a2c7ea3" title="Resumes the coroutines whose operations completed.">WakeupReadyHandles()</a> delivers the completion or <a class="el" href="#a33a150c8b21a47865c55adf0727c3b9d" title="Cancels pending operations on the specified file descriptor.">Cancel()</a> returns. The result of the completion is in <a class="el" href="structNNet_1_1NDetail_1_1TOperationState.html#a0dfc2635d6deea11d8f88ea96c7590bd" title="Result of the completion, e.g. the number of bytes transferred.">TOperation::Result</a>. </p>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad2d00c2a8d1187e79c81fb6cf49ff684" name="ad2d00c2a8d1187e79c81fb6cf49ff684"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad2d00c2a8d1187e79c81fb6cf49ff684">&#9670;&#160;</a></span>TUring()</h2>
 
@@ -307,7 +337,7 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
 <p>Constructs a <a class="el" href="classNNet_1_1TUring.html" title="Poller implementation based on io_uring.">TUring</a> instance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">queueSize</td><td>The desired size of the io_uring submission queue (default is 256). </td></tr>
+    <tr><td class="paramname">queueSize</td><td>The desired size of the io_uring submission queue (default is 256). At least 2: a close takes two linked entries. </td></tr>
   </table>
   </dd>
 </dl>
@@ -315,8 +345,8 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="add13ee92096b21dfd5b5881173caa321" name="add13ee92096b21dfd5b5881173caa321"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add13ee92096b21dfd5b5881173caa321">&#9670;&#160;</a></span>Accept()</h2>
+<a id="a52bc882efa7c5a60799b7980ecd64912" name="a52bc882efa7c5a60799b7980ecd64912"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52bc882efa7c5a60799b7980ecd64912">&#9670;&#160;</a></span>Accept()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -339,7 +369,7 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::coroutine_handle&lt;&gt;</td>          <td class="paramname"><span class="paramname"><em>handle</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="#a045d191925a131b8bff55006138c5b5f">TOperation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>op</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -350,7 +380,7 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
     <tr><td class="paramname">fd</td><td>The listening socket descriptor. </td></tr>
     <tr><td class="paramname">addr</td><td>Pointer to a sockaddr structure where the client address is stored. </td></tr>
     <tr><td class="paramname">len</td><td>Pointer to the length of the address structure. </td></tr>
-    <tr><td class="paramname">handle</td><td>Coroutine handle to resume upon acceptance. </td></tr>
+    <tr><td class="paramname">op</td><td>State of the operation, with the coroutine to resume upon acceptance. </td></tr>
   </table>
   </dd>
 </dl>
@@ -382,8 +412,8 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
 
 </div>
 </div>
-<a id="a9da6bea06c07dfd510c20a9f5b7bbe7f" name="a9da6bea06c07dfd510c20a9f5b7bbe7f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9da6bea06c07dfd510c20a9f5b7bbe7f">&#9670;&#160;</a></span>Cancel() <span class="overload">[2/2]</span></h2>
+<a id="a9f94fac2e4c13d35b6c50bcab3c2e0a1" name="a9f94fac2e4c13d35b6c50bcab3c2e0a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f94fac2e4c13d35b6c50bcab3c2e0a1">&#9670;&#160;</a></span>Cancel() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -391,17 +421,17 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
         <tr>
           <td class="memname">int NNet::TUring::Cancel </td>
           <td>(</td>
-          <td class="paramtype">std::coroutine_handle&lt;&gt;</td>          <td class="paramname"><span class="paramname"><em>h</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#a045d191925a131b8bff55006138c5b5f">TOperation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>op</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Cancels the pending operation posted with a coroutine handle. </p>
-<p>Called when the coroutine is destroyed while waiting for the operation. An operation not submitted yet is dropped. Otherwise it is cancelled, and the call returns only after the kernel has finished with it, so its buffers may be freed. Either way its completion is dropped, so <code class="param">h</code> is not resumed. An operation that completed before the cancellation loses its result, e.g. the data it read.</p>
+<p>Cancels a pending operation. </p>
+<p>Called when the coroutine is destroyed while waiting for the operation. An operation not submitted yet is dropped. Otherwise it is cancelled, and the call returns only after the kernel has finished with it, so its buffers and <code class="param">op</code> may be freed. Either way its completion is dropped, so its coroutine is not resumed. An operation that completed before the cancellation loses its result, e.g. the data it read.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">h</td><td>The coroutine handle the operation was posted with. </td></tr>
+    <tr><td class="paramname">op</td><td>State of the operation, not delivered yet. </td></tr>
   </table>
   </dd>
 </dl>
@@ -409,8 +439,8 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
 
 </div>
 </div>
-<a id="a93291371201e5e4397940bef822f1f4d" name="a93291371201e5e4397940bef822f1f4d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a93291371201e5e4397940bef822f1f4d">&#9670;&#160;</a></span>Connect()</h2>
+<a id="a6cb1a2853c6df69bcdd00c5e50bee09c" name="a6cb1a2853c6df69bcdd00c5e50bee09c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cb1a2853c6df69bcdd00c5e50bee09c">&#9670;&#160;</a></span>Connect()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -433,7 +463,7 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::coroutine_handle&lt;&gt;</td>          <td class="paramname"><span class="paramname"><em>handle</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="#a045d191925a131b8bff55006138c5b5f">TOperation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>op</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -444,7 +474,7 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
     <tr><td class="paramname">fd</td><td>The socket descriptor. </td></tr>
     <tr><td class="paramname">addr</td><td>Pointer to the destination address. </td></tr>
     <tr><td class="paramname">len</td><td>Size of the destination address structure. </td></tr>
-    <tr><td class="paramname">handle</td><td>Coroutine handle to resume upon connection. </td></tr>
+    <tr><td class="paramname">op</td><td>State of the operation, with the coroutine to resume upon connection. </td></tr>
   </table>
   </dd>
 </dl>
@@ -479,8 +509,8 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
 
 </div>
 </div>
-<a id="a3a9d4260deb310de4a82df125d7b730c" name="a3a9d4260deb310de4a82df125d7b730c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a9d4260deb310de4a82df125d7b730c">&#9670;&#160;</a></span>Read()</h2>
+<a id="aa041b8c63f258962a07bf46d04385c21" name="aa041b8c63f258962a07bf46d04385c21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa041b8c63f258962a07bf46d04385c21">&#9670;&#160;</a></span>Read()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -503,7 +533,7 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::coroutine_handle&lt;&gt;</td>          <td class="paramname"><span class="paramname"><em>handle</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="#a045d191925a131b8bff55006138c5b5f">TOperation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>op</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -514,15 +544,15 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
     <tr><td class="paramname">fd</td><td>The file descriptor. </td></tr>
     <tr><td class="paramname">buf</td><td>Buffer where data is to be stored. </td></tr>
     <tr><td class="paramname">size</td><td>Number of bytes to read. </td></tr>
-    <tr><td class="paramname">handle</td><td>Coroutine handle to resume upon completion. </td></tr>
+    <tr><td class="paramname">op</td><td>State of the operation, with the coroutine to resume upon completion. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a562cb0b278f30b8152b340e41d0b23f9" name="a562cb0b278f30b8152b340e41d0b23f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a562cb0b278f30b8152b340e41d0b23f9">&#9670;&#160;</a></span>Recv()</h2>
+<a id="a98b2b341fe050661994d556bf1b3d832" name="a98b2b341fe050661994d556bf1b3d832"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98b2b341fe050661994d556bf1b3d832">&#9670;&#160;</a></span>Recv()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -545,7 +575,7 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::coroutine_handle&lt;&gt;</td>          <td class="paramname"><span class="paramname"><em>handle</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="#a045d191925a131b8bff55006138c5b5f">TOperation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>op</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -556,7 +586,7 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
     <tr><td class="paramname">fd</td><td>The file descriptor. </td></tr>
     <tr><td class="paramname">buf</td><td>Buffer where received data will be stored. </td></tr>
     <tr><td class="paramname">size</td><td>Maximum number of bytes to receive. </td></tr>
-    <tr><td class="paramname">handle</td><td>Coroutine handle to resume upon completion. </td></tr>
+    <tr><td class="paramname">op</td><td>State of the operation, with the coroutine to resume upon completion. </td></tr>
   </table>
   </dd>
 </dl>
@@ -588,28 +618,8 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
 
 </div>
 </div>
-<a id="a1790f432d65c1891c3f093f29c07a82c" name="a1790f432d65c1891c3f093f29c07a82c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1790f432d65c1891c3f093f29c07a82c">&#9670;&#160;</a></span>Result()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int NNet::TUring::Result </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Retrieves the result of the last completed I/O completion. </p>
-<dl class="section return"><dt>Returns</dt><dd>An integer result, such as the number of bytes transferred. </dd></dl>
-
-</div>
-</div>
-<a id="a8892ff7c5e6be22a2406bf10fcfd2738" name="a8892ff7c5e6be22a2406bf10fcfd2738"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8892ff7c5e6be22a2406bf10fcfd2738">&#9670;&#160;</a></span>Send()</h2>
+<a id="a98b599a20e38663fb4d6dcef3d2676e9" name="a98b599a20e38663fb4d6dcef3d2676e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98b599a20e38663fb4d6dcef3d2676e9">&#9670;&#160;</a></span>Send()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -632,7 +642,7 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::coroutine_handle&lt;&gt;</td>          <td class="paramname"><span class="paramname"><em>handle</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="#a045d191925a131b8bff55006138c5b5f">TOperation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>op</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -643,7 +653,7 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
     <tr><td class="paramname">fd</td><td>The file descriptor. </td></tr>
     <tr><td class="paramname">buf</td><td>Buffer containing data to send. </td></tr>
     <tr><td class="paramname">size</td><td>Number of bytes to send. </td></tr>
-    <tr><td class="paramname">handle</td><td>Coroutine handle to resume upon completion. </td></tr>
+    <tr><td class="paramname">op</td><td>State of the operation, with the coroutine to resume upon completion. </td></tr>
   </table>
   </dd>
 </dl>
@@ -692,12 +702,12 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
 </div><div class="memdoc">
 
 <p>Resumes the coroutines whose operations completed. </p>
-<p>Skips completions dropped by <a class="el" href="#a9da6bea06c07dfd510c20a9f5b7bbe7f" title="Cancels the pending operation posted with a coroutine handle.">Cancel(std::coroutine_handle&lt;&gt;)</a>. </p>
+<p>Skips completions dropped by <a class="el" href="#a9f94fac2e4c13d35b6c50bcab3c2e0a1" title="Cancels a pending operation.">Cancel(TOperation&amp;)</a>. A completion collected by <a class="el" href="#a25e8e35fb66e24e76b22b4a27f4897cd" title="Waits for I/O completions.">Wait()</a> and not delivered here is kept by the next <a class="el" href="#a25e8e35fb66e24e76b22b4a27f4897cd" title="Waits for I/O completions.">Wait()</a>. </p>
 
 </div>
 </div>
-<a id="ac36d140087a033327a9fbcc2a1e715c4" name="ac36d140087a033327a9fbcc2a1e715c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac36d140087a033327a9fbcc2a1e715c4">&#9670;&#160;</a></span>Write()</h2>
+<a id="a54892f293f1ea096367b8b33f53bfe17" name="a54892f293f1ea096367b8b33f53bfe17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54892f293f1ea096367b8b33f53bfe17">&#9670;&#160;</a></span>Write()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -720,7 +730,7 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::coroutine_handle&lt;&gt;</td>          <td class="paramname"><span class="paramname"><em>handle</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="#a045d191925a131b8bff55006138c5b5f">TOperation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>op</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -731,7 +741,7 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
     <tr><td class="paramname">fd</td><td>The file descriptor. </td></tr>
     <tr><td class="paramname">buf</td><td>Buffer with data to write. </td></tr>
     <tr><td class="paramname">size</td><td>Number of bytes to write. </td></tr>
-    <tr><td class="paramname">handle</td><td>Coroutine handle to resume upon completion. </td></tr>
+    <tr><td class="paramname">op</td><td>State of the operation, with the coroutine to resume upon completion. </td></tr>
   </table>
   </dd>
 </dl>

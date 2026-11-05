@@ -17,12 +17,18 @@ var hierarchy =
     [ "NNet::NActors::IBehavior", "classNNet_1_1NActors_1_1IBehavior.html", [
       [ "NNet::NActors::TBehavior< TBaseBehavior, TMessages >", "classNNet_1_1NActors_1_1TBehavior.html", null ]
     ] ],
+    [ "NNet::INotifier", "classNNet_1_1INotifier.html", [
+      [ "NNet::TNotifier< TPoller >", "classNNet_1_1TNotifier.html", null ]
+    ] ],
     [ "NNet::NActors::IOutputStream", "classNNet_1_1NActors_1_1IOutputStream.html", [
       [ "NNet::NActors::INode", "classNNet_1_1NActors_1_1INode.html", [
         [ "NNet::NActors::TNode< TPoller >", "classNNet_1_1NActors_1_1TNode.html", null ]
       ] ]
     ] ],
     [ "NNet::IRouter", "structNNet_1_1IRouter.html", null ],
+    [ "OVERLAPPED", null, [
+      [ "NNet::TIOCp::TOperation", "structNNet_1_1TIOCp_1_1TOperation.html", null ]
+    ] ],
     [ "NNet::NActors::TActorContext", "classNNet_1_1NActors_1_1TActorContext.html", [
       [ "NNet::NActors::TMockActorContext", "classNNet_1_1NActors_1_1TMockActorContext.html", null ]
     ] ],
@@ -38,6 +44,7 @@ var hierarchy =
     [ "NNet::NActors::TBlobDeleter", "structNNet_1_1NActors_1_1TBlobDeleter.html", null ],
     [ "NNet::TByteReader&lt; TSocket &gt;", "structNNet_1_1TByteReader.html", null ],
     [ "NNet::TByteWriter&lt; TSocket &gt;", "structNNet_1_1TByteWriter.html", null ],
+    [ "NNet::NDetail::TCompletions", "classNNet_1_1NDetail_1_1TCompletions.html", null ],
     [ "NNet::NActors::TContextDeleter", "structNNet_1_1NActors_1_1TContextDeleter.html", null ],
     [ "NNet::NActors::TEnvelope", "classNNet_1_1NActors_1_1TEnvelope.html", null ],
     [ "NNet::NActors::TEnvelopeReader", "classNNet_1_1NActors_1_1TEnvelopeReader.html", null ],
@@ -58,17 +65,16 @@ var hierarchy =
     [ "NNet::THostPort", "classNNet_1_1THostPort.html", null ],
     [ "NNet::TInitializer", "classNNet_1_1TInitializer.html", null ],
     [ "NNet::NActors::TIntrusiveList&lt; T &gt;", "classNNet_1_1NActors_1_1TIntrusiveList.html", null ],
-    [ "NNet::NDetail::TIntrusiveList&lt; T &gt;", "classNNet_1_1NDetail_1_1TIntrusiveList.html", null ],
     [ "NNet::NActors::TIntrusiveListNode&lt; T &gt;", "structNNet_1_1NActors_1_1TIntrusiveListNode.html", null ],
-    [ "NNet::NDetail::TIntrusiveNode&lt; T &gt;", "classNNet_1_1NDetail_1_1TIntrusiveNode.html", null ],
-    [ "NNet::NDetail::TIntrusiveList&lt; T &gt;::TIterator", "classNNet_1_1NDetail_1_1TIntrusiveList_1_1TIterator.html", null ],
     [ "NNet::NActors::TLambdaToContextDeleter&lt; TLambda &gt;", "structNNet_1_1NActors_1_1TLambdaToContextDeleter.html", null ],
     [ "NNet::TLine", "structNNet_1_1TLine.html", null ],
     [ "NNet::TLineReader&lt; TSocket &gt;", "structNNet_1_1TLineReader.html", null ],
     [ "NNet::TLineSplitter", "structNNet_1_1TLineSplitter.html", null ],
     [ "NNet::TLoop&lt; TPoller &gt;", "classNNet_1_1TLoop.html", null ],
     [ "NNet::NActors::TMessagesFactory", "classNNet_1_1NActors_1_1TMessagesFactory.html", null ],
-    [ "NNet::TNotifier", "classNNet_1_1TNotifier.html", null ],
+    [ "NNet::NDetail::TOperationState", "structNNet_1_1NDetail_1_1TOperationState.html", [
+      [ "NNet::TIOCp::TOperation", "structNNet_1_1TIOCp_1_1TOperation.html", null ]
+    ] ],
     [ "NNet::TPipe", "classNNet_1_1TPipe.html", null ],
     [ "NNet::NActors::TPoison", "structNNet_1_1NActors_1_1TPoison.html", null ],
     [ "NNet::TPollerBase", "classNNet_1_1TPollerBase.html", [

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['sender_0',['Sender',['../classNNet_1_1NActors_1_1TEnvelope.html#ac889cae31f4a1147dca772510cf0df49',1,'NNet::NActors::TEnvelope::Sender'],['../structNNet_1_1NActors_1_1THeader.html#adec00ff11702ef1774ac9c1c8c9acae5',1,'NNet::NActors::THeader::Sender']]],
-  ['size_1',['Size',['../structNNet_1_1NActors_1_1THeader.html#a8f96902ad08a45bf9b9ca5b082fff15b',1,'NNet::NActors::THeader::Size'],['../structNNet_1_1NActors_1_1TBlob.html#a22b4a0f29cf4044e345201e8ae961978',1,'NNet::NActors::TBlob::Size']]],
-  ['supportsremotehup_5f_2',['SupportsRemoteHup_',['../classNNet_1_1TPollerBase.html#a533c97345e99b482d0cda62bfb68692c',1,'NNet::TPollerBase']]]
+  ['part1_0',['Part1',['../structNNet_1_1TLine.html#abe4a845138593508c25f19b966dacd07',1,'NNet::TLine']]],
+  ['part2_1',['Part2',['../structNNet_1_1TLine.html#a8a6aa885b5adc4b058e91976776764a6',1,'NNet::TLine']]]
 ];

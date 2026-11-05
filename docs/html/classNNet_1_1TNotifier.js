@@ -1,6 +1,6 @@
 var classNNet_1_1TNotifier =
 [
-    [ "TNotifier", "classNNet_1_1TNotifier.html#a91dfacc1707aeebc5b670d3f814a83c0", null ],
-    [ "Notify", "classNNet_1_1TNotifier.html#a1bc7a4bca86cf1a315fd1cf007086942", null ],
-    [ "Wait", "classNNet_1_1TNotifier.html#a03f9bdecce427955939221c3d67a9341", null ]
+    [ "TNotifier", "classNNet_1_1TNotifier.html#a41eb6ae4ea8a2d6a46d3b5bb780207fb", null ],
+    [ "Notify", "classNNet_1_1TNotifier.html#aa9a5f7c6961e3f0dd65686237e8232df", null ],
+    [ "Wait", "classNNet_1_1TNotifier.html#a8bba6af23bd7900af0635b457b099ef3", null ]
 ];

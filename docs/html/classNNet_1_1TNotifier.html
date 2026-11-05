@@ -21,7 +21,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>COROIO: NNet::TNotifier Class Reference</title>
+<title>COROIO: NNet::TNotifier&lt; TPoller &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -110,7 +110,7 @@ $(function(){initNavTree('classNNet_1_1TNotifier.html','','classNNet_1_1TNotifie
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">NNet::TNotifier Class Reference</div></div>
+  <div class="headertitle"><div class="title">NNet::TNotifier&lt; TPoller &gt; Class Template Reference<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -118,69 +118,108 @@ $(function(){initNavTree('classNNet_1_1TNotifier.html','','classNNet_1_1TNotifie
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="notifier_8hpp_source.html">notifier.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for NNet::TNotifier&lt; TPoller &gt;:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classNNet_1_1TNotifier.png" usemap="#NNet_3A_3ATNotifier_3C_20TPoller_20_3E_map" alt=""/>
+  <map id="NNet_3A_3ATNotifier_3C_20TPoller_20_3E_map" name="NNet_3A_3ATNotifier_3C_20TPoller_20_3E_map">
+<area href="classNNet_1_1INotifier.html" title="Interface of a thread-safe notification with a single asynchronous listener." alt="NNet::INotifier" shape="rect" coords="0,0,158,24"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a91dfacc1707aeebc5b670d3f814a83c0" id="r_a91dfacc1707aeebc5b670d3f814a83c0"><td class="memItemLeft" align="right" valign="top"><a id="a91dfacc1707aeebc5b670d3f814a83c0" name="a91dfacc1707aeebc5b670d3f814a83c0"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TNotifier</b> (<a class="el" href="classNNet_1_1TPollerBase.html">TPollerBase</a> &amp;poller)</td></tr>
-<tr class="memdesc:a91dfacc1707aeebc5b670d3f814a83c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a notifier bound to the listener's event-loop poller. <br /></td></tr>
-<tr class="memitem:ab287167965080a1df5f5fefb8a9309a0" id="r_ab287167965080a1df5f5fefb8a9309a0"><td class="memItemLeft" align="right" valign="top"><a id="ab287167965080a1df5f5fefb8a9309a0" name="ab287167965080a1df5f5fefb8a9309a0"></a>
+<tr class="memitem:a41eb6ae4ea8a2d6a46d3b5bb780207fb" id="r_a41eb6ae4ea8a2d6a46d3b5bb780207fb"><td class="memItemLeft" align="right" valign="top"><a id="a41eb6ae4ea8a2d6a46d3b5bb780207fb" name="a41eb6ae4ea8a2d6a46d3b5bb780207fb"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TNotifier</b> (TPoller &amp;poller)</td></tr>
+<tr class="memdesc:a41eb6ae4ea8a2d6a46d3b5bb780207fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a notifier bound to the listener's event-loop poller. <br /></td></tr>
+<tr class="memitem:abc36699b4266f288a2d030572ae0a8e2" id="r_abc36699b4266f288a2d030572ae0a8e2"><td class="memItemLeft" align="right" valign="top"><a id="abc36699b4266f288a2d030572ae0a8e2" name="abc36699b4266f288a2d030572ae0a8e2"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>TNotifier</b> (const TNotifier &amp;)=delete</td></tr>
-<tr class="memitem:af66342bfb92f75a80242753c5405eb08" id="r_af66342bfb92f75a80242753c5405eb08"><td class="memItemLeft" align="right" valign="top"><a id="af66342bfb92f75a80242753c5405eb08" name="af66342bfb92f75a80242753c5405eb08"></a>
-<a class="el" href="#a91dfacc1707aeebc5b670d3f814a83c0">TNotifier</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="#a91dfacc1707aeebc5b670d3f814a83c0">TNotifier</a> &amp;)=delete</td></tr>
-<tr class="memitem:a1bc7a4bca86cf1a315fd1cf007086942" id="r_a1bc7a4bca86cf1a315fd1cf007086942"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1bc7a4bca86cf1a315fd1cf007086942">Notify</a> ()</td></tr>
-<tr class="memdesc:a1bc7a4bca86cf1a315fd1cf007086942"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signals the listener from any thread.  <br /></td></tr>
-<tr class="memitem:a03f9bdecce427955939221c3d67a9341" id="r_a03f9bdecce427955939221c3d67a9341"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a03f9bdecce427955939221c3d67a9341">Wait</a> ()</td></tr>
-<tr class="memdesc:a03f9bdecce427955939221c3d67a9341"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously waits for and consumes a notification.  <br /></td></tr>
+<tr class="memitem:a15247ab185cb48d0d4653a2a3c52f0ff" id="r_a15247ab185cb48d0d4653a2a3c52f0ff"><td class="memItemLeft" align="right" valign="top"><a id="a15247ab185cb48d0d4653a2a3c52f0ff" name="a15247ab185cb48d0d4653a2a3c52f0ff"></a>
+<a class="el" href="#a41eb6ae4ea8a2d6a46d3b5bb780207fb">TNotifier</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="#a41eb6ae4ea8a2d6a46d3b5bb780207fb">TNotifier</a> &amp;)=delete</td></tr>
+<tr class="memitem:aa9a5f7c6961e3f0dd65686237e8232df" id="r_aa9a5f7c6961e3f0dd65686237e8232df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9a5f7c6961e3f0dd65686237e8232df">Notify</a> () override</td></tr>
+<tr class="memdesc:aa9a5f7c6961e3f0dd65686237e8232df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signals the listener from any thread.  <br /></td></tr>
+<tr class="memitem:a8bba6af23bd7900af0635b457b099ef3" id="r_a8bba6af23bd7900af0635b457b099ef3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8bba6af23bd7900af0635b457b099ef3">Wait</a> () override</td></tr>
+<tr class="memdesc:a8bba6af23bd7900af0635b457b099ef3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously waits for and consumes a notification.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Thread-safe notification with a single asynchronous listener. </p>
-<p>Producers call <a class="el" href="#a1bc7a4bca86cf1a315fd1cf007086942" title="Signals the listener from any thread.">Notify()</a> from any thread after publishing work. Calls coalesce until <a class="el" href="#a03f9bdecce427955939221c3d67a9341" title="Asynchronously waits for and consumes a notification.">Wait()</a> consumes the signal; a notification means "check for work", not one work item. <a class="el" href="#a03f9bdecce427955939221c3d67a9341" title="Asynchronously waits for and consumes a notification.">Wait()</a> re-arms the notifier before returning to the listener.</p>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a91dfacc1707aeebc5b670d3f814a83c0">TNotifier</a> notifier(poller);</div>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename TPoller&gt;<br />
+class NNet::TNotifier&lt; TPoller &gt;</div><p>Thread-safe notification with a single asynchronous listener. </p>
+<p>Producers call <a class="el" href="#aa9a5f7c6961e3f0dd65686237e8232df" title="Signals the listener from any thread.">Notify()</a> from any thread after publishing work. Calls coalesce until <a class="el" href="#a8bba6af23bd7900af0635b457b099ef3" title="Asynchronously waits for and consumes a notification.">Wait()</a> consumes the signal; a notification means "check for work", not one work item. <a class="el" href="#a8bba6af23bd7900af0635b457b099ef3" title="Asynchronously waits for and consumes a notification.">Wait()</a> re-arms the notifier before returning to the listener.</p>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a41eb6ae4ea8a2d6a46d3b5bb780207fb">TNotifier</a> notifier(loop.Poller());</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Producer thread: publish work, then signal the listener.</span></div>
 <div class="line">notifier.Notify();</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Event-loop coroutine: wait, then drain available work.</span></div>
 <div class="line"><span class="keyword">co_await</span> notifier.Wait();</div>
-<div class="ttc" id="aclassNNet_1_1TNotifier_html_a91dfacc1707aeebc5b670d3f814a83c0"><div class="ttname"><a href="#a91dfacc1707aeebc5b670d3f814a83c0">NNet::TNotifier::TNotifier</a></div><div class="ttdeci">TNotifier(TPollerBase &amp;poller)</div><div class="ttdoc">Creates a notifier bound to the listener&#39;s event-loop poller.</div><div class="ttdef"><b>Definition</b> notifier.cpp:17</div></div>
-</div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>Linux uses eventfd; other POSIX platforms use a non-blocking pipe. Supports readiness pollers: epoll, kqueue, poll, and select. </dd>
+<div class="ttc" id="aclassNNet_1_1TNotifier_html_a41eb6ae4ea8a2d6a46d3b5bb780207fb"><div class="ttname"><a href="#a41eb6ae4ea8a2d6a46d3b5bb780207fb">NNet::TNotifier::TNotifier</a></div><div class="ttdeci">TNotifier(TPoller &amp;poller)</div><div class="ttdoc">Creates a notifier bound to the listener&#39;s event-loop poller.</div><div class="ttdef"><b>Definition</b> notifier.hpp:95</div></div>
+</div><!-- fragment --><p>Code that must not depend on the poller type holds an <a class="el" href="classNNet_1_1INotifier.html" title="Interface of a thread-safe notification with a single asynchronous listener.">INotifier</a>&amp;.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">TPoller</td><td>The poller type of the listener's event loop; deduced from the constructor argument.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Linux uses eventfd; other POSIX platforms use a non-blocking pipe. Works with every POSIX poller: epoll, kqueue, poll, select, and uring. </dd>
 <dd>
 The poller must outlive the notifier. Stop producers and destroy or complete all waits before destroying the notifier. </dd></dl>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a1bc7a4bca86cf1a315fd1cf007086942" name="a1bc7a4bca86cf1a315fd1cf007086942"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1bc7a4bca86cf1a315fd1cf007086942">&#9670;&#160;</a></span>Notify()</h2>
+<a id="aa9a5f7c6961e3f0dd65686237e8232df" name="aa9a5f7c6961e3f0dd65686237e8232df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9a5f7c6961e3f0dd65686237e8232df">&#9670;&#160;</a></span>Notify()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename TPoller&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void NNet::TNotifier::Notify </td>
+          <td class="memname">void <a class="el" href="classNNet_1_1TNotifier.html">NNet::TNotifier</a>&lt; TPoller &gt;::Notify </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Signals the listener from any thread. </p>
-<p>Only the first call writes to the wakeup descriptor until the listener consumes the signal. A notification sent before <a class="el" href="#a03f9bdecce427955939221c3d67a9341" title="Asynchronously waits for and consumes a notification.">Wait()</a> is retained. </p>
+<p>Only the first call writes to the wakeup descriptor until the listener consumes the signal. A notification sent before <a class="el" href="#a8bba6af23bd7900af0635b457b099ef3" title="Asynchronously waits for and consumes a notification.">Wait()</a> is retained. </p>
+
+<p>Implements <a class="el" href="classNNet_1_1INotifier.html#a691bf4c5dbba36417b321c7ca9cbff78">NNet::INotifier</a>.</p>
 
 </div>
 </div>
-<a id="a03f9bdecce427955939221c3d67a9341" name="a03f9bdecce427955939221c3d67a9341"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a03f9bdecce427955939221c3d67a9341">&#9670;&#160;</a></span>Wait()</h2>
+<a id="a8bba6af23bd7900af0635b457b099ef3" name="a8bba6af23bd7900af0635b457b099ef3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bba6af23bd7900af0635b457b099ef3">&#9670;&#160;</a></span>Wait()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename TPoller&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; void &gt; NNet::TNotifier::Wait </td>
+          <td class="memname"><a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; void &gt; <a class="el" href="classNNet_1_1TNotifier.html">NNet::TNotifier</a>&lt; TPoller &gt;::Wait </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Asynchronously waits for and consumes a notification. </p>
@@ -192,11 +231,12 @@ The poller must outlive the notifier. Stop producers and destroy or complete all
   </dd>
 </dl>
 
+<p>Implements <a class="el" href="classNNet_1_1INotifier.html#a7fc67d11ab9f08c16afae9bdc30bc91f">NNet::INotifier</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>coroio/<a class="el" href="notifier_8hpp_source.html">notifier.hpp</a></li>
-<li>coroio/<b>notifier.cpp</b></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

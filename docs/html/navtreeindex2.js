@@ -1,7 +1,18 @@
 var NAVTREEINDEX2 =
 {
-"structNNet_1_1TZeroCopyLineSplitter.html#ae046dcda237bb388211cc3227dfe1465":[1,0,0,51,1],
-"structNNet_1_1TZeroCopyLineSplitter.html#af64b01796eb016cca29c41a39cb85de3":[1,0,0,51,0],
+"structNNet_1_1TStructReader.html#ab01ad1a8c37cc594376b468201382ef0":[1,0,0,50,1],
+"structNNet_1_1TTimer.html":[1,0,0,10],
+"structNNet_1_1TTypelessSocket.html":[1,0,0,21],
+"structNNet_1_1TVoidPromise.html":[1,0,0,36],
+"structNNet_1_1TVoidSuspendedPromise.html":[1,0,0,38],
+"structNNet_1_1TVoidSuspendedTask.html":[1,0,0,37],
+"structNNet_1_1TVoidTask.html":[1,0,0,35],
+"structNNet_1_1TZeroCopyLineSplitter.html":[1,0,0,52],
+"structNNet_1_1TZeroCopyLineSplitter.html#a1e1578720d20f66e7a1d6a05cbab7d73":[1,0,0,52,3],
+"structNNet_1_1TZeroCopyLineSplitter.html#a4f342c7968fc6559a7103db01503b248":[1,0,0,52,4],
+"structNNet_1_1TZeroCopyLineSplitter.html#abb13941bdde48ab6559a79149ac66353":[1,0,0,52,2],
+"structNNet_1_1TZeroCopyLineSplitter.html#ae046dcda237bb388211cc3227dfe1465":[1,0,0,52,1],
+"structNNet_1_1TZeroCopyLineSplitter.html#af64b01796eb016cca29c41a39cb85de3":[1,0,0,52,0],
 "uring_8hpp_source.html":[2,0,0,1,5],
 "utils_8hpp_source.html":[2,0,0,5,0],
 "ws_8hpp_source.html":[2,0,0,5,1]
