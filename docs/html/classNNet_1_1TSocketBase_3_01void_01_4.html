@@ -252,8 +252,15 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>Fd_</b> = -1</td></tr>
 </div><div class="memdoc">
 
 <p>Monitors the socket for remote hang-up (closure). </p>
-<p>This awaitable suspends the coroutine until a remote hang-up is detected.</p>
+<p>This awaitable suspends the coroutine until the peer closes the connection or shuts down its writing side, or the descriptor reports an error, and completes on the next loop iteration if that has already happened. Unread data does not complete it, and reads and writes on the same socket may wait at the same time.</p>
+<p>Only <a class="el" href="classNNet_1_1TEPoll.html" title="Linux-specific poller implementation using epoll.">TEPoll</a>, <a class="el" href="classNNet_1_1TKqueue.html" title="Poller implementation using kqueue (for macOS and FreeBSD).">TKqueue</a> and <a class="el" href="classNNet_1_1TPoll.html" title="Poller implementation based on the poll() system call.">TPoll</a> on Linux report remote hang-ups, see <a class="el" href="classNNet_1_1TPollerBase.html#a837929433daf37451b00c6c6afe98c0e" title="Tells whether the backend reports remote hang-ups.">TPollerBase::SupportsRemoteHup()</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>An awaitable object that yields a boolean value (true) once the remote hang-up is detected. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::system_error</td><td>with std::errc::operation_not_supported, at the call, on other pollers (<a class="el" href="classNNet_1_1TSelect.html" title="Poller implementation based on the select() system call.">TSelect</a>, <a class="el" href="classNNet_1_1TPoll.html" title="Poller implementation based on the poll() system call.">TPoll</a> outside Linux, <a class="el" href="classNNet_1_1TUring.html" title="Poller implementation based on io_uring.">TUring</a>, <a class="el" href="classNNet_1_1TIOCp.html" title="IOCP-based poller for asynchronous I/O on Windows.">TIOCp</a>). </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

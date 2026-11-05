@@ -130,8 +130,8 @@ Inheritance diagram for NNet::NActors::ICoroActor:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5fd4ca28712e4ae1e37d6b2207d420ec" id="r_a5fd4ca28712e4ae1e37d6b2207d420ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5fd4ca28712e4ae1e37d6b2207d420ec">Receive</a> (TMessageId messageId, <a class="el" href="structNNet_1_1NActors_1_1TBlob.html">TBlob</a> blob, TActorContext::TPtr ctx) override</td></tr>
-<tr class="memdesc:a5fd4ca28712e4ae1e37d6b2207d420ec"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classNNet_1_1NActors_1_1IActor.html" title="Base interface for all actors in the system.">IActor</a> bridge — invokes CoReceive and parks pending futures.  <br /></td></tr>
+<tr class="memitem:a86963e72e715bd26d93ed5150b3564db" id="r_a86963e72e715bd26d93ed5150b3564db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a86963e72e715bd26d93ed5150b3564db">Receive</a> (TMessageId messageId, <a class="el" href="structNNet_1_1NActors_1_1TBlob.html">TBlob</a> blob, TActorContext::TPtr ctx) final</td></tr>
+<tr class="memdesc:a86963e72e715bd26d93ed5150b3564db"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classNNet_1_1NActors_1_1IActor.html" title="Base interface for all actors in the system.">IActor</a> bridge — invokes CoReceive and parks pending futures.  <br /></td></tr>
 <tr class="memitem:af05a33d9500bef58393b020bb711b62f" id="r_af05a33d9500bef58393b020bb711b62f"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af05a33d9500bef58393b020bb711b62f">CoReceive</a> (TMessageId messageId, <a class="el" href="structNNet_1_1NActors_1_1TBlob.html">TBlob</a> blob, TActorContext::TPtr ctx)=0</td></tr>
 <tr class="memdesc:af05a33d9500bef58393b020bb711b62f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronous message handler (override in subclass).  <br /></td></tr>
 <tr class="inherit_header pub_methods_classNNet_1_1NActors_1_1IActor"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classNNet_1_1NActors_1_1IActor')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="classNNet_1_1NActors_1_1IActor.html">NNet::NActors::IActor</a></td></tr>
@@ -208,8 +208,8 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>TPtr</b> = std::uniq
 
 </div>
 </div>
-<a id="a5fd4ca28712e4ae1e37d6b2207d420ec" name="a5fd4ca28712e4ae1e37d6b2207d420ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5fd4ca28712e4ae1e37d6b2207d420ec">&#9670;&#160;</a></span>Receive()</h2>
+<a id="a86963e72e715bd26d93ed5150b3564db" name="a86963e72e715bd26d93ed5150b3564db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86963e72e715bd26d93ed5150b3564db">&#9670;&#160;</a></span>Receive()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -235,7 +235,7 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>TPtr</b> = std::uniq
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel final">final</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

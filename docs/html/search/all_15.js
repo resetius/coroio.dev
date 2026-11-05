@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['wait_0',['Wait',['../classNNet_1_1TUring.html#a25e8e35fb66e24e76b22b4a27f4897cd',1,'NNet::TUring::Wait()'],['../classNNet_1_1TPipe.html#a11cbd56fb31357f48507aebf89d016b2',1,'NNet::TPipe::Wait()']]],
+  ['wait_0',['Wait',['../classNNet_1_1TUring.html#a25e8e35fb66e24e76b22b4a27f4897cd',1,'NNet::TUring::Wait()'],['../classNNet_1_1TNotifier.html#a03f9bdecce427955939221c3d67a9341',1,'NNet::TNotifier::Wait()'],['../classNNet_1_1TPipe.html#a11cbd56fb31357f48507aebf89d016b2',1,'NNet::TPipe::Wait()']]],
   ['wakeup_1',['Wakeup',['../classNNet_1_1TPollerBase.html#a402d1b611ee88296e5853f22cb559c0e',1,'NNet::TPollerBase']]],
-  ['wakeupreadyhandles_2',['WakeupReadyHandles',['../classNNet_1_1TPollerBase.html#af6804d6768be5be6254355ec5fb143e9',1,'NNet::TPollerBase']]],
+  ['wakeupreadyhandles_2',['WakeupReadyHandles',['../classNNet_1_1TIOCp.html#a12737c285cbac5120a72004b2d7af333',1,'NNet::TIOCp::WakeupReadyHandles()'],['../classNNet_1_1TUring.html#acfafdb5359cf6d811ffa1ec87a2c7ea3',1,'NNet::TUring::WakeupReadyHandles()'],['../classNNet_1_1TPollerBase.html#af6804d6768be5be6254355ec5fb143e9',1,'NNet::TPollerBase::WakeupReadyHandles()']]],
   ['wellknowncookie_3',['WellKnownCookie',['../classNNet_1_1NActors_1_1TActorSystem.html#a40a02574ee2352218d07322923a93fa0',1,'NNet::NActors::TActorSystem']]],
   ['withport_4',['WithPort',['../classNNet_1_1TAddress.html#ac86c33475caacabe898a2a5f15027a77',1,'NNet::TAddress']]],
   ['write_5',['Write',['../classNNet_1_1TIOCp.html#af172a1aa5a9b70028156dfafbd721cfa',1,'NNet::TIOCp::Write()'],['../classNNet_1_1TUring.html#ac36d140087a033327a9fbcc2a1e715c4',1,'NNet::TUring::Write()'],['../structNNet_1_1TByteWriter.html#acc8363d16f9b540439d7e9c95185ecae',1,'NNet::TByteWriter::Write(const void *data, size_t size)'],['../structNNet_1_1TByteWriter.html#a1f907d3c1d0856578f11af55f1d12360',1,'NNet::TByteWriter::Write(const TLine &amp;line)']]],

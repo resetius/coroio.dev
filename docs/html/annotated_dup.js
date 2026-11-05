@@ -36,6 +36,10 @@ var annotated_dup =
         [ "TNode", "classNNet_1_1NActors_1_1TNode.html", "classNNet_1_1NActors_1_1TNode" ],
         [ "TUnboundedVectorQueue", "structNNet_1_1NActors_1_1TUnboundedVectorQueue.html", "structNNet_1_1NActors_1_1TUnboundedVectorQueue" ]
       ] ],
+      [ "NDetail", null, [
+        [ "TIntrusiveList", "classNNet_1_1NDetail_1_1TIntrusiveList.html", "classNNet_1_1NDetail_1_1TIntrusiveList" ],
+        [ "TIntrusiveNode", "classNNet_1_1NDetail_1_1TIntrusiveNode.html", "classNNet_1_1NDetail_1_1TIntrusiveNode" ]
+      ] ],
       [ "TAddress", "classNNet_1_1TAddress.html", "classNNet_1_1TAddress" ],
       [ "TArenaAllocator", "classNNet_1_1TArenaAllocator.html", null ],
       [ "TEPoll", "classNNet_1_1TEPoll.html", "classNNet_1_1TEPoll" ],
@@ -65,6 +69,7 @@ var annotated_dup =
       [ "TWebServer", "classNNet_1_1TWebServer.html", "classNNet_1_1TWebServer" ],
       [ "TInitializer", "classNNet_1_1TInitializer.html", null ],
       [ "TLoop", "classNNet_1_1TLoop.html", "classNNet_1_1TLoop" ],
+      [ "TNotifier", "classNNet_1_1TNotifier.html", "classNNet_1_1TNotifier" ],
       [ "TPipe", "classNNet_1_1TPipe.html", "classNNet_1_1TPipe" ],
       [ "TPollerBase", "classNNet_1_1TPollerBase.html", "classNNet_1_1TPollerBase" ],
       [ "TVoidTask", "structNNet_1_1TVoidTask.html", null ],

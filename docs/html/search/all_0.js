@@ -22,5 +22,6 @@ var searchData=
   ['apply_19',['Apply',['../structNNet_1_1TFuture.html#a7533f41343b982315c55cc1cdd450b2e',1,'NNet::TFuture::Apply()'],['../structNNet_1_1TFuture.html#a7533f41343b982315c55cc1cdd450b2e',1,'NNet::TFuture&lt; void &gt;::Apply()']]],
   ['ask_20',['Ask',['../classNNet_1_1NActors_1_1TActorContext.html#a822f9ac25826a245b80061acfd81d36c',1,'NNet::NActors::TActorContext::Ask()'],['../classNNet_1_1NActors_1_1TActorSystem.html#a1ce669df5ce011bc0a0410feb64eafc4',1,'NNet::NActors::TActorSystem::Ask()']]],
   ['async_20behavior_20example_21',['Async Behavior Example',['../actor_8hpp.html#async_behavior',1,'']]],
-  ['asynchronous_20i_20o_20networking_20library_22',['Asynchronous I/O &amp;amp; Networking Library',['../index.html',1,'']]]
+  ['asynchronous_20i_20o_20networking_20library_22',['Asynchronous I/O &amp;amp; Networking Library',['../index.html',1,'']]],
+  ['asyncwait_23',['AsyncWait',['../classNNet_1_1TPipe.html#ad0e6c0e0bf093ecc181dc67654a4d52c',1,'NNet::TPipe']]]
 ];

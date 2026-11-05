@@ -6,5 +6,6 @@ var classNNet_1_1NActors_1_1TActorId =
     [ "Cookie", "classNNet_1_1NActors_1_1TActorId.html#a2e335f35e4021fa98acb33d2f2730ea0", null ],
     [ "NodeId", "classNNet_1_1NActors_1_1TActorId.html#a13d58ac46a0c1aa19e8f15fec317bb47", null ],
     [ "operator bool", "classNNet_1_1NActors_1_1TActorId.html#a75d2a79a94714fc7ac02090932612dcf", null ],
+    [ "operator==", "classNNet_1_1NActors_1_1TActorId.html#a058c58eb159b6c0c89137327909cf93e", null ],
     [ "ToString", "classNNet_1_1NActors_1_1TActorId.html#a896d784fb55615bda04dd3c01de354ed", null ]
 ];

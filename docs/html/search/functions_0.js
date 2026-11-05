@@ -15,5 +15,6 @@ var searchData=
   ['all_12',['All',['../corochain_8hpp.html#adb78d9d3ff33476a0eeca4d1a4232f75',1,'NNet::All(std::vector&lt; TFuture&lt; T &gt; &gt; &amp;&amp;futures)'],['../corochain_8hpp.html#a217471e25ac3862dceaa0846b4b79e10',1,'NNet::All(std::vector&lt; TFuture&lt; void &gt; &gt; &amp;&amp;futures)']]],
   ['any_13',['Any',['../corochain_8hpp.html#aac05bd9ab44dfb1d8e3448e79801e4c6',1,'NNet::Any(std::vector&lt; TFuture&lt; T &gt; &gt; &amp;&amp;futures)'],['../corochain_8hpp.html#a0dbe02d9e59d8918d3f613fd7fb44b6c',1,'NNet::Any(std::vector&lt; TFuture&lt; void &gt; &gt; &amp;&amp;futures)']]],
   ['apply_14',['Apply',['../structNNet_1_1TFuture.html#a7533f41343b982315c55cc1cdd450b2e',1,'NNet::TFuture::Apply()'],['../structNNet_1_1TFuture.html#a7533f41343b982315c55cc1cdd450b2e',1,'NNet::TFuture&lt; void &gt;::Apply()']]],
-  ['ask_15',['Ask',['../classNNet_1_1NActors_1_1TActorContext.html#a822f9ac25826a245b80061acfd81d36c',1,'NNet::NActors::TActorContext::Ask()'],['../classNNet_1_1NActors_1_1TActorSystem.html#a1ce669df5ce011bc0a0410feb64eafc4',1,'NNet::NActors::TActorSystem::Ask()']]]
+  ['ask_15',['Ask',['../classNNet_1_1NActors_1_1TActorContext.html#a822f9ac25826a245b80061acfd81d36c',1,'NNet::NActors::TActorContext::Ask()'],['../classNNet_1_1NActors_1_1TActorSystem.html#a1ce669df5ce011bc0a0410feb64eafc4',1,'NNet::NActors::TActorSystem::Ask()']]],
+  ['asyncwait_16',['AsyncWait',['../classNNet_1_1TPipe.html#ad0e6c0e0bf093ecc181dc67654a4d52c',1,'NNet::TPipe']]]
 ];

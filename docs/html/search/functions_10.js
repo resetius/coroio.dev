@@ -22,5 +22,6 @@ var searchData=
   ['startconnect_19',['StartConnect',['../classNNet_1_1NActors_1_1INode.html#ae3c9a882b75c96f9c2120937562f1ff8',1,'NNet::NActors::INode::StartConnect()'],['../classNNet_1_1NActors_1_1TNode.html#a53bb72c4da0f2cf18ac3f71efe745e2e',1,'NNet::NActors::TNode::StartConnect()']]],
   ['statuscode_20',['StatusCode',['../classNNet_1_1TResponse.html#a6adf1cf0aa43abd97c929b8d00e090aa',1,'NNet::TResponse']]],
   ['step_21',['Step',['../classNNet_1_1TLoop.html#ad528377d1b81c264334d7271953b6e2b',1,'NNet::TLoop']]],
-  ['stop_22',['Stop',['../classNNet_1_1TLoop.html#a3b3f1469844eaa90ad8d0326d361793b',1,'NNet::TLoop']]]
+  ['stop_22',['Stop',['../classNNet_1_1TLoop.html#a3b3f1469844eaa90ad8d0326d361793b',1,'NNet::TLoop']]],
+  ['supportsremotehup_23',['SupportsRemoteHup',['../classNNet_1_1TPollerBase.html#a837929433daf37451b00c6c6afe98c0e',1,'NNet::TPollerBase']]]
 ];

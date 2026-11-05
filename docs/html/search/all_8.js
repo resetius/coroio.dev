@@ -14,5 +14,6 @@ var searchData=
   ['irouter_11',['IRouter',['../structNNet_1_1IRouter.html',1,'NNet']]],
   ['is_5flocal_5fmessage_12',['is_local_message',['../structNNet_1_1NActors_1_1is__local__message.html',1,'NNet::NActors']]],
   ['is_5flocal_5fmessage_3c_20t_2c_20std_3a_3avoid_5ft_3c_20typename_20t_3a_3alocalmessage_20_3e_20_3e_13',['is_local_message&lt; T, std::void_t&lt; typename T::LocalMessage &gt; &gt;',['../structNNet_1_1NActors_1_1is__local__message_3_01T_00_01std_1_1void__t_3_01typename_01T_1_1LocalMessage_01_4_01_4.html',1,'NNet::NActors']]],
-  ['isclosed_14',['IsClosed',['../classNNet_1_1TResponse.html#a8a2acada6017ca8f60b0a65b4c4eec68',1,'NNet::TResponse']]]
+  ['isclosed_14',['IsClosed',['../classNNet_1_1TResponse.html#a8a2acada6017ca8f60b0a65b4c4eec68',1,'NNet::TResponse']]],
+  ['islinked_15',['IsLinked',['../classNNet_1_1NDetail_1_1TIntrusiveNode.html#a09adb4189290cf04d621a99e3db393c3',1,'NNet::NDetail::TIntrusiveNode']]]
 ];
