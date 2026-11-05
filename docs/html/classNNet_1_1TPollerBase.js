@@ -9,12 +9,14 @@ var classNNet_1_1TPollerBase =
     [ "GetTimeout", "classNNet_1_1TPollerBase.html#a0008a394cf1744e9369e60bcf75cdfc5", null ],
     [ "ProcessTimers", "classNNet_1_1TPollerBase.html#a5552a86441c63d811e6a0d6039d391bd", null ],
     [ "RemoveEvent", "classNNet_1_1TPollerBase.html#aa07a131f7224e0c939e2df9b83982146", null ],
+    [ "RemoveEvent", "classNNet_1_1TPollerBase.html#ad38b3fc6cd909f6390ca946d01dad4c5", null ],
     [ "RemoveEvent", "classNNet_1_1TPollerBase.html#ab78789b92e7aa174e72c3d569deec1e7", null ],
     [ "RemoveTimer", "classNNet_1_1TPollerBase.html#a9bbf27b42f97eded40eb715f56340025", null ],
     [ "Reset", "classNNet_1_1TPollerBase.html#a4b9dbb4524e688ab7fbb2139a2cf39cb", null ],
     [ "SetMaxDuration", "classNNet_1_1TPollerBase.html#a53a432cfd20b24377c78a25f351dd6ff", null ],
     [ "Sleep", "classNNet_1_1TPollerBase.html#af9264dcf4631dfa5d7a79148f36905d1", null ],
     [ "Sleep", "classNNet_1_1TPollerBase.html#a9550c4ddfa4a29b3723ee00098617dc5", null ],
+    [ "SupportsRemoteHup", "classNNet_1_1TPollerBase.html#a837929433daf37451b00c6c6afe98c0e", null ],
     [ "TimersSize", "classNNet_1_1TPollerBase.html#a9df9e635e76b7c333c3db6cb45950996", null ],
     [ "Wakeup", "classNNet_1_1TPollerBase.html#a402d1b611ee88296e5853f22cb559c0e", null ],
     [ "WakeupReadyHandles", "classNNet_1_1TPollerBase.html#af6804d6768be5be6254355ec5fb143e9", null ],
@@ -26,6 +28,7 @@ var classNNet_1_1TPollerBase =
     [ "MaxDurationTs_", "classNNet_1_1TPollerBase.html#a98e530e56732cf5bd44cee9bcb560e1f", null ],
     [ "MaxFd_", "classNNet_1_1TPollerBase.html#a89d1a51b43037fd32359536167119b95", null ],
     [ "ReadyEvents_", "classNNet_1_1TPollerBase.html#a879f1f18716aa8dcc4acdf3a2091b6d2", null ],
+    [ "SupportsRemoteHup_", "classNNet_1_1TPollerBase.html#a533c97345e99b482d0cda62bfb68692c", null ],
     [ "TimerId_", "classNNet_1_1TPollerBase.html#ae087572babbd8152aa25a6ac385a9c02", null ],
     [ "Timers_", "classNNet_1_1TPollerBase.html#a97bb349d12b646020bc2584bc1251627", null ]
 ];

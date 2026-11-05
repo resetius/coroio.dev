@@ -134,7 +134,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SetHeader</b> (const 
 <tr class="memitem:a1e7c3ea18798afcae28d93acc777a7a9" id="r_a1e7c3ea18798afcae28d93acc777a7a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e7c3ea18798afcae28d93acc777a7a9">WriteBodyChunk</a> (const char *data, size_t size)</td></tr>
 <tr class="memdesc:a1e7c3ea18798afcae28d93acc777a7a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes <span class="tt">data</span> as one chunk using Transfer-Encoding: chunked.  <br /></td></tr>
 <tr class="memitem:a67156beb4d672e8f0d5f1f0bba182f32" id="r_a67156beb4d672e8f0d5f1f0bba182f32"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67156beb4d672e8f0d5f1f0bba182f32">WriteBodyFull</a> (const std::string &amp;data)</td></tr>
-<tr class="memdesc:a67156beb4d672e8f0d5f1f0bba182f32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends headers (with <span class="tt">Content-Length</span>) and the full body in one call.  <br /></td></tr>
+<tr class="memdesc:a67156beb4d672e8f0d5f1f0bba182f32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the full body, sending the headers first if they were not sent yet.  <br /></td></tr>
 <tr class="memitem:a8a2acada6017ca8f60b0a65b4c4eec68" id="r_a8a2acada6017ca8f60b0a65b4c4eec68"><td class="memItemLeft" align="right" valign="top"><a id="a8a2acada6017ca8f60b0a65b4c4eec68" name="a8a2acada6017ca8f60b0a65b4c4eec68"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsClosed</b> () const</td></tr>
 <tr class="memdesc:a8a2acada6017ca8f60b0a65b4c4eec68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <span class="tt">true</span> if the connection has been closed or an error occurred. <br /></td></tr>
@@ -146,11 +146,12 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>StatusCode</b> () cons
 <div class="textblock"><p>Builds and sends an HTTP/1.1 response. </p>
 <p>Typical usage in a router handler: </p><div class="fragment"><div class="line">response.SetStatus(200);</div>
 <div class="line">response.SetHeader(<span class="stringliteral">&quot;Content-Type&quot;</span>, <span class="stringliteral">&quot;text/plain&quot;</span>);</div>
-<div class="line"><span class="keyword">co_await</span> response.SendHeaders();</div>
-<div class="line"><span class="keyword">co_await</span> response.WriteBodyFull(<span class="stringliteral">&quot;hello&quot;</span>);    <span class="comment">// sets Content-Length automatically</span></div>
+<div class="line"><span class="keyword">co_await</span> response.WriteBodyFull(<span class="stringliteral">&quot;hello&quot;</span>);    <span class="comment">// sends headers with Content-Length, then the body</span></div>
 <div class="line"><span class="comment">// -- or streaming --</span></div>
-<div class="line"><span class="keyword">co_await</span> response.WriteBodyChunk(data, size); <span class="comment">// Transfer-Encoding: chunked</span></div>
-</div><!-- fragment --><p><span class="tt"><a class="el" href="#a62381a065a5d753d7ec171eeff956994" title="Sets the HTTP status code (default is 200). Must be called before SendHeaders.">SetStatus</a></span> and <span class="tt"><a class="el" href="#aa602f13b21c754ed235c5c77269a1ae6" title="Adds or replaces a response header. Must be called before SendHeaders.">SetHeader</a></span> must be called <b>before</b> <span class="tt"><a class="el" href="#a7aa14229338e7cebd3ed818d09653bb1" title="Sends the status line and all accumulated headers to the client.">SendHeaders</a></span>. After <span class="tt"><a class="el" href="#a7aa14229338e7cebd3ed818d09653bb1" title="Sends the status line and all accumulated headers to the client.">SendHeaders</a></span>, only body-write methods may be called. </p>
+<div class="line">response.SetHeader(<span class="stringliteral">&quot;Transfer-Encoding&quot;</span>, <span class="stringliteral">&quot;chunked&quot;</span>);</div>
+<div class="line"><span class="keyword">co_await</span> response.SendHeaders();</div>
+<div class="line"><span class="keyword">co_await</span> response.WriteBodyChunk(data, size);</div>
+</div><!-- fragment --><p><span class="tt"><a class="el" href="#a62381a065a5d753d7ec171eeff956994" title="Sets the HTTP status code (default is 200). Must be called before SendHeaders.">SetStatus</a></span> and <span class="tt"><a class="el" href="#aa602f13b21c754ed235c5c77269a1ae6" title="Adds or replaces a response header. Must be called before SendHeaders.">SetHeader</a></span> must be called <b>before</b> the headers are sent (by <span class="tt"><a class="el" href="#a7aa14229338e7cebd3ed818d09653bb1" title="Sends the status line and all accumulated headers to the client.">SendHeaders</a></span> or, implicitly, by <span class="tt"><a class="el" href="#a67156beb4d672e8f0d5f1f0bba182f32" title="Writes the full body, sending the headers first if they were not sent yet.">WriteBodyFull</a></span>). After that, only body-write methods may be called. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a7aa14229338e7cebd3ed818d09653bb1" name="a7aa14229338e7cebd3ed818d09653bb1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7aa14229338e7cebd3ed818d09653bb1">&#9670;&#160;</a></span>SendHeaders()</h2>
@@ -168,7 +169,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>StatusCode</b> () cons
 </div><div class="memdoc">
 
 <p>Sends the status line and all accumulated headers to the client. </p>
-<p>Must be called exactly once, after <span class="tt"><a class="el" href="#a62381a065a5d753d7ec171eeff956994" title="Sets the HTTP status code (default is 200). Must be called before SendHeaders.">SetStatus</a></span>/<span class="tt"><a class="el" href="#aa602f13b21c754ed235c5c77269a1ae6" title="Adds or replaces a response header. Must be called before SendHeaders.">SetHeader</a></span> and before any body write. If <span class="tt"><a class="el" href="#a67156beb4d672e8f0d5f1f0bba182f32" title="Sends headers (with Content-Length) and the full body in one call.">WriteBodyFull</a></span> is used instead, <span class="tt"><a class="el" href="#a7aa14229338e7cebd3ed818d09653bb1" title="Sends the status line and all accumulated headers to the client.">SendHeaders</a></span> is called implicitly. </p>
+<p>Call it after <span class="tt"><a class="el" href="#a62381a065a5d753d7ec171eeff956994" title="Sets the HTTP status code (default is 200). Must be called before SendHeaders.">SetStatus</a></span>/<span class="tt"><a class="el" href="#aa602f13b21c754ed235c5c77269a1ae6" title="Adds or replaces a response header. Must be called before SendHeaders.">SetHeader</a></span> and before any body write, except when <span class="tt"><a class="el" href="#a67156beb4d672e8f0d5f1f0bba182f32" title="Writes the full body, sending the headers first if they were not sent yet.">WriteBodyFull</a></span> is the only body write: it sends the headers itself. A repeated call has no effect. </p>
 
 </div>
 </div>
@@ -211,8 +212,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>StatusCode</b> () cons
       </table>
 </div><div class="memdoc">
 
-<p>Sends headers (with <span class="tt">Content-Length</span>) and the full body in one call. </p>
-<p>Implies <span class="tt"><a class="el" href="#a7aa14229338e7cebd3ed818d09653bb1" title="Sends the status line and all accumulated headers to the client.">SendHeaders()</a></span> — do not call it separately when using this method. </p>
+<p>Writes the full body, sending the headers first if they were not sent yet. </p>
+<p>If <span class="tt"><a class="el" href="#a7aa14229338e7cebd3ed818d09653bb1" title="Sends the status line and all accumulated headers to the client.">SendHeaders()</a></span> has not been called, sets <span class="tt">Content-Length</span> to the body size (unless <span class="tt">Content-Length</span> or <span class="tt">Transfer-Encoding</span> is already set) and sends the headers. If it has, only the body is written. </p>
 
 </div>
 </div>

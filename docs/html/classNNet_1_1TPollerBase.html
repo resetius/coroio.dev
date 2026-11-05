@@ -152,11 +152,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a89b328d4fd41f981d576dd48463ab5b2" id="r_a89b328d4fd41f981d576dd48463ab5b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a89b328d4fd41f981d576dd48463ab5b2">AddWrite</a> (int fd, THandle h)</td></tr>
 <tr class="memdesc:a89b328d4fd41f981d576dd48463ab5b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a write interest on a file descriptor.  <br /></td></tr>
 <tr class="memitem:a0572e77df07a824c0c4948fc548a7d4e" id="r_a0572e77df07a824c0c4948fc548a7d4e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0572e77df07a824c0c4948fc548a7d4e">AddRemoteHup</a> (int fd, THandle h)</td></tr>
-<tr class="memdesc:a0572e77df07a824c0c4948fc548a7d4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a remote hang-up (RHUP) event.  <br /></td></tr>
+<tr class="memdesc:a0572e77df07a824c0c4948fc548a7d4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a remote hang-up (RHUP) interest on a file descriptor.  <br /></td></tr>
+<tr class="memitem:a837929433daf37451b00c6c6afe98c0e" id="r_a837929433daf37451b00c6c6afe98c0e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a837929433daf37451b00c6c6afe98c0e">SupportsRemoteHup</a> () const</td></tr>
+<tr class="memdesc:a837929433daf37451b00c6c6afe98c0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the backend reports remote hang-ups.  <br /></td></tr>
 <tr class="memitem:aa07a131f7224e0c939e2df9b83982146" id="r_aa07a131f7224e0c939e2df9b83982146"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa07a131f7224e0c939e2df9b83982146">RemoveEvent</a> (int fd)</td></tr>
 <tr class="memdesc:aa07a131f7224e0c939e2df9b83982146"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes registered events for a specific file descriptor.  <br /></td></tr>
+<tr class="memitem:ad38b3fc6cd909f6390ca946d01dad4c5" id="r_ad38b3fc6cd909f6390ca946d01dad4c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad38b3fc6cd909f6390ca946d01dad4c5">RemoveEvent</a> (int fd, THandle h)</td></tr>
+<tr class="memdesc:ad38b3fc6cd909f6390ca946d01dad4c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cancels the wait of a coroutine destroyed while suspended on <code class="param">fd</code>.  <br /></td></tr>
 <tr class="memitem:ab78789b92e7aa174e72c3d569deec1e7" id="r_ab78789b92e7aa174e72c3d569deec1e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab78789b92e7aa174e72c3d569deec1e7">RemoveEvent</a> (THandle)</td></tr>
-<tr class="memdesc:ab78789b92e7aa174e72c3d569deec1e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">No-op placeholder for future cleanup by handle.  <br /></td></tr>
+<tr class="memdesc:ab78789b92e7aa174e72c3d569deec1e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Former placeholder, does nothing.  <br /></td></tr>
 <tr class="memitem:a9550c4ddfa4a29b3723ee00098617dc5" id="r_a9550c4ddfa4a29b3723ee00098617dc5"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9550c4ddfa4a29b3723ee00098617dc5">Sleep</a> (TTime until)</td></tr>
 <tr class="memdesc:a9550c4ddfa4a29b3723ee00098617dc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Suspends execution until the specified time.  <br /></td></tr>
 <tr class="memitem:af9264dcf4631dfa5d7a79148f36905d1" id="r_af9264dcf4631dfa5d7a79148f36905d1"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
@@ -188,12 +192,17 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Reset</b> ()</td></tr
 Static Protected Member Functions</h2></td></tr>
 <tr class="memitem:ad9dd7feb761339f5c7aa0614ed4a6d35" id="r_ad9dd7feb761339f5c7aa0614ed4a6d35"><td class="memItemLeft" align="right" valign="top">static constexpr timespec&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad9dd7feb761339f5c7aa0614ed4a6d35">GetMaxDuration</a> (std::chrono::milliseconds duration)</td></tr>
 <tr class="memdesc:ad9dd7feb761339f5c7aa0614ed4a6d35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes a timespec from a duration.  <br /></td></tr>
+<tr class="memitem:a7223bc427d5d20caf201c551d9aa2270" id="r_a7223bc427d5d20caf201c551d9aa2270"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structNNet_1_1TEvent.html">TEvent</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7223bc427d5d20caf201c551d9aa2270">ResolveCancel</a> (const <a class="el" href="structNNet_1_1TEvent.html">TEvent</a> &amp;change, const <a class="el" href="structNNet_1_1THandlePair.html">THandlePair</a> &amp;ev)</td></tr>
+<tr class="memdesc:a7223bc427d5d20caf201c551d9aa2270"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns a cancellation queued by <a class="el" href="#ad38b3fc6cd909f6390ca946d01dad4c5" title="Cancels the wait of a coroutine destroyed while suspended on fd.">RemoveEvent(int, THandle)</a> into a removal.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a89d1a51b43037fd32359536167119b95" id="r_a89d1a51b43037fd32359536167119b95"><td class="memItemLeft" align="right" valign="top"><a id="a89d1a51b43037fd32359536167119b95" name="a89d1a51b43037fd32359536167119b95"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>MaxFd_</b> = 0</td></tr>
 <tr class="memdesc:a89d1a51b43037fd32359536167119b95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Highest file descriptor in use. <br /></td></tr>
+<tr class="memitem:a533c97345e99b482d0cda62bfb68692c" id="r_a533c97345e99b482d0cda62bfb68692c"><td class="memItemLeft" align="right" valign="top"><a id="a533c97345e99b482d0cda62bfb68692c" name="a533c97345e99b482d0cda62bfb68692c"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>SupportsRemoteHup_</b> = false</td></tr>
+<tr class="memdesc:a533c97345e99b482d0cda62bfb68692c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set by the constructors of backends that report remote hang-ups. <br /></td></tr>
 <tr class="memitem:ac5ee3ec8bf6d2c2a7d233fca320cd44e" id="r_ac5ee3ec8bf6d2c2a7d233fca320cd44e"><td class="memItemLeft" align="right" valign="top"><a id="ac5ee3ec8bf6d2c2a7d233fca320cd44e" name="ac5ee3ec8bf6d2c2a7d233fca320cd44e"></a>
 std::vector&lt; <a class="el" href="structNNet_1_1TEvent.html">TEvent</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Changes_</b></td></tr>
 <tr class="memdesc:ac5ee3ec8bf6d2c2a7d233fca320cd44e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pending changes (registered events). <br /></td></tr>
@@ -223,7 +232,7 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
 <div class="textblock"><p>Backend-independent base for I/O pollers. </p>
 <p>Manages three concerns shared by all poller backends:</p><ul>
 <li><b>Timers</b> — <span class="tt"><a class="el" href="#a66e728fd17de36c493a0e915115d417e" title="Schedules a timer.">AddTimer</a></span> / <span class="tt"><a class="el" href="#a9bbf27b42f97eded40eb715f56340025" title="Removes or cancels a timer.">RemoveTimer</a></span> / <span class="tt"><a class="el" href="#a5552a86441c63d811e6a0d6039d391bd" title="Processes scheduled timers.">ProcessTimers</a></span></li>
-<li><b>I/O event registration</b> — <span class="tt"><a class="el" href="#ab6a316e28273f1867347ccf08933f506" title="Registers a read interest on a file descriptor.">AddRead</a></span>, <span class="tt"><a class="el" href="#a89b328d4fd41f981d576dd48463ab5b2" title="Registers a write interest on a file descriptor.">AddWrite</a></span>, <span class="tt"><a class="el" href="#a0572e77df07a824c0c4948fc548a7d4e" title="Registers a remote hang-up (RHUP) event.">AddRemoteHup</a></span>, <span class="tt"><a class="el" href="#aa07a131f7224e0c939e2df9b83982146" title="Removes registered events for a specific file descriptor.">RemoveEvent</a></span></li>
+<li><b>I/O event registration</b> — <span class="tt"><a class="el" href="#ab6a316e28273f1867347ccf08933f506" title="Registers a read interest on a file descriptor.">AddRead</a></span>, <span class="tt"><a class="el" href="#a89b328d4fd41f981d576dd48463ab5b2" title="Registers a write interest on a file descriptor.">AddWrite</a></span>, <span class="tt"><a class="el" href="#a0572e77df07a824c0c4948fc548a7d4e" title="Registers a remote hang-up (RHUP) interest on a file descriptor.">AddRemoteHup</a></span>, <span class="tt"><a class="el" href="#aa07a131f7224e0c939e2df9b83982146" title="Removes registered events for a specific file descriptor.">RemoveEvent</a></span></li>
 <li><b>Coroutine scheduling</b> — <span class="tt"><a class="el" href="#a9550c4ddfa4a29b3723ee00098617dc5" title="Suspends execution until the specified time.">Sleep</a></span>, <span class="tt"><a class="el" href="#aea08fab15fd419093ffc18b9a5b5b267" title="Suspends the coroutine until the next event-loop iteration.">Yield</a></span>, <span class="tt"><a class="el" href="#a402d1b611ee88296e5853f22cb559c0e" title="Wakes up a coroutine waiting on an event.">Wakeup</a></span>, <span class="tt"><a class="el" href="#af6804d6768be5be6254355ec5fb143e9" title="Wakes up all coroutines waiting on ready events.">WakeupReadyHandles</a></span></li>
 </ul>
 <p>Concrete backends (<a class="el" href="classNNet_1_1TEPoll.html" title="Linux-specific poller implementation using epoll.">TEPoll</a>, <a class="el" href="classNNet_1_1TKqueue.html" title="Poller implementation using kqueue (for macOS and FreeBSD).">TKqueue</a>, …) inherit from this class and implement <span class="tt">Poll()</span> to fill <span class="tt"><a class="el" href="#a879f1f18716aa8dcc4acdf3a2091b6d2" title="Events ready to wake up their coroutines.">ReadyEvents_</a></span> using the OS-specific mechanism, then call <span class="tt"><a class="el" href="#af6804d6768be5be6254355ec5fb143e9" title="Wakes up all coroutines waiting on ready events.">WakeupReadyHandles()</a></span> (provided here) to resume waiting coroutines. </p>
@@ -294,11 +303,19 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
 </table>
 </div><div class="memdoc">
 
-<p>Registers a remote hang-up (RHUP) event. </p>
+<p>Registers a remote hang-up (RHUP) interest on a file descriptor. </p>
+<p><span class="tt">h</span> will be resumed by <span class="tt"><a class="el" href="#af6804d6768be5be6254355ec5fb143e9" title="Wakes up all coroutines waiting on ready events.">WakeupReadyHandles()</a></span> once the peer closes the connection or shuts down its writing side, or the descriptor reports an error (e.g. the write end of a pipe whose read end is closed), on the next loop iteration if that has already happened. Unread data does not resume it. A reader and a writer may wait on the same descriptor at the same time.</p>
+<p>Only <a class="el" href="classNNet_1_1TEPoll.html" title="Linux-specific poller implementation using epoll.">TEPoll</a>, <a class="el" href="classNNet_1_1TKqueue.html" title="Poller implementation using kqueue (for macOS and FreeBSD).">TKqueue</a> and <a class="el" href="classNNet_1_1TPoll.html" title="Poller implementation based on the poll() system call.">TPoll</a> on Linux report remote hang-ups, see <a class="el" href="#a837929433daf37451b00c6c6afe98c0e" title="Tells whether the backend reports remote hang-ups.">SupportsRemoteHup()</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">fd</td><td>The file descriptor. </td></tr>
     <tr><td class="paramname">h</td><td>The coroutine handle to resume when the remote end closes the connection. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::system_error</td><td>with std::errc::operation_not_supported on other backends (<a class="el" href="classNNet_1_1TSelect.html" title="Poller implementation based on the select() system call.">TSelect</a>, <a class="el" href="classNNet_1_1TPoll.html" title="Poller implementation based on the poll() system call.">TPoll</a> outside Linux, <a class="el" href="classNNet_1_1TUring.html" title="Poller implementation based on io_uring.">TUring</a>, <a class="el" href="classNNet_1_1TIOCp.html" title="IOCP-based poller for asynchronous I/O on Windows.">TIOCp</a>). </td></tr>
   </table>
   </dd>
 </dl>
@@ -475,7 +492,7 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
 </div>
 </div>
 <a id="aa07a131f7224e0c939e2df9b83982146" name="aa07a131f7224e0c939e2df9b83982146"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa07a131f7224e0c939e2df9b83982146">&#9670;&#160;</a></span>RemoveEvent() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa07a131f7224e0c939e2df9b83982146">&#9670;&#160;</a></span>RemoveEvent() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -508,8 +525,47 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
 
 </div>
 </div>
+<a id="ad38b3fc6cd909f6390ca946d01dad4c5" name="ad38b3fc6cd909f6390ca946d01dad4c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad38b3fc6cd909f6390ca946d01dad4c5">&#9670;&#160;</a></span>RemoveEvent() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NNet::TPollerBase::RemoveEvent </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>fd</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">THandle</td>          <td class="paramname"><span class="paramname"><em>h</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Cancels the wait of a coroutine destroyed while suspended on <code class="param">fd</code>. </p>
+<p>Called by destructors of unfinished awaitables. Drops <code class="param">h</code> from ready events immediately and queues removal of the backend registrations that still belong to <code class="param">h</code>, so a newer waiter on the same descriptor number keeps its own. Call on the poller thread. Because of this call the poller must outlive every coroutine suspended on a socket awaitable.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fd</td><td>The file descriptor passed to AddRead, AddWrite or AddRemoteHup. </td></tr>
+    <tr><td class="paramname">h</td><td>The coroutine handle passed with it. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ab78789b92e7aa174e72c3d569deec1e7" name="ab78789b92e7aa174e72c3d569deec1e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab78789b92e7aa174e72c3d569deec1e7">&#9670;&#160;</a></span>RemoveEvent() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab78789b92e7aa174e72c3d569deec1e7">&#9670;&#160;</a></span>RemoveEvent() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -531,14 +587,8 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
 </table>
 </div><div class="memdoc">
 
-<p>No-op placeholder for future cleanup by handle. </p>
-<p>Intended to be called by destructors of unfinished futures so that pending waits can be unregistered. Currently unimplemented.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">h</td><td>The coroutine handle (unused). </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Former placeholder, does nothing. </p>
+<p>Destroyed awaitables cancel their own waits with <a class="el" href="#ad38b3fc6cd909f6390ca946d01dad4c5" title="Cancels the wait of a coroutine destroyed while suspended on fd.">RemoveEvent(int, THandle)</a>. </p>
 
 </div>
 </div>
@@ -579,6 +629,46 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the timer had already fired; false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a7223bc427d5d20caf201c551d9aa2270" name="a7223bc427d5d20caf201c551d9aa2270"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7223bc427d5d20caf201c551d9aa2270">&#9670;&#160;</a></span>ResolveCancel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structNNet_1_1TEvent.html">TEvent</a> NNet::TPollerBase::ResolveCancel </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structNNet_1_1TEvent.html">TEvent</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>change</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structNNet_1_1THandlePair.html">THandlePair</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ev</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Turns a cancellation queued by <a class="el" href="#ad38b3fc6cd909f6390ca946d01dad4c5" title="Cancels the wait of a coroutine destroyed while suspended on fd.">RemoveEvent(int, THandle)</a> into a removal. </p>
+<p>Backends call it on every pending change before applying it; other changes are returned as is.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">change</td><td>A pending change. </td></tr>
+    <tr><td class="paramname">ev</td><td>The backend's current registrations for <span class="tt">change.Fd</span>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A removal of the directions still registered to the cancelled handle. </dd></dl>
 
 </div>
 </div>
@@ -690,6 +780,34 @@ template&lt;typename Rep, typename Period&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>An awaitable sleep object. </dd></dl>
+
+</div>
+</div>
+<a id="a837929433daf37451b00c6c6afe98c0e" name="a837929433daf37451b00c6c6afe98c0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a837929433daf37451b00c6c6afe98c0e">&#9670;&#160;</a></span>SupportsRemoteHup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool NNet::TPollerBase::SupportsRemoteHup </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tells whether the backend reports remote hang-ups. </p>
+<dl class="section return"><dt>Returns</dt><dd>True for <a class="el" href="classNNet_1_1TEPoll.html" title="Linux-specific poller implementation using epoll.">TEPoll</a>, <a class="el" href="classNNet_1_1TKqueue.html" title="Poller implementation using kqueue (for macOS and FreeBSD).">TKqueue</a> and <a class="el" href="classNNet_1_1TPoll.html" title="Poller implementation based on the poll() system call.">TPoll</a> on Linux; <a class="el" href="#a0572e77df07a824c0c4948fc548a7d4e" title="Registers a remote hang-up (RHUP) interest on a file descriptor.">AddRemoteHup()</a> and <a class="el" href="classNNet_1_1TSocketBase.html#a1039bddf2bcba3f1277319ab90a5d63e" title="Monitors the socket for remote hang-up (closure).">TSocketBase::Monitor()</a> throw on other backends. </dd></dl>
 
 </div>
 </div>

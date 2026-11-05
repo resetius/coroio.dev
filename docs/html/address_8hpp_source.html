@@ -161,8 +161,10 @@ $(function(){initNavTree('address_8hpp_source.html','',''); });
 <div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    std::variant&lt;sockaddr_in, sockaddr_in6&gt; Addr_ = {};</div>
 <div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>};</div>
 </div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>} <span class="comment">// namespace NNet</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="keywordtype">int</span> GetFreePort();</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>} <span class="comment">// namespace NNet</span></div>
 <div class="ttc" id="aclassNNet_1_1TAddress_html_a0875a9f8b94bab7f67f05d4f01991c68"><div class="ttname"><a href="classNNet_1_1TAddress.html#a0875a9f8b94bab7f67f05d4f01991c68">NNet::TAddress::RawAddr</a></div><div class="ttdeci">std::pair&lt; const sockaddr *, int &gt; RawAddr() const</div><div class="ttdoc">Returns a pointer to the raw sockaddr structure and its size in bytes.</div><div class="ttdef"><b>Definition</b> address.cpp:68</div></div>
 <div class="ttc" id="aclassNNet_1_1TAddress_html_a23d57a7dc6ae5d181fcfd67a58ee6a5d"><div class="ttname"><a href="classNNet_1_1TAddress.html#a23d57a7dc6ae5d181fcfd67a58ee6a5d">NNet::TAddress::Domain</a></div><div class="ttdeci">int Domain() const</div><div class="ttdoc">Gets the domain (address family) of the stored address.</div><div class="ttdef"><b>Definition</b> address.cpp:45</div></div>
 <div class="ttc" id="aclassNNet_1_1TAddress_html_a31c934529b2e67e102e479fa2fdd6912"><div class="ttname"><a href="classNNet_1_1TAddress.html#a31c934529b2e67e102e479fa2fdd6912">NNet::TAddress::TAddress</a></div><div class="ttdeci">TAddress()=default</div><div class="ttdoc">Default constructor. Creates an empty address.</div></div>

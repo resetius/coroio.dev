@@ -182,6 +182,7 @@ Additional Inherited Members</h2></td></tr>
 class NNet::TPollerDrivenFileHandle&lt; T &gt;</div><p>Asynchronous file handle driven by the poller's implementation. </p>
 <p>This class implements file I/O operations (e.g. read, write) using methods provided by the poller. In such scenarios, the poller controls the behavior of these operations (for example, when using io_uring on Linux or IOCP on Windows).</p>
 <p>Ordinary users should not choose a file handle type directly. Instead, they should use the type defined by the poller (i.e. <code>typename</code> TPoller::TFileHandle), which will resolve to either <a class="el" href="classNNet_1_1TFileHandle.html" title="Asynchronous file handle that owns its file descriptor.">TFileHandle</a> or <a class="el" href="classNNet_1_1TPollerDrivenFileHandle.html" title="Asynchronous file handle driven by the poller&#39;s implementation.">TPollerDrivenFileHandle</a> depending on the poller in use.</p>
+<dl class="section note"><dt>Note</dt><dd>The poller must outlive every coroutine suspended on an operation of this class: destroying such a coroutine cancels the operation in the poller.</dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>The poller type that defines the asynchronous file operations. </td></tr>

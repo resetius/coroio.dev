@@ -346,6 +346,13 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>An awaitable object that suspends until the connection is established.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>If a deadline is specified and exceeded, the awaitable will throw a timed-out error. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>at the call, before anything is awaited, if the socket is already connected. </td></tr>
+    <tr><td class="paramname">std::system_error</td><td>at <code>co_await</code> with the socket error if the connection attempt fails. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

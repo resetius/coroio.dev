@@ -138,6 +138,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>CloseErr</b> ()</td><
 <tr class="memdesc:aae82b6eb3a9f7ea5d3600a34a5d58367"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the read end of the child's stderr pipe. <br /></td></tr>
 <tr class="memitem:a11cbd56fb31357f48507aebf89d016b2" id="r_a11cbd56fb31357f48507aebf89d016b2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a11cbd56fb31357f48507aebf89d016b2">Wait</a> ()</td></tr>
 <tr class="memdesc:a11cbd56fb31357f48507aebf89d016b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for the child process to exit and returns its exit status.  <br /></td></tr>
+<tr class="memitem:ad0e6c0e0bf093ecc181dc67654a4d52c" id="r_ad0e6c0e0bf093ecc181dc67654a4d52c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0e6c0e0bf093ecc181dc67654a4d52c">AsyncWait</a> ()</td></tr>
+<tr class="memdesc:ad0e6c0e0bf093ecc181dc67654a4d52c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for the child process to exit without blocking the event loop.  <br /></td></tr>
 <tr class="memitem:a2f69b79f29051711717058731bdfafb5" id="r_a2f69b79f29051711717058731bdfafb5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; ssize_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f69b79f29051711717058731bdfafb5">ReadSome</a> (void *buffer, size_t size)</td></tr>
 <tr class="memdesc:a2f69b79f29051711717058731bdfafb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads up to <span class="tt">size</span> bytes from the child's stdout.  <br /></td></tr>
 <tr class="memitem:a908bf55861b6e5dac8ff2a855034b66d" id="r_a908bf55861b6e5dac8ff2a855034b66d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; ssize_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a908bf55861b6e5dac8ff2a855034b66d">ReadSomeErr</a> (void *buffer, size_t size)</td></tr>
@@ -152,15 +154,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>CloseErr</b> ()</td><
 <li><span class="tt"><a class="el" href="#a2f69b79f29051711717058731bdfafb5" title="Reads up to size bytes from the child&#39;s stdout.">ReadSome</a></span> → child's stdout</li>
 <li><span class="tt"><a class="el" href="#a908bf55861b6e5dac8ff2a855034b66d" title="Reads up to size bytes from the child&#39;s stderr.">ReadSomeErr</a></span> → child's stderr (unless <span class="tt">stderrToStdout = true</span>)</li>
 </ul>
-<p>Call <span class="tt"><a class="el" href="#a16d1bb59f8b301e3548bfc537aa178b0" title="Closes the write end of the child&#39;s stdin pipe, sending EOF to the child.">CloseWrite()</a></span> to send EOF to the child, then <span class="tt"><a class="el" href="#a11cbd56fb31357f48507aebf89d016b2" title="Waits for the child process to exit and returns its exit status.">Wait()</a></span> to reap it.</p>
+<p>Call <span class="tt"><a class="el" href="#a16d1bb59f8b301e3548bfc537aa178b0" title="Closes the write end of the child&#39;s stdin pipe, sending EOF to the child.">CloseWrite()</a></span> to send EOF to the child, then <span class="tt"><a class="el" href="#ad0e6c0e0bf093ecc181dc67654a4d52c" title="Waits for the child process to exit without blocking the event loop.">AsyncWait()</a></span> (or the blocking <span class="tt"><a class="el" href="#a11cbd56fb31357f48507aebf89d016b2" title="Waits for the child process to exit and returns its exit status.">Wait()</a></span>) to reap it.</p>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#a13872a7679c1ac7d875e74f0138de37a">TPipe</a> pipe(poller, <span class="stringliteral">&quot;/bin/cat&quot;</span>, {});</div>
 <div class="line"><span class="keyword">co_await</span> pipe.WriteSome(<span class="stringliteral">&quot;hello\n&quot;</span>, 6);</div>
 <div class="line">pipe.CloseWrite();</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">char</span> buf[64];</div>
 <div class="line">ssize_t n = <span class="keyword">co_await</span> pipe.ReadSome(buf, <span class="keyword">sizeof</span>(buf));</div>
-<div class="line"><span class="keywordtype">int</span> exit_code = pipe.Wait();</div>
-<div class="ttc" id="aclassNNet_1_1TPipe_html_a13872a7679c1ac7d875e74f0138de37a"><div class="ttname"><a href="#a13872a7679c1ac7d875e74f0138de37a">NNet::TPipe::TPipe</a></div><div class="ttdeci">TPipe(TPoller &amp;poller, const std::string &amp;exe, const std::vector&lt; std::string &gt; &amp;args, bool stderrToStdout=false)</div><div class="ttdoc">Spawns exe with args and wires up async I/O handles.</div><div class="ttdef"><b>Definition</b> pipe.hpp:42</div></div>
+<div class="line"><span class="keywordtype">int</span> exit_code = <span class="keyword">co_await</span> pipe.AsyncWait();</div>
+<div class="ttc" id="aclassNNet_1_1TPipe_html_a13872a7679c1ac7d875e74f0138de37a"><div class="ttname"><a href="#a13872a7679c1ac7d875e74f0138de37a">NNet::TPipe::TPipe</a></div><div class="ttdeci">TPipe(TPoller &amp;poller, const std::string &amp;exe, const std::vector&lt; std::string &gt; &amp;args, bool stderrToStdout=false)</div><div class="ttdoc">Spawns exe with args and wires up async I/O handles.</div><div class="ttdef"><b>Definition</b> pipe.hpp:43</div></div>
 </div><!-- fragment --> </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a13872a7679c1ac7d875e74f0138de37a" name="a13872a7679c1ac7d875e74f0138de37a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a13872a7679c1ac7d875e74f0138de37a">&#9670;&#160;</a></span>TPipe()</h2>
@@ -215,6 +217,28 @@ template&lt;typename TPoller&gt; </div>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="ad0e6c0e0bf093ecc181dc67654a4d52c" name="ad0e6c0e0bf093ecc181dc67654a4d52c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0e6c0e0bf093ecc181dc67654a4d52c">&#9670;&#160;</a></span>AsyncWait()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; int &gt; NNet::TPipe::AsyncWait </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Waits for the child process to exit without blocking the event loop. </p>
+<p>Polls <span class="tt">waitpid(WNOHANG)</span> and sleeps on the poller between attempts with a backoff growing from 1 ms to 32 ms, so it works with every poller backend. Once it completes the child is reaped and <span class="tt"><a class="el" href="#acbb212340f0e313166f37fbf45b7ba2e" title="Returns the child&#39;s process ID.">Pid()</a></span> returns <span class="tt">-1</span>.</p>
+<p>The returned future refers to this <span class="tt"><a class="el" href="classNNet_1_1TPipe.html" title="Spawns a child process and exposes its stdin/stdout/stderr as async handles.">TPipe</a></span>, so the pipe must outlive the future: destroying it while the future is suspended is a use-after-free.</p>
+<dl class="section return"><dt>Returns</dt><dd>The child's exit code, or <span class="tt">-1</span> if it did not exit normally or was already reaped. </dd></dl>
+
+</div>
+</div>
 <a id="a2f69b79f29051711717058731bdfafb5" name="a2f69b79f29051711717058731bdfafb5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2f69b79f29051711717058731bdfafb5">&#9670;&#160;</a></span>ReadSome()</h2>
 
@@ -280,7 +304,8 @@ template&lt;typename TPoller&gt; </div>
 
 <p>Waits for the child process to exit and returns its exit status. </p>
 <p>Blocks the calling thread (via <span class="tt">waitpid</span>). Call after the child has finished or after sending it a signal.</p>
-<dl class="section return"><dt>Returns</dt><dd>The exit status as returned by <span class="tt">waitpid</span> (use <span class="tt">WEXITSTATUS</span> to extract the code). </dd></dl>
+<p>Once it returns the child is reaped and <span class="tt"><a class="el" href="#acbb212340f0e313166f37fbf45b7ba2e" title="Returns the child&#39;s process ID.">Pid()</a></span> returns <span class="tt">-1</span>.</p>
+<dl class="section return"><dt>Returns</dt><dd>The child's exit code, or <span class="tt">-1</span> if it did not exit normally or was already reaped. </dd></dl>
 
 </div>
 </div>

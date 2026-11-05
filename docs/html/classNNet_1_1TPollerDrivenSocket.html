@@ -147,8 +147,8 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>TPollerDrivenSocket</b> (int fd, T &amp;poller)</td></tr>
 <tr class="memitem:a7b224fc2c2f5f410170c31c551e4c02b" id="r_a7b224fc2c2f5f410170c31c551e4c02b"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b224fc2c2f5f410170c31c551e4c02b">Accept</a> ()</td></tr>
 <tr class="memdesc:a7b224fc2c2f5f410170c31c551e4c02b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously accepts an incoming connection.  <br /></td></tr>
-<tr class="memitem:a967470636b23c33a9bceaf1d23b9292f" id="r_a967470636b23c33a9bceaf1d23b9292f"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a967470636b23c33a9bceaf1d23b9292f">Connect</a> (const <a class="el" href="classNNet_1_1TAddress.html">TAddress</a> &amp;addr, TTime deadline=TTime::max())</td></tr>
-<tr class="memdesc:a967470636b23c33a9bceaf1d23b9292f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously connects to the specified address with an optional deadline.  <br /></td></tr>
+<tr class="memitem:a13234cbf31ccedc893f1ede72f467b59" id="r_a13234cbf31ccedc893f1ede72f467b59"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13234cbf31ccedc893f1ede72f467b59">Connect</a> (const <a class="el" href="classNNet_1_1TAddress.html">TAddress</a> &amp;addr, TTime deadline=TTime::max())</td></tr>
+<tr class="memdesc:a13234cbf31ccedc893f1ede72f467b59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously connects to the specified address with an optional deadline.  <br /></td></tr>
 <tr class="memitem:a5011ea1ad7eb7f6b75d883be21f25567" id="r_a5011ea1ad7eb7f6b75d883be21f25567"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5011ea1ad7eb7f6b75d883be21f25567">ReadSome</a> (void *buf, size_t size)</td></tr>
 <tr class="memdesc:a5011ea1ad7eb7f6b75d883be21f25567"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously reads data from the socket.  <br /></td></tr>
 <tr class="memitem:a50602aad84196ad6ecd7c2a3b6eef7a4" id="r_a50602aad84196ad6ecd7c2a3b6eef7a4"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a50602aad84196ad6ecd7c2a3b6eef7a4">WriteSome</a> (const void *buf, size_t size)</td></tr>
@@ -221,6 +221,9 @@ std::optional&lt; <a class="el" href="classNNet_1_1TAddress.html">TAddress</a> &
 class NNet::TPollerDrivenSocket&lt; T &gt;</div><p>Socket type driven by the poller's implementation. </p>
 <p>This class is used when socket operations (read, write, connect, etc.) are defined by the poller—in other words, when these operations depend on the underlying poller (e.g. for high-performance I/O using uring or IOCP).</p>
 <p>Ordinary users should not worry about selecting the appropriate socket type. Instead, they should use the type defined by the poller, i.e. <code>typename</code> TPoller::TSocket. Depending on the poller, this may resolve to either <a class="el" href="classNNet_1_1TSocket.html" title="High-level asynchronous socket for network communication.">TSocket</a> or <a class="el" href="classNNet_1_1TPollerDrivenSocket.html" title="Socket type driven by the poller&#39;s implementation.">TPollerDrivenSocket</a>.</p>
+<dl class="section note"><dt>Note</dt><dd>The poller must outlive every coroutine suspended on an operation of this class: destroying such a coroutine cancels the operation in the poller.</dd>
+<dd>
+Unlike <a class="el" href="classNNet_1_1TSocket.html#a31bab995eb6f74be32a5762358386998" title="Asynchronously connects to the specified address.">TSocket::Connect</a>, <a class="el" href="#a13234cbf31ccedc893f1ede72f467b59" title="Asynchronously connects to the specified address with an optional deadline.">TPollerDrivenSocket::Connect</a> is a coroutine that starts running at the call, so "Already connected" is not thrown at the call: it is stored in the returned future and rethrown at <code>co_await</code>. A future that is never awaited drops the error. Always await the result of Connect, and put the try/catch around the <code>co_await</code>.</dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>The poller type used by this socket. The poller must provide methods for asynchronous operations (such as Connect, Accept, Recv, and Send) and timer management. </td></tr>
@@ -352,8 +355,8 @@ template&lt;typename T&gt; </div>
 
 </div>
 </div>
-<a id="a967470636b23c33a9bceaf1d23b9292f" name="a967470636b23c33a9bceaf1d23b9292f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a967470636b23c33a9bceaf1d23b9292f">&#9670;&#160;</a></span>Connect()</h2>
+<a id="a13234cbf31ccedc893f1ede72f467b59" name="a13234cbf31ccedc893f1ede72f467b59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13234cbf31ccedc893f1ede72f467b59">&#9670;&#160;</a></span>Connect()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -364,7 +367,7 @@ template&lt;typename T&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">auto <a class="el" href="classNNet_1_1TPollerDrivenSocket.html">NNet::TPollerDrivenSocket</a>&lt; T &gt;::Connect </td>
+          <td class="memname"><a class="el" href="structNNet_1_1TFuture.html">TFuture</a>&lt; void &gt; <a class="el" href="classNNet_1_1TPollerDrivenSocket.html">NNet::TPollerDrivenSocket</a>&lt; T &gt;::Connect </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classNNet_1_1TAddress.html">TAddress</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>addr</em></span>, </td>
         </tr>
@@ -382,7 +385,7 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>Asynchronously connects to the specified address with an optional deadline. </p>
-<p>Initiates a connection and returns an awaitable that completes when the connection is established. If a deadline is specified and exceeded, a timeout error is thrown.</p>
+<p>Starts the connection at once and returns a future that completes when the connection is established. If a deadline is specified and exceeded, a timeout error is thrown.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">addr</td><td>The remote address to connect to. </td></tr>
@@ -390,10 +393,11 @@ template&lt;typename T&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>An awaitable object for the connection operation.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A future for the connection operation. It must be awaited: every error below is stored in it.</dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">std::runtime_error</td><td>if the socket is already connected. </td></tr>
+    <tr><td class="paramname">std::runtime_error</td><td>at <code>co_await</code>, not at the call, if the socket is already connected. </td></tr>
+    <tr><td class="paramname">std::system_error</td><td>at <code>co_await</code> with the socket error if the connection attempt fails, or with std::errc::timed_out if the deadline is exceeded. </td></tr>
   </table>
   </dd>
 </dl>

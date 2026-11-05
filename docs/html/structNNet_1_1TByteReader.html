@@ -161,7 +161,7 @@ Example Usage</h3>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">co_return</span>;</div>
 <div class="line">}</div>
-<div class="ttc" id="aclassNNet_1_1TSocket_html"><div class="ttname"><a href="classNNet_1_1TSocket.html">NNet::TSocket</a></div><div class="ttdoc">High-level asynchronous socket for network communication.</div><div class="ttdef"><b>Definition</b> socket.hpp:367</div></div>
+<div class="ttc" id="aclassNNet_1_1TSocket_html"><div class="ttname"><a href="classNNet_1_1TSocket.html">NNet::TSocket</a></div><div class="ttdoc">High-level asynchronous socket for network communication.</div><div class="ttdef"><b>Definition</b> socket.hpp:399</div></div>
 <div class="ttc" id="astructNNet_1_1TByteReader_html_a88f26215dec26ee31a0fd327b503ff19"><div class="ttname"><a href="#a88f26215dec26ee31a0fd327b503ff19">NNet::TByteReader::TByteReader</a></div><div class="ttdeci">TByteReader(TSocket &amp;socket)</div><div class="ttdoc">Constructs a reader for the given socket.</div><div class="ttdef"><b>Definition</b> sockutils.hpp:81</div></div>
 <div class="ttc" id="astructNNet_1_1TFuture_html"><div class="ttname"><a href="structNNet_1_1TFuture.html">NNet::TFuture</a></div><div class="ttdoc">Owned coroutine handle that carries a result of type T.</div><div class="ttdef"><b>Definition</b> corochain.hpp:185</div></div>
 </div><!-- fragment --> </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -282,10 +282,11 @@ template&lt;typename <a class="el" href="classNNet_1_1TSocket.html">TSocket</a>&
 <p>Reads data until the given <code class="param">delimiter</code> is encountered. </p>
 <ul>
 <li>Searches the internal buffer for the delimiter.</li>
-<li>If found, returns all data up to and including the delimiter.</li>
-<li>If not found, appends the buffered data to the result and tries reading more data from the socket, repeating until the delimiter appears.</li>
+<li>If found, returns all data up to and including the delimiter; any bytes after the delimiter stay in the internal buffer for the next read.</li>
+<li>If not found, keeps the data buffered and reads more from the socket. The delimiter may be split between reads: after each read the search resumes just before the previously scanned end, so already scanned data is not rescanned.</li>
 <li>Throws a std::runtime_error if the socket is closed (ReadSome returns 0) before the delimiter is found.</li>
 <li>If ReadSome returns a negative value, the read is retried.</li>
+<li>An empty delimiter returns an empty string without reading or consuming anything.</li>
 </ul>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">

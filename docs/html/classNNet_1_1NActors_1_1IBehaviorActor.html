@@ -132,8 +132,8 @@ Inheritance diagram for NNet::NActors::IBehaviorActor:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9ee9f2748c52a15fd4e4988dc1953190" id="r_a9ee9f2748c52a15fd4e4988dc1953190"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9ee9f2748c52a15fd4e4988dc1953190">Become</a> (<a class="el" href="classNNet_1_1NActors_1_1IBehavior.html">IBehavior</a> *behavior)</td></tr>
 <tr class="memdesc:a9ee9f2748c52a15fd4e4988dc1953190"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switch to a new behavior.  <br /></td></tr>
-<tr class="memitem:a4aae3aa6ab34e25d8019f72fd1857b14" id="r_a4aae3aa6ab34e25d8019f72fd1857b14"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4aae3aa6ab34e25d8019f72fd1857b14">Receive</a> (TMessageId messageId, <a class="el" href="structNNet_1_1NActors_1_1TBlob.html">TBlob</a> blob, TActorContext::TPtr ctx) override</td></tr>
-<tr class="memdesc:a4aae3aa6ab34e25d8019f72fd1857b14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delegate message handling to the current behavior.  <br /></td></tr>
+<tr class="memitem:a978c03de88f0979e26179c4f2cc05981" id="r_a978c03de88f0979e26179c4f2cc05981"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a978c03de88f0979e26179c4f2cc05981">Receive</a> (TMessageId messageId, <a class="el" href="structNNet_1_1NActors_1_1TBlob.html">TBlob</a> blob, TActorContext::TPtr ctx) final</td></tr>
+<tr class="memdesc:a978c03de88f0979e26179c4f2cc05981"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delegate message handling to the current behavior.  <br /></td></tr>
 <tr class="inherit_header pub_methods_classNNet_1_1NActors_1_1IActor"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classNNet_1_1NActors_1_1IActor')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="classNNet_1_1NActors_1_1IActor.html">NNet::NActors::IActor</a></td></tr>
 <tr class="memitem:ab6b7c7b0e73e15acf33f59aafa9bf8e5 inherit pub_methods_classNNet_1_1NActors_1_1IActor" id="r_ab6b7c7b0e73e15acf33f59aafa9bf8e5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1NActors_1_1IActor.html#ab6b7c7b0e73e15acf33f59aafa9bf8e5">AfterRegister</a> (TActorContext::TPtr)</td></tr>
 <tr class="memdesc:ab6b7c7b0e73e15acf33f59aafa9bf8e5 inherit pub_methods_classNNet_1_1NActors_1_1IActor"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called once right after the actor is registered in the system.  <br /></td></tr>
@@ -157,17 +157,17 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>TPtr</b> = std::uniq
 <div class="line"><span class="keyword">public</span>:</div>
 <div class="line">    Connection() { <a class="code hl_function" href="#a9ee9f2748c52a15fd4e4988dc1953190">Become</a>(<span class="keyword">this</span>); }</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> <a class="code hl_function" href="#a4aae3aa6ab34e25d8019f72fd1857b14">Receive</a>(Connect&amp;&amp;, <a class="code hl_struct" href="structNNet_1_1NActors_1_1TBlob.html">TBlob</a>, TActorContext::TPtr ctx) {</div>
+<div class="line">    <span class="keywordtype">void</span> <a class="code hl_function" href="#a978c03de88f0979e26179c4f2cc05981">Receive</a>(Connect&amp;&amp;, <a class="code hl_struct" href="structNNet_1_1NActors_1_1TBlob.html">TBlob</a>, TActorContext::TPtr ctx) {</div>
 <div class="line">        connected_ = <span class="keyword">true</span>;</div>
 <div class="line">        <span class="comment">// next message will already use this actor as behavior (no switch needed)</span></div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> <a class="code hl_function" href="#a4aae3aa6ab34e25d8019f72fd1857b14">Receive</a>(Data&amp;&amp; msg, TBlob, TActorContext::TPtr ctx) {</div>
+<div class="line">    <span class="keywordtype">void</span> <a class="code hl_function" href="#a978c03de88f0979e26179c4f2cc05981">Receive</a>(Data&amp;&amp; msg, TBlob, TActorContext::TPtr ctx) {</div>
 <div class="line">        <span class="keywordflow">if</span> (!connected_) <span class="keywordflow">return</span>;</div>
 <div class="line">        process(msg.payload);</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> <a class="code hl_function" href="#a4aae3aa6ab34e25d8019f72fd1857b14">Receive</a>(Disconnect&amp;&amp;, TBlob, TActorContext::TPtr) {</div>
+<div class="line">    <span class="keywordtype">void</span> <a class="code hl_function" href="#a978c03de88f0979e26179c4f2cc05981">Receive</a>(Disconnect&amp;&amp;, TBlob, TActorContext::TPtr) {</div>
 <div class="line">        connected_ = <span class="keyword">false</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
@@ -177,7 +177,7 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>TPtr</b> = std::uniq
 <div class="line">    <span class="keywordtype">bool</span> connected_ = <span class="keyword">false</span>;</div>
 <div class="line">};</div>
 <div class="ttc" id="aclassNNet_1_1NActors_1_1IBehaviorActor_html"><div class="ttname"><a href="classNNet_1_1NActors_1_1IBehaviorActor.html">NNet::NActors::IBehaviorActor</a></div><div class="ttdoc">Actor that delegates message handling to a pluggable behavior.</div><div class="ttdef"><b>Definition</b> actor.hpp:636</div></div>
-<div class="ttc" id="aclassNNet_1_1NActors_1_1IBehaviorActor_html_a4aae3aa6ab34e25d8019f72fd1857b14"><div class="ttname"><a href="#a4aae3aa6ab34e25d8019f72fd1857b14">NNet::NActors::IBehaviorActor::Receive</a></div><div class="ttdeci">void Receive(TMessageId messageId, TBlob blob, TActorContext::TPtr ctx) override</div><div class="ttdoc">Delegate message handling to the current behavior.</div><div class="ttdef"><b>Definition</b> actor.hpp:657</div></div>
+<div class="ttc" id="aclassNNet_1_1NActors_1_1IBehaviorActor_html_a978c03de88f0979e26179c4f2cc05981"><div class="ttname"><a href="#a978c03de88f0979e26179c4f2cc05981">NNet::NActors::IBehaviorActor::Receive</a></div><div class="ttdeci">void Receive(TMessageId messageId, TBlob blob, TActorContext::TPtr ctx) final</div><div class="ttdoc">Delegate message handling to the current behavior.</div><div class="ttdef"><b>Definition</b> actor.hpp:657</div></div>
 <div class="ttc" id="aclassNNet_1_1NActors_1_1IBehaviorActor_html_a9ee9f2748c52a15fd4e4988dc1953190"><div class="ttname"><a href="#a9ee9f2748c52a15fd4e4988dc1953190">NNet::NActors::IBehaviorActor::Become</a></div><div class="ttdeci">void Become(IBehavior *behavior)</div><div class="ttdoc">Switch to a new behavior.</div><div class="ttdef"><b>Definition</b> actor.hpp:647</div></div>
 <div class="ttc" id="aclassNNet_1_1NActors_1_1TBehavior_html"><div class="ttname"><a href="classNNet_1_1NActors_1_1TBehavior.html">NNet::NActors::TBehavior</a></div><div class="ttdoc">Template for type-safe behavior implementations.</div><div class="ttdef"><b>Definition</b> actor.hpp:520</div></div>
 <div class="ttc" id="astructNNet_1_1NActors_1_1TBlob_html"><div class="ttname"><a href="structNNet_1_1NActors_1_1TBlob.html">NNet::NActors::TBlob</a></div><div class="ttdoc">Opaque message payload with Near/Far duality.</div><div class="ttdef"><b>Definition</b> messages.hpp:99</div></div>
@@ -216,8 +216,8 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>TPtr</b> = std::uniq
 
 </div>
 </div>
-<a id="a4aae3aa6ab34e25d8019f72fd1857b14" name="a4aae3aa6ab34e25d8019f72fd1857b14"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4aae3aa6ab34e25d8019f72fd1857b14">&#9670;&#160;</a></span>Receive()</h2>
+<a id="a978c03de88f0979e26179c4f2cc05981" name="a978c03de88f0979e26179c4f2cc05981"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a978c03de88f0979e26179c4f2cc05981">&#9670;&#160;</a></span>Receive()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -243,7 +243,7 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>TPtr</b> = std::uniq
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel final">final</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">

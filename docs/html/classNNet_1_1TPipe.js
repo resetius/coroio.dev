@@ -1,6 +1,7 @@
 var classNNet_1_1TPipe =
 [
     [ "TPipe", "classNNet_1_1TPipe.html#a13872a7679c1ac7d875e74f0138de37a", null ],
+    [ "AsyncWait", "classNNet_1_1TPipe.html#ad0e6c0e0bf093ecc181dc67654a4d52c", null ],
     [ "CloseErr", "classNNet_1_1TPipe.html#aae82b6eb3a9f7ea5d3600a34a5d58367", null ],
     [ "CloseRead", "classNNet_1_1TPipe.html#a12ebaaf5e8688ecfc3ea0e9f5b7a1257", null ],
     [ "CloseWrite", "classNNet_1_1TPipe.html#a16d1bb59f8b301e3548bfc537aa178b0", null ],
