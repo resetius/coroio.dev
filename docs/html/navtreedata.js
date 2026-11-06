@@ -48,7 +48,7 @@ var NAVTREEINDEX =
 [
 "accept__errors_8hpp_source.html",
 "classNNet_1_1TResponse.html#a6adf1cf0aa43abd97c929b8d00e090aa",
-"structNNet_1_1TStructReader.html#ab01ad1a8c37cc594376b468201382ef0"
+"structNNet_1_1TStructReader.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';
