@@ -298,10 +298,11 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Asynchronously accepts an incoming connection. </p>
 <p>This awaitable suspends until a new connection is ready on the socket and then returns a new <a class="el" href="classNNet_1_1TSocket.html" title="High-level asynchronous socket for network communication.">TSocket</a> object representing the client connection.</p>
-<dl class="section return"><dt>Returns</dt><dd>An awaitable object that yields a <a class="el" href="classNNet_1_1TSocket.html" title="High-level asynchronous socket for network communication.">TSocket</a> for the new connection.</dd></dl>
+<p>Errors of accept() are returned, not thrown: a server must keep accepting after them. After a transient one, see IsTransientAcceptError(), accept again at once. After others, e.g. EMFILE, the socket may stay readable: pause first.</p>
+<dl class="section return"><dt>Returns</dt><dd>An awaitable object that yields a <a class="el" href="classNNet_1_1TSocket.html" title="High-level asynchronous socket for network communication.">TSocket</a> for the new connection, or the error code of accept() (errno; WSAGetLastError() on Windows).</dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">std::system_error</td><td>if accept() fails. </td></tr>
+    <tr><td class="paramname">std::system_error</td><td>with EBADF at <code>co_await</code> if the socket is closed. </td></tr>
   </table>
   </dd>
 </dl>

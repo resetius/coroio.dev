@@ -143,6 +143,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a236d38889ae16fecc1774a5db08f231d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is disabled. <br /></td></tr>
 <tr class="memitem:ab382c207c85dce19bf43e172da5a3174" id="r_ab382c207c85dce19bf43e172da5a3174"><td class="memItemLeft" align="right" valign="top"><a id="ab382c207c85dce19bf43e172da5a3174" name="ab382c207c85dce19bf43e172da5a3174"></a>
 <a class="el" href="#a0bf870f24ff1b7dedeb0f132dcfa9f05">TPollerBase</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="#a0bf870f24ff1b7dedeb0f132dcfa9f05">TPollerBase</a> &amp;)=delete</td></tr>
+<tr class="memitem:ace9abee8d6a5da52df5b349d68be5539" id="r_ace9abee8d6a5da52df5b349d68be5539"><td class="memItemLeft" align="right" valign="top"><a id="ace9abee8d6a5da52df5b349d68be5539" name="ace9abee8d6a5da52df5b349d68be5539"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~TPollerBase</b> ()</td></tr>
+<tr class="memdesc:ace9abee8d6a5da52df5b349d68be5539"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes what <a class="el" href="#a5f60d802102817f75ecc588abacf8f9c" title="Closes fd in the next poll iteration.">Close()</a> queued and no Poll() applied. <br /></td></tr>
 <tr class="memitem:a66e728fd17de36c493a0e915115d417e" id="r_a66e728fd17de36c493a0e915115d417e"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a66e728fd17de36c493a0e915115d417e">AddTimer</a> (TTime deadline, THandle h)</td></tr>
 <tr class="memdesc:a66e728fd17de36c493a0e915115d417e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Schedules a timer.  <br /></td></tr>
 <tr class="memitem:a9bbf27b42f97eded40eb715f56340025" id="r_a9bbf27b42f97eded40eb715f56340025"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9bbf27b42f97eded40eb715f56340025">RemoveTimer</a> (unsigned timerId, TTime deadline)</td></tr>
@@ -157,6 +160,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a837929433daf37451b00c6c6afe98c0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the backend reports remote hang-ups.  <br /></td></tr>
 <tr class="memitem:aa07a131f7224e0c939e2df9b83982146" id="r_aa07a131f7224e0c939e2df9b83982146"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa07a131f7224e0c939e2df9b83982146">RemoveEvent</a> (int fd)</td></tr>
 <tr class="memdesc:aa07a131f7224e0c939e2df9b83982146"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes registered events for a specific file descriptor.  <br /></td></tr>
+<tr class="memitem:a5f60d802102817f75ecc588abacf8f9c" id="r_a5f60d802102817f75ecc588abacf8f9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f60d802102817f75ecc588abacf8f9c">Close</a> (int fd, int type)</td></tr>
+<tr class="memdesc:a5f60d802102817f75ecc588abacf8f9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes <code class="param">fd</code> in the next poll iteration.  <br /></td></tr>
 <tr class="memitem:ad38b3fc6cd909f6390ca946d01dad4c5" id="r_ad38b3fc6cd909f6390ca946d01dad4c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad38b3fc6cd909f6390ca946d01dad4c5">RemoveEvent</a> (int fd, THandle h)</td></tr>
 <tr class="memdesc:ad38b3fc6cd909f6390ca946d01dad4c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cancels the wait of a coroutine destroyed while suspended on <code class="param">fd</code>.  <br /></td></tr>
 <tr class="memitem:ab78789b92e7aa174e72c3d569deec1e7" id="r_ab78789b92e7aa174e72c3d569deec1e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab78789b92e7aa174e72c3d569deec1e7">RemoveEvent</a> (THandle)</td></tr>
@@ -182,6 +187,8 @@ auto&#160;</td><td class="memItemRight" valign="bottom"><b>TimersSize</b> () con
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a0008a394cf1744e9369e60bcf75cdfc5" id="r_a0008a394cf1744e9369e60bcf75cdfc5"><td class="memItemLeft" align="right" valign="top">timespec&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0008a394cf1744e9369e60bcf75cdfc5">GetTimeout</a> () const</td></tr>
 <tr class="memdesc:a0008a394cf1744e9369e60bcf75cdfc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the poll timeout based on scheduled timers.  <br /></td></tr>
+<tr class="memitem:ac423ea54d55740a4f901f0140cbfc47d" id="r_ac423ea54d55740a4f901f0140cbfc47d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNNet_1_1TEvent.html">TEvent</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac423ea54d55740a4f901f0140cbfc47d">Resolve</a> (const <a class="el" href="structNNet_1_1TEvent.html">TEvent</a> &amp;change, const <a class="el" href="structNNet_1_1THandlePair.html">THandlePair</a> &amp;ev) const</td></tr>
+<tr class="memdesc:ac423ea54d55740a4f901f0140cbfc47d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resolves an element of Changes_ before the backend applies it.  <br /></td></tr>
 <tr class="memitem:a4b9dbb4524e688ab7fbb2139a2cf39cb" id="r_a4b9dbb4524e688ab7fbb2139a2cf39cb"><td class="memItemLeft" align="right" valign="top"><a id="a4b9dbb4524e688ab7fbb2139a2cf39cb" name="a4b9dbb4524e688ab7fbb2139a2cf39cb"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>Reset</b> ()</td></tr>
 <tr class="memdesc:a4b9dbb4524e688ab7fbb2139a2cf39cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the lists of ready events and pending changes. <br /></td></tr>
@@ -192,8 +199,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Reset</b> ()</td></tr
 Static Protected Member Functions</h2></td></tr>
 <tr class="memitem:ad9dd7feb761339f5c7aa0614ed4a6d35" id="r_ad9dd7feb761339f5c7aa0614ed4a6d35"><td class="memItemLeft" align="right" valign="top">static constexpr timespec&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad9dd7feb761339f5c7aa0614ed4a6d35">GetMaxDuration</a> (std::chrono::milliseconds duration)</td></tr>
 <tr class="memdesc:ad9dd7feb761339f5c7aa0614ed4a6d35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes a timespec from a duration.  <br /></td></tr>
-<tr class="memitem:a7223bc427d5d20caf201c551d9aa2270" id="r_a7223bc427d5d20caf201c551d9aa2270"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structNNet_1_1TEvent.html">TEvent</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7223bc427d5d20caf201c551d9aa2270">ResolveCancel</a> (const <a class="el" href="structNNet_1_1TEvent.html">TEvent</a> &amp;change, const <a class="el" href="structNNet_1_1THandlePair.html">THandlePair</a> &amp;ev)</td></tr>
-<tr class="memdesc:a7223bc427d5d20caf201c551d9aa2270"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns a cancellation queued by <a class="el" href="#ad38b3fc6cd909f6390ca946d01dad4c5" title="Cancels the wait of a coroutine destroyed while suspended on fd.">RemoveEvent(int, THandle)</a> into a removal.  <br /></td></tr>
+<tr class="memitem:ad8fd548dc929821d975a8c0dc114ca5f" id="r_ad8fd548dc929821d975a8c0dc114ca5f"><td class="memItemLeft" align="right" valign="top"><a id="ad8fd548dc929821d975a8c0dc114ca5f" name="ad8fd548dc929821d975a8c0dc114ca5f"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>CloseDescriptor</b> (<a class="el" href="structNNet_1_1TEvent.html">TEvent</a> &amp;change)</td></tr>
+<tr class="memdesc:ad8fd548dc929821d975a8c0dc114ca5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the descriptor of a close change and clears the close, so a Poll() that throws and runs again closes it once. <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -395,6 +403,44 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
   <table class="params">
     <tr><td class="paramname">fd</td><td>File descriptor to watch. </td></tr>
     <tr><td class="paramname">h</td><td>Coroutine to resume when ready for writing. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5f60d802102817f75ecc588abacf8f9c" name="a5f60d802102817f75ecc588abacf8f9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f60d802102817f75ecc588abacf8f9c">&#9670;&#160;</a></span>Close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NNet::TPollerBase::Close </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>fd</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>type</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Closes <code class="param">fd</code> in the next poll iteration. </p>
+<p>Does what <a class="el" href="#aa07a131f7224e0c939e2df9b83982146" title="Removes registered events for a specific file descriptor.">RemoveEvent(int)</a> does, and the next Poll() closes <code class="param">fd</code> right after removing its registration, before it waits: an epoll registration would outlive close() while a fork or dup() keeps the file open, and a uring cancel after close() could hit a reused number. ~TPollerBase closes what is still queued. Until then <code class="param">fd</code> stays open with whatever it holds, e.g. a listener's address: <span class="tt">co_await <a class="el" href="#aea08fab15fd419093ffc18b9a5b5b267" title="Suspends the coroutine until the next event-loop iteration.">Yield()</a></span> before binding it again. A loop that closes many descriptors per iteration needs RLIMIT_NOFILE headroom for them.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td><a class="el" href="classNNet_1_1TSockOps.html#acc3a947367ea63835de1ea23dc57f0a8" title="Passed to TPollerBase::Close().">TSockOps::CloseType</a> or <a class="el" href="classNNet_1_1TFileOps.html#ae6787dbc2918eb7e6eebe3e291fb4d81" title="Passed to TPollerBase::Close().">TFileOps::CloseType</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -632,8 +678,8 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
 
 </div>
 </div>
-<a id="a7223bc427d5d20caf201c551d9aa2270" name="a7223bc427d5d20caf201c551d9aa2270"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7223bc427d5d20caf201c551d9aa2270">&#9670;&#160;</a></span>ResolveCancel()</h2>
+<a id="ac423ea54d55740a4f901f0140cbfc47d" name="ac423ea54d55740a4f901f0140cbfc47d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac423ea54d55740a4f901f0140cbfc47d">&#9670;&#160;</a></span>Resolve()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -642,33 +688,31 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structNNet_1_1TEvent.html">TEvent</a> NNet::TPollerBase::ResolveCancel </td>
+          <td class="memname"><a class="el" href="structNNet_1_1TEvent.html">TEvent</a> NNet::TPollerBase::Resolve </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structNNet_1_1TEvent.html">TEvent</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>change</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structNNet_1_1THandlePair.html">THandlePair</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ev</em></span>&#160;)</td>
+          <td class="paramtype">const <a class="el" href="structNNet_1_1THandlePair.html">THandlePair</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ev</em></span>&#160;) const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel protected">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Turns a cancellation queued by <a class="el" href="#ad38b3fc6cd909f6390ca946d01dad4c5" title="Cancels the wait of a coroutine destroyed while suspended on fd.">RemoveEvent(int, THandle)</a> into a removal. </p>
-<p>Backends call it on every pending change before applying it; other changes are returned as is.</p>
+<p>Resolves an element of Changes_ before the backend applies it. </p>
+<p>A change queued before the last removal of its descriptor becomes empty (no type bits), except a close. A cancellation by <a class="el" href="#ad38b3fc6cd909f6390ca946d01dad4c5" title="Cancels the wait of a coroutine destroyed while suspended on fd.">RemoveEvent(int, THandle)</a> becomes a removal of the directions still registered to its handle.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">change</td><td>A pending change. </td></tr>
     <tr><td class="paramname">ev</td><td>The backend's current registrations for <span class="tt">change.Fd</span>. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A removal of the directions still registered to the cancelled handle. </dd></dl>
 
 </div>
 </div>

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['timerid_5f_0',['TimerId_',['../classNNet_1_1TPollerBase.html#ae087572babbd8152aa25a6ac385a9c02',1,'NNet::TPollerBase']]],
-  ['timers_5f_1',['Timers_',['../classNNet_1_1TPollerBase.html#a97bb349d12b646020bc2584bc1251627',1,'NNet::TPollerBase']]]
+  ['readyevents_5f_0',['ReadyEvents_',['../classNNet_1_1TPollerBase.html#a879f1f18716aa8dcc4acdf3a2091b6d2',1,'NNet::TPollerBase']]],
+  ['recipient_1',['Recipient',['../classNNet_1_1NActors_1_1TEnvelope.html#a33a9c8c8dc6de99250974746c1fd8eb0',1,'NNet::NActors::TEnvelope::Recipient'],['../structNNet_1_1NActors_1_1THeader.html#a241e7656b295ba718c53eb9ab229104a',1,'NNet::NActors::THeader::Recipient']]],
+  ['result_2',['Result',['../structNNet_1_1NDetail_1_1TOperationState.html#a0dfc2635d6deea11d8f88ea96c7590bd',1,'NNet::NDetail::TOperationState']]]
 ];

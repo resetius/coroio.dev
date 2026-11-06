@@ -163,7 +163,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Asynchronous file handle that owns its file descriptor. </p>
-<p>The passed file descriptor is owned by <a class="el" href="classNNet_1_1TFileHandle.html" title="Asynchronous file handle that owns its file descriptor.">TFileHandle</a> and will be closed automatically when the object is destroyed. </p>
+<p>The passed file descriptor is owned by <a class="el" href="classNNet_1_1TFileHandle.html" title="Asynchronous file handle that owns its file descriptor.">TFileHandle</a>: the destructor hands it to the poller, which closes it in its next iteration. </p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aaa8cd75cbb02faa92b9ffbbb7f7cbf39" name="aaa8cd75cbb02faa92b9ffbbb7f7cbf39"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaa8cd75cbb02faa92b9ffbbb7f7cbf39">&#9670;&#160;</a></span>TFileHandle()</h2>

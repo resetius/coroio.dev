@@ -21,7 +21,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>COROIO: NNet::NDetail::TIntrusiveNode&lt; T &gt; Class Template Reference</title>
+<title>COROIO: NNet::NDetail::TCompletions Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -84,7 +84,7 @@ $(function() { codefold.init(); });
   </div>
 </div>
 <script type="text/javascript">
-$(function(){initNavTree('classNNet_1_1NDetail_1_1TIntrusiveNode.html','','classNNet_1_1NDetail_1_1TIntrusiveNode-members'); });
+$(function(){initNavTree('classNNet_1_1NDetail_1_1TCompletions.html','','classNNet_1_1NDetail_1_1TCompletions-members'); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -110,39 +110,67 @@ $(function(){initNavTree('classNNet_1_1NDetail_1_1TIntrusiveNode.html','','class
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">NNet::NDetail::TIntrusiveNode&lt; T &gt; Class Template Reference</div></div>
+  <div class="headertitle"><div class="title">NNet::NDetail::TCompletions Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Links of an object in a <a class="el" href="classNNet_1_1NDetail_1_1TIntrusiveList.html" title="Doubly linked list of objects derived from TIntrusiveNode.">TIntrusiveList</a>.  
+<p>Completions taken from the system and not delivered yet.  
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="intrusive__list_8hpp_source.html">intrusive_list.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="completions_8hpp_source.html">completions.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab89db2b680fbda252064c1554ffafde1" id="r_ab89db2b680fbda252064c1554ffafde1"><td class="memItemLeft" align="right" valign="top"><a id="ab89db2b680fbda252064c1554ffafde1" name="ab89db2b680fbda252064c1554ffafde1"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TIntrusiveNode</b> (const TIntrusiveNode &amp;)=delete</td></tr>
-<tr class="memitem:ade344c30b77c1482fe01421c7b619db4" id="r_ade344c30b77c1482fe01421c7b619db4"><td class="memItemLeft" align="right" valign="top"><a id="ade344c30b77c1482fe01421c7b619db4" name="ade344c30b77c1482fe01421c7b619db4"></a>
-TIntrusiveNode &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const TIntrusiveNode &amp;)=delete</td></tr>
-<tr class="memitem:a09adb4189290cf04d621a99e3db393c3" id="r_a09adb4189290cf04d621a99e3db393c3"><td class="memItemLeft" align="right" valign="top"><a id="a09adb4189290cf04d621a99e3db393c3" name="a09adb4189290cf04d621a99e3db393c3"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsLinked</b> () const</td></tr>
-<tr class="memdesc:a09adb4189290cf04d621a99e3db393c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the object is in a list. <br /></td></tr>
-<tr class="memitem:a91533e25b59f11d42e85cc4ceed7b4fd" id="r_a91533e25b59f11d42e85cc4ceed7b4fd"><td class="memItemLeft" align="right" valign="top"><a id="a91533e25b59f11d42e85cc4ceed7b4fd" name="a91533e25b59f11d42e85cc4ceed7b4fd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Unlink</b> ()</td></tr>
-<tr class="memdesc:a91533e25b59f11d42e85cc4ceed7b4fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the object from its list in O(1). It must be in a list. <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-friends" class="groupheader"><a id="friends" name="friends"></a>
-Friends</h2></td></tr>
-<tr class="memitem:a3260fc3b89460b82d5e30fa420f176e2" id="r_a3260fc3b89460b82d5e30fa420f176e2"><td class="memItemLeft" align="right" valign="top"><a id="a3260fc3b89460b82d5e30fa420f176e2" name="a3260fc3b89460b82d5e30fa420f176e2"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><b>TIntrusiveList&lt; T &gt;</b></td></tr>
+<tr class="memitem:a93c10df4149f0ab6e56a48c08956143d" id="r_a93c10df4149f0ab6e56a48c08956143d"><td class="memItemLeft" align="right" valign="top"><a id="a93c10df4149f0ab6e56a48c08956143d" name="a93c10df4149f0ab6e56a48c08956143d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Collect</b> (<a class="el" href="structNNet_1_1NDetail_1_1TOperationState.html">TOperationState</a> *op, int result)</td></tr>
+<tr class="memdesc:a93c10df4149f0ab6e56a48c08956143d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a completion taken by the poller's wait. <br /></td></tr>
+<tr class="memitem:a04b65c54d86ec55b9bbb273d479290ee" id="r_a04b65c54d86ec55b9bbb273d479290ee"><td class="memItemLeft" align="right" valign="top"><a id="a04b65c54d86ec55b9bbb273d479290ee" name="a04b65c54d86ec55b9bbb273d479290ee"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Reap</b> (<a class="el" href="structNNet_1_1NDetail_1_1TOperationState.html">TOperationState</a> *op, int result)</td></tr>
+<tr class="memdesc:a04b65c54d86ec55b9bbb273d479290ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a completion taken while waiting for a cancelled operation. <br /></td></tr>
+<tr class="memitem:a351b209af1c1686a5253946affeb31ea" id="r_a351b209af1c1686a5253946affeb31ea"><td class="memItemLeft" align="right" valign="top"><a id="a351b209af1c1686a5253946affeb31ea" name="a351b209af1c1686a5253946affeb31ea"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>Drop</b> (<a class="el" href="structNNet_1_1NDetail_1_1TOperationState.html">TOperationState</a> &amp;op)</td></tr>
+<tr class="memdesc:a351b209af1c1686a5253946affeb31ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drops the completion of a cancelled operation. Returns false if it is not taken yet. <br /></td></tr>
+<tr class="memitem:af5356784f1232bc60d1d2c650d35158a" id="r_af5356784f1232bc60d1d2c650d35158a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af5356784f1232bc60d1d2c650d35158a">Carry</a> ()</td></tr>
+<tr class="memdesc:af5356784f1232bc60d1d2c650d35158a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the next batch of ready completions.  <br /></td></tr>
+<tr class="memitem:aeab4eb998f10592e66aaec9bec76953a" id="r_aeab4eb998f10592e66aaec9bec76953a"><td class="memItemLeft" align="right" valign="top"><a id="aeab4eb998f10592e66aaec9bec76953a" name="aeab4eb998f10592e66aaec9bec76953a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Wakeup</b> ()</td></tr>
+<tr class="memdesc:aeab4eb998f10592e66aaec9bec76953a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resumes the coroutines of the ready completions. <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;typename T&gt;<br />
-class NNet::NDetail::TIntrusiveNode&lt; T &gt;</div><p>Links of an object in a <a class="el" href="classNNet_1_1NDetail_1_1TIntrusiveList.html" title="Doubly linked list of objects derived from TIntrusiveNode.">TIntrusiveList</a>. </p>
-<p>Derive the object from it: <span class="tt">struct TItem: <a class="el" href="classNNet_1_1NDetail_1_1TIntrusiveNode.html" title="Links of an object in a TIntrusiveList.">TIntrusiveNode</a>&lt;TItem&gt; { ... };</span>. The object is in at most one list at a time, and the list does not own it. </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
-<li>coroio/<a class="el" href="intrusive__list_8hpp_source.html">intrusive_list.hpp</a></li>
+<div class="textblock"><p>Completions taken from the system and not delivered yet. </p>
+<p>Ready completions are delivered by <a class="el" href="#aeab4eb998f10592e66aaec9bec76953a" title="Resumes the coroutines of the ready completions.">Wakeup()</a>. Reaped ones were taken while waiting for a cancelled operation and become ready at the next <a class="el" href="#af5356784f1232bc60d1d2c650d35158a" title="Starts the next batch of ready completions.">Carry()</a>. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="af5356784f1232bc60d1d2c650d35158a" name="af5356784f1232bc60d1d2c650d35158a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5356784f1232bc60d1d2c650d35158a">&#9670;&#160;</a></span>Carry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool NNet::NDetail::TCompletions::Carry </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Starts the next batch of ready completions. </p>
+<p>Keeps the ready completions not delivered, as when the poller waits again without <a class="el" href="#aeab4eb998f10592e66aaec9bec76953a" title="Resumes the coroutines of the ready completions.">Wakeup()</a>, and adds the reaped ones.</p>
+<dl class="section return"><dt>Returns</dt><dd>Whether any are ready, so that the poller does not block. </dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>coroio/<a class="el" href="completions_8hpp_source.html">completions.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -157,7 +185,7 @@ class NNet::NDetail::TIntrusiveNode&lt; T &gt;</div><p>Links of an object in a <
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>NNet</b></li><li class="navelem"><b>NDetail</b></li><li class="navelem"><a href="classNNet_1_1NDetail_1_1TIntrusiveNode.html">TIntrusiveNode</a></li>
+    <li class="navelem"><b>NNet</b></li><li class="navelem"><b>NDetail</b></li><li class="navelem"><a href="classNNet_1_1NDetail_1_1TCompletions.html">TCompletions</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>

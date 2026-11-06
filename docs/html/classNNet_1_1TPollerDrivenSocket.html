@@ -219,7 +219,7 @@ std::optional&lt; <a class="el" href="classNNet_1_1TAddress.html">TAddress</a> &
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T&gt;<br />
 class NNet::TPollerDrivenSocket&lt; T &gt;</div><p>Socket type driven by the poller's implementation. </p>
-<p>This class is used when socket operations (read, write, connect, etc.) are defined by the poller—in other words, when these operations depend on the underlying poller (e.g. for high-performance I/O using uring or IOCP).</p>
+<p>This class is used when socket operations (read, write, connect, etc.) are defined by the poller, in other words, when these operations depend on the underlying poller (e.g. for high-performance I/O using uring or IOCP).</p>
 <p>Ordinary users should not worry about selecting the appropriate socket type. Instead, they should use the type defined by the poller, i.e. <code>typename</code> TPoller::TSocket. Depending on the poller, this may resolve to either <a class="el" href="classNNet_1_1TSocket.html" title="High-level asynchronous socket for network communication.">TSocket</a> or <a class="el" href="classNNet_1_1TPollerDrivenSocket.html" title="Socket type driven by the poller&#39;s implementation.">TPollerDrivenSocket</a>.</p>
 <dl class="section note"><dt>Note</dt><dd>The poller must outlive every coroutine suspended on an operation of this class: destroying such a coroutine cancels the operation in the poller.</dd>
 <dd>
@@ -350,8 +350,14 @@ template&lt;typename T&gt; </div>
 </div><div class="memdoc">
 
 <p>Asynchronously accepts an incoming connection. </p>
-<p>Returns an awaitable object that, upon completion, yields a new <a class="el" href="classNNet_1_1TPollerDrivenSocket.html" title="Socket type driven by the poller&#39;s implementation.">TPollerDrivenSocket</a> for the accepted connection.</p>
-<dl class="section return"><dt>Returns</dt><dd>An awaitable yielding the accepted <a class="el" href="classNNet_1_1TPollerDrivenSocket.html" title="Socket type driven by the poller&#39;s implementation.">TPollerDrivenSocket</a>. </dd></dl>
+<p>Returns an awaitable object that, upon completion, yields a new <a class="el" href="classNNet_1_1TPollerDrivenSocket.html" title="Socket type driven by the poller&#39;s implementation.">TPollerDrivenSocket</a> for the accepted connection. Errors are handled as in <a class="el" href="classNNet_1_1TSocket.html#a7d57a7f85d0d3ba7222f24224137b494" title="Asynchronously accepts an incoming connection.">TSocket::Accept()</a>.</p>
+<dl class="section return"><dt>Returns</dt><dd>An awaitable yielding the accepted <a class="el" href="classNNet_1_1TPollerDrivenSocket.html" title="Socket type driven by the poller&#39;s implementation.">TPollerDrivenSocket</a>, or the error code. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::system_error</td><td>with EBADF at <code>co_await</code> if the socket is closed. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

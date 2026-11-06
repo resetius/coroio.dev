@@ -145,8 +145,8 @@ class NNet::TWebServer&lt; TSocket &gt;</div><p>HTTP/1.1 server that accepts con
 <div class="line">server.Start();</div>
 <div class="line">loop.Loop();</div>
 <div class="ttc" id="aclassNNet_1_1TPoll_html_a48865341622e5479f250d62e0c8c6e78"><div class="ttname"><a href="classNNet_1_1TPoll.html#a48865341622e5479f250d62e0c8c6e78">NNet::TPoll::TSocket</a></div><div class="ttdeci">NNet::TSocket TSocket</div><div class="ttdoc">Alias for the socket type.</div><div class="ttdef"><b>Definition</b> poll.hpp:42</div></div>
-<div class="ttc" id="aclassNNet_1_1TSocket_html"><div class="ttname"><a href="classNNet_1_1TSocket.html">NNet::TSocket</a></div><div class="ttdoc">High-level asynchronous socket for network communication.</div><div class="ttdef"><b>Definition</b> socket.hpp:399</div></div>
-<div class="ttc" id="aclassNNet_1_1TWebServer_html_a0977d1651e2072eefb3697a154fdb6b9"><div class="ttname"><a href="#a0977d1651e2072eefb3697a154fdb6b9">NNet::TWebServer::TWebServer</a></div><div class="ttdeci">TWebServer(TSocket &amp;&amp;serverSocket, IRouter &amp;router, std::function&lt; void(const std::string &amp;)&gt; logger={})</div><div class="ttdoc">Constructs the server.</div><div class="ttdef"><b>Definition</b> httpd.hpp:233</div></div>
+<div class="ttc" id="aclassNNet_1_1TSocket_html"><div class="ttname"><a href="classNNet_1_1TSocket.html">NNet::TSocket</a></div><div class="ttdoc">High-level asynchronous socket for network communication.</div><div class="ttdef"><b>Definition</b> socket.hpp:404</div></div>
+<div class="ttc" id="aclassNNet_1_1TWebServer_html_a0977d1651e2072eefb3697a154fdb6b9"><div class="ttname"><a href="#a0977d1651e2072eefb3697a154fdb6b9">NNet::TWebServer::TWebServer</a></div><div class="ttdeci">TWebServer(TSocket &amp;&amp;serverSocket, IRouter &amp;router, std::function&lt; void(const std::string &amp;)&gt; logger={})</div><div class="ttdoc">Constructs the server.</div><div class="ttdef"><b>Definition</b> httpd.hpp:234</div></div>
 </div><!-- fragment --> </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0977d1651e2072eefb3697a154fdb6b9" name="a0977d1651e2072eefb3697a154fdb6b9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0977d1651e2072eefb3697a154fdb6b9">&#9670;&#160;</a></span>TWebServer()</h2>
@@ -221,7 +221,8 @@ template&lt;typename <a class="el" href="classNNet_1_1TSocket.html">TSocket</a>&
 </div><div class="memdoc">
 
 <p>Starts the accept loop as a detached <span class="tt"><a class="el" href="structNNet_1_1TVoidTask.html" title="Fire-and-forget coroutine handle.">TVoidTask</a></span>. </p>
-<p>Runs forever, accepting connections and spawning a per-connection handler coroutine for each. Returns immediately (the loop is detached). </p>
+<p>Runs forever, accepting connections and spawning a per-connection handler coroutine for each. Returns immediately (the loop is detached).</p>
+<p>Accept errors are reported only to the logger, so without one they are silent. After an error that is not transient the loop sleeps 100 ms and accepts again. </p>
 
 </div>
 </div>

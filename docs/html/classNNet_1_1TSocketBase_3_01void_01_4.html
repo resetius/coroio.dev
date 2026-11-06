@@ -185,7 +185,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>Fd_</b> = -1</td></tr>
 </div><div class="memdoc">
 
 <p>Closes the socket. </p>
-<p>Closes the socket using the low-level operation provided by <a class="el" href="classNNet_1_1TSockOps.html">TSockOps</a>, removes it from the poller, and marks the descriptor as invalid. </p>
+<p>Hands the descriptor to <a class="el" href="classNNet_1_1TPollerBase.html#a5f60d802102817f75ecc588abacf8f9c" title="Closes fd in the next poll iteration.">TPollerBase::Close()</a>, which closes it in the next poll iteration: <span class="tt">co_await poller.Yield()</span> before binding a closed listener's address again. Marks the descriptor as invalid. </p>
 
 </div>
 </div>

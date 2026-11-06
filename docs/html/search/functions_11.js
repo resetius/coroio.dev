@@ -13,7 +13,7 @@ var searchData=
   ['tlinereader_10',['TLineReader',['../structNNet_1_1TLineReader.html#a42714161f82dbc80770f6a1a0be610ea',1,'NNet::TLineReader']]],
   ['tlinesplitter_11',['TLineSplitter',['../structNNet_1_1TLineSplitter.html#ae268d7739985d5dec43907da825579c1',1,'NNet::TLineSplitter']]],
   ['tnode_12',['TNode',['../classNNet_1_1NActors_1_1TNode.html#ac87a484b145d4c00dd8f85fac622808a',1,'NNet::NActors::TNode']]],
-  ['tnotifier_13',['TNotifier',['../classNNet_1_1TNotifier.html#a91dfacc1707aeebc5b670d3f814a83c0',1,'NNet::TNotifier']]],
+  ['tnotifier_13',['TNotifier',['../classNNet_1_1TNotifier.html#a41eb6ae4ea8a2d6a46d3b5bb780207fb',1,'NNet::TNotifier']]],
   ['tostring_14',['ToString',['../classNNet_1_1NActors_1_1TActorId.html#a896d784fb55615bda04dd3c01de354ed',1,'NNet::NActors::TActorId::ToString()'],['../classNNet_1_1TAddress.html#ab09fa22477089035585b4b9877a50702',1,'NNet::TAddress::ToString()']]],
   ['tpipe_15',['TPipe',['../classNNet_1_1TPipe.html#a13872a7679c1ac7d875e74f0138de37a',1,'NNet::TPipe']]],
   ['tpollerbase_16',['TPollerBase',['../classNNet_1_1TPollerBase.html#a0bf870f24ff1b7dedeb0f132dcfa9f05',1,'NNet::TPollerBase::TPollerBase()=default'],['../classNNet_1_1TPollerBase.html#a236d38889ae16fecc1774a5db08f231d',1,'NNet::TPollerBase::TPollerBase(const TPollerBase &amp;)=delete']]],

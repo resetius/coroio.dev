@@ -21,7 +21,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>COROIO: NNet::NDetail::TIntrusiveList&lt; T &gt;::TIterator Class Reference</title>
+<title>COROIO: NNet::NDetail::TOperationState Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -84,7 +84,7 @@ $(function() { codefold.init(); });
   </div>
 </div>
 <script type="text/javascript">
-$(function(){initNavTree('classNNet_1_1NDetail_1_1TIntrusiveList_1_1TIterator.html','','classNNet_1_1NDetail_1_1TIntrusiveList_1_1TIterator-members'); });
+$(function(){initNavTree('structNNet_1_1NDetail_1_1TOperationState.html','','structNNet_1_1NDetail_1_1TOperationState-members'); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -110,25 +110,48 @@ $(function(){initNavTree('classNNet_1_1NDetail_1_1TIntrusiveList_1_1TIterator.ht
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">NNet::NDetail::TIntrusiveList&lt; T &gt;::TIterator Class Reference</div></div>
+  <div class="headertitle"><div class="title">NNet::NDetail::TOperationState Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>State of one operation of a completion-based poller (<a class="el" href="classNNet_1_1TUring.html" title="Poller implementation based on io_uring.">TUring</a>, <a class="el" href="classNNet_1_1TIOCp.html" title="IOCP-based poller for asynchronous I/O on Windows.">TIOCp</a>).  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="completions_8hpp_source.html">completions.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for NNet::NDetail::TOperationState:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="structNNet_1_1NDetail_1_1TOperationState.png" usemap="#NNet_3A_3ANDetail_3A_3ATOperationState_map" alt=""/>
+  <map id="NNet_3A_3ANDetail_3A_3ATOperationState_map" name="NNet_3A_3ANDetail_3A_3ATOperationState_map">
+<area href="structNNet_1_1TIOCp_1_1TOperation.html" title="State of one operation, kept by the caller." alt="NNet::TIOCp::TOperation" shape="rect" coords="0,56,184,80"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a087368894bfd2a7269a5f880483921d2" id="r_a087368894bfd2a7269a5f880483921d2"><td class="memItemLeft" align="right" valign="top"><a id="a087368894bfd2a7269a5f880483921d2" name="a087368894bfd2a7269a5f880483921d2"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TIterator</b> (TNode *node)</td></tr>
-<tr class="memitem:a3f4c8eb9758d66b219ae0db4f2d8d81a" id="r_a3f4c8eb9758d66b219ae0db4f2d8d81a"><td class="memItemLeft" align="right" valign="top"><a id="a3f4c8eb9758d66b219ae0db4f2d8d81a" name="a3f4c8eb9758d66b219ae0db4f2d8d81a"></a>
-T &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> () const</td></tr>
-<tr class="memitem:a0f56d2604fd7b2a6801a7a56732dc69c" id="r_a0f56d2604fd7b2a6801a7a56732dc69c"><td class="memItemLeft" align="right" valign="top"><a id="a0f56d2604fd7b2a6801a7a56732dc69c" name="a0f56d2604fd7b2a6801a7a56732dc69c"></a>
-T *&#160;</td><td class="memItemRight" valign="bottom"><b>operator-&gt;</b> () const</td></tr>
-<tr class="memitem:adcfcd5584180d7c217adcfaedaae038f" id="r_adcfcd5584180d7c217adcfaedaae038f"><td class="memItemLeft" align="right" valign="top"><a id="adcfcd5584180d7c217adcfaedaae038f" name="adcfcd5584180d7c217adcfaedaae038f"></a>
-TIterator &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator++</b> ()</td></tr>
-<tr class="memitem:a29ca83250ad8fee5f03d26e7cd6f2981" id="r_a29ca83250ad8fee5f03d26e7cd6f2981"><td class="memItemLeft" align="right" valign="top"><a id="a29ca83250ad8fee5f03d26e7cd6f2981" name="a29ca83250ad8fee5f03d26e7cd6f2981"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const TIterator &amp;other) const =default</td></tr>
+<tr class="memitem:a6b55815f7e28a3fab3ff406c48b58bcd" id="r_a6b55815f7e28a3fab3ff406c48b58bcd"><td class="memItemLeft" align="right" valign="top"><a id="a6b55815f7e28a3fab3ff406c48b58bcd" name="a6b55815f7e28a3fab3ff406c48b58bcd"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TOperationState</b> (const TOperationState &amp;)=delete</td></tr>
+<tr class="memitem:ab37d7dadf05a53438bfa6953ce919fcb" id="r_ab37d7dadf05a53438bfa6953ce919fcb"><td class="memItemLeft" align="right" valign="top"><a id="ab37d7dadf05a53438bfa6953ce919fcb" name="ab37d7dadf05a53438bfa6953ce919fcb"></a>
+TOperationState &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const TOperationState &amp;)=delete</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a50dffc919836b2df78e25df23154c0e2" id="r_a50dffc919836b2df78e25df23154c0e2"><td class="memItemLeft" align="right" valign="top"><a id="a50dffc919836b2df78e25df23154c0e2" name="a50dffc919836b2df78e25df23154c0e2"></a>
+THandle&#160;</td><td class="memItemRight" valign="bottom"><b>Handle</b></td></tr>
+<tr class="memdesc:a50dffc919836b2df78e25df23154c0e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coroutine to resume, set by the caller before posting. Cleared when posting fails, the completion is delivered or the operation is cancelled, so it is set while the operation is pending. <br /></td></tr>
+<tr class="memitem:a0dfc2635d6deea11d8f88ea96c7590bd" id="r_a0dfc2635d6deea11d8f88ea96c7590bd"><td class="memItemLeft" align="right" valign="top"><a id="a0dfc2635d6deea11d8f88ea96c7590bd" name="a0dfc2635d6deea11d8f88ea96c7590bd"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>Result</b> = 0</td></tr>
+<tr class="memdesc:a0dfc2635d6deea11d8f88ea96c7590bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Result of the completion, e.g. the number of bytes transferred. <br /></td></tr>
+<tr class="memitem:a2f96630d276da4ba431d6f76145bf062" id="r_a2f96630d276da4ba431d6f76145bf062"><td class="memItemLeft" align="right" valign="top"><a id="a2f96630d276da4ba431d6f76145bf062" name="a2f96630d276da4ba431d6f76145bf062"></a>
+unsigned&#160;</td><td class="memItemRight" valign="bottom"><b>Index</b> = 0</td></tr>
+<tr class="memdesc:a2f96630d276da4ba431d6f76145bf062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Position of the completion in <a class="el" href="classNNet_1_1NDetail_1_1TCompletions.html" title="Completions taken from the system and not delivered yet.">TCompletions</a> once taken; before that, whatever the poller keeps there. <br /></td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>coroio/<a class="el" href="intrusive__list_8hpp_source.html">intrusive_list.hpp</a></li>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>State of one operation of a completion-based poller (<a class="el" href="classNNet_1_1TUring.html" title="Poller implementation based on io_uring.">TUring</a>, <a class="el" href="classNNet_1_1TIOCp.html" title="IOCP-based poller for asynchronous I/O on Windows.">TIOCp</a>). </p>
+<p>It lives in the operation's awaitable, inside the waiting coroutine's frame. The poller refers to it from posting until the completion is delivered or Cancel() returns, and the awaitable cancels the operation in its destructor, so it outlives every reference. Index lets Cancel() find it in O(1). The poller and the system keep its address, so it can be neither copied nor moved. </p>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
+<li>coroio/<a class="el" href="completions_8hpp_source.html">completions.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -143,7 +166,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>NNet</b></li><li class="navelem"><b>NDetail</b></li><li class="navelem"><a href="classNNet_1_1NDetail_1_1TIntrusiveList.html">TIntrusiveList</a></li><li class="navelem"><a href="classNNet_1_1NDetail_1_1TIntrusiveList_1_1TIterator.html">TIterator</a></li>
+    <li class="navelem"><b>NNet</b></li><li class="navelem"><b>NDetail</b></li><li class="navelem"><a href="structNNet_1_1NDetail_1_1TOperationState.html">TOperationState</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>

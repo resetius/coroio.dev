@@ -167,7 +167,7 @@ class NNet::TSocketBase&lt; TSockOps &gt;</div><p>Template base class implementi
 <p>This class extends the internal <a class="el" href="classNNet_1_1TSocketBase_3_01void_01_4.html">TSocketBase&lt;void&gt;</a> by implementing asynchronous operations based on a type-specific socket operations trait, <a class="el" href="classNNet_1_1TSockOps.html">TSockOps</a>. The <a class="el" href="classNNet_1_1TSockOps.html">TSockOps</a> type must implement the following static methods:</p><ul>
 <li><span class="tt">static int TSockOps::read(int fd, void* buf, size_t size)</span></li>
 <li><span class="tt">static int TSockOps::write(int fd, const void* buf, size_t size)</span></li>
-<li><span class="tt">static int TSockOps::close(int fd)</span></li>
+<li><span class="tt">static constexpr int <a class="el" href="classNNet_1_1TSockOps.html#acc3a947367ea63835de1ea23dc57f0a8" title="Passed to TPollerBase::Close().">TSockOps::CloseType</a></span>, passed to <a class="el" href="classNNet_1_1TPollerBase.html#a5f60d802102817f75ecc588abacf8f9c" title="Closes fd in the next poll iteration.">TPollerBase::Close()</a></li>
 </ul>
 <p>It provides awaitable methods for reading and writing:</p><ul>
 <li><a class="el" href="#aaf2e0b5cccc278c02ef48bcd253ff4fd">ReadSome()</a> and <a class="el" href="#af15b3141e3ebcf34283423ca895cec48">ReadSomeYield()</a> perform asynchronous reads.</li>
@@ -295,7 +295,7 @@ template&lt;typename <a class="el" href="classNNet_1_1TSockOps.html">TSockOps</a
 </div><div class="memdoc">
 
 <p>Closes the socket. </p>
-<p>Closes the socket using the low-level operation provided by <a class="el" href="classNNet_1_1TSockOps.html">TSockOps</a>, removes it from the poller, and marks the descriptor as invalid. </p>
+<p>Hands the descriptor to <a class="el" href="classNNet_1_1TPollerBase.html#a5f60d802102817f75ecc588abacf8f9c" title="Closes fd in the next poll iteration.">TPollerBase::Close()</a>, which closes it in the next poll iteration: <span class="tt">co_await poller.Yield()</span> before binding a closed listener's address again. Marks the descriptor as invalid. </p>
 
 </div>
 </div>
