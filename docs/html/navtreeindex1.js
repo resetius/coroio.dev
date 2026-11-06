@@ -206,9 +206,10 @@ var NAVTREEINDEX1 =
 "structNNet_1_1NActors_1_1is__local__message.html":[1,0,0,0,24],
 "structNNet_1_1NActors_1_1is__local__message_3_01T_00_01std_1_1void__t_3_01typename_01T_1_1LocalMessage_01_4_01_4.html":[1,0,0,0,25],
 "structNNet_1_1NDetail_1_1TOperationState.html":[1,0,0,1,0],
-"structNNet_1_1NDetail_1_1TOperationState.html#a0dfc2635d6deea11d8f88ea96c7590bd":[1,0,0,1,0,2],
-"structNNet_1_1NDetail_1_1TOperationState.html#a2f96630d276da4ba431d6f76145bf062":[1,0,0,1,0,1],
-"structNNet_1_1NDetail_1_1TOperationState.html#a50dffc919836b2df78e25df23154c0e2":[1,0,0,1,0,0],
+"structNNet_1_1NDetail_1_1TOperationState.html#a0dfc2635d6deea11d8f88ea96c7590bd":[1,0,0,1,0,3],
+"structNNet_1_1NDetail_1_1TOperationState.html#a2f96630d276da4ba431d6f76145bf062":[1,0,0,1,0,2],
+"structNNet_1_1NDetail_1_1TOperationState.html#a50dffc919836b2df78e25df23154c0e2":[1,0,0,1,0,1],
+"structNNet_1_1NDetail_1_1TOperationState.html#a61ea39aa22d73eab38fde35d71b89b3b":[1,0,0,1,0,0],
 "structNNet_1_1TByteReader.html":[1,0,0,48],
 "structNNet_1_1TByteReader.html#a06eec1258239223532bf1ef4d8e24eab":[1,0,0,48,1],
 "structNNet_1_1TByteReader.html#a0fba0689cf0fc26d154189697742d286":[1,0,0,48,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "structNNet_1_1TSslContext.html":[1,0,0,54],
 "structNNet_1_1TSslContext.html#acbd9b034b17ff3eefbe1517d8e5ad75f":[1,0,0,54,1],
 "structNNet_1_1TSslContext.html#ae4fd7317426394cc600259188930c9ed":[1,0,0,54,0],
-"structNNet_1_1TStructReader.html":[1,0,0,50],
-"structNNet_1_1TStructReader.html#a01aed1fb8dc52c06e5177b13b02c0f3a":[1,0,0,50,0]
+"structNNet_1_1TStructReader.html":[1,0,0,50]
 };
