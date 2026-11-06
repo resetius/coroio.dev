@@ -5,6 +5,7 @@ var classNNet_1_1TUring =
     [ "TSocket", "classNNet_1_1TUring.html#ab2927525be4aecd8683ca01ad592befa", null ],
     [ "TUring", "classNNet_1_1TUring.html#ad2d00c2a8d1187e79c81fb6cf49ff684", null ],
     [ "~TUring", "classNNet_1_1TUring.html#a5fbf892e891e377d39544065069f9ebf", null ],
+    [ "TUring", "classNNet_1_1TUring.html#ab0b53d45747c0142e8d9ffc64a9616c8", null ],
     [ "Accept", "classNNet_1_1TUring.html#a52bc882efa7c5a60799b7980ecd64912", null ],
     [ "Cancel", "classNNet_1_1TUring.html#a33a150c8b21a47865c55adf0727c3b9d", null ],
     [ "Cancel", "classNNet_1_1TUring.html#a9f94fac2e4c13d35b6c50bcab3c2e0a1", null ],
