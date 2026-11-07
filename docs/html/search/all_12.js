@@ -90,7 +90,7 @@ var searchData=
   ['tunboundedvectorqueue_3c_20tlocalactorid_20_3e_87',['TUnboundedVectorQueue&lt; TLocalActorId &gt;',['../structNNet_1_1NActors_1_1TUnboundedVectorQueue.html',1,'NNet::NActors']]],
   ['tunboundedvectorqueue_3c_20tnodeid_20_3e_88',['TUnboundedVectorQueue&lt; TNodeId &gt;',['../structNNet_1_1NActors_1_1TUnboundedVectorQueue.html',1,'NNet::NActors']]],
   ['turi_89',['TUri',['../classNNet_1_1TUri.html',1,'NNet::TUri'],['../classNNet_1_1TUri.html#a311d32d482c9ed74d8e7d51941bbbd97',1,'NNet::TUri::TUri()']]],
-  ['turing_90',['TUring',['../classNNet_1_1TUring.html',1,'NNet::TUring'],['../classNNet_1_1TUring.html#ad2d00c2a8d1187e79c81fb6cf49ff684',1,'NNet::TUring::TUring()']]],
+  ['turing_90',['TUring',['../classNNet_1_1TUring.html',1,'NNet::TUring'],['../classNNet_1_1TUring.html#ad2d00c2a8d1187e79c81fb6cf49ff684',1,'NNet::TUring::TUring(int queueSize=256)'],['../classNNet_1_1TUring.html#ab0b53d45747c0142e8d9ffc64a9616c8',1,'NNet::TUring::TUring(int queueSize, int completionQueueSize)']]],
   ['tvoidpromise_91',['TVoidPromise',['../structNNet_1_1TVoidPromise.html',1,'NNet']]],
   ['tvoidsuspendedpromise_92',['TVoidSuspendedPromise',['../structNNet_1_1TVoidSuspendedPromise.html',1,'NNet']]],
   ['tvoidsuspendedtask_93',['TVoidSuspendedTask',['../structNNet_1_1TVoidSuspendedTask.html',1,'NNet']]],

@@ -140,7 +140,7 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>TSocket</b> = <a cla
 <tr class="memdesc:a4235e0d14582f04fce88cb85354ce9ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for the poller-driven socket type. <br /></td></tr>
 <tr class="memitem:a82e5c29c11bff619cac6ce39b0692420" id="r_a82e5c29c11bff619cac6ce39b0692420"><td class="memItemLeft" align="right" valign="top"><a id="a82e5c29c11bff619cac6ce39b0692420" name="a82e5c29c11bff619cac6ce39b0692420"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>TFileHandle</b> = <a class="el" href="classNNet_1_1TPollerDrivenFileHandle.html">NNet::TPollerDrivenFileHandle</a>&lt;TIOCp&gt;</td></tr>
-<tr class="memdesc:a82e5c29c11bff619cac6ce39b0692420"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for the poller-driven file handle type. Not supported: its operations are never delivered, see <a class="el" href="classNNet_1_1TIOCp.html" title="IOCP-based poller for asynchronous I/O on Windows.">TIOCp</a>. <br /></td></tr>
+<tr class="memdesc:a82e5c29c11bff619cac6ce39b0692420"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for the poller-driven file handle type. It takes a CRT descriptor, see <a class="el" href="classNNet_1_1TIOCp.html" title="IOCP-based poller for asynchronous I/O on Windows.">TIOCp</a>. <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -157,11 +157,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab9ca35e3251ba61981bab3bedd746756" id="r_ab9ca35e3251ba61981bab3bedd746756"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab9ca35e3251ba61981bab3bedd746756">Connect</a> (int fd, const sockaddr *addr, socklen_t len, <a class="el" href="structNNet_1_1TIOCp_1_1TOperation.html">TOperation</a> &amp;op)</td></tr>
 <tr class="memdesc:ab9ca35e3251ba61981bab3bedd746756"><td class="mdescLeft">&#160;</td><td class="mdescRight">Posts an asynchronous connect operation.  <br /></td></tr>
 <tr class="memitem:a3734a2253d11eac9c0ea4c6d9a4ed740" id="r_a3734a2253d11eac9c0ea4c6d9a4ed740"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3734a2253d11eac9c0ea4c6d9a4ed740">Cancel</a> (int fd)</td></tr>
-<tr class="memdesc:a3734a2253d11eac9c0ea4c6d9a4ed740"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cancels all pending operations on the specified file descriptor.  <br /></td></tr>
+<tr class="memdesc:a3734a2253d11eac9c0ea4c6d9a4ed740"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cancels all pending operations on the specified socket.  <br /></td></tr>
 <tr class="memitem:a85c8a716fbea7a35175bccfbb9589181" id="r_a85c8a716fbea7a35175bccfbb9589181"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a85c8a716fbea7a35175bccfbb9589181">Cancel</a> (<a class="el" href="structNNet_1_1TIOCp_1_1TOperation.html">TOperation</a> &amp;op)</td></tr>
 <tr class="memdesc:a85c8a716fbea7a35175bccfbb9589181"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cancels a pending operation.  <br /></td></tr>
 <tr class="memitem:a223a9360c9f033de01d8f6adb62b2cd6" id="r_a223a9360c9f033de01d8f6adb62b2cd6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a223a9360c9f033de01d8f6adb62b2cd6">Register</a> (int fd)</td></tr>
-<tr class="memdesc:a223a9360c9f033de01d8f6adb62b2cd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a file descriptor with the IOCP.  <br /></td></tr>
+<tr class="memdesc:a223a9360c9f033de01d8f6adb62b2cd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a socket with the IOCP.  <br /></td></tr>
 <tr class="memitem:a12737c285cbac5120a72004b2d7af333" id="r_a12737c285cbac5120a72004b2d7af333"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a12737c285cbac5120a72004b2d7af333">WakeupReadyHandles</a> ()</td></tr>
 <tr class="memdesc:a12737c285cbac5120a72004b2d7af333"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resumes the coroutines whose operations completed.  <br /></td></tr>
 <tr class="memitem:accc15f22548114b71ad0d73fc98abbce" id="r_accc15f22548114b71ad0d73fc98abbce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#accc15f22548114b71ad0d73fc98abbce">Poll</a> ()</td></tr>
@@ -283,13 +283,20 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
 <div class="line">iocpPoller.<a class="code hl_function" href="#accc15f22548114b71ad0d73fc98abbce">Poll</a>();</div>
 <div class="line">iocpPoller.<a class="code hl_function" href="#a12737c285cbac5120a72004b2d7af333">WakeupReadyHandles</a>();</div>
 <div class="ttc" id="aclassNNet_1_1TIOCp_html_a12737c285cbac5120a72004b2d7af333"><div class="ttname"><a href="#a12737c285cbac5120a72004b2d7af333">NNet::TIOCp::WakeupReadyHandles</a></div><div class="ttdeci">void WakeupReadyHandles()</div><div class="ttdoc">Resumes the coroutines whose operations completed.</div></div>
-<div class="ttc" id="aclassNNet_1_1TIOCp_html_a223a9360c9f033de01d8f6adb62b2cd6"><div class="ttname"><a href="#a223a9360c9f033de01d8f6adb62b2cd6">NNet::TIOCp::Register</a></div><div class="ttdeci">void Register(int fd)</div><div class="ttdoc">Registers a file descriptor with the IOCP.</div></div>
+<div class="ttc" id="aclassNNet_1_1TIOCp_html_a223a9360c9f033de01d8f6adb62b2cd6"><div class="ttname"><a href="#a223a9360c9f033de01d8f6adb62b2cd6">NNet::TIOCp::Register</a></div><div class="ttdeci">void Register(int fd)</div><div class="ttdoc">Registers a socket with the IOCP.</div></div>
 <div class="ttc" id="aclassNNet_1_1TIOCp_html_acc039573cf3c21ccc99090e9b206a01f"><div class="ttname"><a href="#acc039573cf3c21ccc99090e9b206a01f">NNet::TIOCp::Recv</a></div><div class="ttdeci">void Recv(int fd, void *buf, int size, TOperation &amp;op)</div><div class="ttdoc">Posts an asynchronous receive operation.</div></div>
 <div class="ttc" id="aclassNNet_1_1TIOCp_html_accc15f22548114b71ad0d73fc98abbce"><div class="ttname"><a href="#accc15f22548114b71ad0d73fc98abbce">NNet::TIOCp::Poll</a></div><div class="ttdeci">void Poll()</div><div class="ttdoc">Polls for IOCP events.</div></div>
 <div class="ttc" id="astructNNet_1_1NDetail_1_1TOperationState_html_a50dffc919836b2df78e25df23154c0e2"><div class="ttname"><a href="structNNet_1_1NDetail_1_1TOperationState.html#a50dffc919836b2df78e25df23154c0e2">NNet::NDetail::TOperationState::Handle</a></div><div class="ttdeci">THandle Handle</div><div class="ttdoc">Coroutine to resume, set by the caller before posting. Cleared when posting fails,...</div><div class="ttdef"><b>Definition</b> completions.hpp:26</div></div>
-<div class="ttc" id="astructNNet_1_1TIOCp_1_1TOperation_html"><div class="ttname"><a href="structNNet_1_1TIOCp_1_1TOperation.html">NNet::TIOCp::TOperation</a></div><div class="ttdoc">State of one operation, kept by the caller.</div><div class="ttdef"><b>Definition</b> iocp.hpp:64</div></div>
+<div class="ttc" id="astructNNet_1_1TIOCp_1_1TOperation_html"><div class="ttname"><a href="structNNet_1_1TIOCp_1_1TOperation.html">NNet::TIOCp::TOperation</a></div><div class="ttdoc">State of one operation, kept by the caller.</div><div class="ttdef"><b>Definition</b> iocp.hpp:75</div></div>
 </div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>This class is specific to Windows and uses IOCP for high-performance I/O.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>File handles are not supported. <a class="el" href="classNNet_1_1TPollerDrivenFileHandle.html" title="Asynchronous file handle driven by the poller&#39;s implementation.">TPollerDrivenFileHandle</a> does not register its handle, so the handle is not associated with the port: its reads and writes get no completion packet and their coroutines are never resumed. <a class="el" href="#a85c8a716fbea7a35175bccfbb9589181" title="Cancels a pending operation.">Cancel(TOperation&amp;)</a> relies on that: for a file operation it returns once the OVERLAPPED is no longer pending, without waiting for a packet. A file handle must not be associated with the port, e.g. by <a class="el" href="#a223a9360c9f033de01d8f6adb62b2cd6" title="Registers a file descriptor with the IOCP.">Register()</a>: <a class="el" href="#a3734a2253d11eac9c0ea4c6d9a4ed740" title="Cancels all pending operations on the specified file descriptor.">Cancel()</a> would then return while a packet still points to the operation. Support for file I/O belongs to GitHub issues #156 and #158. </dd></dl>
+<p>File handles (<a class="el" href="classNNet_1_1TFileHandle.html" title="Asynchronous file handle that owns its file descriptor.">TFileHandle</a>, <a class="el" href="#ab7c317ff332cf9a6c498d3d683de73bd" title="Posts an asynchronous read operation.">Read()</a>, <a class="el" href="#ac0d3e5e7fffe17ee82848055225e01bf" title="Posts an asynchronous write operation.">Write()</a>) take a CRT descriptor, as on the other backends, e.g. from _open() or _open_osfhandle(). Closing the descriptor closes its handle.</p><ul>
+<li>A handle opened with FILE_FLAG_OVERLAPPED is associated with the port at its first operation. A handle can be associated with one port only.</li>
+<li>Other handles, e.g. from _open(), the console or an inherited pipe, are read and written synchronously, as regular files on the readiness pollers: the loop waits for them, for a console read until Enter.</li>
+<li>On an overlapped disk file an operation takes [pointer, pointer + size) of the file pointer when posted, as if the operations posted before it transfer all their bytes: a write posted while a read at the end of the file is pending leaves a hole. An operation that transfers less gives the rest back unless a later one took the pointer, and a read leaves it at most at the end of the file, also after a seek past the end.</li>
+<li>Overlapped writes go to the end of the file only if the handle has FILE_APPEND_DATA and no FILE_WRITE_DATA access: _O_APPEND of _open_osfhandle() is a CRT flag they do not see.</li>
+<li>A read at the end of the file or of a pipe returns 0. A failed operation returns the negated Win32 error, or errno for a synchronous handle.</li>
+<li>The descriptor -1, e.g. of a closed <a class="el" href="classNNet_1_1TFileHandle.html" title="Asynchronous file handle that owns its file descriptor.">TFileHandle</a>, gives EBADF. Another invalid descriptor is checked by the CRT, as by read() on the other pollers: the UCRT ends the process. </li>
+</ul>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a89541e41d9ba4aa7f0fba926ae1d8c3f" name="a89541e41d9ba4aa7f0fba926ae1d8c3f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a89541e41d9ba4aa7f0fba926ae1d8c3f">&#9670;&#160;</a></span>Accept()</h2>
@@ -348,10 +355,10 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
       </table>
 </div><div class="memdoc">
 
-<p>Cancels all pending operations on the specified file descriptor. </p>
+<p>Cancels all pending operations on the specified socket. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fd</td><td>The file descriptor. </td></tr>
+    <tr><td class="paramname">fd</td><td>The socket. </td></tr>
   </table>
   </dd>
 </dl>
@@ -374,7 +381,7 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
 </div><div class="memdoc">
 
 <p>Cancels a pending operation. </p>
-<p>Called when the coroutine is destroyed while waiting for the operation. Cancels it with CancelIoEx and returns only after its completion is dequeued, so its buffers and <code class="param">op</code> may be freed. A file operation gets no completion, since <a class="el" href="classNNet_1_1TPollerDrivenFileHandle.html" title="Asynchronous file handle driven by the poller&#39;s implementation.">TPollerDrivenFileHandle</a> does not register its handle: for it the call returns once its OVERLAPPED is no longer pending. The completion is dropped, so its coroutine is not resumed. Other completions dequeued meanwhile are delivered by the next <a class="el" href="#accc15f22548114b71ad0d73fc98abbce" title="Polls for IOCP events.">Poll()</a>.</p>
+<p>Called when the coroutine is destroyed while waiting for the operation. Cancels it with CancelIoEx and returns only after its completion is dequeued, so its buffers and <code class="param">op</code> may be freed. The completion is dropped, so its coroutine is not resumed. Other completions dequeued meanwhile are delivered by the next <a class="el" href="#accc15f22548114b71ad0d73fc98abbce" title="Polls for IOCP events.">Poll()</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">op</td><td>State of the operation, not delivered yet. </td></tr>
@@ -479,7 +486,7 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
 <p>Posts an asynchronous read operation. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fd</td><td>The file descriptor. </td></tr>
+    <tr><td class="paramname">fd</td><td>The CRT descriptor of the file, see <a class="el" href="classNNet_1_1TIOCp.html" title="IOCP-based poller for asynchronous I/O on Windows.">TIOCp</a>. </td></tr>
     <tr><td class="paramname">buf</td><td>Buffer to store read data. </td></tr>
     <tr><td class="paramname">size</td><td>Number of bytes to read. </td></tr>
     <tr><td class="paramname">op</td><td>State of the operation, with the coroutine to resume when it completes. </td></tr>
@@ -546,10 +553,10 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
       </table>
 </div><div class="memdoc">
 
-<p>Registers a file descriptor with the IOCP. </p>
+<p>Registers a socket with the IOCP. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fd</td><td>The file descriptor to register. </td></tr>
+    <tr><td class="paramname">fd</td><td>The socket to register. </td></tr>
   </table>
   </dd>
 </dl>
@@ -650,7 +657,7 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
 <p>Posts an asynchronous write operation. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fd</td><td>The file descriptor. </td></tr>
+    <tr><td class="paramname">fd</td><td>The CRT descriptor of the file, see <a class="el" href="classNNet_1_1TIOCp.html" title="IOCP-based poller for asynchronous I/O on Windows.">TIOCp</a>. </td></tr>
     <tr><td class="paramname">buf</td><td>Buffer containing data to write. </td></tr>
     <tr><td class="paramname">size</td><td>Number of bytes to write. </td></tr>
     <tr><td class="paramname">op</td><td>State of the operation, with the coroutine to resume when it completes. </td></tr>

@@ -1,7 +1,7 @@
 var searchData=
 [
   ['far_0',['Far',['../structNNet_1_1NActors_1_1TBlob.html#ac00fc5f82d12a4034d2f71b264b9a825acfcd41f0c1804fb7778f8f01301223f6',1,'NNet::NActors::TBlob']]],
-  ['fd_1',['Fd',['../classNNet_1_1TSocket.html#a4c13ce159122b82427278376b32c1122',1,'NNet::TSocket']]],
+  ['fd_1',['Fd',['../structNNet_1_1NDetail_1_1TOperationState.html#a61ea39aa22d73eab38fde35d71b89b3b',1,'NNet::NDetail::TOperationState::Fd'],['../classNNet_1_1TSocket.html#a4c13ce159122b82427278376b32c1122',1,'NNet::TSocket::Fd()']]],
   ['features_2',['Key Features',['../index.html#features_sec',1,'']]],
   ['firstdynamicactorid_3',['FirstDynamicActorId',['../classNNet_1_1NActors_1_1TActorSystem.html#acd7a5e5388d53a363ded4d2917d283bc',1,'NNet::NActors::TActorSystem']]],
   ['forward_4',['Forward',['../classNNet_1_1NActors_1_1TActorContext.html#a5a828d85863f59055a082f811a428e6d',1,'NNet::NActors::TActorContext::Forward(TActorId to, TMessageId messageId, TBlob blob)'],['../classNNet_1_1NActors_1_1TActorContext.html#aaa6edfad4bd4de8246fa1bb86d9aaed4',1,'NNet::NActors::TActorContext::Forward(TActorId to, Args &amp;&amp;... args)']]],
