@@ -1,5 +1,11 @@
 var NAVTREEINDEX2 =
 {
+"structNNet_1_1TSocketBase_1_1TAwaitable.html":[1,0,0,39,0],
+"structNNet_1_1TSslContext.html":[1,0,0,54],
+"structNNet_1_1TSslContext.html#acbd9b034b17ff3eefbe1517d8e5ad75f":[1,0,0,54,1],
+"structNNet_1_1TSslContext.html#ae4fd7317426394cc600259188930c9ed":[1,0,0,54,0],
+"structNNet_1_1TStructReader.html":[1,0,0,50],
+"structNNet_1_1TStructReader.html#a01aed1fb8dc52c06e5177b13b02c0f3a":[1,0,0,50,0],
 "structNNet_1_1TStructReader.html#ab01ad1a8c37cc594376b468201382ef0":[1,0,0,50,1],
 "structNNet_1_1TTimer.html":[1,0,0,10],
 "structNNet_1_1TTypelessSocket.html":[1,0,0,21],
@@ -13,6 +19,7 @@ var NAVTREEINDEX2 =
 "structNNet_1_1TZeroCopyLineSplitter.html#abb13941bdde48ab6559a79149ac66353":[1,0,0,52,2],
 "structNNet_1_1TZeroCopyLineSplitter.html#ae046dcda237bb388211cc3227dfe1465":[1,0,0,52,1],
 "structNNet_1_1TZeroCopyLineSplitter.html#af64b01796eb016cca29c41a39cb85de3":[1,0,0,52,0],
+"structstd_1_1hash_3_01NNet_1_1NActors_1_1TActorId_01_4.html":[1,0,1,0],
 "uring_8hpp_source.html":[2,0,0,1,5],
 "utils_8hpp_source.html":[2,0,0,5,0],
 "ws_8hpp_source.html":[2,0,0,5,1]

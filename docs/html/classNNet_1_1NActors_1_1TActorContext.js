@@ -3,6 +3,7 @@ var classNNet_1_1NActors_1_1TActorContext =
     [ "TAsync", "structNNet_1_1NActors_1_1TActorContext_1_1TAsync.html", null ],
     [ "Ask", "classNNet_1_1NActors_1_1TActorContext.html#a822f9ac25826a245b80061acfd81d36c", null ],
     [ "Cancel", "classNNet_1_1NActors_1_1TActorContext.html#a9365829fc94faed9d5856f41292aefa8", null ],
+    [ "CreateNotifier", "classNNet_1_1NActors_1_1TActorContext.html#a8e808f18464d49ae49cde457d351909a", null ],
     [ "Forward", "classNNet_1_1NActors_1_1TActorContext.html#aaa6edfad4bd4de8246fa1bb86d9aaed4", null ],
     [ "Forward", "classNNet_1_1NActors_1_1TActorContext.html#a5a828d85863f59055a082f811a428e6d", null ],
     [ "Register", "classNNet_1_1NActors_1_1TActorContext.html#a7b8dd16644f3d2cc7027eb498ce3db21", null ],
