@@ -8,6 +8,7 @@ var classNNet_1_1TPollerBase =
     [ "AddTimer", "classNNet_1_1TPollerBase.html#a66e728fd17de36c493a0e915115d417e", null ],
     [ "AddWrite", "classNNet_1_1TPollerBase.html#a89b328d4fd41f981d576dd48463ab5b2", null ],
     [ "Close", "classNNet_1_1TPollerBase.html#a5f60d802102817f75ecc588abacf8f9c", null ],
+    [ "CreateNotifier", "classNNet_1_1TPollerBase.html#a091eae2bdbaf33b874b3bb286b82fce3", null ],
     [ "GetTimeout", "classNNet_1_1TPollerBase.html#a0008a394cf1744e9369e60bcf75cdfc5", null ],
     [ "ProcessTimers", "classNNet_1_1TPollerBase.html#a5552a86441c63d811e6a0d6039d391bd", null ],
     [ "RemoveEvent", "classNNet_1_1TPollerBase.html#aa07a131f7224e0c939e2df9b83982146", null ],

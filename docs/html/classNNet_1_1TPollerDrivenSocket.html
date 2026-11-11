@@ -351,10 +351,11 @@ template&lt;typename T&gt; </div>
 
 <p>Asynchronously accepts an incoming connection. </p>
 <p>Returns an awaitable object that, upon completion, yields a new <a class="el" href="classNNet_1_1TPollerDrivenSocket.html" title="Socket type driven by the poller&#39;s implementation.">TPollerDrivenSocket</a> for the accepted connection. Errors are handled as in <a class="el" href="classNNet_1_1TSocket.html#a7d57a7f85d0d3ba7222f24224137b494" title="Asynchronously accepts an incoming connection.">TSocket::Accept()</a>.</p>
+<p>An accept that is pending when the socket is closed returns the cancel error as a value (995 on IOCP, ECANCELED on io_uring).</p>
 <dl class="section return"><dt>Returns</dt><dd>An awaitable yielding the accepted <a class="el" href="classNNet_1_1TPollerDrivenSocket.html" title="Socket type driven by the poller&#39;s implementation.">TPollerDrivenSocket</a>, or the error code. </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">std::system_error</td><td>with EBADF at <code>co_await</code> if the socket is closed. </td></tr>
+    <tr><td class="paramname">std::system_error</td><td>with EBADF at <code>co_await</code> if the socket was already closed. </td></tr>
   </table>
   </dd>
 </dl>
