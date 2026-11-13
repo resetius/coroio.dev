@@ -141,7 +141,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8f5739478e7d3070e1419f825227eff3" id="r_a8f5739478e7d3070e1419f825227eff3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f5739478e7d3070e1419f825227eff3">Send</a> (<a class="el" href="classNNet_1_1NActors_1_1TEnvelope.html">TEnvelope</a> &amp;&amp;envelope) override</td></tr>
 <tr class="memdesc:a8f5739478e7d3070e1419f825227eff3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes <span class="tt">envelope</span> and appends it to the outbound buffer.  <br /></td></tr>
 <tr class="memitem:a9f005c4a76d32696c9795586670c92f3" id="r_a9f005c4a76d32696c9795586670c92f3"><td class="memItemLeft" align="right" valign="top">std::span&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f005c4a76d32696c9795586670c92f3">Acquire</a> (size_t size) override</td></tr>
-<tr class="memdesc:a9f005c4a76d32696c9795586670c92f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reserves <span class="tt">size</span> contiguous bytes in the buffer and returns a span over them.  <br /></td></tr>
 <tr class="memitem:aad42b866d192ddc762becb19eca2030b" id="r_aad42b866d192ddc762becb19eca2030b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad42b866d192ddc762becb19eca2030b">Commit</a> (size_t size) override</td></tr>
 <tr class="memdesc:aad42b866d192ddc762becb19eca2030b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marks <span class="tt">size</span> previously acquired bytes as ready to send.  <br /></td></tr>
 <tr class="memitem:a53bb72c4da0f2cf18ac3f71efe745e2e" id="r_a53bb72c4da0f2cf18ac3f71efe745e2e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a53bb72c4da0f2cf18ac3f71efe745e2e">StartConnect</a> () override</td></tr>
@@ -246,8 +245,7 @@ template&lt;typename TPoller&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Reserves <span class="tt">size</span> contiguous bytes in the buffer and returns a span over them. </p>
+<p>Reserves <span class="tt">size</span> contiguous bytes after the committed ones and returns a span over them. A reservation that is not committed (its writer threw) is reused by the next <span class="tt"><a class="el" href="#a9f005c4a76d32696c9795586670c92f3">Acquire</a></span>. </p>
 
 <p>Implements <a class="el" href="classNNet_1_1NActors_1_1IOutputStream.html#a854c4a4f5da48de1ff89a4117d77b525">NNet::NActors::IOutputStream</a>.</p>
 

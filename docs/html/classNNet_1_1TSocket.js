@@ -8,5 +8,6 @@ var classNNet_1_1TSocket =
     [ "Fd", "classNNet_1_1TSocket.html#a4c13ce159122b82427278376b32c1122", null ],
     [ "Listen", "classNNet_1_1TSocket.html#aed8042050a98c5e5f5e452a1173d0426", null ],
     [ "LocalAddr", "classNNet_1_1TSocket.html#a8e033d81fc57c13a0a1a357bbae8bd80", null ],
-    [ "RemoteAddr", "classNNet_1_1TSocket.html#a2c7be109be0d7d96bb42c918d26883cd", null ]
+    [ "RemoteAddr", "classNNet_1_1TSocket.html#a2c7be109be0d7d96bb42c918d26883cd", null ],
+    [ "SetNoDelay", "classNNet_1_1TSocket.html#a1083033ea4fb3d95f34b0772a8fb1526", null ]
 ];

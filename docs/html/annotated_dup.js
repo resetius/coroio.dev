@@ -62,6 +62,7 @@ var annotated_dup =
       [ "TTypelessSocket", "structNNet_1_1TTypelessSocket.html", null ],
       [ "TResolver", "classNNet_1_1TResolver.html", "classNNet_1_1TResolver" ],
       [ "THostPort", "classNNet_1_1THostPort.html", "classNNet_1_1THostPort" ],
+      [ "THeaderNameLess", "structNNet_1_1THeaderNameLess.html", null ],
       [ "TUri", "classNNet_1_1TUri.html", "classNNet_1_1TUri" ],
       [ "TRequest", "classNNet_1_1TRequest.html", "classNNet_1_1TRequest" ],
       [ "TResponse", "classNNet_1_1TResponse.html", "classNNet_1_1TResponse" ],
@@ -95,5 +96,8 @@ var annotated_dup =
       [ "TSslContext", "structNNet_1_1TSslContext.html", "structNNet_1_1TSslContext" ],
       [ "TSslSocket", "classNNet_1_1TSslSocket.html", "classNNet_1_1TSslSocket" ],
       [ "TWebSocket", "classNNet_1_1TWebSocket.html", "classNNet_1_1TWebSocket" ]
+    ] ],
+    [ "std", null, [
+      [ "hash&lt; NNet::NActors::TActorId &gt;", "structstd_1_1hash_3_01NNet_1_1NActors_1_1TActorId_01_4.html", null ]
     ] ]
 ];

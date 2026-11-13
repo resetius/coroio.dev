@@ -138,9 +138,14 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>TFileHandle</b> = <a
 <tr class="memdesc:a13d245616c0ed46b14b5869694277d80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for the poller-driven file handle type. <br /></td></tr>
 <tr class="memitem:a045d191925a131b8bff55006138c5b5f" id="r_a045d191925a131b8bff55006138c5b5f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a045d191925a131b8bff55006138c5b5f">TOperation</a> = <a class="el" href="structNNet_1_1NDetail_1_1TOperationState.html">NDetail::TOperationState</a></td></tr>
 <tr class="memdesc:a045d191925a131b8bff55006138c5b5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">State of one operation, kept by the caller.  <br /></td></tr>
+<tr class="inherit_header pub_types_classNNet_1_1TPollerBase"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_types_classNNet_1_1TPollerBase')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Types inherited from <a class="el" href="classNNet_1_1TPollerBase.html">NNet::TPollerBase</a></td></tr>
+<tr class="memitem:a1d1f7a79f18794a379e419899e524a5d inherit pub_types_classNNet_1_1TPollerBase" id="r_a1d1f7a79f18794a379e419899e524a5d"><td class="memItemLeft" align="right" valign="top">
+using&#160;</td><td class="memItemRight" valign="bottom"><b>TFileHandle</b> = <a class="el" href="classNNet_1_1TFileHandle.html">NNet::TFileHandle</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a342f6019a8e4458f33e0a38b3e4acc07" id="r_a342f6019a8e4458f33e0a38b3e4acc07"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classNNet_1_1INotifier.html">INotifier</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a342f6019a8e4458f33e0a38b3e4acc07">CreateNotifier</a> () override</td></tr>
+<tr class="memdesc:a342f6019a8e4458f33e0a38b3e4acc07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a notifier using the io_uring-driven file handle.  <br /></td></tr>
 <tr class="memitem:ad2d00c2a8d1187e79c81fb6cf49ff684" id="r_ad2d00c2a8d1187e79c81fb6cf49ff684"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad2d00c2a8d1187e79c81fb6cf49ff684">TUring</a> (int queueSize=256)</td></tr>
 <tr class="memdesc:ad2d00c2a8d1187e79c81fb6cf49ff684"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classNNet_1_1TUring.html" title="Poller implementation based on io_uring.">TUring</a> instance.  <br /></td></tr>
 <tr class="memitem:a5fbf892e891e377d39544065069f9ebf" id="r_a5fbf892e891e377d39544065069f9ebf"><td class="memItemLeft" align="right" valign="top"><a id="a5fbf892e891e377d39544065069f9ebf" name="a5fbf892e891e377d39544065069f9ebf"></a>
@@ -219,8 +224,11 @@ Public Member Functions</h2></td></tr>
 auto&#160;</td><td class="memItemRight" valign="bottom"><b>TimersSize</b> () const</td></tr>
 <tr class="memdesc:a9df9e635e76b7c333c3db6cb45950996 inherit pub_methods_classNNet_1_1TPollerBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of scheduled timers. <br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-inherited" class="groupheader"><a id="inherited" name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:ab0b53d45747c0142e8d9ffc64a9616c8" id="r_ab0b53d45747c0142e8d9ffc64a9616c8"><td class="memItemLeft" align="right" valign="top"><a id="ab0b53d45747c0142e8d9ffc64a9616c8" name="ab0b53d45747c0142e8d9ffc64a9616c8"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TUring</b> (int queueSize, int completionQueueSize)</td></tr>
+<tr class="memdesc:ab0b53d45747c0142e8d9ffc64a9616c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Like <a class="el" href="#ad2d00c2a8d1187e79c81fb6cf49ff684" title="Constructs a TUring instance.">TUring(int)</a>, with a completion queue of at least <code class="param">completionQueueSize</code> entries. <br /></td></tr>
 <tr class="inherit_header pro_methods_classNNet_1_1TPollerBase"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_classNNet_1_1TPollerBase')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Member Functions inherited from <a class="el" href="classNNet_1_1TPollerBase.html">NNet::TPollerBase</a></td></tr>
 <tr class="memitem:a0008a394cf1744e9369e60bcf75cdfc5 inherit pro_methods_classNNet_1_1TPollerBase" id="r_a0008a394cf1744e9369e60bcf75cdfc5"><td class="memItemLeft" align="right" valign="top">timespec&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TPollerBase.html#a0008a394cf1744e9369e60bcf75cdfc5">GetTimeout</a> () const</td></tr>
 <tr class="memdesc:a0008a394cf1744e9369e60bcf75cdfc5 inherit pro_methods_classNNet_1_1TPollerBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the poll timeout based on scheduled timers.  <br /></td></tr>
@@ -231,6 +239,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Reset</b> ()</td></tr
 <tr class="memdesc:a4b9dbb4524e688ab7fbb2139a2cf39cb inherit pro_methods_classNNet_1_1TPollerBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the lists of ready events and pending changes. <br /></td></tr>
 <tr class="memitem:a5552a86441c63d811e6a0d6039d391bd inherit pro_methods_classNNet_1_1TPollerBase" id="r_a5552a86441c63d811e6a0d6039d391bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TPollerBase.html#a5552a86441c63d811e6a0d6039d391bd">ProcessTimers</a> ()</td></tr>
 <tr class="memdesc:a5552a86441c63d811e6a0d6039d391bd inherit pro_methods_classNNet_1_1TPollerBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes scheduled timers.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-inherited" class="groupheader"><a id="inherited" name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_static_methods_classNNet_1_1TPollerBase"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_static_methods_classNNet_1_1TPollerBase')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Static Protected Member Functions inherited from <a class="el" href="classNNet_1_1TPollerBase.html">NNet::TPollerBase</a></td></tr>
 <tr class="memitem:ad9dd7feb761339f5c7aa0614ed4a6d35 inherit pro_static_methods_classNNet_1_1TPollerBase" id="r_ad9dd7feb761339f5c7aa0614ed4a6d35"><td class="memItemLeft" align="right" valign="top">static constexpr timespec&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TPollerBase.html#ad9dd7feb761339f5c7aa0614ed4a6d35">GetMaxDuration</a> (std::chrono::milliseconds duration)</td></tr>
 <tr class="memdesc:ad9dd7feb761339f5c7aa0614ed4a6d35 inherit pro_static_methods_classNNet_1_1TPollerBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes a timespec from a duration.  <br /></td></tr>
@@ -297,7 +308,7 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
 <div class="line"> </div>
 <div class="line"><span class="comment">// Resume the coroutines of the completed operations. The read&#39;s result is in op.Result.</span></div>
 <div class="line">uringPoller.WakeupReadyHandles();</div>
-<div class="ttc" id="aclassNNet_1_1TUring_html_a045d191925a131b8bff55006138c5b5f"><div class="ttname"><a href="#a045d191925a131b8bff55006138c5b5f">NNet::TUring::TOperation</a></div><div class="ttdeci">NDetail::TOperationState TOperation</div><div class="ttdoc">State of one operation, kept by the caller.</div><div class="ttdef"><b>Definition</b> uring.hpp:78</div></div>
+<div class="ttc" id="aclassNNet_1_1TUring_html_a045d191925a131b8bff55006138c5b5f"><div class="ttname"><a href="#a045d191925a131b8bff55006138c5b5f">NNet::TUring::TOperation</a></div><div class="ttdeci">NDetail::TOperationState TOperation</div><div class="ttdoc">State of one operation, kept by the caller.</div><div class="ttdef"><b>Definition</b> uring.hpp:82</div></div>
 <div class="ttc" id="aclassNNet_1_1TUring_html_ad2d00c2a8d1187e79c81fb6cf49ff684"><div class="ttname"><a href="#ad2d00c2a8d1187e79c81fb6cf49ff684">NNet::TUring::TUring</a></div><div class="ttdeci">TUring(int queueSize=256)</div><div class="ttdoc">Constructs a TUring instance.</div></div>
 <div class="ttc" id="astructNNet_1_1NDetail_1_1TOperationState_html_a50dffc919836b2df78e25df23154c0e2"><div class="ttname"><a href="structNNet_1_1NDetail_1_1TOperationState.html#a50dffc919836b2df78e25df23154c0e2">NNet::NDetail::TOperationState::Handle</a></div><div class="ttdeci">THandle Handle</div><div class="ttdoc">Coroutine to resume, set by the caller before posting. Cleared when posting fails,...</div><div class="ttdef"><b>Definition</b> completions.hpp:26</div></div>
 </div><!-- fragment --> </div><a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
@@ -337,7 +348,7 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
 <p>Constructs a <a class="el" href="classNNet_1_1TUring.html" title="Poller implementation based on io_uring.">TUring</a> instance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">queueSize</td><td>The desired size of the io_uring submission queue (default is 256). At least 2: a close takes two linked entries. </td></tr>
+    <tr><td class="paramname">queueSize</td><td>The desired size of the io_uring submission queue (default is 256). At least 2: a close takes two linked entries. The completion queue has at least 8192 entries. </td></tr>
   </table>
   </dd>
 </dl>
@@ -478,6 +489,35 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a342f6019a8e4458f33e0a38b3e4acc07" name="a342f6019a8e4458f33e0a38b3e4acc07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a342f6019a8e4458f33e0a38b3e4acc07">&#9670;&#160;</a></span>CreateNotifier()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt; <a class="el" href="classNNet_1_1INotifier.html">INotifier</a> &gt; NNet::TUring::CreateNotifier </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a notifier using the io_uring-driven file handle. </p>
+
+<p>Reimplemented from <a class="el" href="classNNet_1_1TPollerBase.html#a091eae2bdbaf33b874b3bb286b82fce3">NNet::TPollerBase</a>.</p>
 
 </div>
 </div>

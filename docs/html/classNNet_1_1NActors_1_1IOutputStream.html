@@ -132,13 +132,12 @@ Inheritance diagram for NNet::NActors::IOutputStream:</div>
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a854c4a4f5da48de1ff89a4117d77b525" id="r_a854c4a4f5da48de1ff89a4117d77b525"><td class="memItemLeft" align="right" valign="top">virtual std::span&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a854c4a4f5da48de1ff89a4117d77b525">Acquire</a> (size_t size)=0</td></tr>
-<tr class="memdesc:a854c4a4f5da48de1ff89a4117d77b525"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reserves <span class="tt">size</span> contiguous bytes in the buffer and returns a span over them.  <br /></td></tr>
 <tr class="memitem:a969a7635e7cb95f04f64a8ea4938833d" id="r_a969a7635e7cb95f04f64a8ea4938833d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a969a7635e7cb95f04f64a8ea4938833d">Commit</a> (size_t size)=0</td></tr>
 <tr class="memdesc:a969a7635e7cb95f04f64a8ea4938833d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marks <span class="tt">size</span> previously acquired bytes as ready to send.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Abstract write-buffer interface used by the actor transport layer. </p>
-<p>Follows an acquire/commit pattern: call <span class="tt"><a class="el" href="#a854c4a4f5da48de1ff89a4117d77b525" title="Reserves size contiguous bytes in the buffer and returns a span over them.">Acquire</a></span> to reserve contiguous space, write into it, then call <span class="tt"><a class="el" href="#a969a7635e7cb95f04f64a8ea4938833d" title="Marks size previously acquired bytes as ready to send.">Commit</a></span> with the number of bytes actually written. This allows zero-copy serialization directly into network buffers. </p>
+<p>Follows an acquire/commit pattern: call <span class="tt"><a class="el" href="#a854c4a4f5da48de1ff89a4117d77b525">Acquire</a></span> to reserve contiguous space, write into it, then call <span class="tt"><a class="el" href="#a969a7635e7cb95f04f64a8ea4938833d" title="Marks size previously acquired bytes as ready to send.">Commit</a></span> with the number of bytes actually written. This allows zero-copy serialization directly into network buffers. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a854c4a4f5da48de1ff89a4117d77b525" name="a854c4a4f5da48de1ff89a4117d77b525"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a854c4a4f5da48de1ff89a4117d77b525">&#9670;&#160;</a></span>Acquire()</h2>
@@ -162,8 +161,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Reserves <span class="tt">size</span> contiguous bytes in the buffer and returns a span over them. </p>
+<p>Reserves <span class="tt">size</span> contiguous bytes after the committed ones and returns a span over them. A reservation that is not committed (its writer threw) is reused by the next <span class="tt"><a class="el" href="#a854c4a4f5da48de1ff89a4117d77b525">Acquire</a></span>. </p>
 
 <p>Implemented in <a class="el" href="classNNet_1_1NActors_1_1TNode.html#a9f005c4a76d32696c9795586670c92f3">NNet::NActors::TNode&lt; TPoller &gt;</a>.</p>
 
