@@ -27,7 +27,7 @@ var searchData=
   ['tstructreader_24',['TStructReader',['../structNNet_1_1TStructReader.html#a01aed1fb8dc52c06e5177b13b02c0f3a',1,'NNet::TStructReader']]],
   ['tunboundedvectorqueue_25',['TUnboundedVectorQueue',['../structNNet_1_1NActors_1_1TUnboundedVectorQueue.html#a6e7b99ff4944cd0e92dd055806624bb8',1,'NNet::NActors::TUnboundedVectorQueue']]],
   ['turi_26',['TUri',['../classNNet_1_1TUri.html#a311d32d482c9ed74d8e7d51941bbbd97',1,'NNet::TUri']]],
-  ['turing_27',['TUring',['../classNNet_1_1TUring.html#ad2d00c2a8d1187e79c81fb6cf49ff684',1,'NNet::TUring']]],
+  ['turing_27',['TUring',['../classNNet_1_1TUring.html#ad2d00c2a8d1187e79c81fb6cf49ff684',1,'NNet::TUring::TUring(int queueSize=256)'],['../classNNet_1_1TUring.html#ab0b53d45747c0142e8d9ffc64a9616c8',1,'NNet::TUring::TUring(int queueSize, int completionQueueSize)']]],
   ['twebserver_28',['TWebServer',['../classNNet_1_1TWebServer.html#a0977d1651e2072eefb3697a154fdb6b9',1,'NNet::TWebServer']]],
   ['twebsocket_29',['TWebSocket',['../classNNet_1_1TWebSocket.html#a36745522f809720a9bfa223de97f5514',1,'NNet::TWebSocket']]],
   ['tzerocopylinesplitter_30',['TZeroCopyLineSplitter',['../structNNet_1_1TZeroCopyLineSplitter.html#af64b01796eb016cca29c41a39cb85de3',1,'NNet::TZeroCopyLineSplitter']]]

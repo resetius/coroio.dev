@@ -143,7 +143,7 @@ enum <a class="el" href="#ac00fc5f82d12a4034d2f71b264b9a825">NNet::NActors::TBlo
 <p>Wraps an arbitrary message value for routing through the actor system. Two modes exist depending on whether the message stays in-process or crosses a node boundary:</p>
 <ul>
 <li><b>Near</b> — a live C++ object pointer. Zero-copy for local delivery. POD types use a pool allocator; non-POD types use <span class="tt">new</span>.</li>
-<li><b>Far</b> — a flat byte buffer for network transmission. POD: the Near pointer is reused as-is (bytes are already contiguous). Non-POD: produced by <span class="tt">SerializeToStream</span> / <span class="tt">SerializeFarInplace</span>.</li>
+<li><b>Far</b> — a flat byte buffer for network transmission. POD: the Near pointer is reused as-is (bytes are already contiguous). Non-POD: written by <span class="tt">SerializeTo</span> (see <span class="tt">SerializeFar</span> / <span class="tt">SerializeFarInplace</span>).</li>
 </ul>
 <p>Move-only; owns the payload via <span class="tt">TRawPtr</span>. </p>
 </div><a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>

@@ -2,7 +2,7 @@ var classNNet_1_1TRequest =
 [
     [ "BodyConsumed", "classNNet_1_1TRequest.html#a2c9b233acab28360ecf86ab3907cbde2", null ],
     [ "HasBody", "classNNet_1_1TRequest.html#a2e57c4f5aca8a8263bbd46514f1e2079", null ],
-    [ "Headers", "classNNet_1_1TRequest.html#a36ea8d6680aaef00cb986f5727a1bcef", null ],
+    [ "Headers", "classNNet_1_1TRequest.html#aa40d670fc4e0f40d42d86328d7e8dd48", null ],
     [ "Method", "classNNet_1_1TRequest.html#a710d83c8fcdadcc85f768d92456d1937", null ],
     [ "ReadBodyFull", "classNNet_1_1TRequest.html#a3eea1a630085a888a06818b369a732b8", null ],
     [ "ReadBodySome", "classNNet_1_1TRequest.html#aa213535cdeac26ecaac569e23a866f3e", null ],

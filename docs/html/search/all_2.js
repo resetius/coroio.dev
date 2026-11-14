@@ -20,5 +20,6 @@ var searchData=
   ['corochain_2ehpp_17',['corochain.hpp',['../corochain_8hpp.html',1,'']]],
   ['coroutine_20actor_20example_18',['Coroutine Actor Example',['../actor_8hpp.html#coro_actor',1,'']]],
   ['create_19',['Create',['../classNNet_1_1TSocketBase_3_01void_01_4.html#a6ccea3dfc59c8a24c15a1c313e77784d',1,'NNet::TSocketBase&lt; void &gt;']]],
-  ['ctx_20',['Ctx',['../structNNet_1_1TSslContext.html#ae4fd7317426394cc600259188930c9ed',1,'NNet::TSslContext']]]
+  ['createnotifier_20',['CreateNotifier',['../classNNet_1_1NActors_1_1TActorContext.html#a8e808f18464d49ae49cde457d351909a',1,'NNet::NActors::TActorContext::CreateNotifier()'],['../classNNet_1_1NActors_1_1TActorSystem.html#acb84dc01a3cbf0fb465fdc8578d473e6',1,'NNet::NActors::TActorSystem::CreateNotifier()'],['../classNNet_1_1TUring.html#a342f6019a8e4458f33e0a38b3e4acc07',1,'NNet::TUring::CreateNotifier()'],['../classNNet_1_1TPollerBase.html#a091eae2bdbaf33b874b3bb286b82fce3',1,'NNet::TPollerBase::CreateNotifier()']]],
+  ['ctx_21',['Ctx',['../structNNet_1_1TSslContext.html#ae4fd7317426394cc600259188930c9ed',1,'NNet::TSslContext']]]
 ];

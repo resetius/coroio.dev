@@ -127,7 +127,7 @@ Inheritance diagram for NNet::NActors::is_local_message&lt; T, typename &gt;:</d
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T, typename = void&gt;<br />
 struct NNet::NActors::is_local_message&lt; T, typename &gt;</div><p><span class="tt">true</span> if <span class="tt">T</span> declares <span class="tt">using LocalMessage = ...;</span> (any type). </p>
-<p>Local messages are never sent to remote nodes, so no Far serialization (<span class="tt">SerializeToStream&lt;T&gt;</span>) is required for them. Sending one to an actor on another node is dropped (and logged). </p>
+<p>Local messages are never sent to remote nodes, so no Far serialization (<span class="tt">SerializedSize&lt;T&gt;</span> / <span class="tt">SerializeTo&lt;T&gt;</span>) is required for them. Sending one to an actor on another node is dropped (and logged). </p>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>coroio/actors/<a class="el" href="messages_8hpp_source.html">messages.hpp</a></li>
 </ul>

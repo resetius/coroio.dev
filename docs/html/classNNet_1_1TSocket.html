@@ -163,6 +163,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Listen</b> (int backl
 <tr class="memitem:a4c13ce159122b82427278376b32c1122" id="r_a4c13ce159122b82427278376b32c1122"><td class="memItemLeft" align="right" valign="top"><a id="a4c13ce159122b82427278376b32c1122" name="a4c13ce159122b82427278376b32c1122"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>Fd</b> () const</td></tr>
 <tr class="memdesc:a4c13ce159122b82427278376b32c1122"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the underlying socket descriptor. <br /></td></tr>
+<tr class="memitem:a1083033ea4fb3d95f34b0772a8fb1526" id="r_a1083033ea4fb3d95f34b0772a8fb1526"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1083033ea4fb3d95f34b0772a8fb1526">SetNoDelay</a> ()</td></tr>
+<tr class="memdesc:a1083033ea4fb3d95f34b0772a8fb1526"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables Nagle's algorithm (TCP_NODELAY) on a TCP socket.  <br /></td></tr>
 <tr class="inherit_header pub_methods_classNNet_1_1TSocketBase"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classNNet_1_1TSocketBase')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="classNNet_1_1TSocketBase.html">NNet::TSocketBase&lt; TSockOps &gt;</a></td></tr>
 <tr class="memitem:aaf2e0b5cccc278c02ef48bcd253ff4fd inherit pub_methods_classNNet_1_1TSocketBase" id="r_aaf2e0b5cccc278c02ef48bcd253ff4fd"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TSocketBase.html#aaf2e0b5cccc278c02ef48bcd253ff4fd">ReadSome</a> (void *buf, size_t size)</td></tr>
 <tr class="memdesc:aaf2e0b5cccc278c02ef48bcd253ff4fd inherit pub_methods_classNNet_1_1TSocketBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously reads data from the socket into the provided buffer.  <br /></td></tr>
@@ -394,6 +396,26 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Returns the remote address of the connected peer. </p>
 <dl class="section return"><dt>Returns</dt><dd>An optional <a class="el" href="classNNet_1_1TAddress.html" title="A class representing an IPv4 or IPv6 address (with port).">TAddress</a> holding the remote peer's address. </dd></dl>
+
+</div>
+</div>
+<a id="a1083033ea4fb3d95f34b0772a8fb1526" name="a1083033ea4fb3d95f34b0772a8fb1526"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1083033ea4fb3d95f34b0772a8fb1526">&#9670;&#160;</a></span>SetNoDelay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool NNet::TSocket::SetNoDelay </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Disables Nagle's algorithm (TCP_NODELAY) on a TCP socket. </p>
+<p>Best effort: returns false, and leaves the socket usable, if the option cannot be set (not a TCP socket, or a connection already reset by the peer). </p>
 
 </div>
 </div>

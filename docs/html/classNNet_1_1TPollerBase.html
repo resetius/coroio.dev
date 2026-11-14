@@ -133,6 +133,11 @@ Inheritance diagram for NNet::TPollerBase:</div>
   </map>
 </div></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a1d1f7a79f18794a379e419899e524a5d" id="r_a1d1f7a79f18794a379e419899e524a5d"><td class="memItemLeft" align="right" valign="top"><a id="a1d1f7a79f18794a379e419899e524a5d" name="a1d1f7a79f18794a379e419899e524a5d"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>TFileHandle</b> = <a class="el" href="classNNet_1_1TFileHandle.html">NNet::TFileHandle</a></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a0bf870f24ff1b7dedeb0f132dcfa9f05" id="r_a0bf870f24ff1b7dedeb0f132dcfa9f05"><td class="memItemLeft" align="right" valign="top"><a id="a0bf870f24ff1b7dedeb0f132dcfa9f05" name="a0bf870f24ff1b7dedeb0f132dcfa9f05"></a>
@@ -146,6 +151,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ace9abee8d6a5da52df5b349d68be5539" id="r_ace9abee8d6a5da52df5b349d68be5539"><td class="memItemLeft" align="right" valign="top"><a id="ace9abee8d6a5da52df5b349d68be5539" name="ace9abee8d6a5da52df5b349d68be5539"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>~TPollerBase</b> ()</td></tr>
 <tr class="memdesc:ace9abee8d6a5da52df5b349d68be5539"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes what <a class="el" href="#a5f60d802102817f75ecc588abacf8f9c" title="Closes fd in the next poll iteration.">Close()</a> queued and no Poll() applied. <br /></td></tr>
+<tr class="memitem:a091eae2bdbaf33b874b3bb286b82fce3" id="r_a091eae2bdbaf33b874b3bb286b82fce3"><td class="memItemLeft" align="right" valign="top">virtual std::unique_ptr&lt; <a class="el" href="classNNet_1_1INotifier.html">INotifier</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a091eae2bdbaf33b874b3bb286b82fce3">CreateNotifier</a> ()</td></tr>
+<tr class="memdesc:a091eae2bdbaf33b874b3bb286b82fce3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a notifier on the poller thread. The poller must outlive it.  <br /></td></tr>
 <tr class="memitem:a66e728fd17de36c493a0e915115d417e" id="r_a66e728fd17de36c493a0e915115d417e"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a66e728fd17de36c493a0e915115d417e">AddTimer</a> (TTime deadline, THandle h)</td></tr>
 <tr class="memdesc:a66e728fd17de36c493a0e915115d417e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Schedules a timer.  <br /></td></tr>
 <tr class="memitem:a9bbf27b42f97eded40eb715f56340025" id="r_a9bbf27b42f97eded40eb715f56340025"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9bbf27b42f97eded40eb715f56340025">RemoveTimer</a> (unsigned timerId, TTime deadline)</td></tr>
@@ -444,6 +451,35 @@ timespec&#160;</td><td class="memItemRight" valign="bottom"><b>MaxDurationTs_</b
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a091eae2bdbaf33b874b3bb286b82fce3" name="a091eae2bdbaf33b874b3bb286b82fce3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a091eae2bdbaf33b874b3bb286b82fce3">&#9670;&#160;</a></span>CreateNotifier()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt; <a class="el" href="classNNet_1_1INotifier.html">INotifier</a> &gt; NNet::TPollerBase::CreateNotifier </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a notifier on the poller thread. The poller must outlive it. </p>
+
+<p>Reimplemented in <a class="el" href="classNNet_1_1TUring.html#a342f6019a8e4458f33e0a38b3e4acc07">NNet::TUring</a>.</p>
 
 </div>
 </div>
@@ -949,8 +985,9 @@ template&lt;typename Rep, typename Period&gt; </div>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>coroio/<a class="el" href="poller_8hpp_source.html">poller.hpp</a></li>
+<li>coroio/<b>notifier.cpp</b></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

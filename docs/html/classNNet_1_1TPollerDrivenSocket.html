@@ -185,6 +185,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Listen</b> (int backl
 <tr class="memitem:a4c13ce159122b82427278376b32c1122 inherit pub_methods_classNNet_1_1TSocket" id="r_a4c13ce159122b82427278376b32c1122"><td class="memItemLeft" align="right" valign="top">
 int&#160;</td><td class="memItemRight" valign="bottom"><b>Fd</b> () const</td></tr>
 <tr class="memdesc:a4c13ce159122b82427278376b32c1122 inherit pub_methods_classNNet_1_1TSocket"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the underlying socket descriptor. <br /></td></tr>
+<tr class="memitem:a1083033ea4fb3d95f34b0772a8fb1526 inherit pub_methods_classNNet_1_1TSocket" id="r_a1083033ea4fb3d95f34b0772a8fb1526"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TSocket.html#a1083033ea4fb3d95f34b0772a8fb1526">SetNoDelay</a> ()</td></tr>
+<tr class="memdesc:a1083033ea4fb3d95f34b0772a8fb1526 inherit pub_methods_classNNet_1_1TSocket"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables Nagle's algorithm (TCP_NODELAY) on a TCP socket.  <br /></td></tr>
 <tr class="inherit_header pub_methods_classNNet_1_1TSocketBase"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classNNet_1_1TSocketBase')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="classNNet_1_1TSocketBase.html">NNet::TSocketBase&lt; TSockOps &gt;</a></td></tr>
 <tr class="memitem:aaf2e0b5cccc278c02ef48bcd253ff4fd inherit pub_methods_classNNet_1_1TSocketBase" id="r_aaf2e0b5cccc278c02ef48bcd253ff4fd"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNNet_1_1TSocketBase.html#aaf2e0b5cccc278c02ef48bcd253ff4fd">ReadSome</a> (void *buf, size_t size)</td></tr>
 <tr class="memdesc:aaf2e0b5cccc278c02ef48bcd253ff4fd inherit pub_methods_classNNet_1_1TSocketBase"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronously reads data from the socket into the provided buffer.  <br /></td></tr>
@@ -351,10 +353,11 @@ template&lt;typename T&gt; </div>
 
 <p>Asynchronously accepts an incoming connection. </p>
 <p>Returns an awaitable object that, upon completion, yields a new <a class="el" href="classNNet_1_1TPollerDrivenSocket.html" title="Socket type driven by the poller&#39;s implementation.">TPollerDrivenSocket</a> for the accepted connection. Errors are handled as in <a class="el" href="classNNet_1_1TSocket.html#a7d57a7f85d0d3ba7222f24224137b494" title="Asynchronously accepts an incoming connection.">TSocket::Accept()</a>.</p>
+<p>An accept that is pending when the socket is closed returns the cancel error as a value (995 on IOCP, ECANCELED on io_uring).</p>
 <dl class="section return"><dt>Returns</dt><dd>An awaitable yielding the accepted <a class="el" href="classNNet_1_1TPollerDrivenSocket.html" title="Socket type driven by the poller&#39;s implementation.">TPollerDrivenSocket</a>, or the error code. </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">std::system_error</td><td>with EBADF at <code>co_await</code> if the socket is closed. </td></tr>
+    <tr><td class="paramname">std::system_error</td><td>with EBADF at <code>co_await</code> if the socket was already closed. </td></tr>
   </table>
   </dd>
 </dl>

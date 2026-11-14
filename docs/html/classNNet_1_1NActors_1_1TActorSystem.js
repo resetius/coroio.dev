@@ -5,6 +5,7 @@ var classNNet_1_1NActors_1_1TActorSystem =
     [ "AddNode", "classNNet_1_1NActors_1_1TActorSystem.html#afcf8f83d084552f44e4c05c6858fd656", null ],
     [ "Ask", "classNNet_1_1NActors_1_1TActorSystem.html#a1ce669df5ce011bc0a0410feb64eafc4", null ],
     [ "Cancel", "classNNet_1_1NActors_1_1TActorSystem.html#a7f6664231f15063658fc2592d5ce0c49", null ],
+    [ "CreateNotifier", "classNNet_1_1NActors_1_1TActorSystem.html#acb84dc01a3cbf0fb465fdc8578d473e6", null ],
     [ "Register", "classNNet_1_1NActors_1_1TActorSystem.html#ac0e7d87d1c3097fd8d0214196f875525", null ],
     [ "RegisterWellKnown", "classNNet_1_1NActors_1_1TActorSystem.html#a755164aa8378f73a6ddf1362c8b94b17", null ],
     [ "Schedule", "classNNet_1_1NActors_1_1TActorSystem.html#a7fa3b4e0150def7d82b4429ba3a15876", null ],
