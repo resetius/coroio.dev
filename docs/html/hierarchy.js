@@ -21,6 +21,11 @@ var hierarchy =
     [ "NNet::INotifier", "classNNet_1_1INotifier.html", [
       [ "NNet::TNotifier< TPoller >", "classNNet_1_1TNotifier.html", null ]
     ] ],
+    [ "std::integral_constant", null, [
+      [ "NNet::NActors::payload_alignment< T, std::void_t< decltype(T::PayloadAlignment)> >", "structNNet_1_1NActors_1_1payload__alignment_3_01T_00_01std_1_1void__t_3_01decltype_07T_1_1PayloadAlignment_08_4_01_4.html", null ],
+      [ "NNet::NActors::payload_alignment< T, typename >", "structNNet_1_1NActors_1_1payload__alignment.html", null ],
+      [ "NNet::NActors::payload_alignment< T, std::void_t< decltype(T::PayloadAlignment)> >", "structNNet_1_1NActors_1_1payload__alignment_3_01T_00_01std_1_1void__t_3_01decltype_07T_1_1PayloadAlignment_08_4_01_4.html", null ]
+    ] ],
     [ "NNet::NActors::IOutputStream", "classNNet_1_1NActors_1_1IOutputStream.html", [
       [ "NNet::NActors::INode", "classNNet_1_1NActors_1_1INode.html", [
         [ "NNet::NActors::TNode< TPoller >", "classNNet_1_1NActors_1_1TNode.html", null ]
