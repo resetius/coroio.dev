@@ -136,7 +136,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Push</b> (const char 
 int&#160;</td><td class="memItemRight" valign="bottom"><b>UsedChunksCount</b> () const</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Envelope reader that hands out payloads as blobs pointing into its chunks. A blob must not outlive the reader: the blob deleter uses the chunk's Parent. </p>
+<div class="textblock"><p>Envelope reader that hands out payloads as blobs pointing into its chunks. A blob may outlive the reader: on destruction the chunks with live blobs are detached (Parent = nullptr) and the deleter of the last blob frees them. Not thread-safe: blobs must be released on the reader's thread, or after the reader is destroyed. </p>
 </div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>coroio/actors/<a class="el" href="envelope__reader_8hpp_source.html">envelope_reader.hpp</a></li>
 <li>coroio/actors/<b>envelope_reader.cpp</b></li>
