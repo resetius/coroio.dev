@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"structNNet_1_1TPromiseBase.html":[1,0,0,15],
 "structNNet_1_1TPromiseBase.html#a626ed67af8509be79f53697069b904bc":[1,0,0,15,0],
 "structNNet_1_1TPromise_3_01void_01_4.html":[1,0,0,18],
 "structNNet_1_1TSocketBase_1_1TAwaitable.html":[1,0,0,40,0],
