@@ -8,5 +8,6 @@ var dir_1564da5f5077c5c660321e1adeff0bb7 =
     [ "messages.hpp", "messages_8hpp_source.html", null ],
     [ "messages_factory.hpp", "messages__factory_8hpp_source.html", null ],
     [ "node.hpp", "node_8hpp_source.html", null ],
-    [ "queue.hpp", "queue_8hpp.html", "queue_8hpp" ]
+    [ "queue.hpp", "queue_8hpp.html", "queue_8hpp" ],
+    [ "threaded_node.hpp", "threaded__node_8hpp_source.html", null ]
 ];
