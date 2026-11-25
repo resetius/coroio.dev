@@ -136,7 +136,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Push</b> (const char 
 int&#160;</td><td class="memItemRight" valign="bottom"><b>UsedChunksCount</b> () const</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Envelope reader that hands out payloads as blobs pointing into its chunks. A blob must not outlive the reader: the blob deleter uses the chunk's Parent. </p>
+<div class="textblock"><p>Envelope reader that hands out payloads as blobs pointing into its chunks. Blobs may be released on any thread and may outlive the reader. The last blob of a drained chunk pushes it onto a lock-free return stack, which the reader takes whole on its own thread. After the reader is destroyed the last blob frees the chunk. The reader itself is single-threaded. Chunk addresses are congruent to stream offsets modulo <span class="tt">MaxPayloadAlignment</span>, so a payload with <span class="tt">PayloadAlignment</span> is aligned in memory. </p>
 </div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>coroio/actors/<a class="el" href="envelope__reader_8hpp_source.html">envelope_reader.hpp</a></li>
 <li>coroio/actors/<b>envelope_reader.cpp</b></li>
