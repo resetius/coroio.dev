@@ -1,5 +1,11 @@
 var NAVTREEINDEX2 =
 {
+"structNNet_1_1TLineSplitter.html#a3147a073f1421daec77a92512cbb0132":[1,0,0,52,2],
+"structNNet_1_1TLineSplitter.html#ae268d7739985d5dec43907da825579c1":[1,0,0,52,0],
+"structNNet_1_1TLineSplitter.html#af1ce0b2638579861c43b8bde322aa468":[1,0,0,52,1],
+"structNNet_1_1TPromise.html":[1,0,0,16],
+"structNNet_1_1TPromise.html#ae08c3c9ffeab783831e99fa93f22156b":[1,0,0,16,0],
+"structNNet_1_1TPromiseBase.html":[1,0,0,15],
 "structNNet_1_1TPromiseBase.html#a626ed67af8509be79f53697069b904bc":[1,0,0,15,0],
 "structNNet_1_1TPromise_3_01void_01_4.html":[1,0,0,18],
 "structNNet_1_1TSocketBase_1_1TAwaitable.html":[1,0,0,40,0],
