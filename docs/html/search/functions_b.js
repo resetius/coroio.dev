@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['nodeid_0',['NodeId',['../classNNet_1_1NActors_1_1TActorId.html#a13d58ac46a0c1aa19e8f15fec317bb47',1,'NNet::NActors::TActorId']]],
-  ['notify_1',['Notify',['../classNNet_1_1INotifier.html#a691bf4c5dbba36417b321c7ca9cbff78',1,'NNet::INotifier::Notify()'],['../classNNet_1_1TNotifier.html#aa9a5f7c6961e3f0dd65686237e8232df',1,'NNet::TNotifier::Notify()']]]
+  ['method_0',['Method',['../classNNet_1_1TRequest.html#a710d83c8fcdadcc85f768d92456d1937',1,'NNet::TRequest']]],
+  ['monitor_1',['Monitor',['../classNNet_1_1TSocketBase.html#a1039bddf2bcba3f1277319ab90a5d63e',1,'NNet::TSocketBase::Monitor()'],['../classNNet_1_1TSocketBase.html#a1039bddf2bcba3f1277319ab90a5d63e',1,'NNet::TSocketBase&lt; void &gt;::Monitor()']]]
 ];
