@@ -8,5 +8,6 @@ var searchData=
   ['fragment_5',['Fragment',['../classNNet_1_1TUri.html#a4b29a5a203c7e8bc56e73e0fc3064cba',1,'NNet::TUri']]],
   ['from_20a_20socket_6',['Zero-Copy Example (Reading from a Socket)',['../structNNet_1_1TZeroCopyLineSplitter.html#autotoc_md6',1,'']]],
   ['front_7',['Front',['../structNNet_1_1NActors_1_1TUnboundedVectorQueue.html#a50b1013b679abed9e357602cff5427e0',1,'NNet::NActors::TUnboundedVectorQueue']]],
-  ['further_20information_8',['Further Information',['../index.html#further_sec',1,'']]]
+  ['full_8',['Full',['../classNNet_1_1NActors_1_1TQueuedDelivery.html#a5c6ad0f894ba7b481aca520571ba20ff',1,'NNet::NActors::TQueuedDelivery']]],
+  ['further_20information_9',['Further Information',['../index.html#further_sec',1,'']]]
 ];
