@@ -1,9 +1,11 @@
 var searchData=
 [
-  ['nameservers_0',['Nameservers',['../classNNet_1_1TResolvConf.html#a2d4f6d8c2b74f4e31c350e4400f7da44',1,'NNet::TResolvConf']]],
-  ['near_1',['Near',['../structNNet_1_1NActors_1_1TBlob.html#ac00fc5f82d12a4034d2f71b264b9a825aa535711d028372f87fdbce03cd43b25d',1,'NNet::NActors::TBlob']]],
-  ['networking_20library_2',['Asynchronous I/O &amp;amp; Networking Library',['../index.html',1,'']]],
-  ['nodeid_3',['NodeId',['../classNNet_1_1NActors_1_1TActorId.html#a13d58ac46a0c1aa19e8f15fec317bb47',1,'NNet::NActors::TActorId']]],
-  ['notes_4',['Important Notes',['../structNNet_1_1TLineSplitter.html#autotoc_md4',1,'']]],
-  ['notify_5',['Notify',['../classNNet_1_1INotifier.html#a691bf4c5dbba36417b321c7ca9cbff78',1,'NNet::INotifier::Notify()'],['../classNNet_1_1TNotifier.html#aa9a5f7c6961e3f0dd65686237e8232df',1,'NNet::TNotifier::Notify()']]]
+  ['maxduration_5f_0',['MaxDuration_',['../classNNet_1_1TPollerBase.html#a1984b2e5e91c537e4938a9900bed294d',1,'NNet::TPollerBase']]],
+  ['maxdurationts_5f_1',['MaxDurationTs_',['../classNNet_1_1TPollerBase.html#a98e530e56732cf5bd44cee9bcb560e1f',1,'NNet::TPollerBase']]],
+  ['maxfd_5f_2',['MaxFd_',['../classNNet_1_1TPollerBase.html#a89d1a51b43037fd32359536167119b95',1,'NNet::TPollerBase']]],
+  ['maxsparesegments_3',['MaxSpareSegments',['../classNNet_1_1NActors_1_1TThreadedNode.html#ae08a0cb74a6b2904d1613032cccec503',1,'NNet::NActors::TThreadedNode']]],
+  ['message_20queue_4',['Actor Message Queue',['../queue_8hpp.html#actor_usage',1,'']]],
+  ['messageid_5',['MessageId',['../classNNet_1_1NActors_1_1TEnvelope.html#ae9f41841566ab625fa0c9f47a1655a6a',1,'NNet::NActors::TEnvelope::MessageId'],['../structNNet_1_1NActors_1_1THeader.html#a4e11e2fe0a3a01da68cfb05d125b35bf',1,'NNet::NActors::THeader::MessageId']]],
+  ['method_6',['Method',['../classNNet_1_1TRequest.html#a710d83c8fcdadcc85f768d92456d1937',1,'NNet::TRequest']]],
+  ['monitor_7',['Monitor',['../classNNet_1_1TSocketBase.html#a1039bddf2bcba3f1277319ab90a5d63e',1,'NNet::TSocketBase::Monitor()'],['../classNNet_1_1TSocketBase.html#a1039bddf2bcba3f1277319ab90a5d63e',1,'NNet::TSocketBase&lt; void &gt;::Monitor()']]]
 ];
