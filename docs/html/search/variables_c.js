@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['sender_0',['Sender',['../classNNet_1_1NActors_1_1TEnvelope.html#ac889cae31f4a1147dca772510cf0df49',1,'NNet::NActors::TEnvelope::Sender'],['../structNNet_1_1NActors_1_1THeader.html#adec00ff11702ef1774ac9c1c8c9acae5',1,'NNet::NActors::THeader::Sender']]],
-  ['size_1',['Size',['../structNNet_1_1NActors_1_1THeader.html#a8f96902ad08a45bf9b9ca5b082fff15b',1,'NNet::NActors::THeader::Size'],['../structNNet_1_1NActors_1_1TBlob.html#a22b4a0f29cf4044e345201e8ae961978',1,'NNet::NActors::TBlob::Size']]],
-  ['supportsremotehup_5f_2',['SupportsRemoteHup_',['../classNNet_1_1TPollerBase.html#a533c97345e99b482d0cda62bfb68692c',1,'NNet::TPollerBase']]]
+  ['readyevents_5f_0',['ReadyEvents_',['../classNNet_1_1TPollerBase.html#a879f1f18716aa8dcc4acdf3a2091b6d2',1,'NNet::TPollerBase']]],
+  ['recipient_1',['Recipient',['../classNNet_1_1NActors_1_1TEnvelope.html#a33a9c8c8dc6de99250974746c1fd8eb0',1,'NNet::NActors::TEnvelope::Recipient'],['../structNNet_1_1NActors_1_1THeader.html#a241e7656b295ba718c53eb9ab229104a',1,'NNet::NActors::THeader::Recipient']]],
+  ['result_2',['Result',['../structNNet_1_1NDetail_1_1TOperationState.html#a0dfc2635d6deea11d8f88ea96c7590bd',1,'NNet::NDetail::TOperationState']]]
 ];

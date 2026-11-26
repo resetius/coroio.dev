@@ -124,8 +124,9 @@ Inheritance diagram for NNet::NActors::IOutputStream:</div>
  <div class="center">
   <img src="classNNet_1_1NActors_1_1IOutputStream.png" usemap="#NNet_3A_3ANActors_3A_3AIOutputStream_map" alt=""/>
   <map id="NNet_3A_3ANActors_3A_3AIOutputStream_map" name="NNet_3A_3ANActors_3A_3AIOutputStream_map">
-<area href="classNNet_1_1NActors_1_1INode.html" title="Interface for a remote node connection in the actor transport layer." alt="NNet::NActors::INode" shape="rect" coords="0,56,199,80"/>
-<area href="classNNet_1_1NActors_1_1TNode.html" title="Concrete INode implementation for a single remote actor-system endpoint." alt="NNet::NActors::TNode&lt; TPoller &gt;" shape="rect" coords="0,112,199,136"/>
+<area href="classNNet_1_1NActors_1_1INode.html" title="Interface for a remote node connection in the actor transport layer." alt="NNet::NActors::INode" shape="rect" coords="153,56,449,80"/>
+<area href="classNNet_1_1NActors_1_1TNode.html" title="Concrete INode implementation for a single remote actor-system endpoint." alt="NNet::NActors::TNode&lt; TPoller &gt;" shape="rect" coords="0,112,296,136"/>
+<area href="classNNet_1_1NActors_1_1TThreadedNode.html" title="INode that writes to its socket on another thread." alt="NNet::NActors::TThreadedNode&lt; TPoller, TLock &gt;" shape="rect" coords="306,112,602,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -134,6 +135,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a854c4a4f5da48de1ff89a4117d77b525" id="r_a854c4a4f5da48de1ff89a4117d77b525"><td class="memItemLeft" align="right" valign="top">virtual std::span&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a854c4a4f5da48de1ff89a4117d77b525">Acquire</a> (size_t size)=0</td></tr>
 <tr class="memitem:a969a7635e7cb95f04f64a8ea4938833d" id="r_a969a7635e7cb95f04f64a8ea4938833d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a969a7635e7cb95f04f64a8ea4938833d">Commit</a> (size_t size)=0</td></tr>
 <tr class="memdesc:a969a7635e7cb95f04f64a8ea4938833d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marks <span class="tt">size</span> previously acquired bytes as ready to send.  <br /></td></tr>
+<tr class="memitem:ae1dedee05738ece6a0853f75e69b7be0" id="r_ae1dedee05738ece6a0853f75e69b7be0"><td class="memItemLeft" align="right" valign="top">virtual uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae1dedee05738ece6a0853f75e69b7be0">Offset</a> () const</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Abstract write-buffer interface used by the actor transport layer. </p>
@@ -163,7 +165,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Reserves <span class="tt">size</span> contiguous bytes after the committed ones and returns a span over them. A reservation that is not committed (its writer threw) is reused by the next <span class="tt"><a class="el" href="#a854c4a4f5da48de1ff89a4117d77b525">Acquire</a></span>. </p>
 
-<p>Implemented in <a class="el" href="classNNet_1_1NActors_1_1TNode.html#a9f005c4a76d32696c9795586670c92f3">NNet::NActors::TNode&lt; TPoller &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classNNet_1_1NActors_1_1TNode.html#a9f005c4a76d32696c9795586670c92f3">NNet::NActors::TNode&lt; TPoller &gt;</a>, and <a class="el" href="classNNet_1_1NActors_1_1TThreadedNode.html#accbac07d9f1394111cd679a28f46b581">NNet::NActors::TThreadedNode&lt; TPoller, TLock &gt;</a>.</p>
 
 </div>
 </div>
@@ -192,7 +194,35 @@ Public Member Functions</h2></td></tr>
 
 <p>Marks <span class="tt">size</span> previously acquired bytes as ready to send. </p>
 
-<p>Implemented in <a class="el" href="classNNet_1_1NActors_1_1TNode.html#aad42b866d192ddc762becb19eca2030b">NNet::NActors::TNode&lt; TPoller &gt;</a>.</p>
+<p>Implemented in <a class="el" href="classNNet_1_1NActors_1_1TNode.html#aad42b866d192ddc762becb19eca2030b">NNet::NActors::TNode&lt; TPoller &gt;</a>, and <a class="el" href="classNNet_1_1NActors_1_1TThreadedNode.html#a04c5e67dfe0647c8c28b52d7b12a1dc2">NNet::NActors::TThreadedNode&lt; TPoller, TLock &gt;</a>.</p>
+
+</div>
+</div>
+<a id="ae1dedee05738ece6a0853f75e69b7be0" name="ae1dedee05738ece6a0853f75e69b7be0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1dedee05738ece6a0853f75e69b7be0">&#9670;&#160;</a></span>Offset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual uint64_t NNet::NActors::IOutputStream::Offset </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stream offset of the next <span class="tt"><a class="el" href="#a854c4a4f5da48de1ff89a4117d77b525">Acquire</a></span>, or a value congruent to it mod <span class="tt">MaxPayloadAlignment</span>: payloads with <span class="tt">PayloadAlignment</span> are padded relative to it, and only their writers call it. The default suits a stream that keeps each frame in its own buffer. </p>
+
+<p>Reimplemented in <a class="el" href="classNNet_1_1NActors_1_1TNode.html#a6a856cca6c60f6f0b304513e121128e5">NNet::NActors::TNode&lt; TPoller &gt;</a>, and <a class="el" href="classNNet_1_1NActors_1_1TThreadedNode.html#a8e7694b969a56946595e4ac1e53fdcd3">NNet::NActors::TThreadedNode&lt; TPoller, TLock &gt;</a>.</p>
 
 </div>
 </div>
