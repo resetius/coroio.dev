@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['zero_20copy_20example_20reading_20from_20a_20socket_0',['Zero-Copy Example (Reading from a Socket)',['../structNNet_1_1TZeroCopyLineSplitter.html#autotoc_md6',1,'']]]
+  ['yield_0',['Yield',['../classNNet_1_1TPollerBase.html#aea08fab15fd419093ffc18b9a5b5b267',1,'NNet::TPollerBase']]],
+  ['yieldnotify_1',['YieldNotify',['../classNNet_1_1NActors_1_1TActorSystem.html#a831b4b74319755986cd10895f066a0b1',1,'NNet::NActors::TActorSystem']]]
 ];

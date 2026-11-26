@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['maxduration_5f_0',['MaxDuration_',['../classNNet_1_1TPollerBase.html#a1984b2e5e91c537e4938a9900bed294d',1,'NNet::TPollerBase']]],
-  ['maxdurationts_5f_1',['MaxDurationTs_',['../classNNet_1_1TPollerBase.html#a98e530e56732cf5bd44cee9bcb560e1f',1,'NNet::TPollerBase']]],
-  ['maxfd_5f_2',['MaxFd_',['../classNNet_1_1TPollerBase.html#a89d1a51b43037fd32359536167119b95',1,'NNet::TPollerBase']]],
-  ['message_20queue_3',['Actor Message Queue',['../queue_8hpp.html#actor_usage',1,'']]],
-  ['messageid_4',['MessageId',['../classNNet_1_1NActors_1_1TEnvelope.html#ae9f41841566ab625fa0c9f47a1655a6a',1,'NNet::NActors::TEnvelope::MessageId'],['../structNNet_1_1NActors_1_1THeader.html#a4e11e2fe0a3a01da68cfb05d125b35bf',1,'NNet::NActors::THeader::MessageId']]],
-  ['method_5',['Method',['../classNNet_1_1TRequest.html#a710d83c8fcdadcc85f768d92456d1937',1,'NNet::TRequest']]],
-  ['monitor_6',['Monitor',['../classNNet_1_1TSocketBase.html#a1039bddf2bcba3f1277319ab90a5d63e',1,'NNet::TSocketBase::Monitor()'],['../classNNet_1_1TSocketBase.html#a1039bddf2bcba3f1277319ab90a5d63e',1,'NNet::TSocketBase&lt; void &gt;::Monitor()']]]
+  ['lastfiredtimer_5f_0',['LastFiredTimer_',['../classNNet_1_1TPollerBase.html#a5b134a972d3eee29a0e758cf5b198f6b',1,'NNet::TPollerBase']]],
+  ['lasttimersprocesstime_5f_1',['LastTimersProcessTime_',['../classNNet_1_1TPollerBase.html#aba0ad77d59297e66413565ca9b71cd33',1,'NNet::TPollerBase']]],
+  ['library_2',['Asynchronous I/O &amp;amp; Networking Library',['../index.html',1,'']]],
+  ['listen_3',['Listen',['../classNNet_1_1TSocket.html#aed8042050a98c5e5f5e452a1173d0426',1,'NNet::TSocket']]],
+  ['localaddr_4',['LocalAddr',['../classNNet_1_1TSocket.html#a8e033d81fc57c13a0a1a357bbae8bd80',1,'NNet::TSocket']]],
+  ['logfunc_5',['LogFunc',['../structNNet_1_1TSslContext.html#acbd9b034b17ff3eefbe1517d8e5ad75f',1,'NNet::TSslContext']]],
+  ['loop_6',['Loop',['../classNNet_1_1TLoop.html#af3ab33e9a2fc311254a15935861990dc',1,'NNet::TLoop']]]
 ];
