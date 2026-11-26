@@ -113,15 +113,174 @@ $(function(){initNavTree('classNNet_1_1NActors_1_1TMessagesFactory.html','','cla
   <div class="headertitle"><div class="title">NNet::NActors::TMessagesFactory Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Serializers and deserializers of message types, by message id.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="messages__factory_8hpp_source.html">messages_factory.hpp</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:TPayloadWriter" id="r_TPayloadWriter"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structNNet_1_1NActors_1_1TMessagesFactory_1_1TPayloadWriter.html">TPayloadWriter</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The payload writer of a type, see <span class="tt"><a class="el" href="#a61d9c6967e069f54ff600025af402211" title="RegisterSerializer&lt;T&gt;, and a TThreadedNode writes the payloads of Near objects of T on its I/O thread...">RegisterPayloadWriter</a></span>.  <a href="structNNet_1_1NActors_1_1TMessagesFactory_1_1TPayloadWriter.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a11bfb453e8587ed1ecfc1d695de99412" id="r_a11bfb453e8587ed1ecfc1d695de99412"><td class="memItemLeft" align="right" valign="top"><a id="a11bfb453e8587ed1ecfc1d695de99412" name="a11bfb453e8587ed1ecfc1d695de99412"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>TPayloadWrite</b> = void (*)(const <a class="el" href="structNNet_1_1NActors_1_1TBlob.html">TBlob</a>&amp; blob, std::span&lt;char&gt; out) noexcept</td></tr>
+<tr class="memdesc:a11bfb453e8587ed1ecfc1d695de99412"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the payload of the object in a Near blob into <span class="tt">out</span>, which has its size. <br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ace0e98eebc74d309d6de080bfe82339c" id="r_ace0e98eebc74d309d6de080bfe82339c"><td class="memTemplParams" colspan="2"><a id="ace0e98eebc74d309d6de080bfe82339c" name="ace0e98eebc74d309d6de080bfe82339c"></a>
 template&lt;typename T&gt; </td></tr>
 <tr class="memitem:ace0e98eebc74d309d6de080bfe82339c template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><b>RegisterSerializer</b> ()</td></tr>
+<tr class="memitem:a61d9c6967e069f54ff600025af402211" id="r_a61d9c6967e069f54ff600025af402211"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:a61d9c6967e069f54ff600025af402211 template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a61d9c6967e069f54ff600025af402211">RegisterPayloadWriter</a> ()</td></tr>
+<tr class="memdesc:a61d9c6967e069f54ff600025af402211"><td class="mdescLeft">&#160;</td><td class="mdescRight"><span class="tt">RegisterSerializer&lt;T&gt;</span>, and a <span class="tt"><a class="el" href="classNNet_1_1NActors_1_1TThreadedNode.html" title="INode that writes to its socket on another thread.">TThreadedNode</a></span> writes the payloads of Near objects of <span class="tt">T</span> on its I/O thread.  <br /></td></tr>
+<tr class="memitem:af02826724a1e069b17d3c18565b09f21" id="r_af02826724a1e069b17d3c18565b09f21"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:af02826724a1e069b17d3c18565b09f21 template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af02826724a1e069b17d3c18565b09f21">RegisterDeserializer</a> ()</td></tr>
+<tr class="memdesc:af02826724a1e069b17d3c18565b09f21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers the conversion of a Far blob of <span class="tt">T</span> into a Near one, see <span class="tt"><a class="el" href="#acabeee2d332c91cff19512e59e2087ab" title="Builds the object of a Far blob with DeserializeFrom and returns it as a Near blob.">DeserializeFar</a></span>.  <br /></td></tr>
 <tr class="memitem:a6e63829df170450694c477a5863b07ae" id="r_a6e63829df170450694c477a5863b07ae"><td class="memItemLeft" align="right" valign="top"><a id="a6e63829df170450694c477a5863b07ae" name="a6e63829df170450694c477a5863b07ae"></a>
 <a class="el" href="structNNet_1_1NActors_1_1TBlob.html">TBlob</a>&#160;</td><td class="memItemRight" valign="bottom"><b>SerializeFar</b> (uint32_t messageId, <a class="el" href="structNNet_1_1NActors_1_1TBlob.html">TBlob</a> blob)</td></tr>
+<tr class="memitem:a60e7924d43309183be5d10bdaf599622" id="r_a60e7924d43309183be5d10bdaf599622"><td class="memItemLeft" align="right" valign="top"><a id="a60e7924d43309183be5d10bdaf599622" name="a60e7924d43309183be5d10bdaf599622"></a>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><b>PayloadAlignment</b> (uint32_t messageId) const</td></tr>
+<tr class="memdesc:a60e7924d43309183be5d10bdaf599622"><td class="mdescLeft">&#160;</td><td class="mdescRight"><span class="tt"><a class="el" href="#a60e7924d43309183be5d10bdaf599622" title="PayloadAlignment of the type registered for messageId, 1 if there is none.">PayloadAlignment</a></span> of the type registered for <span class="tt">messageId</span>, 1 if there is none. <br /></td></tr>
+<tr class="memitem:adf1e0a8d21e72212e297ff3b3144ab6a" id="r_adf1e0a8d21e72212e297ff3b3144ab6a"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structNNet_1_1NActors_1_1TMessagesFactory_1_1TPayloadWriter.html">TPayloadWriter</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adf1e0a8d21e72212e297ff3b3144ab6a">PayloadWriter</a> (uint32_t messageId) const</td></tr>
+<tr class="memitem:acabeee2d332c91cff19512e59e2087ab" id="r_acabeee2d332c91cff19512e59e2087ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structNNet_1_1NActors_1_1TBlob.html">TBlob</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acabeee2d332c91cff19512e59e2087ab">DeserializeFar</a> (uint32_t messageId, <a class="el" href="structNNet_1_1NActors_1_1TBlob.html">TBlob</a> blob) const</td></tr>
+<tr class="memdesc:acabeee2d332c91cff19512e59e2087ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds the object of a Far <span class="tt">blob</span> with <span class="tt">DeserializeFrom</span> and returns it as a Near blob.  <br /></td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Serializers and deserializers of message types, by message id. </p>
+<ul>
+<li><span class="tt">RegisterSerializer&lt;T&gt;</span> lets a node write <span class="tt">T</span> to the wire.</li>
+<li><span class="tt"><a class="el" href="#a61d9c6967e069f54ff600025af402211" title="RegisterSerializer&lt;T&gt;, and a TThreadedNode writes the payloads of Near objects of T on its I/O thread...">RegisterPayloadWriter</a>&lt;T&gt;</span> also lets a <span class="tt"><a class="el" href="classNNet_1_1NActors_1_1TThreadedNode.html" title="INode that writes to its socket on another thread.">TThreadedNode</a></span> write the payloads of Near objects of <span class="tt">T</span> on its I/O thread; the I/O thread does not read the factory for it.</li>
+<li><span class="tt"><a class="el" href="#af02826724a1e069b17d3c18565b09f21" title="Registers the conversion of a Far blob of T into a Near one, see DeserializeFar.">RegisterDeserializer</a>&lt;T&gt;</span> lets a <span class="tt"><a class="el" href="classNNet_1_1NActors_1_1TThreadedInbound.html" title="Accepts and reads the inbound connections of an actor system on an I/O thread.">TThreadedInbound</a></span> build <span class="tt">T</span> on its I/O thread.</li>
+</ul>
+<p>Registration and the lookups of the nodes run on the thread of the actor system. Register the deserializers before the inbound threads start: they read the factory. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="acabeee2d332c91cff19512e59e2087ab" name="acabeee2d332c91cff19512e59e2087ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acabeee2d332c91cff19512e59e2087ab">&#9670;&#160;</a></span>DeserializeFar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structNNet_1_1NActors_1_1TBlob.html">TBlob</a> NNet::NActors::TMessagesFactory::DeserializeFar </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>messageId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structNNet_1_1NActors_1_1TBlob.html">TBlob</a></td>          <td class="paramname"><span class="paramname"><em>blob</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Builds the object of a Far <span class="tt">blob</span> with <span class="tt">DeserializeFrom</span> and returns it as a Near blob. </p>
+<p>Returns <span class="tt">blob</span> unchanged if no deserializer is registered for <span class="tt">messageId</span>. The object may keep the bytes of <span class="tt">blob</span>, as with <span class="tt"><a class="el" href="#acabeee2d332c91cff19512e59e2087ab" title="Builds the object of a Far blob with DeserializeFrom and returns it as a Near blob.">DeserializeFar</a>&lt;T&gt;</span>; otherwise they are freed here. </p>
+
+</div>
+</div>
+<a id="adf1e0a8d21e72212e297ff3b3144ab6a" name="adf1e0a8d21e72212e297ff3b3144ab6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf1e0a8d21e72212e297ff3b3144ab6a">&#9670;&#160;</a></span>PayloadWriter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structNNet_1_1NActors_1_1TMessagesFactory_1_1TPayloadWriter.html">TPayloadWriter</a> * NNet::NActors::TMessagesFactory::PayloadWriter </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>messageId</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>The writer registered with <span class="tt"><a class="el" href="#a61d9c6967e069f54ff600025af402211" title="RegisterSerializer&lt;T&gt;, and a TThreadedNode writes the payloads of Near objects of T on its I/O thread...">RegisterPayloadWriter</a></span> for <span class="tt">messageId</span>, or nullptr. The pointer is valid until the next registration. </p>
+
+</div>
+</div>
+<a id="af02826724a1e069b17d3c18565b09f21" name="af02826724a1e069b17d3c18565b09f21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af02826724a1e069b17d3c18565b09f21">&#9670;&#160;</a></span>RegisterDeserializer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NNet::NActors::TMessagesFactory::RegisterDeserializer </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Registers the conversion of a Far blob of <span class="tt">T</span> into a Near one, see <span class="tt"><a class="el" href="#acabeee2d332c91cff19512e59e2087ab" title="Builds the object of a Far blob with DeserializeFrom and returns it as a Near blob.">DeserializeFar</a></span>. </p>
+<p>For non-POD types with <span class="tt">DeserializeFrom&lt;T&gt;</span>: a POD payload is read in place already. </p>
+
+</div>
+</div>
+<a id="a61d9c6967e069f54ff600025af402211" name="a61d9c6967e069f54ff600025af402211"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61d9c6967e069f54ff600025af402211">&#9670;&#160;</a></span>RegisterPayloadWriter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NNet::NActors::TMessagesFactory::RegisterPayloadWriter </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><span class="tt">RegisterSerializer&lt;T&gt;</span>, and a <span class="tt"><a class="el" href="classNNet_1_1NActors_1_1TThreadedNode.html" title="INode that writes to its socket on another thread.">TThreadedNode</a></span> writes the payloads of Near objects of <span class="tt">T</span> on its I/O thread. </p>
+<p>The node takes <span class="tt">SerializedSize</span> in <span class="tt">Send</span> and calls <span class="tt">SerializeTo</span> later, on its I/O thread, where it then destroys the object. So for <span class="tt">T</span>:</p><ul>
+<li>what <span class="tt">SerializeTo</span> reads must not change, and must stay alive, until the object is destroyed;</li>
+<li>the destructor of the object and the deleter of its blob must be safe on the I/O thread;</li>
+<li><span class="tt">SerializeTo</span> must not throw: check the object in <span class="tt">SerializedSize</span>, which throws to the sender. An exception from <span class="tt">SerializeTo</span> terminates the process. </li>
+</ul>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>coroio/actors/<a class="el" href="messages__factory_8hpp_source.html">messages_factory.hpp</a></li>
 </ul>

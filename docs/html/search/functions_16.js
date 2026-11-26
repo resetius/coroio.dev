@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['_7etepoll_0',['~TEPoll',['../classNNet_1_1TEPoll.html#a6386d9b23969ba1714e7167f74438f2d',1,'NNet::TEPoll']]],
-  ['_7etkqueue_1',['~TKqueue',['../classNNet_1_1TKqueue.html#aa5379d347a8bbf39b3af5d43d4a2fa71',1,'NNet::TKqueue']]],
-  ['_7etpollerbase_2',['~TPollerBase',['../classNNet_1_1TPollerBase.html#ace9abee8d6a5da52df5b349d68be5539',1,'NNet::TPollerBase']]],
-  ['_7etsslsocket_3',['~TSslSocket',['../classNNet_1_1TSslSocket.html#acb50fd49633dd0cad697be1755e4e5d7',1,'NNet::TSslSocket']]],
-  ['_7eturing_4',['~TUring',['../classNNet_1_1TUring.html#a5fbf892e891e377d39544065069f9ebf',1,'NNet::TUring']]]
+  ['yield_0',['Yield',['../classNNet_1_1TPollerBase.html#aea08fab15fd419093ffc18b9a5b5b267',1,'NNet::TPollerBase']]],
+  ['yieldnotify_1',['YieldNotify',['../classNNet_1_1NActors_1_1TActorSystem.html#a831b4b74319755986cd10895f066a0b1',1,'NNet::NActors::TActorSystem']]]
 ];
