@@ -14,6 +14,7 @@ var classNNet_1_1NActors_1_1TActorSystem =
     [ "Send", "classNNet_1_1NActors_1_1TActorSystem.html#a96aafb4f53db873100b574ae5d66c631", null ],
     [ "Serve", "classNNet_1_1NActors_1_1TActorSystem.html#a6a60689c07ce660996490c218c90115b", null ],
     [ "Serve", "classNNet_1_1NActors_1_1TActorSystem.html#a3453ab9d518d60f33fd871977b4637cd", null ],
+    [ "ServeOutbound", "classNNet_1_1NActors_1_1TActorSystem.html#a0aeae0c210bbb4ee96d4943766e7d296", null ],
     [ "Sleep", "classNNet_1_1NActors_1_1TActorSystem.html#a3afbc98b94ed4a2458d8e95c0c0ef814", null ],
     [ "Sleep", "classNNet_1_1NActors_1_1TActorSystem.html#aaf493af41897813da3afb95996403f8a", null ],
     [ "YieldNotify", "classNNet_1_1NActors_1_1TActorSystem.html#a831b4b74319755986cd10895f066a0b1", null ]
