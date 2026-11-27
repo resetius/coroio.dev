@@ -15,6 +15,8 @@ var dir_160c7548cbf22adf8fa4b0e963f5268e =
     [ "corochain.hpp", "corochain_8hpp.html", "corochain_8hpp" ],
     [ "init.hpp", "init_8hpp_source.html", null ],
     [ "loop.hpp", "loop_8hpp_source.html", null ],
+    [ "loop_thread.hpp", "loop__thread_8hpp_source.html", null ],
+    [ "mpsc_queue.hpp", "mpsc__queue_8hpp_source.html", null ],
     [ "notifier.hpp", "notifier_8hpp_source.html", null ],
     [ "poller.hpp", "poller_8hpp_source.html", null ],
     [ "promises.hpp", "promises_8hpp_source.html", null ],

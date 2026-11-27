@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['operator_20bool_0',['operator bool',['../classNNet_1_1NActors_1_1TActorId.html#a75d2a79a94714fc7ac02090932612dcf',1,'NNet::NActors::TActorId']]],
-  ['operator_3d_3d_1',['operator==',['../classNNet_1_1NActors_1_1TActorId.html#a058c58eb159b6c0c89137327909cf93e',1,'NNet::NActors::TActorId::operator==()'],['../classNNet_1_1TAddress.html#aee6344fad787d9511129dee6c9230b94',1,'NNet::TAddress::operator==()']]]
+  ['nodeid_0',['NodeId',['../classNNet_1_1NActors_1_1TActorId.html#a13d58ac46a0c1aa19e8f15fec317bb47',1,'NNet::NActors::TActorId']]],
+  ['notify_1',['Notify',['../classNNet_1_1INotifier.html#a691bf4c5dbba36417b321c7ca9cbff78',1,'NNet::INotifier::Notify()'],['../classNNet_1_1TNotifier.html#aa9a5f7c6961e3f0dd65686237e8232df',1,'NNet::TNotifier::Notify()']]]
 ];
