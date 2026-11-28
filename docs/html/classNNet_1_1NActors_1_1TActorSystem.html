@@ -166,6 +166,8 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><b>ActorsSize</b> () c
 <tr class="memitem:a3453ab9d518d60f33fd871977b4637cd" id="r_a3453ab9d518d60f33fd871977b4637cd"><td class="memTemplParams" colspan="2">template&lt;typename <a class="el" href="classNNet_1_1TSocket.html">TSocket</a>, typename <a class="el" href="classNNet_1_1NActors_1_1TEnvelopeReader.html">TEnvelopeReader</a> = TZeroCopyEnvelopeReader&gt; </td></tr>
 <tr class="memitem:a3453ab9d518d60f33fd871977b4637cd template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3453ab9d518d60f33fd871977b4637cd">Serve</a> (<a class="el" href="classNNet_1_1TSocket.html">TSocket</a> socket)</td></tr>
 <tr class="memdesc:a3453ab9d518d60f33fd871977b4637cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the actor system with inbound and outbound network serving.  <br /></td></tr>
+<tr class="memitem:a0aeae0c210bbb4ee96d4943766e7d296" id="r_a0aeae0c210bbb4ee96d4943766e7d296"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0aeae0c210bbb4ee96d4943766e7d296">ServeOutbound</a> ()</td></tr>
+<tr class="memdesc:a0aeae0c210bbb4ee96d4943766e7d296"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the actor system with outbound network serving only.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -190,15 +192,15 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>TActorContext</b></t
 <div class="line">sys.Send&lt;StartMsg&gt;(id, id);</div>
 <div class="line">sys.Serve();</div>
 <div class="line">loop.<a class="code hl_function" href="classNNet_1_1TLoop.html#af3ab33e9a2fc311254a15935861990dc">Loop</a>();</div>
-<div class="ttc" id="aclassNNet_1_1NActors_1_1TActorSystem_html_a33b5a29b5e42ff11a8b58adcc9ed0870"><div class="ttname"><a href="#a33b5a29b5e42ff11a8b58adcc9ed0870">NNet::NActors::TActorSystem::TActorSystem</a></div><div class="ttdeci">TActorSystem(TPollerBase *poller, TNodeId nodeId=1, std::function&lt; void(const std::string &amp;)&gt; logger={})</div><div class="ttdoc">Constructs the actor system.</div><div class="ttdef"><b>Definition</b> actorsystem.hpp:110</div></div>
-<div class="ttc" id="aclassNNet_1_1TLoop_html"><div class="ttname"><a href="classNNet_1_1TLoop.html">NNet::TLoop</a></div><div class="ttdoc">Event loop that drives a poller backend.</div><div class="ttdef"><b>Definition</b> loop.hpp:33</div></div>
-<div class="ttc" id="aclassNNet_1_1TLoop_html_a70077ce7da8cc7d14c5b44a8e50a9a0c"><div class="ttname"><a href="classNNet_1_1TLoop.html#a70077ce7da8cc7d14c5b44a8e50a9a0c">NNet::TLoop::Poller</a></div><div class="ttdeci">TPoller &amp; Poller()</div><div class="ttdoc">Provides access to the underlying poller instance.</div><div class="ttdef"><b>Definition</b> loop.hpp:60</div></div>
-<div class="ttc" id="aclassNNet_1_1TLoop_html_af3ab33e9a2fc311254a15935861990dc"><div class="ttname"><a href="classNNet_1_1TLoop.html#af3ab33e9a2fc311254a15935861990dc">NNet::TLoop::Loop</a></div><div class="ttdeci">void Loop()</div><div class="ttdoc">Runs the main loop until Stop() is called.</div><div class="ttdef"><b>Definition</b> loop.hpp:38</div></div>
+<div class="ttc" id="aclassNNet_1_1NActors_1_1TActorSystem_html_a33b5a29b5e42ff11a8b58adcc9ed0870"><div class="ttname"><a href="#a33b5a29b5e42ff11a8b58adcc9ed0870">NNet::NActors::TActorSystem::TActorSystem</a></div><div class="ttdeci">TActorSystem(TPollerBase *poller, TNodeId nodeId=1, std::function&lt; void(const std::string &amp;)&gt; logger={})</div><div class="ttdoc">Constructs the actor system.</div><div class="ttdef"><b>Definition</b> actorsystem.hpp:112</div></div>
+<div class="ttc" id="aclassNNet_1_1TLoop_html"><div class="ttname"><a href="classNNet_1_1TLoop.html">NNet::TLoop</a></div><div class="ttdoc">Event loop that drives a poller backend.</div><div class="ttdef"><b>Definition</b> loop.hpp:35</div></div>
+<div class="ttc" id="aclassNNet_1_1TLoop_html_a70077ce7da8cc7d14c5b44a8e50a9a0c"><div class="ttname"><a href="classNNet_1_1TLoop.html#a70077ce7da8cc7d14c5b44a8e50a9a0c">NNet::TLoop::Poller</a></div><div class="ttdeci">TPoller &amp; Poller()</div><div class="ttdoc">Provides access to the underlying poller instance.</div><div class="ttdef"><b>Definition</b> loop.hpp:62</div></div>
+<div class="ttc" id="aclassNNet_1_1TLoop_html_af3ab33e9a2fc311254a15935861990dc"><div class="ttname"><a href="classNNet_1_1TLoop.html#af3ab33e9a2fc311254a15935861990dc">NNet::TLoop::Loop</a></div><div class="ttdeci">void Loop()</div><div class="ttdoc">Runs the main loop until Stop() is called.</div><div class="ttdef"><b>Definition</b> loop.hpp:40</div></div>
 </div><!-- fragment --><p><b>Distributed setup</b> — call <span class="tt"><a class="el" href="#afcf8f83d084552f44e4c05c6858fd656" title="Registers a remote node for distributed message routing.">AddNode</a></span> for each peer, then <span class="tt">Serve(socket)</span>: </p><div class="fragment"><div class="line"><a class="code hl_function" href="#a33b5a29b5e42ff11a8b58adcc9ed0870">TActorSystem</a> sys(&amp;loop.<a class="code hl_function" href="classNNet_1_1TLoop.html#a70077ce7da8cc7d14c5b44a8e50a9a0c">Poller</a>(), 1);</div>
 <div class="line">sys.AddNode(2, std::make_unique&lt;<a class="code hl_class" href="classNNet_1_1NActors_1_1TNode.html">TNode&lt;TDefaultPoller&gt;</a>&gt;(loop.<a class="code hl_function" href="classNNet_1_1TLoop.html#a70077ce7da8cc7d14c5b44a8e50a9a0c">Poller</a>(), <a class="code hl_class" href="classNNet_1_1TAddress.html">TAddress</a>{<span class="stringliteral">&quot;::&quot;</span>, 9002}));</div>
 <div class="line">sys.Serve(std::move(listeningSocket));  <span class="comment">// inbound + outbound coroutines</span></div>
 <div class="line">loop.<a class="code hl_function" href="classNNet_1_1TLoop.html#af3ab33e9a2fc311254a15935861990dc">Loop</a>();</div>
-<div class="ttc" id="aclassNNet_1_1NActors_1_1TNode_html"><div class="ttname"><a href="classNNet_1_1NActors_1_1TNode.html">NNet::NActors::TNode</a></div><div class="ttdoc">Concrete INode implementation for a single remote actor-system endpoint.</div><div class="ttdef"><b>Definition</b> node.hpp:62</div></div>
+<div class="ttc" id="aclassNNet_1_1NActors_1_1TNode_html"><div class="ttname"><a href="classNNet_1_1NActors_1_1TNode.html">NNet::NActors::TNode</a></div><div class="ttdoc">Concrete INode implementation for a single remote actor-system endpoint.</div><div class="ttdef"><b>Definition</b> node.hpp:69</div></div>
 <div class="ttc" id="aclassNNet_1_1TAddress_html"><div class="ttname"><a href="classNNet_1_1TAddress.html">NNet::TAddress</a></div><div class="ttdoc">A class representing an IPv4 or IPv6 address (with port).</div><div class="ttdef"><b>Definition</b> address.hpp:38</div></div>
 </div><!-- fragment --> </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a33b5a29b5e42ff11a8b58adcc9ed0870" name="a33b5a29b5e42ff11a8b58adcc9ed0870"></a>
@@ -265,7 +267,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>TActorContext</b></t
 </div><div class="memdoc">
 
 <p>Registers a remote node for distributed message routing. </p>
-<p>Messages sent to an actor whose <span class="tt">NodeId()</span> equals <span class="tt">id</span> are serialized and forwarded via this node's outbound buffer. Must be called before <span class="tt"><a class="el" href="#a3453ab9d518d60f33fd871977b4637cd" title="Starts the actor system with inbound and outbound network serving.">Serve(TSocket)</a></span>.</p>
+<p>Messages sent to an actor whose <span class="tt">NodeId()</span> equals <span class="tt">id</span> are serialized and forwarded via this node's outbound buffer. Must be called before <span class="tt"><a class="el" href="#a3453ab9d518d60f33fd871977b4637cd" title="Starts the actor system with inbound and outbound network serving.">Serve(TSocket)</a></span> or <span class="tt"><a class="el" href="#a0aeae0c210bbb4ee96d4943766e7d296" title="Starts the actor system with outbound network serving only.">ServeOutbound()</a></span>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">id</td><td>Node identifier matching the remote process's <span class="tt">nodeId</span>. </td></tr>
@@ -564,6 +566,34 @@ template&lt;typename <a class="el" href="classNNet_1_1TSocket.html">TSocket</a>,
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a0aeae0c210bbb4ee96d4943766e7d296" name="a0aeae0c210bbb4ee96d4943766e7d296"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0aeae0c210bbb4ee96d4943766e7d296">&#9670;&#160;</a></span>ServeOutbound()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void NNet::NActors::TActorSystem::ServeOutbound </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Starts the actor system with outbound network serving only. </p>
+<p><span class="tt"><a class="el" href="#a3453ab9d518d60f33fd871977b4637cd" title="Starts the actor system with inbound and outbound network serving.">Serve(TSocket)</a></span> without the accept loop, for a system whose inbound connections are served elsewhere: <span class="tt"><a class="el" href="classNNet_1_1NActors_1_1TThreadedInbound.html" title="Accepts and reads the inbound connections of an actor system on an I/O thread.">TThreadedInbound</a></span> reads them on an I/O thread and hands their envelopes to <span class="tt"><a class="el" href="#a96aafb4f53db873100b574ae5d66c631" title="Low-level send with a pre-serialized blob. Prefer the typed Send&lt;T&gt; overload.">Send</a></span>. </p>
 
 </div>
 </div>

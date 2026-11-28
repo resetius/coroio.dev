@@ -8,5 +8,6 @@ var classNNet_1_1TRequest =
     [ "ReadBodySome", "classNNet_1_1TRequest.html#aa213535cdeac26ecaac569e23a866f3e", null ],
     [ "RequireConnectionClose", "classNNet_1_1TRequest.html#a669d5cdf958bc14f5e64f5cf8868af07", null ],
     [ "Uri", "classNNet_1_1TRequest.html#aecf71621221cbd43021a4586ad8be0cd", null ],
-    [ "Version", "classNNet_1_1TRequest.html#a1649527e8b5d66149657a7f91cac62b1", null ]
+    [ "Version", "classNNet_1_1TRequest.html#a1649527e8b5d66149657a7f91cac62b1", null ],
+    [ "WaitHangUp", "classNNet_1_1TRequest.html#af317d4adf6a8e780906ca6560059c2a8", null ]
 ];

@@ -138,11 +138,13 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>TSocket</b> = typena
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ac87a484b145d4c00dd8f85fac622808a" id="r_ac87a484b145d4c00dd8f85fac622808a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac87a484b145d4c00dd8f85fac622808a">TNode</a> (TPoller &amp;poller, <a class="el" href="classNNet_1_1NActors_1_1TMessagesFactory.html">TMessagesFactory</a> &amp;factory, <a class="el" href="classNNet_1_1TResolver.html">TResolver</a> &amp;resolver, const std::function&lt; TSocket(const <a class="el" href="classNNet_1_1TAddress.html">TAddress</a> &amp;)&gt; &amp;socketFactory, const <a class="el" href="classNNet_1_1THostPort.html">THostPort</a> &amp;hostPort)</td></tr>
 <tr class="memdesc:ac87a484b145d4c00dd8f85fac622808a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classNNet_1_1NActors_1_1TNode.html" title="Concrete INode implementation for a single remote actor-system endpoint.">TNode</a> but does not connect immediately.  <br /></td></tr>
+<tr class="memitem:a4f470ab4eb98e9bfa3b8a16568481e75" id="r_a4f470ab4eb98e9bfa3b8a16568481e75"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4f470ab4eb98e9bfa3b8a16568481e75">~TNode</a> ()</td></tr>
 <tr class="memitem:a8f5739478e7d3070e1419f825227eff3" id="r_a8f5739478e7d3070e1419f825227eff3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f5739478e7d3070e1419f825227eff3">Send</a> (<a class="el" href="classNNet_1_1NActors_1_1TEnvelope.html">TEnvelope</a> &amp;&amp;envelope) override</td></tr>
 <tr class="memdesc:a8f5739478e7d3070e1419f825227eff3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes <span class="tt">envelope</span> and appends it to the outbound buffer.  <br /></td></tr>
 <tr class="memitem:a9f005c4a76d32696c9795586670c92f3" id="r_a9f005c4a76d32696c9795586670c92f3"><td class="memItemLeft" align="right" valign="top">std::span&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f005c4a76d32696c9795586670c92f3">Acquire</a> (size_t size) override</td></tr>
 <tr class="memitem:aad42b866d192ddc762becb19eca2030b" id="r_aad42b866d192ddc762becb19eca2030b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad42b866d192ddc762becb19eca2030b">Commit</a> (size_t size) override</td></tr>
 <tr class="memdesc:aad42b866d192ddc762becb19eca2030b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marks <span class="tt">size</span> previously acquired bytes as ready to send.  <br /></td></tr>
+<tr class="memitem:a6a856cca6c60f6f0b304513e121128e5" id="r_a6a856cca6c60f6f0b304513e121128e5"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a856cca6c60f6f0b304513e121128e5">Offset</a> () const override</td></tr>
 <tr class="memitem:a53bb72c4da0f2cf18ac3f71efe745e2e" id="r_a53bb72c4da0f2cf18ac3f71efe745e2e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a53bb72c4da0f2cf18ac3f71efe745e2e">StartConnect</a> () override</td></tr>
 <tr class="memdesc:a53bb72c4da0f2cf18ac3f71efe745e2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initiates an async TCP connection if not already connected or connecting.  <br /></td></tr>
 <tr class="memitem:ace1142a9d88ddc5ec84b0bc8e1f85991" id="r_ace1142a9d88ddc5ec84b0bc8e1f85991"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ace1142a9d88ddc5ec84b0bc8e1f85991">Drain</a> () override</td></tr>
@@ -153,7 +155,7 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename TPoller&gt;<br />
 class NNet::NActors::TNode&lt; TPoller &gt;</div><p>Concrete <span class="tt"><a class="el" href="classNNet_1_1NActors_1_1INode.html" title="Interface for a remote node connection in the actor transport layer.">INode</a></span> implementation for a single remote actor-system endpoint. </p>
-<p>Maintains a persistent TCP connection to <span class="tt">hostPort</span>, reconnecting with a 1 s back-off on failure. Outbound messages are accumulated in a vector buffer and flushed by <span class="tt"><a class="el" href="#ace1142a9d88ddc5ec84b0bc8e1f85991" title="Calls StartConnect() then asynchronously writes all buffered bytes to the socket.">Drain()</a></span> once the connection is established.</p>
+<p>Maintains a persistent TCP connection to <span class="tt">hostPort</span>, reconnecting with a 1 s back-off on failure. Outbound messages are accumulated in a growable buffer (<span class="tt"><a class="el" href="classNNet_1_1NActors_1_1TOutputBuffer.html" title="Byte buffer of the outbound stream of TNode: grows without zero-filling.">TOutputBuffer</a></span>) and flushed by <span class="tt"><a class="el" href="#ace1142a9d88ddc5ec84b0bc8e1f85991" title="Calls StartConnect() then asynchronously writes all buffered bytes to the socket.">Drain()</a></span> once the connection is established.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">TPoller</td><td>Poller type (e.g. <span class="tt">TDefaultPoller</span>); determines the socket type. </td></tr>
@@ -217,6 +219,34 @@ template&lt;typename TPoller&gt; </div>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a4f470ab4eb98e9bfa3b8a16568481e75" name="a4f470ab4eb98e9bfa3b8a16568481e75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f470ab4eb98e9bfa3b8a16568481e75">&#9670;&#160;</a></span>~TNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TPoller&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNNet_1_1NActors_1_1TNode.html">NNet::NActors::TNode</a>&lt; TPoller &gt;::~<a class="el" href="#ac87a484b145d4c00dd8f85fac622808a">TNode</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Destroys the coroutines first: a pending write reads <span class="tt">SendBuffer</span> and a pending connect uses <span class="tt">Socket</span>, and on io_uring the kernel keeps reading them until the coroutine's destructor has cancelled the operation. This must not depend on the member declaration order. </p>
 
 </div>
 </div>
@@ -341,6 +371,36 @@ template&lt;typename TPoller&gt; </div>
 <p>Returns the remote host:port this node connects to. </p>
 
 <p>Implements <a class="el" href="classNNet_1_1NActors_1_1INode.html#abc1ae244e8afeb2d7c4daa50813cdaed">NNet::NActors::INode</a>.</p>
+
+</div>
+</div>
+<a id="a6a856cca6c60f6f0b304513e121128e5" name="a6a856cca6c60f6f0b304513e121128e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a856cca6c60f6f0b304513e121128e5">&#9670;&#160;</a></span>Offset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TPoller&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t <a class="el" href="classNNet_1_1NActors_1_1TNode.html">NNet::NActors::TNode</a>&lt; TPoller &gt;::Offset </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Stream offset of the next <span class="tt"><a class="el" href="#a9f005c4a76d32696c9795586670c92f3">Acquire</a></span>, or a value congruent to it mod <span class="tt">MaxPayloadAlignment</span>: payloads with <span class="tt">PayloadAlignment</span> are padded relative to it, and only their writers call it. The default suits a stream that keeps each frame in its own buffer. </p>
+
+<p>Reimplemented from <a class="el" href="classNNet_1_1NActors_1_1IOutputStream.html#ae1dedee05738ece6a0853f75e69b7be0">NNet::NActors::IOutputStream</a>.</p>
 
 </div>
 </div>

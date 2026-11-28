@@ -9,5 +9,6 @@ var searchData=
   ['behavior_20example_6',['Async Behavior Example',['../actor_8hpp.html#async_behavior',1,'']]],
   ['bind_7',['Bind',['../classNNet_1_1TSocket.html#a7aafb8a059235cb45d98f92a541ca0d5',1,'NNet::TSocket']]],
   ['blob_8',['Blob',['../classNNet_1_1NActors_1_1TEnvelope.html#ac59e45c32a065c0b87ebac768a876273',1,'NNet::NActors::TEnvelope']]],
-  ['bodyconsumed_9',['BodyConsumed',['../classNNet_1_1TRequest.html#a2c9b233acab28360ecf86ab3907cbde2',1,'NNet::TRequest']]]
+  ['bodyconsumed_9',['BodyConsumed',['../classNNet_1_1TRequest.html#a2c9b233acab28360ecf86ab3907cbde2',1,'NNet::TRequest']]],
+  ['bytes_10',['Bytes',['../structNNet_1_1NActors_1_1TEnvelopeBatch.html#a3ffdbe4a171217d858de78786ae64b4b',1,'NNet::NActors::TEnvelopeBatch']]]
 ];
